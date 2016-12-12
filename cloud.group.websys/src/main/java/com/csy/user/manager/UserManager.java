@@ -66,6 +66,8 @@ public class UserManager {
 	public UserDTO findDetail(int userId)
 	{
 		User user = userMapperExt.selectByPrimaryKey(userId);
+		if(user==null)
+			return null;
 		UserDTO dto = new UserDTO();
 		BeanUtils.copyProperties(user, dto);
 		return dto;

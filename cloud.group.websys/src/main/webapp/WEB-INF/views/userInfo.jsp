@@ -124,25 +124,8 @@ function __doPostBack(eventTarget, eventArgument) {
                         <h4 class='prl20'>
                             <img src="/img/userIcon5-1.png" class='icon' /><span>任务体验</span>
                             <img src="/img/userIcon2-1.png" class='next' /></h4>
-                        <p><a href="/user/Experience_Finacial.aspx">理财风险</a></p>
-                        <p><a href="/user/FinacialPayInfo.aspx">风险奖励</a></p>
-                        <p><a href="/user/Experience_Game.aspx">游戏体验</a></p>
+                        <p><a href="/user/Experience_Game.aspx">打码记录</a></p>
                         <p><a href="/user/Experience_RewardRecord.aspx">奖励记录</a></p>
-                    </div>
-                    <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="/img/userIcon6-1.png" class='icon' /><span>好友管理</span>
-                            <img src="/img/userIcon2-1.png" class='next' /></h4>
-                        <p><a href="/user/FriendManage.aspx">我的好友</a></p>
-                        <p><a href="/user/FriendRewardManage.aspx">好友收益</a></p>
-                    </div>
-                    <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="/img/userIcon7-1.png" class='icon' /><span>商品管理</span>
-                            <img src="/img/userIcon2-1.png" class='next' /></h4>
-                        <p><a href="/user/Acccount_BeansDetail.aspx">聚豆管理</a></p>
-                        <p><a href="/user/MyExchangeGoods.aspx">兑换商品</a></p>
-                        <p><a href="/user/userFreeca.aspx">兑换福利卡</a></p>
                     </div>
 
                 </div>
@@ -177,67 +160,59 @@ function __doPostBack(eventTarget, eventArgument) {
                         accout();
                     </script>
                     
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default" style="padding: 20px">
-                <div class="panel-heading">
-                    <span>我的好友</span>
+    <h3>
+            <img src="/img/userIcon9.png" />个人中心<span>> 基本信息</span></h3>
+        <div class="head clearfix">
+            <div class="userImg pull-left">
+                <div class="headImg">
+                    <img style="height: 150px" src="/img/header/head-005.png" />
                 </div>
-                <div class="panel-body">
-                    <script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ctl00', 'aspnetForm', ['tctl00$ContentPlaceHolder1$UpdatePanel1',''], [], [], 90, 'ctl00');
-//]]>
-</script>
-
-                    <div id="ctl00_ContentPlaceHolder1_UpdatePanel1">
-	
-                            <div class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label" style="text-align: left">好友级别</label>
-                                    <div class="col-sm-3">
-                                        <select name="ctl00$ContentPlaceHolder1$ddlFriendlevel" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$ddlFriendlevel\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ContentPlaceHolder1_ddlFriendlevel" class="form-control">
-		<option selected="selected" value="1">一级好友</option>
-		<option value="2">二级好友</option>
-		<option value="3">三级好友</option>
-		<option value="4">四级好友</option>
-
-	</select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="friendList" class="tab-pane">
-                                <table style="width: 100%" class="table table-bordered exptable datatable text-center" id="friendtable">
-                                    <thead>
-                                        <tr>
-                                            <th>序号</th>
-                                            <th>好友名称</th>
-                                            <th>好友级别</th>
-                                            <th>加入时间</th>
-                                            <th>账户状态</th>
-                                            <th>是否提现</th>
-                                        </tr>
-                                    </thead>
-                                    
-                                </table>
-                                 <div class="page text-center">
-                                    
-	<!-- AspNetPager 7.5.1 Copyright:2003-2015 Webdiyer (www.webdiyer.com) -->
-	<!--记录总数只有一页，AspNetPager已自动隐藏，若需在只有一页数据时显示AspNetPager，请将AlwaysShow属性值设为true！-->
-	<!-- AspNetPager 7.5.1 Copyright:2003-2015 Webdiyer (www.webdiyer.com) -->
-
-	
-                                </div>
-                            </div>
-                        
-</div>
+                <p><a href="/user/UserBasicDetail.aspx?type=1">修改头像</a></p>
+            </div>
+            <div class="userCtn pull-left">
+                <p>您好，<span class='username'>wufeng001</span></p>
+                <p><span>手机号码：</span>18072742895</p>
+                <p><span>QQ 号码：</span></p>
+                <p><span>邮<span class='mg'></span>箱：</span>1498732845@qq.com</p>
+                <p><span>注册日期：</span>2016/12/11 4:23:38</p>
+            </div>
+            <div class="balance pull-right">
+                <div class="balanceHead">
+                    <img src="/img/userIcon10.png" />账户余额
+                </div>
+                <div class="balanceCtn">
+                    <p class="jb">
+                        <img src="/img/userIcon8.png" />0聚币
+                    </p>
+                    <p>可兑换 = 0元</p>
+                    <a href="Account_AskCash.aspx" class='sqtx'>
+                        <img src="/img/sqtx.png" /></a>
                 </div>
             </div>
         </div>
+        <div class="userCommon">
+            <h4>
+                <img src="/img/userIcon11.png" />领取奖励</h4>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>更新说明</th>
+                        <th>奖励说明</th>
+                        <th>奖励金额</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>       
     </div>
 
+
                 </div>
-            </div>
         </section>
 <%@include file="footer.jsp"%>
 </body>

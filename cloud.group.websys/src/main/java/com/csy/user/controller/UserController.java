@@ -1,5 +1,6 @@
 package com.csy.user.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.SecurityUtils;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csy.base.controller.BaseController;
+import com.csy.mission.domain.dto.MissionDTO;
+import com.csy.mission.domain.dto.MissionSearchDTO;
+import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.domain.dto.UserSearchDTO;
@@ -25,6 +29,18 @@ import com.csy.util.ResponseJson;
 public class UserController extends BaseController{
 	@Autowired
 	private UserManager userManager;
+	
+	@RequestMapping(value="/userinfo")
+	public ModelAndView listSearch()
+	{
+		ModelAndView modelAndView = new ModelAndView("userInfo");
+		Map<String, Object> map= modelAndView.getModel();
+		MissionSearchDTO searchDTO = new MissionSearchDTO();
+		searchDTO.setEndTm(DateUtil.getNowTime());
+		UserDTO userDTO =  userManager.findDetail(getLoginUserId());
+		map.put("user", userDTO);
+		return modelAndView;
+	}
 	
 	@RequestMapping(value="/user/login",method=RequestMethod.POST)
 	@ResponseJson

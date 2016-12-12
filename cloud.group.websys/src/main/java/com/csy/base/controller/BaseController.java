@@ -46,4 +46,13 @@ public class BaseController {
 		UserDTO userDTO = (UserDTO)currentUser.getSession().getAttribute("user");
 		return userDTO;
 	}
+	
+	public Integer getLoginUserId()
+	{
+		Subject currentUser = SecurityUtils.getSubject();
+		UserDTO userDTO = (UserDTO)currentUser.getSession().getAttribute("user");
+		if(userDTO!=null)
+			return userDTO.getId();
+		return 0;
+	}
 }
