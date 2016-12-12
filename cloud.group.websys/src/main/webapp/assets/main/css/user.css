@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+.mainWidth{width:1200px!important}
+.user{margin-top:80px;margin-bottom:50px}
+.aside{border:1px solid #ccc;width:200px;background:#fff}
+.user .aside .prl20{padding:0 20px;}
+.user .aside .userCenter{padding-left:20px;}
+.user .aside .userCenter h3{font-size:18px;color:#ff6c02;text-align:center}
+.user .aside .userCenter h3 img{width:25px;margin-right:5px;margin-top:-5px;margin-left:-15px}
+.user .aside .userCenter .zh{font-weight:600}
+.user .aside .userCenter p .money{margin-left:10px}
+.user .aside .userCenter p .gb{margin-left:10px;margin-top:-2px}
+.user .aside h4{background:#fafafa;border-top:1px solid #ccc;border-bottom:1px solid #ccc;line-height:40px;border-left:2px solid transparent}
+.user .aside h4 .icon{margin-top:-6px;margin-right:13px}
+.user .aside h4 .next{margin-top:-4px;margin-left:20px}
+.user .aside h4.orange{border-left:2px solid #FE6C00;}
+.user .accout p{text-align:center}
+.user .accout p a{color:#333;}
+
+.userContent{width:965px;margin-left:5px;}
+.userContent h3{background:#f7f7f7;font-size:16px;padding:5px 20px;margin:0;line-height:30px}
+.userContent h3 img{margin-top:-3px}
+.userContent h3 span{margin-left:5px;color:#999;}
+.userContent .head{padding:20px 30px;border:1px solid #ccc;border-bottom:none;}
+.userContent .userImg p{text-align:center;border:1px solid #fe6b01;color:#fe6b01;line-height:26px;margin-top:20px}
+.userContent .userImg a{color:#fe6b01;}
+.userContent .userCtn{margin-top:30px;margin-left:50px}
+.userContent .userCtn p span{text-align:left;}
+.userContent .userCtn p .mg{margin:0 14px;}
+.userContent .userCtn .username{color:#FE6C00;}
+.userContent .balance{width:280px;border:1px solid #ccc;margin-top:40px}
+.userContent .balance .balanceHead{background:#fe6b01;color:#fff;line-height:40px;font-size:16px;}
+.userContent .balance .balanceHead img{margin-left:5px;margin-right:3px;margin-top:-3px;}
+.userContent .balance .balanceCtn{padding:15px 20px 5px 20px;font-size:16px;position:relative;}
+.userContent .balance .balanceCtn .jb{margin-left:-3px;color:#fe6b01;}
+.userContent .balance .balanceCtn .jb img{margin-right:5px;margin-top:-2px}
+.userContent .balance .balanceCtn .sqtx{position:absolute;right:10px;top:20px;}
+.userContent .balance .balanceCtn .sqtx img{width:105px;}
+
+.userContent .userCommon{border:1px solid #ccc;padding:0 40px 5px 40px;margin-bottom:30px}
+.userContent .userCommon .table thead th{text-align:center;border-bottom-width:1px;}
+.userContent .userCommon .table tbody td{vertical-align:baseline;line-height:100%;}
+.userContent .userCommon .table tbody td .money{width:22px;margin-top:-3px}
+.userContent .userCommon h4{line-height:40px;color:#fe6b01;}
+.userContent .userCommon h4 img{margin-right:10px;margin-left:10px;margin-top:-5px;}
+.userContent .join .item{position:relative;margin:0 35px}
+.userContent .join .item .data{position:absolute;right:15px;top:10px;}
+.userContent .join .item .data span{font-size:48px;margin-right:5px;font-weight:600}
+.userContent .join .item .data.one span{color:#5d8a35;}
+.userContent .join .item .data.two span{color:#fb886d;}
+.userContent .join .item .data.three span{color:#2a9fe4;}
+.userContent .join .item p{text-align:center;margin-top:10px}
+.userContent .hot .item{margin:0 20px;}
+.userContent .hot .item img{width:135px;height:100px;}
+.userContent .hot .item p{text-align:center;margin-top:10px}
+
+.userContent .hot{height:210px;position:relative;}
+.userContent .hot .pn{position:absolute;top:48%;cursor:pointer;}
+.userContent .hot .next{right:3%;}
+.userContent .hot .prev{left:3%;}
+.userContent .wrap{overflow:hidden;width:860px;height:140px;position:absolute;}
+.userContent .banner{position:absolute;left:0px;top:0px;height:140px;width:3000px;}
+
+.editMail .msgTable tbody tr td:first-of-type{background:#F4F4F4;text-align:right}
+.editMail .account_right_messeage_titlered{margin-bottom:15px;color:#db1e1e;margin-top:10px}
+
+.app-thumbnails > li {float: left;display: block;position: relative;overflow: hidden;margin: 22px;border: 2px solid #ccc;}
+.app-thumbnails > li > :first-child {display: block;position: relative;}
+.app-thumbnails > li:hover > :first-child > .text { opacity: 0.6; }
+.app-thumbnails > li > :first-child > .text { position: absolute;right: 0px;left: 0px;bottom: 0px;top: 0px;text-align: center;color: #FFF;background-color: rgb(245, 245, 245);opacity: 0; transition: all 0.2s ease 0s;}
+.app-thumbnails > li > :first-child > .text > .inner {padding: 4px 0px;margin: 50px auto;width:100%;display: inline-block;vertical-align: middle;background-color: #4D514C;font-family: "Microsoft YaHei" !important;}
+.set-pad {padding-top: 120px;}
+
+
+
