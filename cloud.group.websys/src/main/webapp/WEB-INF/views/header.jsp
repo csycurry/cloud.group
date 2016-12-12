@@ -52,7 +52,7 @@
 						<c:if test="${userCode==null||userCode=='' }">
 							 <div class="nologin">
 	                            <a id="alogin" class="loginmodal"><span class="glyphicon glyphicon-user " style="color: #DA8528;font-size: 20px;height:80px;line-height: 80px;vertical-align:bottom;">登录</span></a>
-	                            <span class="orange">丨</span>
+	                            <span class="orange" style="font-size: 20px;height:80px;line-height: 80px;vertical-align:bottom;">丨</span>
 	                            <a id="reg" href="/register.html"><span class="glyphicon glyphicon-pencil" style="color: #DA8528;font-size: 20px;height:80px;line-height: 80px;vertical-align:bottom;">注册</span></a>
 	                        </div>
 						</c:if>

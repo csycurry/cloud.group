@@ -46,7 +46,7 @@ a {text-decoration:none!important;}
 .head .logo{height:80px;}
 .head .logo .logo_img{height:45px;margin-left:35px;margin-top:10px}
 .head .logo .logo_tip{margin-left:30px;}
-.head .headNav{position:fixed;width:100%; background:#ffffff;height:80px;padding-left:50px;box-shadow:0 2px 2px #AB4D4D;}
+.head .headNav{position:fixed;width:100%; background:#ffffff;height:80px;padding-left:50px;}
 .head .headNav li{float:left;margin-right:20px;line-height:80px;width:85px;text-align:center;position:relative;}
 .head .headNav li a{font-size:20px;color:#000000;display:block}
 .head .headNav li.active{color:#0000ff;}
