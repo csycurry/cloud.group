@@ -60,7 +60,7 @@
                 <ul class='loginState clearfix'>
                     <li>
                         <div class="pull-left icon">
-                            <img src="assets/main/img/code-05.png" />
+                            <img src="assets/main/img/code-5.png" />
                         </div>
                         <div class="pull-left">
                             <h4>轻松打码</h4>
@@ -72,7 +72,7 @@
                     </li>
                     <li>
                         <div class="pull-left icon">
-                            <img src="img/login2.png" />
+                            <img src="assets/main/img/code-2.png" />
                         </div>
                         <div class="pull-left">
                             <h4>赚元宝</h4>
@@ -84,7 +84,7 @@
                     </li>
                     <li>
                         <div class="pull-left icon">
-                            <img src="img/login3.png" />
+                            <img src="assets/main/img/code-4.png" />
                         </div>
                         <div class="pull-left">
                             <h4>快速提现</h4>
