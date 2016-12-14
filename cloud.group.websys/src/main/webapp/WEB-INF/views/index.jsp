@@ -102,22 +102,56 @@
     </div>
     <div class='index'>
         <div class="container mainWidth" style="width: 1200px !important">
-            <div class="tryStep clearfix mt25">
-                <div class="pull-left text-center tip">体验步骤</div>
-                <p class="zxx_align_box_2">
-                    <img src="assets/main/img/stepIcon1.png" class="icon" /><span class="zxx_align_word">注册账号<br> 无需任何押金</span>
-                    
-                </p>
-                <p class="zxx_align_box_2">
-                    <img src="assets/main/img/stepIcon2.png" class="icon" /><span class="zxx_align_word">赚取元宝<br> 任务简单轻松</span>
-                </p>
-                <p class="zxx_align_box_2">
-                    <img src="assets/main/img/stepIcon3.png" class="icon" /><span class="zxx_align_word">元宝提现<br> 10000元宝=1元</span>
-                </p>
-                <div class="dh pull-left zxx_align_box_2">
-                    <img src="assets/main/img/stepIcon5.png" class="money" /><span class="zxx_align_word">累计发放<br> 10000元宝</span>
+        <div class="loginReg">
+        		<div class="pull-left text-center tip" style="">体验步骤</div>
+                <ul class='loginState clearfix'>
+                    <li>
+                        <div class="pull-left icon">
+                            <img src="assets/main/img/code-1.png" />
+                        </div>
+                        <div class="pull-left">
+                            <h4>注册账号</h4>
+                            <p>无需任何押金</p>
+                        </div>
+                        <div class="pull-left right">
+                            <img src="assets/main/img/login4.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pull-left icon">
+                            <img src="assets/main/img/code-2.png" />
+                        </div>
+                        <div class="pull-left">
+                            <h4>赚取元宝</h4>
+                            <p>任务简单轻松</p>
+                        </div>
+                        <div class="pull-left right">
+                            <img src="assets/main/img/login4.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pull-left icon">
+                            <img src="assets/main/img/code-3.jpg" />
+                        </div>
+                        <div class="pull-left">
+                            <h4>元宝提现</h4>
+                            <p>10000元宝=1元</p>
+                        </div>
+                    </li>
+                    <li>
+                    <div class="dh">
+                    <div class="pull-left icon">
+                            <img src="assets/main/img/code-4.png" />
+                        </div>
+                        <div class="pull-left">
+                            <h5>累计发放</h5>
+                            <p style="font-size: 18px;">10000元宝</p>
+                        </div>
+                    </div>
+                        
+                    </li>
+                </ul>
                 </div>
-            </div>
 
             <div class="indexCtn clearfix mt25">
                 <div class="pull-left prefecture">

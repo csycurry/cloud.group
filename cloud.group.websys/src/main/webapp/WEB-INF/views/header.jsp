@@ -28,6 +28,13 @@
                             </a>
                         </li>
                         <li>
+                        	<c:if test="${userCode!=null&&userCode!='' }">
+								 <a href="/userinfo.html">
+	                                <div>
+	                                    个人中心
+	                                </div>
+	                            </a>
+							</c:if>
                         </li>
                         <li>
                         
@@ -44,7 +51,6 @@
                                 </div>
                                 <div class="pull-left">
                                     <p class="username"><span class="gray"><span class="username" title="${userCode}">${userCode}</span></span><a id="ctl00_LinkButton1" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)"><img src="assets/main/img/newCenter01.png"/></a></p>
-                                    <p class="center"><span class="gray">个人中心</span><a href="#"><img src="assets/main/img/newCenter03.png" /></a></p>
                                 </div>
                             </div>
                         </div>

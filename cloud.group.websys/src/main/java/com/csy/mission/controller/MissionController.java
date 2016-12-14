@@ -1,6 +1,5 @@
 package com.csy.mission.controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ import com.csy.mission.domain.dto.MissionSearchDTO;
 import com.csy.mission.domain.dto.MissionSignDTO;
 import com.csy.mission.domain.dto.MissionSignSearchDTO;
 import com.csy.mission.domain.emus.MissionCodeTypeEn;
-import com.csy.mission.domain.emus.MissionTypeEn;
 import com.csy.mission.manager.MissionManager;
 import com.csy.mission.manager.MissionSignManager;
 import com.csy.model.base.DateUtil;
@@ -44,6 +42,15 @@ public class MissionController extends BaseController{
 	@Autowired
 	private RebateManager rebateManager;
 	
+	@RequestMapping(value="/user_codes")
+	public String missionList()
+	{
+		if(getLoginUser()==null)
+		{
+			return "redirect:/index.html";
+		}
+		return "usermissions";
+	}
 	
 	@RequestMapping(value="/codes")
 	public ModelAndView listSearch()

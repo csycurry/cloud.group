@@ -44,7 +44,7 @@ public class SmsManager {
 		notifyReceiverDTO.setNotifyId(1);
 		notifyReceiverDTO.setSendTm(new Date());
 		messageManager.insertNodify(notifyReceiverDTO);
-//		MessageUtil.sendSms(configDTO.getConfigValue(), String.format(Constant.SMS_TEMPLATE_CODE, code), mobile);
+		MessageUtil.sendSms(configDTO.getConfigValue(), String.format(Constant.SMS_TEMPLATE_CODE, code), mobile);
 	}
 	
 	public String getCode(String mobile)

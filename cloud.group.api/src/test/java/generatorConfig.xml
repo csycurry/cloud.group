@@ -49,8 +49,9 @@
    
    <table tableName="mission_code" domainObjectName="MissionCode" delimitIdentifiers="true"></table> 
    <table tableName="mission_sign" domainObjectName="MissionSign" delimitIdentifiers="true"></table> 
-  -->
+  
    <table tableName="news" domainObjectName="News" delimitIdentifiers="true"></table> 
+   -->
    <!--
    <table tableName="news_banner" domainObjectName="NewsBanner" delimitIdentifiers="true"></table> 
    <table tableName="notify" domainObjectName="Notify" delimitIdentifiers="true"></table>  
@@ -59,10 +60,10 @@
    <table tableName="r_staff_role" domainObjectName="StaffRole" delimitIdentifiers="true"></table>
    <table tableName="system_config" domainObjectName="SystemConfig" delimitIdentifiers="true"></table>
    <table tableName="user_account" domainObjectName="UserAccount" delimitIdentifiers="true"></table>
-   
+    <table tableName="mobile_code" domainObjectName="MobileCode" delimitIdentifiers="true"></table> 
+  -->
    <table tableName="user" domainObjectName="User" delimitIdentifiers="true"></table>
   
-  <table tableName="mobile_code" domainObjectName="MobileCode" delimitIdentifiers="true"></table> 
-  -->
+ 
   </context>
 </generatorConfiguration>

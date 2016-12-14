@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-	<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
-<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
+<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />   
+<link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<script src="/assets/js/bootstrap-table.min.js"></script>    
     <title>
 
 </title>
@@ -20,21 +19,15 @@
 <div>
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
 <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA3NTMyOTA3Nw9kFgJmD2QWAgIDD2QWBmYPZBYCAgEPFgIeCWlubmVyaHRtbAUkNTdkZTU4NmQtYjUwNi00ZjFmLTgzMTMtMDRjNmVlYTg4ZTc3ZAIBDw8WAh4EVGV4dAUDMTU0ZGQCAg9kFgICAw9kFgJmD2QWAgIBDxBkZBYBZmRkcxwpGnAyk3aODhOzAdAKEaY6opcbamU38VhwpAAey5w=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAgIDD2QWBGYPZBYCAgEPFgIeCWlubmVyaHRtbAUkZjcwN2E3YzctMDIxNS00NTUyLTg1NDktOTZkMDg2ZWQyMzhmZAIBDw8WAh4EVGV4dAUDMTU2ZGRkeF9o9eCzQu9vUtFFbVULCTEiBg2UoDc3CNxWZ2/iDnc=" />
 </div>
 
 
 
-<script src="/WebResource.axd?d=bnO43BAny2fLzXDnhC1UZnNdFLj_0m5Kfu2bCJYTtkDAiMwq3BR1rqKp1rscOz9WfP0g9ZRxQPx6LbXn_Qm-P9ZJEo0x6Kxcir4wl4y6OYo1&amp;t=635375563334701695" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=sdFIlEnnsg-hOmZ_gTfQwaqutNwVpvSvA_GLCXpVJjpyPVswf-gFCHzkOHobit3aDYUQ7rKkitEvCidladbVtBllj5NNtawypj51DNMYCdXgE8tf6owd_xHW8uCilMztNOWgvhdiP9m14AMoB_BuwfWUI5ZPG4D1RBcE8v9izaEDCgGoGrMiAhSG7-bCdE2X0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F8C9ESjZBBEOBSW7epDN0cWSK-MZbbVGIF4IjXlERuKO5ZeOWgNJ524k0L0_jXeTuh4IfoDnL6I2CL_ZaXX6ab0oAHcqO-8iwrz-mHDSx_G8LQLz4DRt70yUPNJf_uhEaBAOrrfJHgn32yoMHuaYeg8DHHqouC-5s99e0nKuAAMYRLVcHrt_pnsp4A0qvXPd0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
 <div>
 
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="837E1E06" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAchHJNOReeR8/qx59iiLT8SU0tG1Q6ILoOZKKWbf3w+hEqHqAVxcZUQLKMACkCf0nDVEsaOJ/2nEX4uKFYA9x1tvGtG7xWzVeSHULOfVCm+fSzmyEfe5udHA06JStoMqUr6G0uw+IsZ/614dwreR7cEZF4R2xdlU03hd2WG+nOhUqehRQE6YbtnQPPdHNRhZn0=" />
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2344A5BF" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAKPphcpwfNWMUiNJdFeG63vU0tG1Q6ILoOZKKWbf3w+hGdVfUOPhufu7CCVlpugMk9eNyUxmjcmxwaSSgudTy2f" />
 </div>        
         <div class="header">
             
@@ -51,7 +44,7 @@
 
     <div class="register pull-right">
         
-        <a class="dropdown-toggle abtn pull-left" href="/user/UserManage.aspx" style="width:120px">            
+        <a class="dropdown-toggle abtn pull-left" href="/userinfo.html" style="width:120px">            
             <span class="apostrophe pull-right" style="width:80px;display:block;color:#f5894e"> 您好：${user.userCode}</span>
             <img src="/img/header/head-005.png" alt="" class="pull-right img-circle" style="height: 20px;margin-top:15px" />
         </a>
@@ -84,7 +77,7 @@
                         <h4 class='prl20 orange'>
                             <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
                         <p><a href="/userinfo.html">个人中心</a></p>
-                        <p><a href="/userDetail">基本信息</a></p>
+                        <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
@@ -129,61 +122,42 @@
                             })
                         }
                         accout();
-                    </script>
-                    
-    <h3>
-            <img src="assets/main/img/userIcon9.png" />个人中心<span>> 基本信息</span></h3>
-        <div class="head clearfix">
-            <div class="userImg pull-left">
-                <div class="headImg">
-                    <img style="height: 150px" src="assets/main/img/hean.png" />
+                    </script>              
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="padding: 20px">
+                <div class="panel-heading">
+                    <span>账户明细</span>
                 </div>
-            </div>
-            <div class="userCtn pull-left">
-                <p>您好，<span class='username'>${user.userCode}</span></p>
-                <p><span>手机号码：</span>${user.userMobile}</p>
-                <p><span>QQ 号码：</span>${user.userQq}</p>
-                <p><span>邮<span class='mg'></span>箱：</span>${user.userMail}</p>
-                <p><span>注册日期：</span>${user.createDate}</p>
-            </div>
-            <div class="balance pull-right">
-                <div class="balanceHead">
-                    <img src="/img/userIcon10.png" />账户余额
-                </div>
-                <div class="balanceCtn">
-                    <p class="jb">
-                        <img src="assets/main/img/money.png" />${user.balance}聚币
-                    </p>
-                    <p>可兑换 = ${user.balance}元</p>
-                    <a href="Account_AskCash.aspx" class='sqtx'>
-                        <img src="assets/main//img/sqtx.png" /></a>
+                <div class="panel-body">
+                <table data-toggle="table"
+					       data-url="/account_CashData.html"
+					       data-pagination="true"
+					       data-side-pagination="server"
+					       data-page-list="[5, 10, 20, 50, 100, 200]"
+					       data-height="300">
+					    <thead>
+					    <tr>
+					        <th data-field="time" data-align="right" data-sortable="true">时间</th>
+					        <th data-field="total" data-align="center" data-sortable="true">金额</th>
+					        <th data-field="reason">操作</th>
+					    </tr>
+					    </thead>
+				</table>
                 </div>
             </div>
         </div>
-        <div class="userCommon">
-            <h4>
-                <img src="assets/main/img/userIcon11.png" />结算记录</h4>
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>结算金额</th>
-                        <th>打码数量</th>
-                        <th>结算说明</th>
-                        <th>结算时间</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                       
-                    </tr>
-                </tbody>
-            </table>
-        </div>       
     </div>
-
+    <script>
+        $(function () {
+            getAccountDetail();
+        });
+    </script>
 
                 </div>
+            </div>
         </section>
+        
 <%@include file="footer.jsp"%>
 </body>
 </html>

@@ -25,11 +25,17 @@ public class UserDTO implements Serializable{
 
     private Date createTime;
 
+    private String createDate;
+    
     private Date loginTime;
 
     private Long balance;
     
+    private Long balanceRMB;
+    
     private String userAlipay;
+    
+    private String realName;
     
     private String code;
     
@@ -81,6 +87,22 @@ public class UserDTO implements Serializable{
 		this.userMail = userMail;
 	}
 
+	public Long getBalanceRMB() {
+		return balanceRMB;
+	}
+
+	public void setBalanceRMB(Long balanceRMB) {
+		this.balanceRMB = balanceRMB;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
 	public String getUserQq() {
 		return userQq;
 	}
@@ -127,6 +149,14 @@ public class UserDTO implements Serializable{
 
 	public void setBalance(Long balance) {
 		this.balance = balance;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 
 	

@@ -22,6 +22,7 @@ import com.csy.mission.manager.MissionManager;
 import com.csy.model.Rebate;
 import com.csy.model.RebateExample;
 import com.csy.model.UserAccount;
+import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.rebate.domain.dto.RebateDTO;
@@ -47,7 +48,8 @@ public class RebateManager {
 	{
 		Pagination<RebateDTO> pagination = new Pagination<RebateDTO>(searchDTO.getCurrentPage());
 		RebateExample example = createExample(searchDTO);
-		long count = rebateMapperExt.countByExample(example);
+		Long count = rebateMapperExt.countByExample(example);
+		pagination.setTotalCount(count.intValue());
 		if(count>0)
 		{
 			List<Rebate> list = rebateMapperExt.selectByExampleByPage(example, pagination.getOffset(), pagination.getPageSize());
@@ -60,6 +62,30 @@ public class RebateManager {
 				userDTOs.add(dto);
 			}
 			pagination.setList(userDTOs);
+		}
+		return pagination;
+	}
+	
+	public Pagination<RebateDTO> pageSearch(RebateSearchDTO searchDTO,String order ,int offset,int limit)
+	{
+		Pagination<RebateDTO> pagination = new Pagination<RebateDTO>(searchDTO.getCurrentPage());
+		RebateExample example = createExample(searchDTO);
+		Long count = rebateMapperExt.countByExample(example);
+		pagination.setTotal(count.intValue());
+		if(count>0)
+		{
+			List<Rebate> list = rebateMapperExt.selectByExampleByPage(example, offset, limit);
+			List<RebateDTO> userDTOs = new ArrayList<>();
+			for(Rebate rebate:list)
+			{
+				RebateDTO dto = new RebateDTO();
+				BeanUtils.copyProperties(rebate, dto);
+				dto.setStatusCn(RebateStatusEn.toEnum(rebate.getStatus()).getMean());
+				dto.setCreateDate(DateUtil.toLocaleString(rebate.getCreateTm(), DateUtil.YYYY_MM_DD));
+				dto.setTypeCn("打码");
+				userDTOs.add(dto);
+			}
+			pagination.setRows(userDTOs);
 		}
 		return pagination;
 	}
@@ -230,6 +256,7 @@ public class RebateManager {
 		{
 			criteria.andUserCodeEqualTo(searchDTO.getUserCode());
 		}
+		criteria.andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		example.setOrderByClause("mission_id desc");
 		return example;
 	}

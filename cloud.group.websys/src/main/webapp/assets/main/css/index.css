@@ -62,14 +62,17 @@
 .statistics li .li_wrap{margin-top:0px;transition:.3s;}
 .statistics li:hover .li_wrap{margin-top:-74px;transition:.3s;}
 
-.tryStep{line-height:70px;border:1px solid #ccc;font-size:16px;background:#fffcfb}
-.tryStep p{float:left;margin-bottom:0;width:210px;margin-left:10px}
-.tryStep p .next{width:21px;margin-left:30px;margin-top:-3px}
-.tryStep p img{margin-right:15px}
-.tryStep .tip{background:#e34218;color:#fff;position:relative;width:210px;margin-right:50px}
-.tryStep .tip:after{content:'';width:0;height:0;position:absolute;right:-24px;border:12px solid transparent;border-left-color:#e34218;top:20px;}
-.tryStep .dh{color:#e34218;border-left:1px solid #ccc;padding:0px 20px;text-align:center;width:240px}
-.tryStep .dh img{margin-right:10px;}
+.tip{background:#e34218;color:#fff;position:relative;width:210px;margin-right:50px;line-height: 70px;}
+.tip:after{content:'';width:0;height:0;position:absolute;right:-24px;border:12px solid transparent;border-left-color:#e34218;top:20px;}
+.dh{color:#e34218;border-left:1px solid #ccc;text-align:center;}
+.dh img{margin-right:10px;}
+
+.loginReg{border:2px solid #dadada;border-radius:10px;margin:5   0px 0;}
+.loginState li .icon{margin-right:10px;margin-left:20px}
+.loginState li .icon img{margin-top:5px}
+.loginState li .right{margin-left:20px}
+.loginState li .right img{margin-top:20px}
+.loginState li h4{font-weight:500;}
 
 .prefectureCom{width:900px;background:#f4f5f9;padding:0px 10px 0px 20px;overflow:hidden}
 .prefectureCom h3{color:#576077;font-size:22px}
@@ -177,7 +180,7 @@
 .box{ width:980px; margin:0 auto;}
 .bcon{ width:270px; border:1px solid #eee; margin:30px auto;}
 .bcon h1{ border-bottom:1px solid #eee; padding:0 10px;}
-.bcon h1 b{ font:bold 14px/40px 'ËÎÌå'; border-top:2px solid #3492D1; padding:0 8px; margin-top:-1px; display:inline-block;}
+.bcon h1 b{ font:bold 14px/40px 'ï¿½ï¿½ï¿½ï¿½'; border-top:2px solid #3492D1; padding:0 8px; margin-top:-1px; display:inline-block;}
 
 .list_lh{ height:300px; overflow:hidden;}
 .list_lh li{ padding:10px;}

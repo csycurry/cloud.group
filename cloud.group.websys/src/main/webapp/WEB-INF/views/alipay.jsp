@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-	<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
@@ -84,7 +81,7 @@
                         <h4 class='prl20 orange'>
                             <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
                         <p><a href="/userinfo.html">个人中心</a></p>
-                        <p><a href="/userDetail">基本信息</a></p>
+                        <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
@@ -101,9 +98,6 @@
 
                 </div>
                 <div class="userContent pull-left">
-                    <script src="/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-                    <script src="/plugins/DataTables/js/jquery.dataTables.min.js"></script>
-                    <script src="/plugins/DataTables/js/dataTables.bootstrap.min.js"></script>
                     <script src="/scripts/sweetalert2.min.js"></script>
                     <!-- for IE support -->
                     <script src="/scripts/es6-promise.min.js"></script>
@@ -130,60 +124,54 @@
                         }
                         accout();
                     </script>
-                    
-    <h3>
-            <img src="assets/main/img/userIcon9.png" />个人中心<span>> 基本信息</span></h3>
-        <div class="head clearfix">
-            <div class="userImg pull-left">
-                <div class="headImg">
-                    <img style="height: 150px" src="assets/main/img/hean.png" />
+                            
+    <div class="alert alert-success">
+        <h4 class="text-center">用户须知</h4>
+        <hr style="color: #6D6D6D" />
+        <p>
+            账户修改：设置后不能再修改，如需修改请同客服人员联系QQ:xxxxxx
+        </p>
+        <p>
+            提现说明：提现金额为1元的整数倍，满1元可申请提现,确认<span class="red" style="font-size:18px">48小时</span>内支付玩家
+        </p>
+        <p>
+            官网申明：提现前请确认自己的收款账号无误，我们只支付一次支付后由于收款账号问题造成的资金退回、冻结、消失本站概不负责。
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="padding: 20px">
+                <div class="panel-heading">
+                    <span>支付宝信息</span>
                 </div>
-            </div>
-            <div class="userCtn pull-left">
-                <p>您好，<span class='username'>${user.userCode}</span></p>
-                <p><span>手机号码：</span>${user.userMobile}</p>
-                <p><span>QQ 号码：</span>${user.userQq}</p>
-                <p><span>邮<span class='mg'></span>箱：</span>${user.userMail}</p>
-                <p><span>注册日期：</span>${user.createDate}</p>
-            </div>
-            <div class="balance pull-right">
-                <div class="balanceHead">
-                    <img src="/img/userIcon10.png" />账户余额
-                </div>
-                <div class="balanceCtn">
-                    <p class="jb">
-                        <img src="assets/main/img/money.png" />${user.balance}聚币
-                    </p>
-                    <p>可兑换 = ${user.balance}元</p>
-                    <a href="Account_AskCash.aspx" class='sqtx'>
-                        <img src="assets/main//img/sqtx.png" /></a>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">真实姓名</label>
+                        <div class="col-sm-10">
+                            
+                            <span id="ctl00_ContentPlaceHolder1_lbname" class="form-control">${user.realName}</span>
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label for="account" class="col-sm-2 control-label">支付宝账户</label>
+                        <div class="col-sm-10">
+                            
+                            <span id="ctl00_ContentPlaceHolder1_lbaccount" class="form-control">${user.userAlipay}</span>
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="form-group text-center">
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$btnSet" value="确定" id="ctl00_ContentPlaceHolder1_btnSet" disabled="disabled" class="btn btn-md btn-primary" />
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="userCommon">
-            <h4>
-                <img src="assets/main/img/userIcon11.png" />结算记录</h4>
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>结算金额</th>
-                        <th>打码数量</th>
-                        <th>结算说明</th>
-                        <th>结算时间</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                       
-                    </tr>
-                </tbody>
-            </table>
-        </div>       
     </div>
 
-
                 </div>
+            </div>
         </section>
-<%@include file="footer.jsp"%>
+ <%@include file="footer.jsp"%>
 </body>
 </html>

@@ -1,13 +1,12 @@
-@CHARSET "UTF-8";
 .mainWidth{width:1200px!important}
 .user{margin-top:80px;margin-bottom:50px}
 .aside{border:1px solid #ccc;width:200px;background:#fff}
 .user .aside .prl20{padding:0 20px;}
-.user .aside .userCenter{padding-left:20px;}
+.user .aside .userCenter{padding-left:15px;}
 .user .aside .userCenter h3{font-size:18px;color:#ff6c02;text-align:center}
 .user .aside .userCenter h3 img{width:25px;margin-right:5px;margin-top:-5px;margin-left:-15px}
 .user .aside .userCenter .zh{font-weight:600}
-.user .aside .userCenter p .money{margin-left:10px}
+.user .aside .userCenter p .money{margin-left:5px}
 .user .aside .userCenter p .gb{margin-left:10px;margin-top:-2px}
 .user .aside h4{background:#fafafa;border-top:1px solid #ccc;border-bottom:1px solid #ccc;line-height:40px;border-left:2px solid transparent}
 .user .aside h4 .icon{margin-top:-6px;margin-right:13px}

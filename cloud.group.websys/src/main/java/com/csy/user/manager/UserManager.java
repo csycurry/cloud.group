@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.csy.common.manager.SmsManager;
+import com.csy.config.domain.dto.SystemConfigDTO;
+import com.csy.config.domain.emus.ConfigEn;
+import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.MissionSignMapperExt;
 import com.csy.dao.UserMapperExt;
 import com.csy.exception.BusinessException;
@@ -17,6 +20,7 @@ import com.csy.model.MissionSign;
 import com.csy.model.MissionSignExample;
 import com.csy.model.User;
 import com.csy.model.UserExample;
+import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.user.domain.dto.UserDTO;
@@ -31,6 +35,8 @@ public class UserManager {
 	private MissionSignMapperExt missionSignMapperExt;
 	@Autowired
 	private SmsManager smsManager;
+	@Autowired
+	private SystemConfigManager systemConfigManager;
 	
 	public Pagination<UserDTO> pageSearch(UserSearchDTO searchDTO)
 	{
@@ -55,6 +61,8 @@ public class UserManager {
 	
 	public UserDTO login(UserSearchDTO searchDTO)
 	{
+		if(StringUtils.isEmpty(searchDTO.getUserCode())||StringUtils.isEmpty(searchDTO.getUserPwd()))
+			return null;
 		List<UserDTO> userDTOs = pageSearch(searchDTO).getList();
 		if(userDTOs==null||userDTOs.size()==0)
 		{
@@ -70,6 +78,9 @@ public class UserManager {
 			return null;
 		UserDTO dto = new UserDTO();
 		BeanUtils.copyProperties(user, dto);
+		dto.setCreateDate(DateUtil.toLocaleString(dto.getCreateTime(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+		SystemConfigDTO configDTO =systemConfigManager.detail(ConfigEn.exchangerate.getCode());
+		dto.setBalanceRMB(dto.getBalance()/Integer.valueOf(configDTO.getConfigValue()));
 		return dto;
 	}
 	

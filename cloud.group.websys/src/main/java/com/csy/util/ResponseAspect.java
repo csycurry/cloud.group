@@ -30,7 +30,7 @@ import com.google.common.base.Strings;
  *              } 
  */
 @Order(100)
-public class ResponseJsonAspect {
+public class ResponseAspect {
 
 	@Resource
 	private MappingJackson2HttpMessageConverter converter;
@@ -53,7 +53,7 @@ public class ResponseJsonAspect {
 	 * @date 2015-5-18
 	 * @description
 	 */
-//	@Pointcut("execution(* com.dianwoba.redcliff.*.web.controller..*.*(..)) && @annotation(com.dianwoba.core.response.ResponseJson)")
+//	@Pointcut("execution(* com.dianwoba.redcliff.*.web.controller..*.*(..)) && @annotation(com.csy.util.ResponseJson)")
 	public void responseBodyPointCut() {
 
 	}
@@ -98,15 +98,12 @@ public class ResponseJsonAspect {
 	public void after(Object ret) throws HttpMessageNotWritableException,
 			IOException {
 
-		ResponseJsonBean responseBase = new ResponseJsonBean();
-		responseBase.setData(ret);
-
 		HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getResponse();
 		HttpOutputMessage outputMessage = new ServletServerHttpResponse(response);
-		converter.write(responseBase, MediaType.APPLICATION_JSON, outputMessage);
+		converter.write(ret, MediaType.APPLICATION_JSON, outputMessage);
 		
-		String returnValue = jsonObjectMapper.writeValueAsString(responseBase);
+		String returnValue = jsonObjectMapper.writeValueAsString(ret);
 		int len = StringUtils.length(returnValue);
 		returnValue = len > 1000 ? (StringUtils.substring(returnValue, 0, 1000) + "...}") : returnValue;
 

@@ -31,8 +31,16 @@ public class RebateDTO implements Serializable{
     private String statusCn;
     
     private Date createTm;
+    
+    private String createDate;
 
-    private String creator;
+    public String getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+	private String creator;
 
     private Date modifyTm;
 

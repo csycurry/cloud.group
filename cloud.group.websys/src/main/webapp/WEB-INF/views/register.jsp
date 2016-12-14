@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
@@ -57,14 +60,14 @@
                 <ul class='loginState clearfix'>
                     <li>
                         <div class="pull-left icon">
-                            <img src="img/login1.png" />
+                            <img src="assets/main/img/code-05.png" />
                         </div>
                         <div class="pull-left">
                             <h4>轻松打码</h4>
                             <p>无需押金，轻松打码</p>
                         </div>
                         <div class="pull-left right">
-                            <img src="img/login4.png" />
+                            <img src="assets/main/img/login4.png" />
                         </div>
                     </li>
                     <li>
@@ -76,7 +79,7 @@
                             <p>虚拟货币，支持直接提现</p>
                         </div>
                         <div class="pull-left right">
-                            <img src="img/login4.png" />
+                            <img src="assets/main/img/login4.png" />
                         </div>
                     </li>
                     <li>

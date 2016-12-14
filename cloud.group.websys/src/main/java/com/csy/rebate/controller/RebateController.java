@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.csy.base.controller.BaseController;
 import com.csy.exception.BusinessException;
 import com.csy.mission.domain.dto.MissionDTO;
 import com.csy.mission.domain.dto.MissionSearchDTO;
@@ -25,10 +26,11 @@ import com.csy.rebate.domain.dto.RebateDTO;
 import com.csy.rebate.domain.dto.RebateSearchDTO;
 import com.csy.rebate.manager.RebateManager;
 import com.csy.util.ResponseJson;
+import com.csy.util.ResponseObject;
 import com.csy.util.XSSFWorkbookUtil;
 
 @Controller
-public class RebateController {
+public class RebateController extends BaseController{
 	@Resource
 	private RebateManager rebateManager;
 	@Autowired
@@ -47,6 +49,16 @@ public class RebateController {
 		map.put("currentPage", pagination.getCurrentPageIndex());
 		map.put("pageNum", pagination.getCurrentPage());
 		return modelAndView;
+	}
+	
+	@RequestMapping(value="/rebateslist")
+	@ResponseObject
+	public @ResponseBody Pagination<RebateDTO> rebates(String order ,int offset,int limit)
+	{
+		RebateSearchDTO searchDTO = new RebateSearchDTO();
+		searchDTO.setUserId(getLoginUserId());
+		Pagination<RebateDTO> pagination = rebateManager.pageSearch(searchDTO,order,offset,limit);
+		return pagination;
 	}
 	
 	@RequestMapping(value="/backstage/rebate/detail")

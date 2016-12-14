@@ -25,12 +25,20 @@
 		</property>
 	</bean>
 	<bean id="responseJsonAspectBean" class="com.csy.util.HeaderWithResponseJsonAspect" />
+	<bean id="responseAspectBean" class="com.csy.util.HeaderWithResponseObjectAspect" />
 	<aop:config>
 		<aop:aspect id="responseJsonAspect" ref="responseJsonAspectBean">
 			<aop:pointcut id="responseJsonPointcut" expression="execution(* com.csy.*.controller..*.*(..)) and @annotation(com.csy.util.ResponseJson)" />
 			<aop:before method="before" pointcut-ref="responseJsonPointcut" />
 			<aop:after-returning method="after" returning="ret" pointcut-ref="responseJsonPointcut" />
 			<aop:after-throwing method="exception" throwing="error" pointcut-ref="responseJsonPointcut" />
+		</aop:aspect>
+		
+		<aop:aspect id="responseAspectBean" ref="responseAspectBean">
+			<aop:pointcut id="responseObjectPointcut" expression="execution(* com.csy.*.controller..*.*(..)) and @annotation(com.csy.util.ResponseObject)" />
+			<aop:before method="before" pointcut-ref="responseObjectPointcut" />
+			<aop:after-returning method="after" returning="ret" pointcut-ref="responseObjectPointcut" />
+			<aop:after-throwing method="exception" throwing="error" pointcut-ref="responseObjectPointcut" />
 		</aop:aspect>
 	</aop:config>
 	
