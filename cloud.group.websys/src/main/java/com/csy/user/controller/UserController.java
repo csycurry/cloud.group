@@ -104,9 +104,9 @@ public class UserController extends BaseController{
 	
 	@RequestMapping(value="/account_CashData")
 	@ResponseObject
-	public @ResponseBody JSONObject pagesearch(String order ,int offset,int limit)
+	public @ResponseBody JSONObject pagesearch(String order ,int offset,int limit,Byte type)
 	{
-		JSONObject object = userAccountManager.pageSearch(order, offset, limit, getLoginUserId());
+		JSONObject object = userAccountManager.pageSearch(order, offset, limit, getLoginUserId(),type);
 		return object;
 	}
 	
@@ -186,7 +186,12 @@ public class UserController extends BaseController{
 		}
 	}
 	
-	
+	@RequestMapping(value="/user/modify")
+	@ResponseJson
+	public @ResponseBody void updateUser(UserDTO userDTO)
+	{
+		userManager.updateUser(userDTO);
+	}
 	//+++++++++++++++++++++++++++++++后台管理++++++++++++++++++++++++
 	@RequestMapping(value="/backstage/user/userList")
 	public ModelAndView getUserList(@ModelAttribute UserSearchDTO searchDTO,int page)

@@ -109,6 +109,14 @@ public class UserManager {
 	
 	public void updateUser(UserDTO userDTO)
 	{
+		if(StringUtils.isNotEmpty(userDTO.getUserMobile()))
+		{
+			String code = smsManager.getCode(userDTO.getUserMobile());
+			if(!code.equals(userDTO.getCode()))
+			{
+				throw new BusinessException("请输入正确的验证码!");
+			}
+		}
 		User user = new User();
 		BeanUtils.copyProperties(userDTO, user);
 		userMapperExt.updateByPrimaryKeySelective(user);

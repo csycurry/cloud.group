@@ -74,24 +74,23 @@
                     </div>
 
                     <div class="accout">
-                        <h4 class='prl20 orange'>
-                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
+                        <h4 class='prl20'>
+                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
                         <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span>
+                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span></h4>
                         <p><a href="/userPay.html">申请提现</a></p>
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
                     <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span>
+                        <h4 class='prl20 orange'>
+                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
                         <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
-
                 </div>
                 <div class="userContent pull-left">
                     <script src="/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
@@ -151,12 +150,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(function () {
-            getAccountDetail();
-        });
-    </script>
-
                 </div>
             </div>
         </section>

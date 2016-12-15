@@ -69,7 +69,7 @@
         <section class='user'>
             <div class="mainWidth container clearfix">
                 <div class="aside pull-left">
-                    <div class="userCenter">
+                   <div class="userCenter">
                         <h3>
                             <img src="assets/main/img/user.png" />个人中心</h3>
                         <p class='zh'><span>ID：</span>${user.id}</p>
@@ -82,23 +82,22 @@
 
                     <div class="accout">
                         <h4 class='prl20 orange'>
-                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
+                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
-                        <p><a href="/userDetail">基本信息</a></p>
+                        <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span>
+                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span></h4>
                         <p><a href="/userPay.html">申请提现</a></p>
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span>
-                        <p><a href="/user_codes.html">打码记录</a></p>
+                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
+                        <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
-
                 </div>
                 <div class="userContent pull-left">
                     <script src="/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
@@ -154,7 +153,7 @@
                     <p class="jb">
                         <img src="assets/main/img/money.png" />${user.balance}聚币
                     </p>
-                    <p>可兑换 = ${user.balance}元</p>
+                    <p>可兑换 = ${user.balanceRMB}元</p>
                     <a href="Account_AskCash.aspx" class='sqtx'>
                         <img src="assets/main//img/sqtx.png" /></a>
                 </div>

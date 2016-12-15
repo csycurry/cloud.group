@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.emus.AccountTypeEn;
-import com.csy.dao.UserAccountMapper;
 import com.csy.dao.UserAccountMapperExt;
 import com.csy.model.UserAccount;
 import com.csy.model.UserAccountExample;
@@ -36,12 +35,15 @@ public class UserAccountManager {
 		return null;
 	}
 	
-	public JSONObject pageSearch(String order ,int offset,int limit,Integer userId)
+	public JSONObject pageSearch(String order ,int offset,int limit,Integer userId,Byte type)
 	{
 		JSONObject jsonObject = new JSONObject();
 		UserAccountExample accountExample = new UserAccountExample();
-		accountExample.createCriteria().andUserIdEqualTo(userId).andStatusEqualTo((byte)1);
-		accountExample.setOrderByClause("id "+order);
+		UserAccountExample.Criteria criteria = accountExample.createCriteria();
+		criteria.andUserIdEqualTo(userId).andStatusEqualTo((byte)1);
+		if(type!=null)
+			criteria.andTypeEqualTo(type);
+		accountExample.setOrderByClause("create_time desc");
 		long count = userAccountMapperExt.countByExample(accountExample);
 		if(count==0)
 			return null;

@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -79,23 +77,22 @@
 
                     <div class="accout">
                         <h4 class='prl20 orange'>
-                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
+                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
                         <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span>
+                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span></h4>
                         <p><a href="/userPay.html">申请提现</a></p>
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span>
-                        <p><a href="/user_codes.aspx">打码记录</a></p>
+                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
+                        <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
-
                 </div>
                 <div class="userContent pull-left">
                     <script src="/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
@@ -139,10 +136,12 @@
             </ul>
             <div class="tab-content profile-edit-tab-content editMail">
                 <div id="edit-basic" class="tab-pane active">
+                <form id="userform">
                     <div class="form-group">
                         <label for="inputusername" class="col-sm-2 control-label">登录账户</label>
                         <div class="col-sm-10">
                             <span id="ctl00_ContentPlaceHolder1_loginname" class="form-control">${user.userCode }</span>
+                            <input type="hidden" name="id" value="${user.id}"/>
                         </div>
                     </div>
                     <div class="space-4"></div>
@@ -164,7 +163,7 @@
                         <div class="form-group">
                             <label id="ctl00_ContentPlaceHolder1_lbverify" class="col-sm-2 control-label">短信验证码</label>
                             <div class="col-sm-6">
-                                <input name="ctl00$ContentPlaceHolder1$txtphoneverify" type="text" id="ctl00_ContentPlaceHolder1_txtphoneverify" class="form-control" />
+                                <input name="code" type="text" id="ctl00_ContentPlaceHolder1_txtphoneverify" class="form-control" />
                             </div>
                             <div class="col-sm-4" style="padding-right: 0px; padding-left: 0px">
                                 <input type="button" id="getting" value="发送验证码" class="btn btn-info" />
@@ -182,7 +181,7 @@
                     <div class="form-group">
                         <label for="inputmail" class="col-sm-2 control-label">邮件</label>
                         <div class="col-sm-10">
-                            <input name="ctl00$ContentPlaceHolder1$txtmail" type="text" value="${user.userMail}" id="ctl00_ContentPlaceHolder1_txtmail" class="form-control" />
+                            <input name="userMail" type="text" value="${user.userMail}" id="ctl00_ContentPlaceHolder1_txtmail" class="form-control" />
                         </div>
                     </div>
                     <div class="space-4"></div>
@@ -193,13 +192,7 @@
                         </div>
                     </div>
                     <div class="space-4"></div>
-                    <div class="form-group">
-                        <label for="phone" class="col-sm-2 control-label">邮件通知</label>
-                        <div class="col-sm-10 control-label" style="text-align: left">
-                            <input name="ctl00$ContentPlaceHolder1$checkemail" type="checkbox" id="ctl00_ContentPlaceHolder1_checkemail" />
-                            <span>自动接收</span>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div id="edit-password" class="tab-pane">
                     <div class="form-group">
@@ -293,6 +286,16 @@
                 if ($("#edit-basic").hasClass("active")) {
                     if (!check) return false;                  
                     $('#' + 'ctl00_ContentPlaceHolder1_hidnowtabs').val(1);
+                    $.post("/user/modify.json",$('#userform').serialize(),function(data){
+                    	if(data.status==0)
+                    		{
+                    		alert(data.msg);
+                    		}
+                    	else
+                    		{
+                    		alert("修改成功!");
+                    		}
+      			  });
                 }
                 else if ($("#edit-mail").hasClass("active")) {
                     $('#' + 'ctl00_ContentPlaceHolder1_hidnowtabs').val(4);
