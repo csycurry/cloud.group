@@ -1,7 +1,12 @@
 package com.csy.config.domain.emus;
 
 public enum ConfigEn {
-	exchangerate(1,"汇率"),sms(2,"api_key");
+	exchangerate(1,"汇率"),
+	sms(2,"api_key"),
+	geetest_id(3,"geetest_id"),
+	geetest_key(4,"geetest_key"),
+	qq_id(5,"qq_id"),
+	qq_key(6,"qq_key");
 	private Integer code;
 	private String mean;
 	
