@@ -35,23 +35,6 @@
     
 </head>
 <body>
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
-</div>
-
-
-
-<script src="/WebResource.axd?d=bnO43BAny2fLzXDnhC1UZnNdFLj_0m5Kfu2bCJYTtkDAiMwq3BR1rqKp1rscOz9WfP0g9ZRxQPx6LbXn_Qm-P9ZJEo0x6Kxcir4wl4y6OYo1&amp;t=635375563334701695" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=sdFIlEnnsg-hOmZ_gTfQwaqutNwVpvSvA_GLCXpVJjpyPVswf-gFCHzkOHobit3aDYUQ7rKkitEvCidladbVtBllj5NNtawypj51DNMYCdXgE8tf6owd_xHW8uCilMztNOWgvhdiP9m14AMoB_BuwfWUI5ZPG4D1RBcE8v9izaEDCgGoGrMiAhSG7-bCdE2X0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F8C9ESjZBBEOBSW7epDN0cWSK-MZbbVGIF4IjXlERuKO5ZeOWgNJ524k0L0_jXeTuh4IfoDnL6I2CL_ZaXX6ab0oAHcqO-8iwrz-mHDSx_G8LQLz4DRt70yUPNJf_uhEaBAOrrfJHgn32yoMHuaYeg8DHHqouC-5s99e0nKuAAMYRLVcHrt_pnsp4A0qvXPd0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F35709B7" />
-</div>
         <%@include file="header.jsp"%>
        <script src="assets/main/js/dialog.js" type="text/javascript"></script>
         <script src="assets/main/js/common.js" type="text/javascript"></script>
@@ -111,38 +94,6 @@
     </section>
 
 
-    <script type="text/javascript">
-        $(function () {
-            (function () {
-                function init() {                    
-                    table();
-                }
-                function table() {
-                    var $tbody = $('.codeRank .first tbody');
-                    var $today = $(".codeRank .today");
-                    var $yesterday = $(".codeRank .yesterday");
-                    var $table = $('.codeRank .item');
-                    var $codeIncome = $(".codeRank .codeIncome");
-                    $table.attr("index", 0);
-                    $today.click(function () {
-                        $table.hide();
-                        $table.eq(0).show();
-                        $(this).addClass('active');
-                        $yesterday.removeClass('active');
-                        $codeIncome.find(">div").eq(0).show().siblings().hide();
-                    })
-                    $yesterday.click(function () {
-                        $table.hide();
-                        $table.eq(1).show();
-                        $(this).addClass('active');
-                        $today.removeClass('active');
-                        $codeIncome.find(">div").eq(1).show().siblings().hide();
-                    })
-                }
-                init();
-            })()
-        })
-    </script>
 
         <div id="ctl00_hiddencode" class="hiddencode" style="display: none">d4609cb9-fa33-4a85-88e0-2550227f9d8a</div>
         

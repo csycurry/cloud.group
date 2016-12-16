@@ -80,6 +80,7 @@
         function iajax() {
             var $btn = $dialog.find('.btn');
             $btn.click(function () {
+            	if (code.isverfiy) {
             	$.post("/user/login.json",$('#loginform').serialize(),function(data){
     				if(data.status==0)
 	    				{
@@ -94,6 +95,10 @@
                             return;
 	    				}
     			  });
+            	}else
+            		{
+            		alert("请先验证！");
+            		}
             })
         }
 

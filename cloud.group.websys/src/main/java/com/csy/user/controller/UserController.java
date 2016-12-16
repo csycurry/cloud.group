@@ -1,6 +1,11 @@
 package com.csy.user.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -24,6 +29,12 @@ import com.csy.user.manager.UserAccountManager;
 import com.csy.user.manager.UserManager;
 import com.csy.util.ResponseJson;
 import com.csy.util.ResponseObject;
+import com.qq.connect.QQConnectException;
+import com.qq.connect.api.OpenID;
+import com.qq.connect.api.qzone.UserInfo;
+import com.qq.connect.javabeans.AccessToken;
+import com.qq.connect.javabeans.qzone.UserInfoBean;
+import com.qq.connect.oauth.Oauth;
 @Controller
 public class UserController extends BaseController{
 	@Autowired
@@ -148,13 +159,69 @@ public class UserController extends BaseController{
 	 * QQ登陆
 	 * @return
 	 */
-	public Boolean loginForQQ()
+	@RequestMapping(value="qqLogin")
+	public void loginForQQ(HttpServletRequest request, HttpServletResponse response)
 	{
-		return null;
+		response.setContentType("text/html;charset=utf-8");
+        try {
+            response.sendRedirect(new Oauth().getAuthorizeURL(request));
+        } catch (QQConnectException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
-	
+	@RequestMapping(value="LoginRedirect")
+	public void LoginRedirect(HttpServletRequest request, HttpServletResponse response)
+	{
+		response.setContentType("text/html; charset=utf-8");
+        try {
+        	PrintWriter out = response.getWriter();
+            AccessToken accessTokenObj = (new Oauth()).getAccessTokenByRequest(request);
+
+            String accessToken   = null,
+                   openID        = null;
+            long tokenExpireIn = 0L;
+
+            if (accessTokenObj.getAccessToken().equals("")) {
+//                我们的网站被CSRF攻击了或者用户取消了授权
+//                做一些数据统计工作
+                System.out.print("没有获取到响应参数");
+            } else {
+                accessToken = accessTokenObj.getAccessToken();
+                tokenExpireIn = accessTokenObj.getExpireIn();
+
+                request.getSession().setAttribute("demo_access_token", accessToken);
+                request.getSession().setAttribute("demo_token_expirein", String.valueOf(tokenExpireIn));
+
+                // 利用获取到的accessToken 去获取当前用的openid -------- start
+                OpenID openIDObj =  new OpenID(accessToken);
+                openID = openIDObj.getUserOpenID();
+
+                out.println("欢迎你，代号为 " + openID + " 的用户!");
+                request.getSession().setAttribute("demo_openid", openID);
+                // 利用获取到的accessToken 去获取当前用户的openid --------- end
+
+                out.println("<p> start -----------------------------------利用获取到的accessToken,openid 去获取用户在Qzone的昵称等信息 ---------------------------- start </p>");
+                UserInfo qzoneUserInfo = new UserInfo(accessToken, openID);
+                UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
+                out.println("<br/>");
+                if (userInfoBean.getRet() == 0) {
+                    out.println(userInfoBean.getNickname() + "<br/>");
+                    out.println(userInfoBean.getGender() + "<br/>");
+                } else {
+                    out.println("很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
+                }
+
+            }
+        } catch (QQConnectException e) {
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	/**
 	 * 用户注册

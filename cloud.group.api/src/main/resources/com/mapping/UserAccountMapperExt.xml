@@ -18,4 +18,8 @@
     </if>
     LIMIT #{offset},#{limit}
   </select>
+  
+  <select id="staticaccount" resultType="java.math.BigDecimal">
+  	select sum(amount) from user_account where status=1 and type=1;
+  </select>
 </mapper>

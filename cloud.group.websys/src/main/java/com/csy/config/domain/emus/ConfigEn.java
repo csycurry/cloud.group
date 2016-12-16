@@ -6,7 +6,8 @@ public enum ConfigEn {
 	geetest_id(3,"geetest_id"),
 	geetest_key(4,"geetest_key"),
 	qq_id(5,"qq_id"),
-	qq_key(6,"qq_key");
+	qq_key(6,"qq_key"),
+	notice(7,"notice");
 	private Integer code;
 	private String mean;
 	

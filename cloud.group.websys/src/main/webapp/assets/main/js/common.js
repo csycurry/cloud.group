@@ -40,7 +40,7 @@ function Geetcaptcha(captcha, notice) {
         }
     };
     $.ajax({
-        url: "/common/getcaptchacode.aspx?t=" + (new Date()).getTime(),
+        url: "/geetest/register.json?t=" + (new Date()).getTime(),
         type: "get",
         dataType: "json", // 使用jsonp格式
         success: function (data) {

@@ -62,7 +62,7 @@ public class UserManager {
 	public UserDTO login(UserSearchDTO searchDTO)
 	{
 		if(StringUtils.isEmpty(searchDTO.getUserCode())||StringUtils.isEmpty(searchDTO.getUserPwd()))
-			return null;
+			throw new BusinessException("用户名或密码不能为空！");
 		List<UserDTO> userDTOs = pageSearch(searchDTO).getList();
 		if(userDTOs==null||userDTOs.size()==0)
 		{

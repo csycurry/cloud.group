@@ -40,7 +40,9 @@ public class UserAccountManager {
 		JSONObject jsonObject = new JSONObject();
 		UserAccountExample accountExample = new UserAccountExample();
 		UserAccountExample.Criteria criteria = accountExample.createCriteria();
-		criteria.andUserIdEqualTo(userId).andStatusEqualTo((byte)1);
+		if(userId!=null)
+			criteria.andUserIdEqualTo(userId);
+		criteria.andStatusEqualTo((byte)1);
 		if(type!=null)
 			criteria.andTypeEqualTo(type);
 		accountExample.setOrderByClause("create_time desc");
@@ -55,6 +57,7 @@ public class UserAccountManager {
 			JSONObject object =new JSONObject();
 			object.put("time", DateUtil.toLocaleString(account.getCreateTime(), DateUtil.YYYY_MM_DD_HH_DD_SS));
 			object.put("total", account.getAmount());
+			object.put("usercode", account.getUserCode());
 			object.put("reason", AccountTypeEn.toEnum(account.getType()).getMean());
 			array.add(object);
 		}

@@ -3,6 +3,7 @@ package com.csy.base.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import com.csy.model.base.StringUtils;
@@ -54,5 +55,11 @@ public class BaseController {
 		if(userDTO!=null)
 			return userDTO.getId();
 		return 0;
+	}
+	
+	public Session getSession()
+	{
+		Subject currentUser = SecurityUtils.getSubject();
+		return currentUser.getSession();
 	}
 }

@@ -10,22 +10,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.csy.account.domain.emus.AccountTypeEn;
 import com.csy.banner.domain.dto.NewsBannerDto;
 import com.csy.banner.domain.dto.NewsBannerSearchDto;
-import com.csy.banner.domain.manager.BannerManager;
 import com.csy.banner.domain.manager.NewsBannerManager;
 import com.csy.blogroll.domain.dto.BlogrollSearchDTO;
 import com.csy.blogroll.domain.emus.BlogRollStatusEn;
 import com.csy.blogroll.manager.BlogRollManager;
-import com.csy.dao.NewsBannerMapper;
+import com.csy.config.domain.dto.SystemConfigDTO;
+import com.csy.config.domain.emus.ConfigEn;
+import com.csy.config.manager.SystemConfigManager;
 import com.csy.mission.domain.dto.MissionDTO;
 import com.csy.mission.domain.dto.MissionSearchDTO;
-import com.csy.mission.domain.emus.MissionCodeStatusEn;
 import com.csy.mission.manager.MissionManager;
 import com.csy.news.domain.dto.NewsPageDto;
 import com.csy.news.domain.emus.NewsTypeEn;
 import com.csy.news.manager.NewsManager;
 import com.csy.user.domain.dto.UserDTO;
+import com.csy.user.manager.UserAccountManager;
 
 @Controller
 public class IndexController {
@@ -37,6 +41,10 @@ public class IndexController {
 	private NewsManager newsManager;
 	@Autowired
 	private BlogRollManager blogRollManager;
+	@Autowired
+	private SystemConfigManager systemConfigManager;
+	@Autowired
+	private UserAccountManager userAccountManager;
 	
 	@RequestMapping(value = "/main")
 	public String index() {
@@ -70,6 +78,9 @@ public class IndexController {
 		BlogrollSearchDTO blogrollSearchDTO = new BlogrollSearchDTO();
 		blogrollSearchDTO.setStatus(BlogRollStatusEn.UP.getCode());
 		map.put("blogs",blogRollManager.search(blogrollSearchDTO));
+		SystemConfigDTO configDTO = systemConfigManager.detail(ConfigEn.notice.getCode());
+		map.put("notice", configDTO.getConfigValue());
+		JSONObject jsonObject = userAccountManager.pageSearch("", 0, 20, null, AccountTypeEn.OUT.getCode());
 		return modelAndView;
 		
 	}
