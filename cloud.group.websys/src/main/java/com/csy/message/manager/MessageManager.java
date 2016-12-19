@@ -33,10 +33,10 @@ public class MessageManager {
 			List<NotifyReceiver> newsList= notifyReceiverMapperExt.selectByExampleByPage(example, pagination.getOffset(), pagination.getPageSize());
 			List<NotifyReceiverDTO> retList = new ArrayList<NotifyReceiverDTO>(newsList.size());
 			for (NotifyReceiver result : newsList) {
-				NotifyReceiverDTO missionDTO = new NotifyReceiverDTO();
-				BeanUtils.copyProperties(result, missionDTO);
-				retList.add(missionDTO);
-//				missionDTO.setCreateDate(DateUtil.toLocaleString(result.getCreateTm(), "YYYY-MM-dd"));
+				NotifyReceiverDTO notifyReceiverDTO = new NotifyReceiverDTO();
+				BeanUtils.copyProperties(result, notifyReceiverDTO);
+				retList.add(notifyReceiverDTO);
+				notifyReceiverDTO.setStatusCn("已发送");
 			}
 			pagination.setList(retList);
 		}

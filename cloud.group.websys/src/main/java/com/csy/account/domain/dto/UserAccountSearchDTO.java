@@ -15,6 +15,8 @@ public class UserAccountSearchDTO extends BasePageDTO implements Serializable{
 	
 	private String userCode;
 	
+	private Byte status;
+	
 	private String beginTm;
 	
 	private String endTm;
@@ -57,6 +59,14 @@ public class UserAccountSearchDTO extends BasePageDTO implements Serializable{
 
 	public void setEndTm(String endTm) {
 		this.endTm = endTm;
+	}
+
+	public Byte getStatus() {
+		return status;
+	}
+
+	public void setStatus(Byte status) {
+		this.status = status;
 	}
 	
 	

@@ -1,155 +1,192 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>
-	聚聚玩-游戏试玩-广告体验-好友推广-网络兼职
-</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+<title>打码打码打码</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description" content="打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
-<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
-	<link href="/assets/main/css/common.css" type="text/css" rel="stylesheet" />
-	<link href="/assets/main/css/main.css" type="text/css" rel="stylesheet" />
-	<link href="/assets/main/css/style.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/main/css/code.css" />
-    <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
-    <style type="text/css">
-        body {
-            font: 14px '微软雅黑';
-            background: #fff;
-        }
+<link href="/assets/index/css/bootstrap.css" type="text/css"
+	rel="stylesheet" />
+<link href="/assets/main/css/common.css" type="text/css"
+	rel="stylesheet" />
+<link href="/assets/main/css/main.css" type="text/css" rel="stylesheet" />
+<link href="/assets/main/css/style.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/main/css/code.css" />
+<script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
+<style type="text/css">
+body {
+	font: 14px '微软雅黑';
+	background: #fff;
+}
 
-        ul, li {
-            margin: 0;
-        }
+ul, li {
+	margin: 0;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-    </style>
-    
-<link type="text/css" rel="stylesheet" href="/assets/main/css/register.css" />
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+</style>
+
+<link type="text/css" rel="stylesheet"
+	href="/assets/main/css/register.css" />
 </head>
 <body>
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTQ3NTA3NTA1D2QWAmYPZBYCAgEPZBYEAgEPZBYCAgoPFgIeC18hSXRlbUNvdW50AjIWZGYPZBYCZg8VAghsaWthaTUyMAI1MGQCAQ9kFgJmDxUCCWthbGViMDUyMgE5ZAICD2QWAmYPFQIKeTUyMTExMTI1eQE4ZAIDD2QWAmYPFQILMTMxNjE4NjA0NDUBM2QCBA9kFgJmDxUCBndocTUxOAM3NDBkAgUPZBYCZg8VAgsxODIwNzc0MTU2MAEzZAIGD2QWAmYPFQIIbHg4ODY5NjYBM2QCBw9kFgJmDxUCCnE1MTkxODQ4MDQBOWQCCA9kFgJmDxUCB25hbWUzMTQCNDVkAgkPZBYCZg8VAgsxNTAwODgzODk3OQMzNTBkAgoPZBYCZg8VAgttMTA0NDg4OTgxMgE5ZAILD2QWAmYPFQILMTUzMzY2NTY3NjUDMTUwZAIMD2QWAmYPFQIGNTJkZGhoATdkAg0PZBYCZg8VAgZtd243NzcBOGQCDg9kFgJmDxUCDHpoZW5kZWhhb2ZhbgMzNjNkAg8PZBYCZg8VAgsxNTE0NjM5NDkzNAMxODBkAhAPZBYCZg8VAgdzaXlhbm5uAzEzMGQCEQ9kFgJmDxUCCmp1anV3dWppYW4DMTMzZAISD2QWAmYPFQIJaHVvanQyMDE1AjMwZAITD2QWAmYPFQIGdGVhbXM2AzIwMGQCFA9kFgJmDxUCCnNob3c4c2hvdzgBMmQCFQ9kFgJmDxUCCmxpbnRhbzM2NzcCMzRkAhYPZBYCZg8VAgxwMTMzODYwMzMxNTYBMmQCFw9kFgJmDxUCCWxpYW5nMTY4OAEyZAIYD2QWAmYPFQIGbXFhenJzAjEzZAIZD2QWAmYPFQIHcndoMjAwMwIyMGQCGg9kFgJmDxUCCzEzNzY5MzcyNTE4ATFkAhsPZBYCZg8VAgtseHkxOTYzMjEwNAIyMGQCHA9kFgJmDxUCCGNoZW4xMjM2AjIwZAIdD2QWAmYPFQIIZXJpYzIwMTUDMzY4ZAIeD2QWAmYPFQIKd2Fzc3dvYWluaQIxN2QCHw9kFgJmDxUCCTk5MDIwMzYzMwExZAIgD2QWAmYPFQIIcXVuNTIwOTUCMjBkAiEPZBYCZg8VAgsxNTk3MDE1OTg1NQEzZAIiD2QWAmYPFQILMTU3Mjc2OTI0NTcCMzlkAiMPZBYCZg8VAgdxb29wcGFkATZkAiQPZBYCZg8VAgp6YmtpbmcyMDE2AjI3ZAIlD2QWAmYPFQIIRkY1MDIwMTABNGQCJg9kFgJmDxUCCXg3NTI1MDM0MwI5M2QCJw9kFgJmDxUCDHFxMTA2NzE1NDIzMwEyZAIoD2QWAmYPFQIGeGlhb2ZzATRkAikPZBYCZg8VAgpxOTYyNjkzNTA0AjUwZAIqD2QWAmYPFQIJOTI5OTM4MzY3AjMwZAIrD2QWAmYPFQILd2FuZzI2NTQyMjYCMTBkAiwPZBYCZg8VAgk1NDU0ODExNDICNDBkAi0PZBYCZg8VAgpnZzg5OTI1OTEyAjIxZAIuD2QWAmYPFQILcWlhbmthaTAxNTYCNTBkAi8PZBYCZg8VAgZ0eXF0eXEBMmQCMA9kFgJmDxUCCzE4OTc4NzcxNTQzAzExOGQCMQ9kFgJmDxUCDGxpYW5nemhhbmhhbwE0ZAICDxYCHglpbm5lcmh0bWwFJGNmZDZhYWZmLTM2ODktNDc5Yi04NWRlLWIwMTdiYjM3NTNjYWRkO6DZpQUjcLnDHF8Fq09fl5VY5kZ1HoWnwoSC+6HVniY=" />
-</div>
+	<div>
+		<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+		<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT"
+			value="" /> <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+			value="/wEPDwUJNTQ3NTA3NTA1D2QWAmYPZBYCAgEPZBYEAgEPZBYCAgoPFgIeC18hSXRlbUNvdW50AjIWZGYPZBYCZg8VAghsaWthaTUyMAI1MGQCAQ9kFgJmDxUCCWthbGViMDUyMgE5ZAICD2QWAmYPFQIKeTUyMTExMTI1eQE4ZAIDD2QWAmYPFQILMTMxNjE4NjA0NDUBM2QCBA9kFgJmDxUCBndocTUxOAM3NDBkAgUPZBYCZg8VAgsxODIwNzc0MTU2MAEzZAIGD2QWAmYPFQIIbHg4ODY5NjYBM2QCBw9kFgJmDxUCCnE1MTkxODQ4MDQBOWQCCA9kFgJmDxUCB25hbWUzMTQCNDVkAgkPZBYCZg8VAgsxNTAwODgzODk3OQMzNTBkAgoPZBYCZg8VAgttMTA0NDg4OTgxMgE5ZAILD2QWAmYPFQILMTUzMzY2NTY3NjUDMTUwZAIMD2QWAmYPFQIGNTJkZGhoATdkAg0PZBYCZg8VAgZtd243NzcBOGQCDg9kFgJmDxUCDHpoZW5kZWhhb2ZhbgMzNjNkAg8PZBYCZg8VAgsxNTE0NjM5NDkzNAMxODBkAhAPZBYCZg8VAgdzaXlhbm5uAzEzMGQCEQ9kFgJmDxUCCmp1anV3dWppYW4DMTMzZAISD2QWAmYPFQIJaHVvanQyMDE1AjMwZAITD2QWAmYPFQIGdGVhbXM2AzIwMGQCFA9kFgJmDxUCCnNob3c4c2hvdzgBMmQCFQ9kFgJmDxUCCmxpbnRhbzM2NzcCMzRkAhYPZBYCZg8VAgxwMTMzODYwMzMxNTYBMmQCFw9kFgJmDxUCCWxpYW5nMTY4OAEyZAIYD2QWAmYPFQIGbXFhenJzAjEzZAIZD2QWAmYPFQIHcndoMjAwMwIyMGQCGg9kFgJmDxUCCzEzNzY5MzcyNTE4ATFkAhsPZBYCZg8VAgtseHkxOTYzMjEwNAIyMGQCHA9kFgJmDxUCCGNoZW4xMjM2AjIwZAIdD2QWAmYPFQIIZXJpYzIwMTUDMzY4ZAIeD2QWAmYPFQIKd2Fzc3dvYWluaQIxN2QCHw9kFgJmDxUCCTk5MDIwMzYzMwExZAIgD2QWAmYPFQIIcXVuNTIwOTUCMjBkAiEPZBYCZg8VAgsxNTk3MDE1OTg1NQEzZAIiD2QWAmYPFQILMTU3Mjc2OTI0NTcCMzlkAiMPZBYCZg8VAgdxb29wcGFkATZkAiQPZBYCZg8VAgp6YmtpbmcyMDE2AjI3ZAIlD2QWAmYPFQIIRkY1MDIwMTABNGQCJg9kFgJmDxUCCXg3NTI1MDM0MwI5M2QCJw9kFgJmDxUCDHFxMTA2NzE1NDIzMwEyZAIoD2QWAmYPFQIGeGlhb2ZzATRkAikPZBYCZg8VAgpxOTYyNjkzNTA0AjUwZAIqD2QWAmYPFQIJOTI5OTM4MzY3AjMwZAIrD2QWAmYPFQILd2FuZzI2NTQyMjYCMTBkAiwPZBYCZg8VAgk1NDU0ODExNDICNDBkAi0PZBYCZg8VAgpnZzg5OTI1OTEyAjIxZAIuD2QWAmYPFQILcWlhbmthaTAxNTYCNTBkAi8PZBYCZg8VAgZ0eXF0eXEBMmQCMA9kFgJmDxUCCzE4OTc4NzcxNTQzAzExOGQCMQ9kFgJmDxUCDGxpYW5nemhhbmhhbwE0ZAICDxYCHglpbm5lcmh0bWwFJGNmZDZhYWZmLTM2ODktNDc5Yi04NWRlLWIwMTdiYjM3NTNjYWRkO6DZpQUjcLnDHF8Fq09fl5VY5kZ1HoWnwoSC+6HVniY=" />
+	</div>
 
 
 
-<div>
+	<div>
 
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="799CC77D" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAf9JXRbdd4Y+NoqbMjNTiJDFs5y3TNCQNuJmECURV/SYq2vKPuIGiwfZQ0Kee5v8Y/v3UwcCmgopM0gYQ/3GAhPrBaa1Ho6/kn1nxuiuzlfWmP5uSqHO66v9s+Bx06yjrGUwAy367gen91wyL4sRAhGN8TOozZeEoc3OrfZc5OeplDTmir835NUiHUK5uW6zHk=" />
-</div>
-       <%@include file="header.jsp"%>
-        <script src="assets/main/js/dialog.js" type="text/javascript"></script>
-        <script src="assets/main/js/common.js" type="text/javascript"></script>
-        <script src="http://static.geetest.com/static/tools/gt.js"></script>     
-        
-    <section>
-        <div class="container mainWidth" style="background-color: white; margin: 20px auto;">
-            <div class="loginReg">
-                <ul class='loginState clearfix'>
-                    <li>
-                        <div class="pull-left icon">
-                            <img src="assets/main/img/code-5.png" />
-                        </div>
-                        <div class="pull-left">
-                            <h4>轻松打码</h4>
-                            <p>无需押金，轻松打码</p>
-                        </div>
-                        <div class="pull-left right">
-                            <img src="assets/main/img/login4.png" />
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pull-left icon">
-                            <img src="assets/main/img/code-2.png" />
-                        </div>
-                        <div class="pull-left">
-                            <h4>赚元宝</h4>
-                            <p>虚拟货币，支持直接提现</p>
-                        </div>
-                        <div class="pull-left right">
-                            <img src="assets/main/img/login4.png" />
-                        </div>
-                    </li>
-                    <li>
-                        <div class="pull-left icon">
-                            <img src="assets/main/img/code-4.png" />
-                        </div>
-                        <div class="pull-left">
-                            <h4>快速提现</h4>
-                            <p>支付宝提现，快速便捷</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="loginCtn clearfix">
-                    <div class="pull-left loginMain">
-                        <h3>注册</h3>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">登录账号<span class="red" style="font-size: 18px">*</span></div>
-                            <input type="text" id="userCode" name="userCode" placeholder="用户名" class="pull-left form-control">
-                            
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">手机号码<span class="red" style="font-size: 20px">*</span></div>
-                            <input name="userMobile" type="text" id="ctl00_ContentPlaceHolder1_txtPhoneNumber" class="form-control" placeholder="请输入手机号码(提现+密码找回)" />
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">短信验证码<span class="red" style="font-size: 20px">*</span></div>
-                            <input type="text" id="msgCode" name="code" class="form-control" placeholder="短信验证码" required="">
-                            
-                            <input type="button" id="smsBtn" onclick="getCode()" class="btn pull-right" value="获取验证码" >
-                        </div>
-                        
-								  
-                        <div class="piece clearfix">
-                            <div class="text pull-left">输入密码<span class="red" style="font-size: 20px">*</span></div>
-                            <input name="userPwd" type="password" id="ctl00_ContentPlaceHolder1_password1" class="form-control" placeholder="请输入密码" />
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">确认密码<span class="red" style="font-size: 20px">*</span></div>
-                            <input name="userPwd2" type="password" id="ctl00_ContentPlaceHolder1_password2" class="form-control" placeholder="请输入确认密码" />
-                            
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">QQ号码<span class="red" style="font-size: 20px">*</span></div>
-                            <input name="userMail" type="text" id="ctl00_ContentPlaceHolder1_eamil" class="form-control" placeholder="请输入电子邮箱" />
-                            
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">电子邮箱<span class="red" style="font-size: 20px">*</span></div>
-                            <input name="userQq" type="text" id="ctl00_ContentPlaceHolder1_eamil" class="form-control" placeholder="请输入电子邮箱" />
-                            
-                        </div>
-                        <div class="piece clearfix">
-                            <div class="text pull-left">滑动验证</div>
-                            <div id="captchaReg" style="margin-left: 120px"></div>
-                        </div>
-                        <div class="checkbox deal">
-                            <label>
-                                <input type="checkbox" checked="checked" />已经阅读并同意《XXX注册协议》
-                            </label>
-                        </div>
-                        <input type="submit" name="ctl00$ContentPlaceHolder1$btnRegister" value="立即注册" id="ctl00_ContentPlaceHolder1_btnRegister" class="btn btn-info loginBtn" />
-                        <p class="issue"><a href="#">注册遇到问题？</a><span>已有账号,</span><a href="#">登陆</a></p>
-                    </div>
+		<input type="hidden" name="__VIEWSTATEGENERATOR"
+			id="__VIEWSTATEGENERATOR" value="799CC77D" /> <input type="hidden"
+			name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+			value="/wEdAAf9JXRbdd4Y+NoqbMjNTiJDFs5y3TNCQNuJmECURV/SYq2vKPuIGiwfZQ0Kee5v8Y/v3UwcCmgopM0gYQ/3GAhPrBaa1Ho6/kn1nxuiuzlfWmP5uSqHO66v9s+Bx06yjrGUwAy367gen91wyL4sRAhGN8TOozZeEoc3OrfZc5OeplDTmir835NUiHUK5uW6zHk=" />
+	</div>
+	<%@include file="header.jsp"%>
+	<script src="assets/main/js/dialog.js" type="text/javascript"></script>
+	<script src="assets/main/js/common.js" type="text/javascript"></script>
+	<script src="http://static.geetest.com/static/tools/gt.js"></script>
 
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="http://static.geetest.com/static/tools/gt.js"></script>
-    <script type="text/javascript">
+	<section>
+	<div class="container mainWidth"
+		style="background-color: white; margin: 20px auto;">
+		<div class="loginReg">
+			<ul class='loginState clearfix'>
+				<li>
+					<div class="pull-left icon">
+						<img src="assets/main/img/code-5.png" />
+					</div>
+					<div class="pull-left">
+						<h4>轻松打码</h4>
+						<p>无需押金，轻松打码</p>
+					</div>
+					<div class="pull-left right">
+						<img src="assets/main/img/login4.png" />
+					</div>
+				</li>
+				<li>
+					<div class="pull-left icon">
+						<img src="assets/main/img/code-2.png" />
+					</div>
+					<div class="pull-left">
+						<h4>赚元宝</h4>
+						<p>虚拟货币，支持直接提现</p>
+					</div>
+					<div class="pull-left right">
+						<img src="assets/main/img/login4.png" />
+					</div>
+				</li>
+				<li>
+					<div class="pull-left icon">
+						<img src="assets/main/img/code-4.png" />
+					</div>
+					<div class="pull-left">
+						<h4>快速提现</h4>
+						<p>支付宝提现，快速便捷</p>
+					</div>
+				</li>
+			</ul>
+			<div class="loginCtn clearfix">
+				<form id="registerForm">
+					<div class="pull-left loginMain">
+						<h3>注册</h3>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								登录账号<span class="red" style="font-size: 18px">*</span>
+							</div>
+							<input type="text" id="userCode" name="userCode"
+								placeholder="用户名" class="pull-left form-control">
+
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								手机号码<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input name="userMobile" type="text"
+								id="ctl00_ContentPlaceHolder1_txtPhoneNumber"
+								class="form-control" placeholder="请输入手机号码(提现+密码找回)" />
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								短信验证码<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input type="text" id="msgCode" name="code" class="form-control"
+								placeholder="短信验证码" required=""> <input type="button"
+								id="smsBtn" onclick="getCode()" class="btn pull-right"
+								value="获取验证码">
+						</div>
+
+
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								输入密码<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input name="userPwd" type="password"
+								id="ctl00_ContentPlaceHolder1_password1" class="form-control"
+								placeholder="请输入密码" />
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								确认密码<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input name="userPwd2" type="password"
+								id="ctl00_ContentPlaceHolder1_password2" class="form-control"
+								placeholder="请输入确认密码" />
+
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								QQ号码<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input name="userMail" type="text"
+								id="ctl00_ContentPlaceHolder1_QQ" class="form-control"
+								placeholder="请输入qq" />
+
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								电子邮箱<span class="red" style="font-size: 20px">*</span>
+							</div>
+							<input name="userQq" type="text"
+								id="ctl00_ContentPlaceHolder1_eamil" class="form-control"
+								placeholder="请输入电子邮箱" />
+
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">滑动验证</div>
+							<div id="captchaReg" style="margin-left: 120px"></div>
+						</div>
+						<div class="checkbox deal">
+							<label> <input type="checkbox" checked="checked" />已经阅读并同意《XXX注册协议》
+							</label>
+						</div>
+						<input type="button" name="ctl00$ContentPlaceHolder1$btnRegister"
+							value="立即注册" id="ctl00_ContentPlaceHolder1_btnRegister"
+							class="btn btn-info loginBtn" />
+						<p class="issue">
+							<a href="#">注册遇到问题？</a><span>已有账号,</span><a href="#">登陆</a>
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</section>
+	<script src="http://static.geetest.com/static/tools/gt.js"></script>
+	<script type="text/javascript">
         var check = true; var code = { isverfiy: false };
         function validateTextIsEmpty(item, content) {
             var lbitem = item.parent();
@@ -318,10 +355,10 @@
 		 }
     </script>
 
-        <div id="ctl00_hiddencode" class="hiddencode" style="display: none">cfd6aaff-3689-479b-85de-b017bb3753ca</div>
-        
-        <%@include file="footer.jsp"%>      
-    <script type="text/javascript">
+	<div id="ctl00_hiddencode" class="hiddencode" style="display: none">cfd6aaff-3689-479b-85de-b017bb3753ca</div>
+
+	<%@include file="footer.jsp"%>
+	<script type="text/javascript">
         $(function () {
             (function () {
             	$(".headText").hide();

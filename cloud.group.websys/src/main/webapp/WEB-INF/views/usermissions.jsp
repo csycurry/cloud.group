@@ -16,19 +16,7 @@
 </title>
 </head>
 <body>
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAgIDD2QWBGYPZBYCAgEPFgIeCWlubmVyaHRtbAUkZjcwN2E3YzctMDIxNS00NTUyLTg1NDktOTZkMDg2ZWQyMzhmZAIBDw8WAh4EVGV4dAUDMTU2ZGRkeF9o9eCzQu9vUtFFbVULCTEiBg2UoDc3CNxWZ2/iDnc=" />
-</div>
-
-
-
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2344A5BF" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAKPphcpwfNWMUiNJdFeG63vU0tG1Q6ILoOZKKWbf3w+hGdVfUOPhufu7CCVlpugMk9eNyUxmjcmxwaSSgudTy2f" />
-</div>        
+     
         <div class="header">
             
 <script src="http://static.geetest.com/static/tools/gt.js"></script>
@@ -39,7 +27,7 @@
     <ul class="pull-left clearfix">
         <li><a href="/index.html" target="_blank">首页</a></li>
         <li><a href="/codes.html" target="_blank">打码专区</a></li>
-        <li><a href="/newslist.html?page=1" target="_blank">资讯中心</a></li>        
+        <li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>        
     </ul>
 
     <div class="register pull-right">
@@ -86,8 +74,8 @@
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
-                    <div class="accout">
-                        <h4 class='prl20 orange'>
+                    <div class="accout  orange">
+                        <h4 class='prl20'>
                             <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
                         <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
@@ -150,6 +138,12 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            getAccountDetail();
+        });
+    </script>
+
                 </div>
             </div>
         </section>

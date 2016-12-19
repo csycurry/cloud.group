@@ -26,7 +26,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>任务查询</span>
+                <span>佣金查询</span>
             </h1>
              <div class='pull-right'>
                                 <ul class='breadcrumb'>

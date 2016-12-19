@@ -9,5 +9,5 @@ public interface UserMapperExt extends UserMapper{
     
     //+++++++++++++++++++++++++++++++++
     List<User> selectUserWithPage(@Param("example") UserExample example,@Param("offset")int offset,@Param("limit") int limit);
-    
+    int changeBalance(User user);
 }

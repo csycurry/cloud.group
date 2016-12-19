@@ -21,6 +21,8 @@ public class UserDTO implements Serializable{
 
     private String userMobile;
 
+    private String userPwdOld;
+    
     private String userPwd;
 
     private Date createTime;
@@ -38,6 +40,8 @@ public class UserDTO implements Serializable{
     private String realName;
     
     private String code;
+    
+    private String openId;
     
     public String getCode() {
 		return code;
@@ -157,6 +161,22 @@ public class UserDTO implements Serializable{
 
 	public void setRealName(String realName) {
 		this.realName = realName;
+	}
+
+	public String getOpenId() {
+		return openId;
+	}
+
+	public void setOpenId(String openId) {
+		this.openId = openId;
+	}
+
+	public String getUserPwdOld() {
+		return userPwdOld;
+	}
+
+	public void setUserPwdOld(String userPwdOld) {
+		this.userPwdOld = userPwdOld;
 	}
 
 	

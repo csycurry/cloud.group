@@ -21,6 +21,8 @@ public class NotifyReceiverDTO implements Serializable {
     private Byte isDelete;
 
     private Byte status;
+    
+    private String statusCn;
 
     private Byte isTimeLimit;
 
@@ -116,6 +118,14 @@ public class NotifyReceiverDTO implements Serializable {
 
 	public void setStatus(Byte status) {
 		this.status = status;
+	}
+
+	public String getStatusCn() {
+		return statusCn;
+	}
+
+	public void setStatusCn(String statusCn) {
+		this.statusCn = statusCn;
 	}
 
 	public Byte getIsTimeLimit() {

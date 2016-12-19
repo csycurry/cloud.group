@@ -31,12 +31,15 @@ public class MissionManager {
 	@Autowired
 	private MissionCodeMapperExt missionCodeMapperExt;
 	
-	public MissionExtendDTO insertMission(MissionExtendDTO missionDTO)
+	public MissionExtendDTO insertMission(MissionExtendDTO missionDTO,String staffCode)
 	{
 		MissionWithBLOBs mission = new MissionWithBLOBs();
 		BeanUtils.copyProperties(missionDTO, mission);
+		mission.setCreator(staffCode);
 		mission.setCreateTm(new Date());
+		mission.setModifior(staffCode);
 		mission.setModifyTm(new Date());
+		mission.setSignNum(0);
 		if(StringUtils.isNotEmpty(missionDTO.getBeginDate()))
 		{
 			mission.setBeginTm(DateUtil.parse(missionDTO.getBeginDate(),DateUtil.YYYY_MM_DD_HH_DD_SS));
@@ -50,10 +53,11 @@ public class MissionManager {
 		return missionDTO;
 	}
 	
-	public void updateMission(MissionDTO missionDTO)
+	public void updateMission(MissionDTO missionDTO,String staffCode)
 	{
 		MissionWithBLOBs mission = new MissionWithBLOBs();
 		BeanUtils.copyProperties(missionDTO, mission);
+		mission.setModifior(staffCode);
 		mission.setModifyTm(new Date());
 		missionMapperExt.updateByPrimaryKeySelective(mission);
 	}
@@ -90,6 +94,11 @@ public class MissionManager {
 		extendDTO.setTypeCN(MissionTypeEn.toEnum(mission.getType()).getMean());
 		return extendDTO;
 		
+	}
+	
+	public void remove(int missionId)
+	{
+		missionMapperExt.deleteByPrimaryKey(missionId);
 	}
 	
 	public List<MissionDTO> list(MissionSearchDTO searchDTO)
@@ -137,9 +146,9 @@ public class MissionManager {
 		return example;
 	}
 	
-	public void createMission(String[][] bodys,MissionExtendDTO missionDTO)
+	public void createMission(String[][] bodys,MissionExtendDTO missionDTO,String staffCode)
 	{
-		missionDTO = insertMission(missionDTO);
+		missionDTO = insertMission(missionDTO,staffCode);
 		inserBatch(bodys,missionDTO.getId());
 	}
 
@@ -155,6 +164,11 @@ public class MissionManager {
 			list.add(code);
 		}
 		missionCodeMapperExt.insertBatch(list);
+	}
+	
+	public void signNumAdd(Integer id)
+	{
+		missionMapperExt.signNumAdd(id);
 	}
 	
 	

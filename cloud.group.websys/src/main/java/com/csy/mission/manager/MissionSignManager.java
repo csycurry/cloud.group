@@ -91,6 +91,7 @@ public class MissionSignManager {
 					MissionSign missionSign = bulidSign(userDTO,extendDTO);
 					missionSign.setMissionNum(code.getCode());
 					missionSignMapperExt.insert(missionSign);
+					missionManager.signNumAdd(missionId);
 					return code.getCode();
 				}
 			}
@@ -101,9 +102,10 @@ public class MissionSignManager {
 			String code = initCode(extendDTO.getMissionTitle(),userDTO.getId());
 			missionSign.setMissionNum(code);
 			missionSignMapperExt.insert(missionSign);
+			missionManager.signNumAdd(missionId);
 			return code;
 		}
-		return "";
+		throw new BusinessException("工号已经被领取完");
 	}
 	
 	private String initCode(String name,int userId)

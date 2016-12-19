@@ -20,13 +20,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.csy.account.domain.dto.UserAccountDTO;
 import com.csy.base.controller.BaseController;
+import com.csy.exception.BusinessException;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.domain.dto.UserSearchDTO;
 import com.csy.user.manager.UserAccountManager;
 import com.csy.user.manager.UserManager;
+import com.csy.util.MD5Utils;
 import com.csy.util.ResponseJson;
 import com.csy.util.ResponseObject;
 import com.qq.connect.QQConnectException;
@@ -128,31 +131,20 @@ public class UserController extends BaseController{
 		UserDTO dto = userManager.login(searchDTO);
 		if(dto!=null)
 		{
-			UsernamePasswordToken token = new UsernamePasswordToken(dto.getUserCode(), dto.getUserPwd());
-			token.setRememberMe(true);
-	
-			Subject currentUser = SecurityUtils.getSubject();
-			try {
-	
-				currentUser.login(token);
-				currentUser.getSession().setAttribute("user", dto);
-			} catch (AuthenticationException ae) {
-	
-				ae.printStackTrace();
-	
-				return null;
-			}
-			if (currentUser.isAuthenticated()) {
-				return dto;
-			} else {
-	
-				return null;
-			}
+			getHttpSession().setAttribute("user", dto);
+			return dto;
 		}
 		else
 		{
-			return dto;
+			throw new BusinessException("用户名或密码错误！");
 		}
+	}
+	
+	@RequestMapping(value="/user/loginout")
+	public String userLogOut(UserSearchDTO searchDTO)
+	{
+		getHttpSession().setAttribute("user", null);
+		return "redirect:/index.html";
 	}
 	
 	/**
@@ -174,7 +166,7 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value="LoginRedirect")
-	public void LoginRedirect(HttpServletRequest request, HttpServletResponse response)
+	public UserDTO LoginRedirect(HttpServletRequest request, HttpServletResponse response)
 	{
 		response.setContentType("text/html; charset=utf-8");
         try {
@@ -188,31 +180,40 @@ public class UserController extends BaseController{
             if (accessTokenObj.getAccessToken().equals("")) {
 //                我们的网站被CSRF攻击了或者用户取消了授权
 //                做一些数据统计工作
-                System.out.print("没有获取到响应参数");
+                throw new BusinessException("没有获取到响应参数");
             } else {
                 accessToken = accessTokenObj.getAccessToken();
                 tokenExpireIn = accessTokenObj.getExpireIn();
 
-                request.getSession().setAttribute("demo_access_token", accessToken);
-                request.getSession().setAttribute("demo_token_expirein", String.valueOf(tokenExpireIn));
-
                 // 利用获取到的accessToken 去获取当前用的openid -------- start
                 OpenID openIDObj =  new OpenID(accessToken);
                 openID = openIDObj.getUserOpenID();
-
-                out.println("欢迎你，代号为 " + openID + " 的用户!");
-                request.getSession().setAttribute("demo_openid", openID);
+                UserDTO userDTO = userManager.getUserByOpenId(openID);
+                if(userDTO!=null)
+                {
+                	Subject currentUser = loginShiro(userDTO);
+                	currentUser.getSession().setAttribute("access_token", accessToken);
+        			currentUser.getSession().setAttribute("token_expirein", String.valueOf(tokenExpireIn));
+        			return userDTO;
+                }
+                UserDTO dto = new UserDTO();
+                
+                
                 // 利用获取到的accessToken 去获取当前用户的openid --------- end
 
                 out.println("<p> start -----------------------------------利用获取到的accessToken,openid 去获取用户在Qzone的昵称等信息 ---------------------------- start </p>");
                 UserInfo qzoneUserInfo = new UserInfo(accessToken, openID);
                 UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
-                out.println("<br/>");
                 if (userInfoBean.getRet() == 0) {
-                    out.println(userInfoBean.getNickname() + "<br/>");
-                    out.println(userInfoBean.getGender() + "<br/>");
+                	dto.setOpenId(openID);
+                	dto.setUserName(userInfoBean.getNickname());
+                    userManager.insertUser(dto);
+                    Subject currentUser = loginShiro(userDTO);
+                	currentUser.getSession().setAttribute("access_token", accessToken);
+        			currentUser.getSession().setAttribute("token_expirein", String.valueOf(tokenExpireIn));
+        			currentUser.getSession().setAttribute("qq_openid", openID);
                 } else {
-                    out.println("很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
+                    throw new BusinessException("很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
                 }
 
             }
@@ -220,7 +221,31 @@ public class UserController extends BaseController{
         } catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 		
+	}
+	
+	private Subject loginShiro(UserDTO userDTO)
+	{
+		UsernamePasswordToken token = new UsernamePasswordToken(userDTO.getUserCode(), userDTO.getUserPwd());
+		token.setRememberMe(true);
+
+		Subject currentUser = SecurityUtils.getSubject();
+		try {
+
+			currentUser.login(token);
+			currentUser.getSession().setAttribute("user", userDTO);
+			
+		} catch (AuthenticationException ae) {
+			ae.printStackTrace();
+			return currentUser;
+		}
+		if (currentUser.isAuthenticated()) {
+			return currentUser;
+		} else {
+
+			return currentUser;
+		}
 	}
 	
 	/**
@@ -257,8 +282,43 @@ public class UserController extends BaseController{
 	@ResponseJson
 	public @ResponseBody void updateUser(UserDTO userDTO)
 	{
+		userDTO.setId(getLoginUserId());
 		userManager.updateUser(userDTO);
 	}
+	
+	@RequestMapping(value="/user/pwd")
+	@ResponseJson
+	public @ResponseBody void updatePwd(UserDTO userDTO)
+	{
+		UserDTO dto = getLoginUser();
+		String pwd_old = MD5Utils.encoderByMd5With32Bit(userDTO.getUserPwdOld());
+		if(!dto.getUserPwd().equals(pwd_old))
+		{
+			throw new BusinessException("原密码不符");
+		}
+		userDTO.setId(dto.getId());
+		userDTO.setUserPwd(MD5Utils.encoderByMd5With32Bit(userDTO.getUserPwd()));
+		userManager.updateUser(userDTO);
+	}
+	
+	@RequestMapping(value="/user/pay")
+	@ResponseJson
+	public @ResponseBody void getPay(UserAccountDTO accountDTO)
+	{
+		
+		UserDTO userDTO = getLoginUser();
+		userDTO.setCode(accountDTO.getCode());
+		userDTO.setBalance(accountDTO.getAmount().longValue());
+		int count = userManager.changeBalance(userDTO);
+		if(count>0)
+		{
+			accountDTO.setUserId(userDTO.getId());
+			accountDTO.setUserCode(userDTO.getUserCode());
+			accountDTO.setUserPay(userDTO.getUserAlipay());
+			userAccountManager.insertAccountDTO(accountDTO);
+		}
+	}
+	
 	//+++++++++++++++++++++++++++++++后台管理++++++++++++++++++++++++
 	@RequestMapping(value="/backstage/user/userList")
 	public ModelAndView getUserList(@ModelAttribute UserSearchDTO searchDTO,int page)

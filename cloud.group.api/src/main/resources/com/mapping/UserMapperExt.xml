@@ -19,4 +19,9 @@
     </if>
     LIMIT #{offset},#{limit}
   </select>
+  
+  <update id="changeBalance" parameterType="com.csy.model.User">
+  	update `user` set balance = balance-#{balance,jdbcType=BIGINT}
+  	where id = #{id,jdbcType=INTEGER} and balance>=#{balance,jdbcType=BIGINT}
+  </update>
 </mapper>

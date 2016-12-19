@@ -7,7 +7,8 @@ public enum ConfigEn {
 	geetest_key(4,"geetest_key"),
 	qq_id(5,"qq_id"),
 	qq_key(6,"qq_key"),
-	notice(7,"notice");
+	notice(7,"notice"),
+	base_static(8,"统计基数");
 	private Integer code;
 	private String mean;
 	

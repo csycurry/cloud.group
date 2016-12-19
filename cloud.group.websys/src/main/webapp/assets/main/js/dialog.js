@@ -34,7 +34,6 @@
 					    	</div>\
 					    	<div class='tip'>\
 								<div class='success'>登陆</div>\
-								<div class='fail'>鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒</div>\
 					    	</div>\
 					    	<div class='form-group'>\
 					    		<a href='javascript:void(0)' class='btn btn-info btn-block login'>登<span></span>陆</a>\

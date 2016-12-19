@@ -51,13 +51,12 @@
                         <li class="active"><a href=".taskList" data-toggle="tab">任务列表</a></li>
                     </ul>
                     <div class="pull-right red record">
-                        <img src="img/codeIcon1.png" />我的打码记录
                     </div>
                 </div>
                 <div class="task tab-content">
                     <div class="taskList tab-pane fade in active codeCtnCom">
                         <h5>
-                            <img src="img/codeIcon2.png" />不换IP推荐任务<span class='silver'> 打码时不需要重复切换IP</span></h5>
+                            <img src="assets/main/img/codeIcon2.png" />推荐任务<span class='silver'> 打码时不需要重复切换IP</span></h5>
                         <table class="table text-center">
                             <thead>
                                 <tr>

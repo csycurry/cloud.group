@@ -58,7 +58,7 @@
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>任务名称</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='missionTitle' name='missionTitle' value="${m.missionTitle}" placeholder='任务名称' type='text' />
+                                    	<textarea rows="2"  class="form-control" id='missionTitle' name='missionTitle'>${m.missionTitle}</textarea>
                                    		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
                                     </div>
                                 </div>

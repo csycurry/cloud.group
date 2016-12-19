@@ -59,14 +59,14 @@
                                     <label class='control-label' for='validation_name'>新闻标题</label>
                                     <div class='controls'>
                                         <input data-rule-minlength='2' data-rule-required='true' id='title' name='title' value="${m.title}" placeholder='新闻名称' type='text' />
-                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:g.id}'/>
+                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
                                     </div>
                                 </div>
                                 <div class='control-group'>
 		                            <label class='control-label'>摘要</label>
 		                            <div class='controls'>
 		                                <div class='input-prepend input-append'>
-		                                    <input id='newsAbstract' name="newsAbstract" value="${m.newsAbstract}" type='text' />
+		                                    <textarea id='newsAbstract' name="newsAbstract" rows="3">${m.newsAbstract}</textarea>
 		                                </div>
 		                            </div>
                             	</div>
@@ -82,14 +82,26 @@
                                  <div class='control-group'>
 				                    <label class='control-label'>类型</label>
 				                    <div class='controls'>
-				                        <label class='radio inline'>
-				                            <input type='radio' name="type" checked="checked"  value='1' />
-				                            	文章
-				                        </label>
-				                        <label class='radio inline'>
-				                        <input type='radio' name="type"  value='2' />
-				                            	新闻
-				                         </label>
+				                        <select name="type">
+				                        <c:if test="${m.type==1 }">
+				                        	<option value="1" selected="selected">打码动态</option>
+				                        </c:if>
+				                        <c:if test="${m.type!=1 }">
+				                        	<option value="1">打码动态</option>
+				                        </c:if>
+				                        <c:if test="${m.type==2 }">
+				                        	<option value="2" selected="selected">玩家心得</option>
+				                        </c:if>
+				                        <c:if test="${m.type!=2 }">
+				                        	<option value="2">玩家心得</option>
+				                        </c:if>
+				                        <c:if test="${m.type==3}">
+				                        	<option value="3" selected="selected">常见问题</option>
+				                        </c:if>	
+				                        <c:if test="${m.type!=3}">
+				                        	<option value="3">常见问题</option>
+				                        </c:if>	
+				                        </select>
 				                    </div>
 				                </div>
 				               

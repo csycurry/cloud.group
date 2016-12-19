@@ -60,6 +60,11 @@ public class MissionController extends BaseController{
 		MissionSearchDTO searchDTO = new MissionSearchDTO();
 		searchDTO.setEndTm(DateUtil.getNowTime());
 		List<MissionDTO> list =  missionManager.list(searchDTO);
+		UserDTO dto = getLoginUser();
+		if(dto!=null)
+		{
+			map.put("userCode", dto.getUserCode());
+		}
 		map.put("list", list);
 		return modelAndView;
 	}
@@ -75,6 +80,7 @@ public class MissionController extends BaseController{
 		{
 			List<RebateDTO> dtos = rebateManager.geRebateDTOs(userDTO.getId(), missionId);
 			map.put("reb", dtos);
+			map.put("userCode", userDTO.getUserCode());
 		}
 		else
 		{
@@ -122,7 +128,7 @@ public class MissionController extends BaseController{
 			throw new BusinessException("任务标题不能为空");
 		}
 		
-		missionManager.insertMission(missionDTO);
+		missionManager.insertMission(missionDTO,getLoginStaffCode());
 		return true;
 		
 	}
@@ -135,6 +141,13 @@ public class MissionController extends BaseController{
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("m", extendDTO);
 		return modelAndView;
+	}
+	
+	@RequestMapping(value="/backstage/mission/remove")
+	@ResponseJson
+	public @ResponseBody void remove(int id)
+	{
+		missionManager.remove(id);
 	}
 	
 	@RequestMapping(value="/backstage/sign/page")
@@ -192,7 +205,7 @@ public class MissionController extends BaseController{
         	missionDTO.setType(Byte.valueOf(req.getParameter("type")));
         if(StringUtils.isNotEmpty(req.getParameter("settlementInterval")))
         	missionDTO.setSettlementInterval(Integer.valueOf(req.getParameter("settlementInterval")));
-		missionManager.createMission(bodys, missionDTO);
+		missionManager.createMission(bodys, missionDTO,getLoginStaffCode());
 		return "";
     }
 	

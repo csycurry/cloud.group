@@ -85,8 +85,7 @@ ul, li {
 									alt="qq登陆" src="assets/images/bt_white_24X24.png"><span
 									id="qqLoginBtn"></span></a>
 								<p class="dl">
-									<a href="register.html?para='"
-										+ encodeURIComponent(window.location.href)); class='pull-left'>注册账号</a><a
+									<a href="register.html"; class='pull-left'>注册账号</a><a
 										href="Password.aspx" class='pull-right'>忘记密码？</a>
 								</p>
 							</div>
@@ -140,7 +139,7 @@ ul, li {
 					</li>
 					<li>
 						<div class="pull-left icon">
-							<img src="assets/main/img/code-3.jpg" />
+							<img src="assets/main/img/code-3.png" />
 						</div>
 						<div class="pull-left">
 							<h4>元宝提现</h4>
@@ -154,7 +153,7 @@ ul, li {
 							</div>
 							<div class="pull-left">
 								<h5>累计发放</h5>
-								<p style="font-size: 18px;">10000元宝</p>
+								<p style="font-size: 18px;">${decimal}元</p>
 							</div>
 						</div>
 
@@ -543,9 +542,11 @@ ul, li {
 								<div class='tv'>
 									<div class="list_lh">
 										<ul>
-
-											<li>用户:<span class='green1 apostrophe'>deddeeeed</span>提现了<span
-												class="red">10元</span></li>
+											<c:forEach items="${pay}" var="p">
+												<li>用户:<span class='green1 apostrophe'>${p.usercode}</span>提现了<span
+												class="red">${p.total}元</span></li>
+											</c:forEach>
+											
 
 											<li>用户:<span class='green1 apostrophe'>p854251109</span>提现了<span
 												class="red">14元</span></li>
@@ -753,7 +754,7 @@ ul, li {
                                 var psw = $('#psd').val();
                                 if (psw.length == 0) { alert("密码不可以为空"); return; };
                                 $.post("/user/login.json", {"userCode":user,"userPwd":psw} , function (data) {
-                                    if (data.status == "1") {
+                                    if (data.status == 1) {
                                         window.location.reload();
                                         return;
                                     }

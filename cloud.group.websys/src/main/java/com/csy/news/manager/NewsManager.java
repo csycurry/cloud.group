@@ -40,18 +40,21 @@ public class NewsManager {
 	private String imageServerDomain;
 	
 	private static final String SEPARATOR = "/";
-	public void saveOrUpdateNews(NewsModifyDto newsModifyDto)
+	public void saveOrUpdateNews(NewsModifyDto newsModifyDto,String staffCode)
 	{
 		News news = new News();
 		BeanUtils.copyProperties(newsModifyDto, news);
 		if(news.getId()==null||news.getId()==0)
 		{
+			news.setCreator(staffCode);
 			news.setCreateTime(new Date());
+			news.setModifier(staffCode);
+			news.setModifyTime(DateUtil.getCurrentDate());
 			newsMapper.insertSelective(news);
 		}
 		else
 		{
-//			news.setModifier(getLoginedStaffCode());
+			news.setModifier(staffCode);
 			news.setModifyTime(new Date());
 			newsMapper.updateByPrimaryKeySelective(news);
 		}
@@ -60,17 +63,6 @@ public class NewsManager {
 	@Transactional
 	public void removeNews(Integer newsId)
 	{
-		News news = newsMapper.selectByPrimaryKey(newsId);
-		if(news.getSort()!=null)
-		{
-			NewsExample example = new NewsExample();
-			NewsExample.Criteria criteria = example.createCriteria();
-//			criteria.andStateEqualTo(NewsStateEn.TOP.getCode());
-			News sort = new News();
-			criteria.andSortGreaterThan(news.getSort());
-			sort.setSort(-1);
-			newsMapper.updateByExample(sort,example);
-		}
 		newsMapper.deleteByPrimaryKey(newsId);
 	}
 

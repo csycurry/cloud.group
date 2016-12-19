@@ -68,25 +68,21 @@
 					<div>
 						<span>项目名称 </span>
 						<input type="text" name="missionTitle" value="${u.missionTitle}" style="margin-left: 5px; margin-right: 5px;">
-						<div class='datetimepicker input-append form_date'
-							id='datetimepicker1'>
-							<input id="startTime" name="beginTm" data-format='yyyy-MM-dd'
-								placeholder='项目开始时间' type='date' value=<fmt:formatDate value="${u.beginTm}" pattern="yyyy-MM-dd"/>
-								>
-							<span class='add-on'> <i data-date-icon='icon-calendar'
-								data-time-icon='icon-time'></i>
-							</span>
-						</div>
-						<span>至</span>
-						<div class='datetimepicker input-append form_date'
-							id='datetimepicker1'>
-							<input id="endTime" name="endTm" data-format='yyyy-MM-dd'
-								placeholder='项目结束时间' type="date" value=<fmt:formatDate value="${u.endTm}" pattern="yyyy-MM-dd"/>
-								>
-							<span class='add-on'> <i data-date-icon='icon-calendar'
-								data-time-icon='icon-time'></i>
-							</span>
-						</div>
+						
+                                    <span>任务时间</span>
+                                     	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
+					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='任务开始时间' type="datetime" value='${u.beginTm}'  >
+								            <span class='add-on'>
+								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+								            </span>
+					                    </div>
+                                	<span>至</span>
+                                        <div class='datetimepicker input-append form_datetime' id='datetimepicker2'>
+					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='任务结束时间' type="datetime" value='${u.endTm}'  >
+								            <span class='add-on'>
+								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+								            </span>
+					                    </div>
 						<br/>
 
 					</div>
@@ -145,6 +141,7 @@
 	                            <td>${u.signNum}</td>
 	                            <td>
 	                            	<a href="#"><span class='label label-success' onclick="openDetail(${u.id})">查看</span></a>
+	                            	<a href="#"><span class='label label-fault' onclick="remove(${u.id})">删除</span></a>
 	                            </td>
 	                        </tr>
                         </c:forEach>

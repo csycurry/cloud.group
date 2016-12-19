@@ -1,25 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
-	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
-	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
-<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />   
-<link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
-<script src="/assets/js/bootstrap-table.min.js"></script>    
-    <title>
-
-</title>
-</head>
-<body>
-<    
-        <div class="header">
-            
-<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<div class="header">
 <div class="container mainWidth">
     <div class="logo pull-left">
         <img src="" alt="" />
@@ -32,7 +13,7 @@
 
     <div class="register pull-right">
         
-        <a class="dropdown-toggle abtn pull-left" href="/userinfo.html" style="width:120px">            
+        <a class="dropdown-toggle abtn pull-left" href="/user/UserManage.aspx" style="width:120px">            
             <span class="apostrophe pull-right" style="width:80px;display:block;color:#f5894e"> 您好：${user.userCode}</span>
             <img src="/img/header/head-005.png" alt="" class="pull-right img-circle" style="height: 20px;margin-top:15px" />
         </a>
@@ -62,13 +43,13 @@
                     </div>
 
                     <div class="accout">
-                        <h4 class='prl20'>
+                        <h4 class='prl20 orange'>
                             <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
                         <p><a href="/userDetail.html">基本信息</a></p>
                     </div>
                     <div class="accout">
-                        <h4 class='prl20 orange'>
+                        <h4 class='prl20'>
                             <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span></h4>
                         <p><a href="/userPay.html">申请提现</a></p>
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
@@ -102,37 +83,4 @@
                             })
                         }
                         accout();
-                    </script>              
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default" style="padding: 20px">
-                <div class="panel-heading">
-                    <span>账户明细</span>
-                </div>
-                <div class="panel-body">
-                <table data-toggle="table"
-					       data-url="/account_CashData.html"
-					       data-pagination="true"
-					       data-side-pagination="server"
-					       data-page-list="[5, 10, 20, 50, 100, 200]"
-					       data-height="300">
-					    <thead>
-					    <tr>
-					        <th data-field="time" data-align="right" data-sortable="true">时间</th>
-					        <th data-field="total" data-align="center" data-sortable="true">金额</th>
-					        <th data-field="reason">操作</th>
-					    </tr>
-					    </thead>
-				</table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                </div>
-            </div>
-        </section>
-        
-<%@include file="footer.jsp"%>
-</body>
-</html>
+                    </script>

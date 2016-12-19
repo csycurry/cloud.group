@@ -10,7 +10,7 @@ public class NewsDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer id;
     private String title;
-
+    private String newsAbstract;
     private String cover;
 
     private String subtitle;
@@ -137,6 +137,14 @@ public class NewsDto implements Serializable{
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getNewsAbstract() {
+		return newsAbstract;
+	}
+
+	public void setNewsAbstract(String newsAbstract) {
+		this.newsAbstract = newsAbstract;
 	}
 	
 }

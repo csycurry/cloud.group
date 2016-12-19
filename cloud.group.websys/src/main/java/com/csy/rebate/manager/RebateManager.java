@@ -114,7 +114,7 @@ public class RebateManager {
 		return dto;
 	}
 	
-	public void editRebate(RebateDTO dto)
+	public void editRebate(RebateDTO dto,String staffCode)
 	{
 		Rebate rebate = new Rebate();
 		BeanUtils.copyProperties(dto, rebate);
@@ -122,22 +122,28 @@ public class RebateManager {
 		MissionExtendDTO missionDTO = missionManager.detail(dto.getMissionId());
 		Double amount = (dto.getEarnings().doubleValue()*Double.parseDouble(configDTO.getConfigValue())/missionDTO.getPrice().doubleValue());
 		rebate.setAmount(fixDouble(amount));
+		rebate.setModifior(staffCode);
+		rebate.setModifyTm(DateUtil.getCurrentDate());
 		rebateMapperExt.updateByPrimaryKeySelective(rebate);
 	}
 	
-	public void settleRebate(List<Integer> ids)
+	public void settleRebate(List<Integer> ids,String staffCode)
 	{
 		for(Integer id:ids)
 		{
 			Rebate rebate = rebateMapperExt.selectByPrimaryKey(id);
 			if(rebate.getStatus().equals(RebateStatusEn.UNSETTLE.getCode()))
 			{
+				rebate.setStatus(RebateStatusEn.SETTLE.getCode());
+				rebate.setSettleTm(DateUtil.getCurrentDate());
+				rebate.setSettleMan(staffCode);
+				rebateMapperExt.updateByPrimaryKey(rebate);
 				bulidAccount(rebate);
 			}
 		}
 	}
 	
-	public void settleRebateBySearch(RebateSearchDTO searchDTO)
+	public void settleRebateBySearch(RebateSearchDTO searchDTO,String staffCode)
 	{
 		RebateExample example = createExample(searchDTO);
 		List<Rebate> list = rebateMapperExt.selectByExample(example);
@@ -145,6 +151,10 @@ public class RebateManager {
 		{
 			if(rebate.getStatus().equals(RebateStatusEn.UNSETTLE.getCode()))
 			{
+				rebate.setStatus(RebateStatusEn.SETTLE.getCode());
+				rebate.setSettleTm(DateUtil.getCurrentDate());
+				rebate.setSettleMan(staffCode);
+				rebateMapperExt.updateByPrimaryKey(rebate);
 				bulidAccount(rebate);
 			}
 		}
@@ -176,7 +186,7 @@ public class RebateManager {
 		userManager.updateUser(dto);
 	}
 	
-	public void inserBatch(String[][] bodys,int missionId) {
+	public void inserBatch(String[][] bodys,int missionId,String staffCode) {
 		String[] title = bodys[0];
 		List<Rebate> rebates = new ArrayList<>();
 		MissionExtendDTO missionDTO = missionManager.detail(missionId);
@@ -192,6 +202,8 @@ public class RebateManager {
 				rebate.setAmount(Double.parseDouble(body[1]));
 				BigDecimal earning = BigDecimal.valueOf(missionDTO.getPrice().doubleValue()*Double.parseDouble(body[1]));
 				rebate.setEarnings(earning);
+				rebate.setCreateTm(DateUtil.getCurrentDate());
+				rebate.setCreator(staffCode);
 				rebates.add(rebate);
 			}
 		}
@@ -207,6 +219,8 @@ public class RebateManager {
 				rebate.setEarnings(BigDecimal.valueOf(Double.parseDouble(body[1])));
 				Double amount = (Double.parseDouble(body[1])*Double.parseDouble(configDTO.getConfigValue())/missionDTO.getPrice().doubleValue());
 				rebate.setAmount(fixDouble(amount));
+				rebate.setCreateTm(DateUtil.getCurrentDate());
+				rebate.setCreator(staffCode);
 				rebates.add(rebate);
 			}
 		}

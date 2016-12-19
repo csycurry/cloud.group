@@ -1,12 +1,16 @@
 package com.csy.base.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.csy.model.base.StringUtils;
+import com.csy.staff.domain.dto.StaffDTO;
 import com.csy.user.domain.dto.UserDTO;
 
 public class BaseController {
@@ -43,18 +47,41 @@ public class BaseController {
 	
 	public UserDTO getLoginUser()
 	{
-		Subject currentUser = SecurityUtils.getSubject();
-		UserDTO userDTO = (UserDTO)currentUser.getSession().getAttribute("user");
+		UserDTO userDTO = (UserDTO)getHttpSession().getAttribute("user");
 		return userDTO;
 	}
 	
 	public Integer getLoginUserId()
 	{
-		Subject currentUser = SecurityUtils.getSubject();
-		UserDTO userDTO = (UserDTO)currentUser.getSession().getAttribute("user");
+		UserDTO userDTO = (UserDTO)getHttpSession().getAttribute("user");
 		if(userDTO!=null)
 			return userDTO.getId();
 		return 0;
+	}
+	
+	public StaffDTO getLoginStaff()
+	{
+		Subject currentUser = SecurityUtils.getSubject();
+		StaffDTO userDTO = (StaffDTO)currentUser.getSession().getAttribute("staff");
+		return userDTO;
+	}
+	
+	public Integer getLoginStaffId()
+	{
+		Subject currentUser = SecurityUtils.getSubject();
+		StaffDTO userDTO = (StaffDTO)currentUser.getSession().getAttribute("staff");
+		if(userDTO!=null)
+			return userDTO.getId();
+		return 0;
+	}
+	
+	public String getLoginStaffCode()
+	{
+		Subject currentUser = SecurityUtils.getSubject();
+		StaffDTO userDTO = (StaffDTO)currentUser.getSession().getAttribute("staff");
+		if(userDTO!=null)
+			return userDTO.getCode();
+		return null;
 	}
 	
 	public Session getSession()
@@ -62,4 +89,18 @@ public class BaseController {
 		Subject currentUser = SecurityUtils.getSubject();
 		return currentUser.getSession();
 	}
+	
+	public static HttpSession getHttpSession() {
+		HttpSession session = null;
+		try {
+		    session = getRequest().getSession();
+		} catch (Exception e) {}
+		    return session;
+		}
+
+		public static HttpServletRequest getRequest() {
+			ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder
+			.getRequestAttributes();
+			return attrs.getRequest();
+		} 
 }

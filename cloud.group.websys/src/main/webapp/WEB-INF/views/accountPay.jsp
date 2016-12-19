@@ -22,37 +22,7 @@
 <title></title>
 </head>
 <body>
-	<div>
-		<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-		<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT"
-			value="" /> <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS"
-			value="" /> <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
-			value="/wEPDwUKMjA3NTMyOTA3Nw9kFgJmD2QWAgIDD2QWBmYPZBYCAgEPFgIeCWlubmVyaHRtbAUkNTdkZTU4NmQtYjUwNi00ZjFmLTgzMTMtMDRjNmVlYTg4ZTc3ZAIBDw8WAh4EVGV4dAUDMTU0ZGQCAg9kFgICAw9kFgJmD2QWAgIBDxBkZBYBZmRkcxwpGnAyk3aODhOzAdAKEaY6opcbamU38VhwpAAey5w=" />
-	</div>
-
-
-
-	<script
-		src="/WebResource.axd?d=bnO43BAny2fLzXDnhC1UZnNdFLj_0m5Kfu2bCJYTtkDAiMwq3BR1rqKp1rscOz9WfP0g9ZRxQPx6LbXn_Qm-P9ZJEo0x6Kxcir4wl4y6OYo1&amp;t=635375563334701695"
-		type="text/javascript"></script>
-
-
-	<script
-		src="/ScriptResource.axd?d=sdFIlEnnsg-hOmZ_gTfQwaqutNwVpvSvA_GLCXpVJjpyPVswf-gFCHzkOHobit3aDYUQ7rKkitEvCidladbVtBllj5NNtawypj51DNMYCdXgE8tf6owd_xHW8uCilMztNOWgvhdiP9m14AMoB_BuwfWUI5ZPG4D1RBcE8v9izaEDCgGoGrMiAhSG7-bCdE2X0&amp;t=ffffffffb53e74b8"
-		type="text/javascript"></script>
-	<script
-		src="/ScriptResource.axd?d=F8C9ESjZBBEOBSW7epDN0cWSK-MZbbVGIF4IjXlERuKO5ZeOWgNJ524k0L0_jXeTuh4IfoDnL6I2CL_ZaXX6ab0oAHcqO-8iwrz-mHDSx_G8LQLz4DRt70yUPNJf_uhEaBAOrrfJHgn32yoMHuaYeg8DHHqouC-5s99e0nKuAAMYRLVcHrt_pnsp4A0qvXPd0&amp;t=ffffffffb53e74b8"
-		type="text/javascript"></script>
-	<div>
-
-		<input type="hidden" name="__VIEWSTATEGENERATOR"
-			id="__VIEWSTATEGENERATOR" value="837E1E06" /> <input type="hidden"
-			name="__EVENTVALIDATION" id="__EVENTVALIDATION"
-			value="/wEdAAchHJNOReeR8/qx59iiLT8SU0tG1Q6ILoOZKKWbf3w+hEqHqAVxcZUQLKMACkCf0nDVEsaOJ/2nEX4uKFYA9x1tvGtG7xWzVeSHULOfVCm+fSzmyEfe5udHA06JStoMqUr6G0uw+IsZ/614dwreR7cEZF4R2xdlU03hd2WG+nOhUqehRQE6YbtnQPPdHNRhZn0=" />
-	</div>
 	<div class="header">
-
-		<script src="http://static.geetest.com/static/tools/gt.js"></script>
 		<div class="container mainWidth">
 			<div class="logo pull-left">
 				<img src="" alt="" />
@@ -60,7 +30,7 @@
 			<ul class="pull-left clearfix">
 				<li><a href="/index.html" target="_blank">首页</a></li>
 				<li><a href="/codes.html" target="_blank">打码专区</a></li>
-				<li><a href="/newslist.html?page=1" target="_blank">资讯中心</a></li>
+				<li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>
 			</ul>
 
 			<div class="register pull-right">
@@ -188,18 +158,12 @@
 								<span>申请提现</span>
 							</div>
 							<div class="panel-body">
+							<form id="payForm">
 								<div class="form-group">
 									<p>
 										<span style="width: 100px; display: inline-block">
 											账户余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
 											style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}元</span>
-									</p>
-								</div>
-								<div class="form-group">
-									<p>
-										<span style="width: 100px; display: inline-block">正在提现：</span><span
-											id="ctl00_ContentPlaceHolder1_lbaskingmoney"
-											style="color: #478fca !important; line-height: 21px; font-size: 22px">0元</span>
 									</p>
 								</div>
 								<div class="form-group">
@@ -230,7 +194,7 @@
 								<div class="form-group">
 									<p>
 										<span style="width: 100px; display: inline-block">提现金额：</span><input
-											name="ctl00$ContentPlaceHolder1$askmoney" type="text"
+											name="amount" type="text"
 											id="ctl00_ContentPlaceHolder1_askmoney" placeholder="单位是元"
 											style="width: 300px;" />
 									</p>
@@ -241,16 +205,22 @@
 											class="btn btn-sm btn-info phoneverify" />
 									</p>
 								</div>
+								<div id="ctl00_ContentPlaceHolder1_divVerify" class="form-group">
+	                                <p>
+	                                    验证码：<input name="code" type="text" id="ctl00_ContentPlaceHolder1_txtlistenNumer" placeholder="填写验证码" />
+	                                </p>
+	                            </div>
 
 								<div class="form-group">
 									<p class="pick">
-										<input type="submit"
-											name="ctl00$ContentPlaceHolder1$btnpickCash" value="请验证手机号"
+										<input type="button"
+											name="ctl00$ContentPlaceHolder1$btnpickCash" value="确定提现"
 											onclick="return cashclick();"
 											id="ctl00_ContentPlaceHolder1_btnpickCash"
 											class="btn btn-success" style="width: 300px" />
 									</p>
 								</div>
+								</form>
 							</div>
 						</div>
 
@@ -281,44 +251,53 @@
 					</div>
 				</div>
 			</div>
-			<script type="text/javascript" src="/plugins/jquery.cookie.js"></script>
 			<script type="text/javascript">
 				function runningFormatter(value, row, index) {
 					return index + 1;
 				}
 
 				function cashclick() {
-					$('.pick')
-							.on(
-									'click',
-									'#'
-											+ 'ctl00_ContentPlaceHolder1_btnpickCash',
-									function() {
 										var money = $('#ctl00_ContentPlaceHolder1_askmoney');
 										var lbmoney = money.parent();
-										lbmoney.children('span').remove();
+										lbmoney.children('p').remove();
 										if (money != null
 												&& money.val().length > 0) {
 											var reg = /^[1-9]\d*$/;
 											isok = reg.test(money.val());
 											if (!isok) {
 												$(
-														"<span class=\"label label-warning\">亲,您输入的提现金额出现错误,请输入整数~</span>")
+														"<p class=\"label label-warning\">亲,您输入的提现金额出现错误,请输入整数~</p>")
 														.appendTo(lbmoney);
 												return false;
 											} else if (money.val() < 1) {
 												$(
-														"<span class=\"label label-warning\">亲,提现金额不能小于1元额~</span>")
+														"<p class=\"label label-warning\">亲,提现金额不能小于1元额~</p>")
 														.appendTo(lbmoney);
 												return false;
 											} else if (money.val() > 10000) {
 												alert("提现金额超过1万请自己联系客服额哦！");
 												return false;
+											}else if(money.val()>$("#ctl00_ContentPlaceHolder1_lbleftmoney").text())
+											{
+												alert("提现金额超过账户余额，不能提现！");
+												return false;
 											}
-											return true;
+											$.post("/user/pay.json",$('#payForm').serialize(),function(data){
+					                        	if(data.status==0)
+					                        		{
+					                        		alert(data.msg);
+					                        		}
+					                        	else
+					                        		{
+					                        		alert("修改成功!");
+					                        		}
+					          			  });
 										}
-										return true;
-									});
+										else
+											{
+											$("<p class=\"label label-warning\">亲,请输入的提现金额~</p>").appendTo(lbmoney);
+											}
+										
 				}
 
 				function DisableOrOpenAllbutton(isopen, count) {

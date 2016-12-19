@@ -15,25 +15,6 @@
 </title>
 </head>
 <body>
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA3NTMyOTA3Nw9kFgJmD2QWAgIDD2QWBmYPZBYCAgEPFgIeCWlubmVyaHRtbAUkNTdkZTU4NmQtYjUwNi00ZjFmLTgzMTMtMDRjNmVlYTg4ZTc3ZAIBDw8WAh4EVGV4dAUDMTU0ZGQCAg9kFgICAw9kFgJmD2QWAgIBDxBkZBYBZmRkcxwpGnAyk3aODhOzAdAKEaY6opcbamU38VhwpAAey5w=" />
-</div>
-
-
-
-<script src="/WebResource.axd?d=bnO43BAny2fLzXDnhC1UZnNdFLj_0m5Kfu2bCJYTtkDAiMwq3BR1rqKp1rscOz9WfP0g9ZRxQPx6LbXn_Qm-P9ZJEo0x6Kxcir4wl4y6OYo1&amp;t=635375563334701695" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=sdFIlEnnsg-hOmZ_gTfQwaqutNwVpvSvA_GLCXpVJjpyPVswf-gFCHzkOHobit3aDYUQ7rKkitEvCidladbVtBllj5NNtawypj51DNMYCdXgE8tf6owd_xHW8uCilMztNOWgvhdiP9m14AMoB_BuwfWUI5ZPG4D1RBcE8v9izaEDCgGoGrMiAhSG7-bCdE2X0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F8C9ESjZBBEOBSW7epDN0cWSK-MZbbVGIF4IjXlERuKO5ZeOWgNJ524k0L0_jXeTuh4IfoDnL6I2CL_ZaXX6ab0oAHcqO-8iwrz-mHDSx_G8LQLz4DRt70yUPNJf_uhEaBAOrrfJHgn32yoMHuaYeg8DHHqouC-5s99e0nKuAAMYRLVcHrt_pnsp4A0qvXPd0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="837E1E06" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAchHJNOReeR8/qx59iiLT8SU0tG1Q6ILoOZKKWbf3w+hEqHqAVxcZUQLKMACkCf0nDVEsaOJ/2nEX4uKFYA9x1tvGtG7xWzVeSHULOfVCm+fSzmyEfe5udHA06JStoMqUr6G0uw+IsZ/614dwreR7cEZF4R2xdlU03hd2WG+nOhUqehRQE6YbtnQPPdHNRhZn0=" />
-</div>        
         <div class="header">
             
 <script src="http://static.geetest.com/static/tools/gt.js"></script>
@@ -44,7 +25,7 @@
     <ul class="pull-left clearfix">
         <li><a href="/index.html" target="_blank">首页</a></li>
         <li><a href="/codes.html" target="_blank">打码专区</a></li>
-        <li><a href="/newslist.html?page=1" target="_blank">资讯中心</a></li>        
+        <li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>        
     </ul>
 
     <div class="register pull-right">

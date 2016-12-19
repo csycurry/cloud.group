@@ -1,5 +1,6 @@
 package com.csy.user.manager;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -8,17 +9,23 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.csy.account.domain.dto.UserAccountDTO;
+import com.csy.account.domain.emus.AccountStatusEn;
 import com.csy.account.domain.emus.AccountTypeEn;
+import com.csy.config.domain.dto.SystemConfigDTO;
+import com.csy.config.domain.emus.ConfigEn;
+import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.UserAccountMapperExt;
 import com.csy.model.UserAccount;
 import com.csy.model.UserAccountExample;
 import com.csy.model.base.DateUtil;
-import com.csy.user.domain.dto.UserAccountDTO;
 
 @Service
 public class UserAccountManager {
 	@Autowired
 	private UserAccountMapperExt userAccountMapperExt;
+	@Autowired
+	private SystemConfigManager systemConfigManager;
 	
 	public UserAccountDTO getAccount(Integer userId)
 	{
@@ -68,5 +75,22 @@ public class UserAccountManager {
 	public void  insertAccount(UserAccount account)
 	{
 		userAccountMapperExt.insert(account);
+	}
+	
+	public void  insertAccountDTO(UserAccountDTO accountDTO)
+	{
+		UserAccount account = new UserAccount();
+		account.setStatus(AccountStatusEn.UNSETTLE.getCode());
+		BeanUtils.copyProperties(accountDTO, account);
+		userAccountMapperExt.insert(account );
+	}
+	
+	public BigDecimal staticaccount()
+	{
+		BigDecimal bigDecimal = userAccountMapperExt.staticaccount();
+		SystemConfigDTO configDTO = systemConfigManager.detail(ConfigEn.base_static.getCode());
+		Double double1 = Double.valueOf(configDTO.getConfigValue());
+		bigDecimal = bigDecimal.add(BigDecimal.valueOf(double1));
+		return bigDecimal;
 	}
 }

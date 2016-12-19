@@ -77,7 +77,7 @@ public class RebateController extends BaseController{
 	{
 		List<Integer> ids = new ArrayList<>();
 		ids.add(id);
-		rebateManager.settleRebate(ids);
+		rebateManager.settleRebate(ids,getLoginStaffCode());
 		return true;
 		
 	}
@@ -86,7 +86,7 @@ public class RebateController extends BaseController{
 	@ResponseJson
 	public @ResponseBody Boolean rebateBySearch(RebateSearchDTO searchDTO)
 	{
-		rebateManager.settleRebateBySearch(searchDTO);
+		rebateManager.settleRebateBySearch(searchDTO,getLoginStaffCode());
 		return true;
 		
 	}
@@ -95,7 +95,7 @@ public class RebateController extends BaseController{
 	@ResponseJson
 	public @ResponseBody Boolean modify(RebateDTO dto)
 	{
-		rebateManager.editRebate(dto);
+		rebateManager.editRebate(dto,getLoginStaffCode());
 		return true;
 		
 	}
@@ -132,7 +132,7 @@ public class RebateController extends BaseController{
         	bodys = XSSFWorkbookUtil.readHssWorkBook(file.getInputStream(), 0);
         }
         System.out.println(bodys.toString());
-        rebateManager.inserBatch(bodys, missionId);
+        rebateManager.inserBatch(bodys, missionId,getLoginStaffCode());
     }
 
 }

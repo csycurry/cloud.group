@@ -1,5 +1,6 @@
 package com.csy.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import com.csy.account.domain.emus.AccountTypeEn;
 import com.csy.banner.domain.dto.NewsBannerDto;
 import com.csy.banner.domain.dto.NewsBannerSearchDto;
 import com.csy.banner.domain.manager.NewsBannerManager;
+import com.csy.base.controller.BaseController;
 import com.csy.blogroll.domain.dto.BlogrollSearchDTO;
 import com.csy.blogroll.domain.emus.BlogRollStatusEn;
 import com.csy.blogroll.manager.BlogRollManager;
@@ -32,7 +34,7 @@ import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserAccountManager;
 
 @Controller
-public class IndexController {
+public class IndexController extends BaseController{
 	@Autowired
 	private MissionManager missionManager;
 	@Autowired
@@ -56,8 +58,7 @@ public class IndexController {
 	public ModelAndView indexMap()
 	{
 		ModelAndView modelAndView = new ModelAndView("/index");
-		Subject currentUser = SecurityUtils.getSubject();
-		UserDTO userDTO = (UserDTO)currentUser.getSession().getAttribute("user");
+		UserDTO userDTO = (UserDTO)getHttpSession().getAttribute("user");
 		Map<String, Object> map = modelAndView.getModel();
 		if(userDTO!=null)
 			map.put("userCode", userDTO.getUserCode());
@@ -73,7 +74,6 @@ public class IndexController {
 		NewsPageDto newsPageDto = new NewsPageDto();
 		newsPageDto.setPageSize(10);
 		newsPageDto.setState((byte)1);
-		newsPageDto.setType(NewsTypeEn.BOOK.getCode().intValue());
 		map.put("news", newsManager.listNews(newsPageDto).getList());
 		BlogrollSearchDTO blogrollSearchDTO = new BlogrollSearchDTO();
 		blogrollSearchDTO.setStatus(BlogRollStatusEn.UP.getCode());
@@ -81,6 +81,9 @@ public class IndexController {
 		SystemConfigDTO configDTO = systemConfigManager.detail(ConfigEn.notice.getCode());
 		map.put("notice", configDTO.getConfigValue());
 		JSONObject jsonObject = userAccountManager.pageSearch("", 0, 20, null, AccountTypeEn.OUT.getCode());
+		map.put("pay", jsonObject.get("rows"));
+		BigDecimal decimal = userAccountManager.staticaccount();
+		map.put("decimal", decimal);
 		return modelAndView;
 		
 	}

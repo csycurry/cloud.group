@@ -13,13 +13,16 @@ public class UserAccountDTO implements Serializable{
 	private Integer id;
 
     private Integer userId;
+    
+    private String userCode;
 
     private BigDecimal balance;
 
     private BigDecimal total;
-
+    
     private Byte type;
     private String typeCn;
+    private String code;
     public String getTypeCn() {
 		return typeCn;
 	}
@@ -29,6 +32,8 @@ public class UserAccountDTO implements Serializable{
 	}
 
 	private Byte status;
+	
+	private String statusCn;
 
     private BigDecimal amount;
 
@@ -37,6 +42,8 @@ public class UserAccountDTO implements Serializable{
     private Date modifyTime;
 
     private String modifior;
+    
+    private String userPay;
 
 	public Integer getId() {
 		return id;
@@ -86,6 +93,14 @@ public class UserAccountDTO implements Serializable{
 		this.status = status;
 	}
 
+	public String getStatusCn() {
+		return statusCn;
+	}
+
+	public void setStatusCn(String statusCn) {
+		this.statusCn = statusCn;
+	}
+
 	public BigDecimal getAmount() {
 		return amount;
 	}
@@ -116,6 +131,30 @@ public class UserAccountDTO implements Serializable{
 
 	public void setModifior(String modifior) {
 		this.modifior = modifior;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getUserCode() {
+		return userCode;
+	}
+
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
+
+	public String getUserPay() {
+		return userPay;
+	}
+
+	public void setUserPay(String userPay) {
+		this.userPay = userPay;
 	}
     
     

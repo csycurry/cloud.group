@@ -1,7 +1,7 @@
 package com.csy.news.domain.emus;
 
 public enum NewsTypeEn {
-	BOOK((byte)1,"文章"),NEWS((byte)2,"新闻");
+	NEWS((byte)1,"打码动态"),FANS((byte)2,"玩家心得"),PROBLEM((byte)3,"常见问题");
 	private Byte code;
 	private String mean;
 	

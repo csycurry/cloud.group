@@ -20,6 +20,7 @@ import com.csy.news.domain.dto.NewsListDto;
 import com.csy.news.domain.dto.NewsModifyDto;
 import com.csy.news.domain.dto.NewsPageDto;
 import com.csy.news.manager.NewsManager;
+import com.csy.user.domain.dto.UserDTO;
 import com.csy.util.ResponseJson;
 
 
@@ -35,22 +36,34 @@ public class NewsController extends BaseController{
 		ModelAndView modelAndView = new ModelAndView("newsdetail");
 		Map<String, Object> map = modelAndView.getModel();
 		map.put("detail", newsManager.getDetail(newsId));
+		UserDTO dto = getLoginUser();
+		if(dto!=null)
+		{
+			map.put("userCode", dto.getUserCode());
+		}
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/newslist")
-	public ModelAndView list(int page)
+	public ModelAndView list(int page,int type)
 	{
 		ModelAndView modelAndView = new ModelAndView("newslist");
 		Map<String, Object> map = modelAndView.getModel();
 		NewsPageDto searchDTO = new NewsPageDto();
 		searchDTO .setCurrentPage(page);
 		searchDTO.setState((byte)1);
+		searchDTO.setType(type);
 		Pagination<NewsListDto> pagination = newsManager.listNews(searchDTO);
 		map.put("list", pagination.getList());
 		map.put("userNum", pagination.getTotalCount());
 		map.put("currentPage", pagination.getCurrentPageIndex());
 		map.put("pageNum", pagination.getCurrentPage());
+		map.put("type", type);
+		UserDTO dto = getLoginUser();
+		if(dto!=null)
+		{
+			map.put("userCode", dto.getUserCode());
+		}
 		return modelAndView;
 	}
 	
@@ -64,17 +77,17 @@ public class NewsController extends BaseController{
 	@ResponseJson
 	public @ResponseBody void createNews(NewsModifyDto newsModifyDto)
 	{
-		newsManager.saveOrUpdateNews(newsModifyDto);
+		newsManager.saveOrUpdateNews(newsModifyDto,getLoginStaffCode());
 	}
 	
-	@RequestMapping(value="/news/update" , method = RequestMethod.POST)
+	@RequestMapping(value="/backstage/news/update" , method = RequestMethod.POST)
 	@ResponseJson
 	public @ResponseBody void newsModify(NewsModifyDto newsModifyDto)
 	{
-		newsManager.saveOrUpdateNews(newsModifyDto);
+		newsManager.saveOrUpdateNews(newsModifyDto,getLoginStaffCode());
 	}
 	
-	@RequestMapping(value="/news/remove")
+	@RequestMapping(value="/backstage/news/remove")
 	@ResponseJson
 	public @ResponseBody void newsRemove(@RequestParam("newsId") Integer newsId)
 	{
@@ -118,6 +131,14 @@ public class NewsController extends BaseController{
 		return newsManager.upload(file);
 	}
 
+	@RequestMapping(value="/backstage/news/detail")
+	public ModelAndView newsdetail(@RequestParam("newsId") Integer newsId)
+	{
+		ModelAndView modelAndView = new ModelAndView("/manager/news/newsForm");
+		Map<String, Object> map = modelAndView.getModel();
+		map.put("m", newsManager.getDetail(newsId));
+		return modelAndView;
+	}
 	
 	
 }

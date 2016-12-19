@@ -95,7 +95,7 @@ public class UserManager {
 			}
 		}
 		UserExample example = new UserExample();
-		example.createCriteria().andUserCodeEqualTo(userDTO.getCode());
+		example.createCriteria().andUserCodeEqualTo(userDTO.getUserCode());
 		long count = userMapperExt.countByExample(example);
 		if(count>0)
 		{
@@ -122,6 +122,19 @@ public class UserManager {
 		userMapperExt.updateByPrimaryKeySelective(user);
 	}
 	
+	public int changeBalance(UserDTO userDTO)
+	{
+		String code = smsManager.getCode(userDTO.getUserMobile());
+		if(!code.equals(userDTO.getCode()))
+		{
+			throw new BusinessException("请输入正确的验证码!");
+		}
+		User user = new User();
+		BeanUtils.copyProperties(userDTO, user);
+		int i = userMapperExt.changeBalance(user);
+		return i;
+	}
+	
 	public UserDTO getUserByCode(String code)
 	{
 		MissionSignExample example = new MissionSignExample();
@@ -131,6 +144,21 @@ public class UserManager {
 		{
 			MissionSign missionSign = list.get(0);
 			return findDetail(missionSign.getUserId());
+		}
+		return null;
+	}
+	
+	public UserDTO getUserByOpenId(String openId)
+	{
+		UserExample example = new UserExample();
+		example.createCriteria().andOpenidEqualTo(openId);
+		List<User> list = userMapperExt.selectByExample(example);
+		if(list!=null&&list.size()>0)
+		{
+			User user = list.get(0);
+			UserDTO dto = new UserDTO();
+			BeanUtils.copyProperties(user, dto);
+			return dto;
 		}
 		return null;
 	}
