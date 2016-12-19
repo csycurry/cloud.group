@@ -12,7 +12,10 @@
 	<link href="/assets/main/css/common.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/style.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
+	 <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
+	<script src="assets/main/js/dialog.js" type="text/javascript"></script>
+    <script src="assets/main/js/common.js" type="text/javascript"></script>
+    <script src="http://static.geetest.com/static/tools/gt.js"></script> 
     <style type="text/css">
         body {
             font: 14px '微软雅黑';
@@ -34,39 +37,35 @@
 </head>
 <body>
         <%@include file="header.jsp"%>
-        <script src="assets/main/js/dialog.js" type="text/javascript"></script>
-        <script src="assets/main/js/common.js" type="text/javascript"></script>
-        <script src="http://static.geetest.com/static/tools/gt.js"></script>       
-
-    <div class='index'>
+    <div class='index' style="margin-top: 60px">
         <div class="w950 clearfix">
     	<!--左边-->
     <div class=" w700">
       <!---->     
       		<ul class="nav nav-tabs">
         		<c:if test="${type==1}">
-        			<li class="active"><a style="display: block;" href="/newslist.html?page=1&type=1" >打码动态</a></li>
+        			<li onclick="listpage(1,1)" class="active"><a href="/newslist.html?page=1&type=1" >打码动态</a></li>
         		</c:if>
                 <c:if test="${type!=1}">
-        			<li><a href="/newslist.html?page=1&type=1"  style="display: block;" >打码动态</a></li>
+        			<li onclick="listpage(1,1)"><a href="/newslist.html?page=1&type=1"  >打码动态</a></li>
         		</c:if>
         		<c:if test="${type==2}">
-        			<li class="active"><a href="/newslist.html?page=1&type=2" style="display: block;">玩家心得</a></li>
+        			<li onclick="listpage(1,2)" class="active"><a href="/newslist.html?page=1&type=2" style="display: block;">玩家心得</a></li>
         		</c:if>
                 <c:if test="${type!=2}">
-        			<li><a href="/newslist.html?page=1&type=2" style="display: block;">玩家心得</a></li>
+        			<li onclick="listpage(1,2)"><a href="/newslist.html?page=1&type=2" style="display: block;">玩家心得</a></li>
         		</c:if>
         		<c:if test="${type==3}">
-        			<li class="active"><a  href="/newslist.html?page=1&type=3" >常见问题</a></li>
+        			<li onclick="listpage(1,3)" class="active"><a  href="/newslist.html?page=1&type=3" >常见问题</a></li>
         		</c:if>
                 <c:if test="${type!=3}">
-        			<li><a  href="/newslist.html?page=1&type=3"  >常见问题</a></li>
+        			<li onclick="listpage(1,3)"><a  href="/newslist.html?page=1&type=3"  >常见问题</a></li>
         		</c:if>
                 
             </ul>      
             <div class="w700box">
-            <div class="p24 clearfix">
-              <ul class="image_text_list">
+            <div class="p24 clearfix" >
+              <ul class="image_text_list" style="min-height: 300px">
               	
                 <c:forEach items="${list}" var="n">
                 	<li>
@@ -114,12 +113,10 @@
         </div>
 </div>
     </div>    
-    
 </div>
     </div>        
     <script type="text/javascript">
     function listpage(id,type) {
-    	alert(type);
     	var pageUrl = "/newslist.html?page="+id+"&type="+type;
     	location.href=pageUrl;
     }

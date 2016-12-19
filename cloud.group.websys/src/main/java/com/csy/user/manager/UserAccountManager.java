@@ -90,6 +90,8 @@ public class UserAccountManager {
 		BigDecimal bigDecimal = userAccountMapperExt.staticaccount();
 		SystemConfigDTO configDTO = systemConfigManager.detail(ConfigEn.base_static.getCode());
 		Double double1 = Double.valueOf(configDTO.getConfigValue());
+		if(bigDecimal==null)
+			bigDecimal = BigDecimal.ZERO;
 		bigDecimal = bigDecimal.add(BigDecimal.valueOf(double1));
 		return bigDecimal;
 	}

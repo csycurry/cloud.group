@@ -42,11 +42,11 @@ a {text-decoration:none!important;}
 .admin p{margin:0;margin-bottom:5px}
 .admin p span{display:inline-block;width:70px;}
 
-.head .logo{height:65px;}
+.head .logo{height:100px;}
 .head .logo .logo_img{height:45px;margin-left:35px;margin-top:10px}
 .head .logo .logo_tip{margin-left:30px;}
-.head .headNav{background:#5A535C;height:50px;padding-left:50px;box-shadow:0 2px 2px #AB4D4D;}
-.head .headNav li{float:left;margin-right:20px;line-height:50px;width:85px;text-align:center;position:relative;}
+.head .headNav{background:#5A535C;height:100px;padding-left:100px;box-shadow:0 2px 2px #AB4D4D;}
+.head .headNav li{float:left;margin-right:20px;line-height:100px;width:85px;text-align:center;position:relative;}
 .head .headNav li a{font-size:16px;color:#fff;display:block}
 .head .headNav li.active{background:#e83e0b;}
 .head .help{cursor:pointer;}
@@ -64,7 +64,7 @@ a {text-decoration:none!important;}
 .headText a {color:#333}
 .headText .nologin{margin-top:12px}
 
-.header{height:50px;line-height:50px;background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;border-bottom:1px solid #ccc}
+.header{height:100px;line-height:100px;background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;border-bottom:1px solid #ccc}
 .header a{color:#7b7b7b;}
 .header .logo img{height:40px;}
 .header ul{margin:0 0 0 30px!important;}

@@ -1,10 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<header class="head" style="position: relative; z-index: 999">
-	<div class="headNav">
-		<div class="container head clearfix" style="width: 1150px !important;">
+<link href="/assets/main/css/chinaz.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="assets/main/js/js.js"></script>
+<script type="text/javascript">
+       
+	function cashclick() {
+
+		$.post("/user/loginout.json", {}, function(data) {
+			location.href="/index.html";
+		});
+
+	}
+</script>
+<header class="head find_nav" style="position: relative; z-index: 999">
+	<div class="find_nav_left">
+		<div class="find_nav_list" style="width: 1150px !important;">
 			<div class="logoImg  pull-left">
-				<a href="http://currychen.cn"> <img class="logo_img" src=""
+				<a href="http://currychen.cn"> <img class="logo_img" src="assets/main/img/logo.png"
 					alt="" /></a>
 			</div>
 			<ul class="pull-left clearfix">
@@ -40,12 +52,12 @@
 				<c:if test="${userCode==null||userCode=='' }">
 					<div class="nologin">
 						<a id="alogin" class="loginmodal"><span
-							class="glyphicon glyphicon-user "
-							style="color: #DA8528; font-size: 20px; height: 80px; line-height: 80px; vertical-align: bottom;">登录</span></a>
+							class="glyphicon"
+							style="color: #DA8528; font-size: 18px; height: 80px; line-height: 80px; vertical-align: bottom;">登录</span></a>
 						<span class="orange"
-							style="font-size: 20px; height: 80px; line-height: 80px; vertical-align: bottom;">丨</span>
+							style="font-size: 18px; height: 80px; line-height: 80px; vertical-align: bottom;">丨</span>
 						<a id="reg" href="/register.html"><span
-							class="glyphicon glyphicon-pencil"
+							class="glyphicon"
 							style="color: #DA8528; font-size: 20px; height: 80px; line-height: 80px; vertical-align: bottom;">注册</span></a>
 					</div>
 				</c:if>
@@ -53,13 +65,3 @@
 		</div>
 	</div>
 </header>
-<script type="text/javascript">
-       
-	function cashclick() {
-
-		$.post("/user/loginout.json", {}, function(data) {
-			location.href="/index.html";
-		});
-
-	}
-</script>

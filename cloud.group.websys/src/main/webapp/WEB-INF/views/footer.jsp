@@ -69,11 +69,11 @@
             </div>
             <div class="col-xs-2 col-md-2 col-sm-2 col-xs-2">
                 <p>
-                    <img src="/img/dh.png" />
+                    <img src="assets/main/img/dh.png" />
                     <span>&nbsp;&nbsp;&nbsp;</span>0571-XXXXXXXX
                 </p>
                 <p>
-                    <img src="/img/fw.png" />
+                    <img src="assets/main/img/fw.png" />
                     <span>&nbsp;&nbsp;&nbsp;</span>服务时间段：9:00 - 18:00
                 </p>
             </div>

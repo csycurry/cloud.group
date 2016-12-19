@@ -4,14 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.emus.AccountTypeEn;
 import com.csy.banner.domain.dto.NewsBannerDto;
@@ -28,7 +25,6 @@ import com.csy.mission.domain.dto.MissionDTO;
 import com.csy.mission.domain.dto.MissionSearchDTO;
 import com.csy.mission.manager.MissionManager;
 import com.csy.news.domain.dto.NewsPageDto;
-import com.csy.news.domain.emus.NewsTypeEn;
 import com.csy.news.manager.NewsManager;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserAccountManager;
@@ -81,7 +77,10 @@ public class IndexController extends BaseController{
 		SystemConfigDTO configDTO = systemConfigManager.detail(ConfigEn.notice.getCode());
 		map.put("notice", configDTO.getConfigValue());
 		JSONObject jsonObject = userAccountManager.pageSearch("", 0, 20, null, AccountTypeEn.OUT.getCode());
-		map.put("pay", jsonObject.get("rows"));
+		if(jsonObject!=null)
+		{
+			map.put("pay", jsonObject.get("rows"));
+		}
 		BigDecimal decimal = userAccountManager.staticaccount();
 		map.put("decimal", decimal);
 		return modelAndView;
