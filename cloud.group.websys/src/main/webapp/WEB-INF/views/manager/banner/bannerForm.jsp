@@ -74,7 +74,7 @@
 	                                </div>
 				                </c:forEach>
 				                </div>
-				                <input type="button" value="add" onclick="addItem()">
+				                <input type="button" value="添加图片" onclick="addItem()">
                                 <div class='form-actions' style='margin-bottom:0'>
                                     <button class='btn btn-primary' type="button" onclick="save()">
                                         <i class='icon-save'></i>

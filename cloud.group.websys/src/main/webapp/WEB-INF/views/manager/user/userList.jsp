@@ -66,7 +66,7 @@
 				<form id="queryForm">
 
 					<div>
-						<span>用户名称 </span>
+						<span>用户名 </span>
 						<input type="text" name="userName" value="${u.userName}" style="margin-left: 5px; margin-right: 5px;">
 						<span>Email </span>
 						<input type="text" name="userMail" value="${u.userMail}" style="margin-left: 5px; margin-right: 5px;"> 
@@ -98,13 +98,16 @@
                                 用户名
                             </th>
                             <th>
-         	 用户名称                    
+         	 用户昵称                    
                             </th>
                             <th>
                                 用户邮箱
                             </th>
                              <th>
                                 用户qq
+                            </th>
+                            <th>
+                            真实姓名
                             </th>
                             <th>
                             支付宝
@@ -128,6 +131,7 @@
 	                            <td>${u.userName}</td>
 	                            <td>${u.userMail}</td>
 	                            <td>${u.userQq}</td>
+	                            <td>${u.realName}</td>
 	                            <td>${u.userAlipay}</td>
 	                            <td><fmt:formatDate value="${u.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td>${u.balance}</td>
