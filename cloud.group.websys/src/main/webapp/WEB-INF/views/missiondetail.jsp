@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
-	打码-${list.missionTitle}
+	聚宝师-${list.missionTitle}
 </title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description" content="打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
@@ -46,7 +46,7 @@
         <div class="mainWidth container clearfix">
             <div class="drawCode pull-left">
                 <h3 class='drawCodeHead'>
-                    <img src="assets/main/img/drawCode1.png" /><span id="ctl00_ContentPlaceHolder1_lblcaptchaname">${list.missionTitle}</span><a href="/mission/list.html" class="pull-right">其他任务>></a></h3>
+                    <img src="assets/main/img/drawCode1.png" /><span id="ctl00_ContentPlaceHolder1_lblcaptchaname">${list.missionTitle}</span><a href="/codes.html" class="pull-right">其他任务>></a></h3>
                 <div class="drawCodeCtn">
                     <div class="drawCodeMsg clearfix">
                         <div class="pull-left one">
@@ -140,7 +140,7 @@
         $(function () {
             (function () {
                 function init() {
-                    navbarshow($('.headNav li:nth-child(5)'));
+                    navbarshow($('.headNav li:nth-child(2)'));
                     $('.code .drawCode').show();
                     table();
                 }

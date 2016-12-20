@@ -107,7 +107,7 @@ public class NewsManager {
 				BeanUtils.copyProperties(result, newsListDto);
 				newsListDto.setCreateDate(DateUtil.toLocaleString(result.getCreateTime(), "YYYY-MM-dd"));
 				if(result.getType()!=null)
-					newsListDto.setTypeMean(NewsTypeEn.toEnum(result.getType().byteValue()).getMean());
+					newsListDto.setTypeMean(NewsTypeEn.toEnum(result.getType()).getMean());
 				retList.add(newsListDto);
 			}
 			pagination.setList(retList);
@@ -124,6 +124,7 @@ public class NewsManager {
 			return null;
 		BeanUtils.copyProperties(news, newsDto);
 		newsDto.setCreateDate(DateUtil.toLocaleString(news.getCreateTime(), "YYYY-MM-dd"));
+		newsDto.setTypeCn(NewsTypeEn.toEnum(newsDto.getType()).getMean());
 		return newsDto;
 	}
 	

@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
-	打码-打码专区
+	聚宝师-打码专区
 </title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description" content="打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
@@ -56,7 +56,7 @@
                 <div class="task tab-content">
                     <div class="taskList tab-pane fade in active codeCtnCom">
                         <h5>
-                            <img src="assets/main/img/codeIcon2.png" />推荐任务<span class='silver'> 打码时不需要重复切换IP</span></h5>
+                            <img src="assets/main/img/codeIcon2.png" />推荐任务<span class='silver'> </span></h5>
                         <table class="table text-center">
                             <thead>
                                 <tr>
@@ -101,6 +101,7 @@
         $(function () {
             (function () {
                 function init() {
+                	navbarshow($('.headNav li:nth-child(2)'));
                     navbar();
                     adminhover();
                     backTOP();

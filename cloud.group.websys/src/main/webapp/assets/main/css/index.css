@@ -1,4 +1,4 @@
-.banner{position:relative;width:100%;}
+.banner{position:relative;width:100%;top:80px}
 .banner .register{z-index:888;position:absolute;top:60px;right:0%;background:rgba(255,255,255,.5);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7Fffffff,endColorstr=#7Fffffff);width:320px;border-radius:4px}
 .banner .register .registerCtn .nologin{background:rgba(255,255,255,.8);height:240px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8ffffff,endColorstr=#C8ffffff);padding:15px 20px;border-radius:4px;color:#333}
 .banner .register .registerCtn .nologin p{border-bottom:1px solid #ff4900;padding-bottom:10px;}

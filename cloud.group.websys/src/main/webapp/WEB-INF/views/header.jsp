@@ -10,24 +10,9 @@ img{ border:0;}
 .nav ul li{ height:40px; line-height:40px; float:left; padding:10px 5px; margin:0px 5px;position:relative;}
 .nav ul li a{ color:#666; font-family:'Microsoft Yahei'; font-size:14px; text-decoration:none;}
 .nav ul li a:hover{ color:#000; text-decoration:none;}
-.nav ul li span{ display:block; position:absolute; width:0px; height:0px; background:#1FAEFF; top:58px; left:50%;}
+.headNav ul li span{ display:block; position:absolute; width:0px; height:0px; background:#1FAEFF; top:80px; left:50%;}
 </style>
 <script type="text/javascript">
-	$(function(){
-		$('.head li').hover(function(){
-			$('span',this).stop().css('height','2px');
-			$('span',this).animate({
-				left:'0',
-				width:'100%',
-				right:'0'
-			},200);
-		},function(){
-			$('span',this).stop().animate({
-				left:'50%',
-				width:'0'
-			},200);
-		});
-	});   
 	function cashclick() {
 
 		$.post("/user/loginout.json", {}, function(data) {
@@ -38,16 +23,14 @@ img{ border:0;}
 </script>
 <header class="head" style="position: relative; z-index: 999">
 	<div class="headNav">
-		<div class="container head clearfix nav" style="width: 1150px !important;">
+		<div class="container head clearfix" style="width: 1150px !important;">
 			<div class="logoImg  pull-left">
 				<a href="http://currychen.cn"> <img class="logo_img" src="assets/main/img/logo.png"
 					alt="" /></a>
 			</div>
 			<ul class="pull-left clearfix">
 				<li>
-					<div>
 						<a href="/index.html">首 页</a><span></span>
-					</div>
 				</li>
 				<li><a href="/codes.html">
 						打码专区
@@ -82,7 +65,7 @@ img{ border:0;}
 							style="font-size: 18px; height: 80px; line-height: 80px; vertical-align: bottom;">丨</span>
 						<a id="reg" href="/register.html"><span
 							class="glyphicon"
-							style="color: #DA8528; font-size: 20px; height: 80px; line-height: 80px; vertical-align: bottom;">注册</span></a>
+							style="color: #DA8528; font-size: 18px; height: 80px; line-height: 80px; vertical-align: bottom;">注册</span></a>
 					</div>
 				</c:if>
 			</div>

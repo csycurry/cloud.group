@@ -108,7 +108,7 @@ ul, li {
 		</ul>
 
 	</div>
-	<div class='index'>
+	<div class='index' style="margin-top: 80px;">
 		<div class="container mainWidth" style="width: 1200px !important">
 			<div class="loginReg">
 				<div class="pull-left text-center tip" style="">体验步骤</div>
@@ -533,7 +533,7 @@ ul, li {
 							<span>${notice}</span>
 						</div>
 					</div>
-					<div class="weekRank common mt20">
+					<div class="weekRank notice common mt20">
 						<h4>
 							<img src="assets/main/img/index4-2.png" alt="">实时提现
 						</h4>
@@ -543,157 +543,157 @@ ul, li {
 									<div class="list_lh">
 										<ul>
 											<c:forEach items="${pay}" var="p">
-												<li>用户:<span class='green1 apostrophe'>${p.usercode}</span>提现了<span
-												class="red">${p.total}元</span></li>
+												<li>用户:<b class='green1 apostrophe'>${p.usercode}</b>提现了<b
+												class="red">${p.total}元</b></li>
 											</c:forEach>
 											
 
-											<li>用户:<span class='green1 apostrophe'>p854251109</span>提现了<span
-												class="red">14元</span></li>
+											<li>用户:<b class='green1 apostrophe'>p854251109</b>提现了<b
+												class="red">14元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>dukw0526</span>提现了<span
-												class="red">2348元</span></li>
+											<li>用户:<b class='green1 apostrophe'>dukw0526</b>提现了<b
+												class="red">2348元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>200482</span>提现了<span
-												class="red">1元</span></li>
+											<li>用户:<b class='green1 apostrophe'>200482</b>提现了<b
+												class="red">1元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>haizhong123</span>提现了<span
-												class="red">58元</span></li>
+											<li>用户:<b class='green1 apostrophe'>haizhong123</b>提现了<b
+												class="red">58元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>zx294113647</span>提现了<span
-												class="red">42元</span></li>
+											<li>用户:<b class='green1 apostrophe'>zx294113647</b>提现了<b
+												class="red">42元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>13175831806</span>提现了<span
-												class="red">4元</span></li>
+											<li>用户:<b class='green1 apostrophe'>13175831806</b>提现了<b
+												class="red">4元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>denniscui</span>提现了<span
-												class="red">1元</span></li>
+											<li>用户:<b class='green1 apostrophe'>denniscui</b>提现了<b
+												class="red">1元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>tianjiao1200</span>提现了<span
-												class="red">11元</span></li>
+											<li>用户:<b class='green1 apostrophe'>tianjiao1200</b>提现了<b
+												class="red">11元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>biw123</span>提现了<span
-												class="red">5元</span></li>
+											<li>用户:<b class='green1 apostrophe'>biw123</b>提现了<b
+												class="red">5元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>3441407735</span>提现了<span
-												class="red">31元</span></li>
+											<li>用户:<b class='green1 apostrophe'>3441407735</b>提现了<b
+												class="red">31元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>qq549385465</span>提现了<span
-												class="red">10元</span></li>
+											<li>用户:<b class='green1 apostrophe'>qq549385465</b>提现了<b
+												class="red">10元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>dfffiw521</span>提现了<span
-												class="red">14元</span></li>
+											<li>用户:<b class='green1 apostrophe'>dfffiw521</b>提现了<b
+												class="red">14元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>wyj3957</span>提现了<span
-												class="red">11元</span></li>
+											<li>用户:<b class='green1 apostrophe'>wyj3957</b>提现了<b
+												class="red">11元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>sunuo1</span>提现了<span
-												class="red">13元</span></li>
+											<li>用户:<b class='green1 apostrophe'>sunuo1</b>提现了<b
+												class="red">13元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>q18065167130</span>提现了<span
-												class="red">100元</span></li>
+											<li>用户:<b class='green1 apostrophe'>q18065167130</b>提现了<b
+												class="red">100元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>yiyepiaoling</span>提现了<span
-												class="red">79元</span></li>
+											<li>用户:<b class='green1 apostrophe'>yiyepiaoling</b>提现了<b
+												class="red">79元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>wudi111</span>提现了<span
-												class="red">30元</span></li>
+											<li>用户:<b class='green1 apostrophe'>wudi111</b>提现了<b
+												class="red">30元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>ll23852</span>提现了<span
-												class="red">80元</span></li>
+											<li>用户:<b class='green1 apostrophe'>ll23852</b>提现了<b
+												class="red">80元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>a912001740</span>提现了<span
-												class="red">10元</span></li>
+											<li>用户:<b class='green1 apostrophe'>a912001740</b>提现了<b
+												class="red">10元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>mmm32336</span>提现了<span
-												class="red">340元</span></li>
+											<li>用户:<b class='green1 apostrophe'>mmm32336</b>提现了<b
+												class="red">340元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>ruiven0317</span>提现了<span
-												class="red">1元</span></li>
+											<li>用户:<b class='green1 apostrophe'>ruiven0317</b>提现了<b
+												class="red">1元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>dai19910705</span>提现了<span
-												class="red">10元</span></li>
+											<li>用户:<b class='green1 apostrophe'>dai19910705</b>提现了<b
+												class="red">10元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>q3252515</span>提现了<span
-												class="red">666元</span></li>
+											<li>用户:<b class='green1 apostrophe'>q3252515</b>提现了<b
+												class="red">666元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>hzfcyzf</span>提现了<span
-												class="red">722元</span></li>
+											<li>用户:<b class='green1 apostrophe'>hzfcyzf</b>提现了<b
+												class="red">722元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>皇族天赐</span>提现了<span
-												class="red">101元</span></li>
+											<li>用户:<b class='green1 apostrophe'>皇族天赐</b>提现了<b
+												class="red">101元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>libieshanggan</span>提现了<span
-												class="red">279元</span></li>
+											<li>用户:<b class='green1 apostrophe'>libieshanggan</b>提现了<b
+												class="red">279元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>woyaohuijia</span>提现了<span
-												class="red">288元</span></li>
+											<li>用户:<b class='green1 apostrophe'>woyaohuijia</b>提现了<b
+												class="red">288元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>mingtianjiuzou</span>提现了<span
-												class="red">588元</span></li>
+											<li>用户:<b class='green1 apostrophe'>mingtianjiuzou</b>提现了<b
+												class="red">588元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>shiwei1235</span>提现了<span
-												class="red">22元</span></li>
+											<li>用户:<b class='green1 apostrophe'>shiwei1235</b>提现了<b
+												class="red">22元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>a700733</span>提现了<span
-												class="red">226元</span></li>
+											<li>用户:<b class='green1 apostrophe'>a700733</b>提现了<b
+												class="red">226元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>xq12080</span>提现了<span
-												class="red">74元</span></li>
+											<li>用户:<b class='green1 apostrophe'>xq12080</b>提现了<b
+												class="red">74元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>xuewen1021</span>提现了<span
-												class="red">459元</span></li>
+											<li>用户:<b class='green1 apostrophe'>xuewen1021</b>提现了<b
+												class="red">459元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>13980863852</span>提现了<span
-												class="red">68元</span></li>
+											<li>用户:<b class='green1 apostrophe'>13980863852</b>提现了<b
+												class="red">68元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>TIANGUIJIN</span>提现了<span
-												class="red">2元</span></li>
+											<li>用户:<b class='green1 apostrophe'>TIANGUIJIN</b>提现了<b
+												class="red">2元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>lsl123456</span>提现了<span
-												class="red">70元</span></li>
+											<li>用户:<b class='green1 apostrophe'>lsl123456</b>提现了<b
+												class="red">70元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>shanye</span>提现了<span
-												class="red">66元</span></li>
+											<li>用户:<b class='green1 apostrophe'>shanye</b>提现了<b
+												class="red">66元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>ltw12345</span>提现了<span
-												class="red">9元</span></li>
+											<li>用户:<b class='green1 apostrophe'>ltw12345</b>提现了<b
+												class="red">9元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>likai520</span>提现了<span
-												class="red">50元</span></li>
+											<li>用户:<b class='green1 apostrophe'>likai520</b>提现了<b
+												class="red">50元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>kaleb0522</span>提现了<span
-												class="red">9元</span></li>
+											<li>用户:<b class='green1 apostrophe'>kaleb0522</b>提现了<b
+												class="red">9元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>y52111125y</span>提现了<span
-												class="red">8元</span></li>
+											<li>用户:<b class='green1 apostrophe'>y52111125y</b>提现了<b
+												class="red">8元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>13161860445</span>提现了<span
-												class="red">3元</span></li>
+											<li>用户:<b class='green1 apostrophe'>13161860445</b>提现了<b
+												class="red">3元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>whq518</span>提现了<span
-												class="red">740元</span></li>
+											<li>用户:<b class='green1 apostrophe'>whq518</b>提现了<b
+												class="red">740元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>18207741560</span>提现了<span
-												class="red">3元</span></li>
+											<li>用户:<b class='green1 apostrophe'>18207741560</b>提现了<b
+												class="red">3元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>lx886966</span>提现了<span
-												class="red">3元</span></li>
+											<li>用户:<b class='green1 apostrophe'>lx886966</b>提现了<b
+												class="red">3元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>q519184804</span>提现了<span
-												class="red">9元</span></li>
+											<li>用户:<b class='green1 apostrophe'>q519184804</b>提现了<b
+												class="red">9元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>name314</span>提现了<span
-												class="red">45元</span></li>
+											<li>用户:<b class='green1 apostrophe'>name314</b>提现了<b
+												class="red">45元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>15008838979</span>提现了<span
-												class="red">350元</span></li>
+											<li>用户:<b class='green1 apostrophe'>15008838979</b>提现了<b
+												class="red">350元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>m1044889812</span>提现了<span
-												class="red">9元</span></li>
+											<li>用户:<b class='green1 apostrophe'>m1044889812</b>提现了<b
+												class="red">9元</b></li>
 
-											<li>用户:<span class='green1 apostrophe'>15336656765</span>提现了<span
-												class="red">150元</span></li>
+											<li>用户:<b class='green1 apostrophe'>15336656765</b>提现了<b
+												class="red">150元</b></li>
 
 										</ul>
 									</div>

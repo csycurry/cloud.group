@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>打码**-资讯中心</title>
+	<title>聚宝师-资讯中心</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="keywords" content="聚聚玩,聚聚玩官网,网赚,网上赚钱,打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" /><meta name="description" content="聚聚玩是一个玩游戏、体验产品赚积分。玩家可以通过玩游戏赚钱，打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
 	<link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/common.css" type="text/css" rel="stylesheet" />
@@ -37,7 +37,7 @@
 </head>
 <body>
         <%@include file="header.jsp"%>
-    <div class='index' style="margin-top: 60px">
+    <div class='index' style="padding-top: 100px;">
         <div class="w950 clearfix">
     	<!--左边-->
     <div class=" w700">
@@ -126,7 +126,7 @@
     <script type="text/javascript">
         $(function () {
             (function () {
-
+            	navbarshow($('.headNav li:nth-child(3)'));
                 function upDownMove(obj) {
                     var moveOnOff = true;
                     setInterval(function () {
