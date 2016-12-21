@@ -36,7 +36,7 @@
 								<div class='success'>登录</div>\
 					    	</div>\
 					    	<div class='form-group'>\
-					    		<a href='javascript:void(0)' class='btn btn-info btn-block login'>登<span></span>陆</a>\
+					    		<a href='javascript:void(0)' class='btn btn-info btn-block login'>登<span></span>录</a>\
 					    	</div>\
 					    	<p>还没有创建账户<a href='Register.aspx'>注册</a></p>\
 				    	</div>\

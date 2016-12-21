@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>登陆</title>
+    <title>登录</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
     
     <!--[if lt IE 9]>
@@ -62,13 +62,13 @@
            <!--  <a href="sign_in.html"><div class='icon-heart'></div>
                 <span>Flatty</span>
             </a> -->
-            <span>运营管理平台</span>
+            <span>聚宝师运营管理平台</span>
         </div>
     </div>
     <div class='controls'>
         <div class='caret'></div>
         <div class='form-wrapper'>
-            <h1 class='text-center'>登陆</h1>
+            <h1 class='text-center'>登录</h1>
             <form accept-charset="UTF-8" id='userInfo'><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
                 <div class='row-fluid'>
                     <div class='span12 icon-over-input'>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <br/>
-                <input type="button" class="btn btn-block" value="登陆" onclick="userSubmit();"/>
+                <input type="button" class="btn btn-block" value="登录" onclick="userSubmit();"/>
                 
             </form>
             <div class='text-center'>
