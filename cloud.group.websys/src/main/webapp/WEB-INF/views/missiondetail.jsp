@@ -44,6 +44,11 @@
     </div>
     <section class='code'>
         <div class="mainWidth container clearfix">
+        	<div class="f13 bread-crumb">
+				当前位置: <a href="/index.html">首页</a> &gt; <a
+					href="/codes.html">打码专区</a> &gt; <a
+					href="javascript:void(0)">打码详情</a>
+			</div>
             <div class="drawCode pull-left">
                 <h3 class='drawCodeHead'>
                     <img src="assets/main/img/drawCode1.png" /><span id="ctl00_ContentPlaceHolder1_lblcaptchaname">${list.missionTitle}</span><a href="/codes.html" class="pull-right">其他任务>></a></h3>

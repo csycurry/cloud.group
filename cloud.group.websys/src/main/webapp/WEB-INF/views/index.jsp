@@ -72,17 +72,17 @@ ul, li {
 
 							<div class="nologin">
 								<p>
-									<span class="pull-left">用户名：</span><input type="text" id="user" />
+									<span class="pull-left">用户名：</span><input type="text" id="user" placeholder="用户名/手机号码/邮箱" />
 								</p>
 								<p>
 									<span class="pull-left">密&nbsp;&nbsp;码：</span> <input
-										type="password" id="psd" />
+										type="password" id="psd" placeholder="请输入密码" />
 								</p>
 								<div id="captchaIndex"
 									style="margin: 10px 0 10px; padding-top: 10px"></div>
 								<input id="btnlogin" class='btn btn-info btn-block'
 									type="button" value="登录" /> <a href="/qqLogin.html"><img
-									alt="qq登陆" src="assets/images/bt_white_24X24.png"><span
+									alt="qq登录" src="assets/images/bt_white_24X24.png"><span
 									id="qqLoginBtn"></span></a>
 								<p class="dl">
 									<a href="register.html"; class='pull-left'>注册账号</a><a
@@ -705,7 +705,7 @@ ul, li {
 					</div>
 					<div class="notice common mt20">
 						<h4>
-							<img src="assets/main/img/index4-3.png" alt="" />最新资讯<a href="#">更多&gt;&gt;</a>
+							<img src="assets/main/img/index4-3.png" alt="" />最新资讯<a href="#">更多</a>
 						</h4>
 						<div id="ctl00_ContentPlaceHolder1_UpdatePanel3">
 							<c:forEach items="${news}" var="n">

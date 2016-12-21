@@ -15,25 +15,25 @@
         function create() {
             var $dialog = $("<div class='dialog'>\
 					 <form class='wrap form-horizontal' id='loginform'>\
-				    	<h3>用户登陆<a href='javascript:void(0)' class='clos'>x</a></h3>\
+				    	<h3>用户登录<a href='javascript:void(0)' class='clos'>x</a></h3>\
 				    	<div class='dialogCtn'>\
 				    		<div class='form-group'>\
-				    		<input type='text' class='form-control username' name='userCode' placeholder='用户名'>\
+				    		<input type='text' class='form-control username' name='userCode' placeholder='用户名/手机号码/邮箱'>\
 					    	</div>\
 					    	<div class='form-group'>\
-					    		<input type='password' name='userPwd' class='form-control password' placeholder='用户密码'>\
+					    		<input type='password' name='userPwd' class='form-control password' placeholder='请输入密码'>\
 					    	</div>\
                             <div style='padding-left:10px' id='captcha'></div>\
 					    	<div class='form-group'>\
 					    		<div class='checkbox'>\
 						    	    <label>\
-						    	      	<input class='remember' type='checkbox' checked='checked'> 记住\
+						    	      	<input class='remember' type='checkbox' checked='checked'> 记住密码\
 						    	      	<a href='Password.aspx' class='pull-right'>忘记密码？</a>\
 						    	    </label>\
 					    		</div>\
 					    	</div>\
 					    	<div class='tip'>\
-								<div class='success'>登陆</div>\
+								<div class='success'>登录</div>\
 					    	</div>\
 					    	<div class='form-group'>\
 					    		<a href='javascript:void(0)' class='btn btn-info btn-block login'>登<span></span>陆</a>\
@@ -57,11 +57,9 @@
             $captcha = $parent.find('#captcha');
             $login = $parent.find('.login');
             $fail = $parent.find('.tip .fail');
-            $dialog.fadeIn();
-            $wrap.addClass('active');
+            $dialog.fadeIn(0);
             $close.add($mask).click(function () {
                 $dialog.fadeOut(500);
-                $wrap.removeClass('active');
                 $(window).off(".dialog");
                 $dialog.remove();
             })
@@ -88,7 +86,7 @@
 	    				}
 	    				else
 	    				{
-		    				alert("登陆成功！");
+		    				alert("登录成功！");
 		    				$fail.hide();
                             window.location.reload(true);
                             return;

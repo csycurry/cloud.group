@@ -36,7 +36,10 @@ function Geetcaptcha(captcha, notice) {
             captchaObj.appendTo(captcha);
             captchaObj.onSuccess(function () {
                 notice.isverfiy = true;
-            })
+            });
+            captchaObj.onFail(function () {
+                notice.isverfiy = false;
+            });
         }
     };
     $.ajax({

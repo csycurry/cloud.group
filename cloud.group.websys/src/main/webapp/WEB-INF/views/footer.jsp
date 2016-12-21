@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-2">
-                <img alt="LOGO" src="">
+                <img alt="LOGO" src="assets/main/img/logo.png">
             </div>
             <div class="col-xs-2">
                 <h4>关于我们</h4>
@@ -80,7 +80,7 @@
         </div>
         <div class='web clearfix'>
             <div class="container">
-                <p class='pull-left'><a href="#">XXX</a> | <a href="#">备案/许可证号:XXXXXX </a></p>
+                <p class='pull-left'><a href="#">聚宝师</a> | <a href="#">备案/许可证号:XXXXXX </a></p>
                 <p class='pull-left'>
                     Copyright ©2016 currychen.cn All Rights Reserved
                     <script  src="http://static.anquan.org/static/outer/js/aq_auth.js"></script></a>                      

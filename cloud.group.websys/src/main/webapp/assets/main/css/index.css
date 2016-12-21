@@ -7,7 +7,7 @@
 .banner .register .registerCtn .nologin input{border:none;outline:none;padding-left:5px;margin-left:5px}
 .banner .register .registerCtn .nologin button{background:#ff4900;border:1px solid #ff4900;letter-spacing:20px;padding-left:30px;margin-top:15px}
 .banner .register .registerCtn .nologin p a{color:#333;}
-.banner .register .registerCtn .nologin p input{color:#333;height:22px;width:180px}
+.banner .register .registerCtn .nologin p input{color:#333;height:22px;width:180px;BACKGROUND-COLOR: transparent;}
 .banner .register .registerCtn .nologin p span{display:inline-block;width:60px;text-align:right}
 .banner .register .registerCtn .nologin p.dl{border:none;}
 .banner .register .registerCtn .nologin p.dl a{margin-top:5px}
@@ -35,9 +35,9 @@
 .banner .user .user-btn .shop{background:#26af60;border-bottom:1px solid #229752;margin-left:20px}
 .banner .bannerImg{width:100%;height:350px;}
 .banner .bannerImg li img{height:100%;}
-.banner .bannerIcon{position:absolute;bottom:3%;width:100%}
-.banner .bannerIcon li{display:inline-block;width:75px;height:6px;border-radius:6px;background:#fff;border:1px solid #ccc;margin:0 0px;cursor:pointer;}
-.banner .bannerIcon li.active{background:#ff7520;border:1px solid #ff7520;}
+.banner .bannerIcon{position:absolute;bottom:3%;width:100%;height: 26px;z-index:888}
+.banner .bannerIcon li{display:inline-block;width:25px;height:6px;margin-right:16px;background:#FFF;opacity:.5;filter:alpha(opacity=50);cursor:pointer;*float:left;z-index: 20;}
+.banner .bannerIcon li.active{opacity:.9;filter:alpha(opacity=90)}.carousel-control{position:absolute;z-index:50;top:50%;height:54px;width:38px;margin-top:-27px;font-size:0;line-height:0;text-align:center;color:#FFF;cursor:pointer}
 
 .banner .bannerImg li{background:url(../img/slider/jjw2.jpg) no-repeat top center;display:none;position:absolute;left:0;width:100%;overflow:hidden;height:100%;}
 /*.banner .bannerImg li.two{background:url(../img/slider/newer.jpg) no-repeat top center;}
@@ -62,7 +62,7 @@
 .statistics li .li_wrap{margin-top:0px;transition:.3s;}
 .statistics li:hover .li_wrap{margin-top:-74px;transition:.3s;}
 
-.tip{background:#e34218;color:#fff;position:relative;width:210px;margin-right:50px;line-height: 70px;}
+.tip{background:#e34218;color:#fff;position:relative;width:210px;margin-right:50px;line-height: 70px;font-size: 18px;}
 .tip:after{content:'';width:0;height:0;position:absolute;right:-24px;border:12px solid transparent;border-left-color:#e34218;top:20px;}
 .dh{color:#e34218;border-left:1px solid #ccc;text-align:center;}
 .dh img{margin-right:10px;}
@@ -118,7 +118,7 @@
 .aside .serve img{width:100%;}
 .aside .common h4{border:1px solid #ccc;padding:10px;font-size:16px;margin-bottom:0;position:relative;margin-top:0}
 .aside .common h4 img{margin-right:10px;margin-top:-5px}
-.aside .common h4 a{color:#999;margin-left:110px;font-size:14px;position:relative;top:3px;}
+.aside .common h4 a{color:#999;margin-left:110px;font-size:17px;position:relative;top:3px;}
 .aside .common h4:after{position:absolute;content:'';width:65px;height:2px;background:#FD2432;bottom:-1px;left:-1px;}
 .aside .common select{font-size:14px;margin-left:60px;}
 .aside .weekRank .table th{color:#333;font-size:14px;}

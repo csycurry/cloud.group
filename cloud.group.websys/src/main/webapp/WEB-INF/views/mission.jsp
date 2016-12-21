@@ -45,6 +45,10 @@
     </div>
     <section class='code'>
         <div class="mainWidth container clearfix">
+        	<div class="f13 bread-crumb">
+				当前位置: <a href="/">首页</a> &gt; <a
+					href="javascript:void(0)">打码专区</a>
+			</div>
             <div class="codeCtn pull-left">
                 <div class="codeHead clearfix">
                     <ul class="nav nav-pills pull-left">
