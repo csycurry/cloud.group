@@ -19,11 +19,11 @@ import com.sun.mail.util.MailSSLSocketFactory;
 public class SendMailUtil{
      
     // 设置服务器
-    private static String KEY_SMTP = "mail.smtp.host";
-    private static String VALUE_SMTP = "smtp.exmail.qq.com";
+    private static String KEY_SMTP = "mail.host";
+    private static String VALUE_SMTP = "smtp.qq.com";
     // 服务器验证
     private static String KEY_PROPS = "mail.smtp.auth";
-    private static boolean VALUE_PROPS = true;
+    private static String VALUE_PROPS = "true";
     // 发件人用户名、密码
     private String SEND_USER = "444712707@qq.com";
     private String SEND_UNAME = "444712707";
@@ -38,12 +38,10 @@ public class SendMailUtil{
      */
     public SendMailUtil() {
     	Properties props = new Properties();
-    	 // 开启debug调试
-	    props.setProperty("mail.debug", "true");
 	    // 发送服务器需要身份验证
-	    props.setProperty("mail.smtp.auth", "true");
+	    props.setProperty(KEY_PROPS, VALUE_PROPS);
 	    // 设置邮件服务器主机名
-	    props.setProperty("mail.host", "smtp.qq.com");
+	    props.setProperty(KEY_SMTP, VALUE_SMTP);
 	    // 发送邮件协议名称
 	    props.setProperty("mail.transport.protocol", "smtp");
 	    props.put("mail.smtp.port", "465");
@@ -81,18 +79,14 @@ public class SendMailUtil{
     	    Message msg = new MimeMessage(session);
     	    
     	    try {
-    	    	msg.setSubject("seenews 错误");
-        	    StringBuilder builder = new StringBuilder();
-        	    builder.append("url = " + "http://blog.csdn.net/never_cxb/article/details/50524571");
-        	    builder.append("\n页面爬虫错误");
-        	    builder.append("\n时间 ");
-				msg.setText(builder.toString());
-				msg.setFrom(new InternetAddress("444712707@qq.com"));
+    	    	msg.setSubject(headName);
+				msg.setText(sendHtml);
+				msg.setFrom(new InternetAddress(SEND_USER));
 		    	 
 	    	    Transport transport = session.getTransport();
-	    	    transport.connect("smtp.qq.com", "444712707@qq.com", key);
+	    	    transport.connect(VALUE_SMTP, SEND_USER, key);
 	    	 
-	    	    transport.sendMessage(msg, new Address[] { new InternetAddress("444712707@qq.com") });
+	    	    transport.sendMessage(msg, new Address[] { new InternetAddress(receiveUser) });
 	    	    transport.close();
 			} catch (MessagingException e) {
 				// TODO Auto-generated catch block
@@ -103,7 +97,7 @@ public class SendMailUtil{
  
     public static void main(String[] args) {
     	SendMailUtil mailUtil = new SendMailUtil();
-    	mailUtil.doSendHtmlEmail("邮件头文件名", "邮件内容", "444712707@qq.com");
+    	mailUtil.doSendHtmlEmail("邮件头文件名", "邮件内容", "1498732845@qq.com");
     }
  
 }
