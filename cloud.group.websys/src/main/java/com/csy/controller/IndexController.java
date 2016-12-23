@@ -28,6 +28,8 @@ import com.csy.news.domain.dto.NewsPageDto;
 import com.csy.news.manager.NewsManager;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserAccountManager;
+import com.csy.util.SendMailUtil;
+import com.csy.util.SpringMail;
 
 @Controller
 public class IndexController extends BaseController{
@@ -81,6 +83,8 @@ public class IndexController extends BaseController{
 		{
 			map.put("pay", jsonObject.get("rows"));
 		}
+		SendMailUtil mailUtil = new SendMailUtil();
+		mailUtil.doSendHtmlEmail("headName", "sendHtml", "receiveUser");
 		BigDecimal decimal = userAccountManager.staticaccount();
 		map.put("decimal", decimal);
 		return modelAndView;

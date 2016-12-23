@@ -108,7 +108,7 @@ ul, li {
 		</ul>
 
 	</div>
-	<div class='index' style="margin-top: 80px;">
+	<div class='index' style="margin-top: 85px;">
 		<div class="container mainWidth" style="width: 1200px !important">
 			<div class="loginReg">
 				<div class="pull-left text-center tip" style="">体验步骤</div>

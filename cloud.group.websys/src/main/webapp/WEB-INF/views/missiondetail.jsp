@@ -47,7 +47,7 @@
         	<div class="f13 bread-crumb">
 				当前位置: <a href="/index.html">首页</a> &gt; <a
 					href="/codes.html">打码专区</a> &gt; <a
-					href="javascript:void(0)">打码详情</a>
+					href="javascript:void(0)">${list.missionTitle}</a>
 			</div>
             <div class="drawCode pull-left">
                 <h3 class='drawCodeHead'>
