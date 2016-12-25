@@ -38,7 +38,7 @@
                     </div>
                 </li>
                 <li class="BookMark">
-                    <a href="javascript:void(0)" onclick="AddFavorite('聚聚玩','www.jujuwan.com')">
+                    <a href="javascript:void(0)" onclick="AddFavorite('聚宝师','www.jubaos.com')">
                         <img src="assets/main/img/serviceCenter6.png" />
                         <br />
                         <span>收藏本站</span>

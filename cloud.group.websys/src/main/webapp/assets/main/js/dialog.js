@@ -28,7 +28,7 @@
 					    		<div class='checkbox'>\
 						    	    <label>\
 						    	      	<input class='remember' type='checkbox' checked='checked'> 记住密码\
-						    	      	<a href='Password.aspx' class='pull-right'>忘记密码？</a>\
+						    	      	<a href='password.html' class='pull-right'>忘记密码？</a>\
 						    	    </label>\
 					    		</div>\
 					    	</div>\

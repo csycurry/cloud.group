@@ -9,9 +9,9 @@
 <title>聚宝师-资讯中心</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords"
-	content="聚聚玩,聚聚玩官网,网赚,网上赚钱,打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
+	content="聚宝师,聚宝师官网,网赚,网上赚钱,打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description"
-	content="聚聚玩是一个玩游戏、体验产品赚积分。玩家可以通过玩游戏赚钱，打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
+	content="聚宝师是一个玩游戏、体验产品赚积分。玩家可以通过玩游戏赚钱，打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
 <link href="/assets/index/css/bootstrap.css" type="text/css"
 	rel="stylesheet" />
 <link href="/assets/main/css/common.css" type="text/css"

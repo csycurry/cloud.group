@@ -147,6 +147,11 @@ public class UserController extends BaseController{
 		return "redirect:/index.html";
 	}
 	
+	@RequestMapping(value = "/password")
+	public String login() {
+		return "changePwd";
+	}
+	
 	/**
 	 * QQ登陆
 	 * @return
