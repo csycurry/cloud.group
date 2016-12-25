@@ -42,7 +42,10 @@ a {text-decoration:none!important;}
 .admin p{margin:0;margin-bottom:5px}
 .admin p span{display:inline-block;width:70px;}
 
-.head {position:fixed;}
+/*.head {
+	/* position:fixed; 
+	}*/
+.head {}
 .headNav .logo{height:100px;line-height:100px;}
 .headNav .logo .logo_img{margin-left:35px;margin-top:15px}
 .head .logo .logo_tip{margin-left:30px;}

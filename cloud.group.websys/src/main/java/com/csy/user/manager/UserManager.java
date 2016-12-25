@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.csy.common.manager.SmsManager;
 import com.csy.config.domain.dto.SystemConfigDTO;
@@ -122,6 +123,16 @@ public class UserManager {
 		userMapperExt.updateByPrimaryKeySelective(user);
 	}
 	
+	public void updateUserByPhone(String phone,String pwd)
+	{
+		
+		UserExample example = new UserExample();
+		example.createCriteria().andUserMobileEqualTo(phone);
+		User user = new User();
+		user.setUserPwd(pwd);
+		userMapperExt.updateByExampleSelective(user, example);
+	}
+	
 	public int changeBalance(UserDTO userDTO)
 	{
 		String code = smsManager.getCode(userDTO.getUserMobile());
@@ -161,6 +172,38 @@ public class UserManager {
 			return dto;
 		}
 		return null;
+	}
+	
+	public long check(String type,String Phone)
+	{
+		UserExample example = new UserExample();
+		if(type.equals("VALIDATEPHONE"))
+		{
+			example.createCriteria().andUserMobileEqualTo(Phone);
+			return userMapperExt.countByExample(example);
+		}
+		else if(type.equals("PHONEMESSAGE"))
+		{
+			String code = smsManager.getCode(Phone);
+			if(!code.equals(Phone))
+			{
+				throw new BusinessException("请输入正确的验证码!");
+			}
+		}
+		return 0;
+	}
+	
+	public long checkCode(String type,String Phone,String code)
+	{
+		if(type.equals("PHONEMESSAGE"))
+		{
+			String MyCode = smsManager.getCode(Phone);
+			if(!MyCode.equals(code))
+			{
+				throw new BusinessException("请输入正确的验证码!");
+			}
+		}
+		return 0;
 	}
 	
 	private UserExample createExample(UserSearchDTO searchDTO)

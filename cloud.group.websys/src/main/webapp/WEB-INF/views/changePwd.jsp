@@ -57,7 +57,7 @@ ul, li {
 	<script src="http://static.geetest.com/static/tools/gt.js"></script>
    
     <section class='login1 login' style="
-    padding-top: 70px;>
+    padding-top: 70px;">
         <div class="container mainWidth">
             <div class="step clearfix">
                 <div class="item">
@@ -81,14 +81,15 @@ ul, li {
             </div>
             <div class="content">
                 <h4><span>1</span>填写注册手机号码</h4>
-                <input type="text" id="phone" class='form-control' placeholder="填写注册手机号码" />
-                <div id="captchapsd" style="margin-left: 5px" align="left"></div>
-                
-                <div class="tip">
-                    <p>
-                        <img src="img/gth.png" alt="" />请输入正确的手机号码
-                    </p>
+                <div style="width: 500px">
+	                <input type="text" id="phone" class='form-control' style="float: left;" placeholder="填写注册手机号码" />
+	                 <div class="tip">
+	                    <p>
+	                        	请输入正确的手机号码
+	                    </p>
+	                </div>
                 </div>
+                <div id="captchapsd" style="margin-left: 5px;height: 40px;display: inline-block;" align="left"></div>
                 <button class='btn btn-danger nextStep' type="button" disabled="disabled">下一步</button>
             </div>
         </div>
@@ -111,21 +112,21 @@ ul, li {
                 </div>
                 <div class="item">
                     <div>
-                        <img src="img/dui1.png" alt="" />
+                        <img src="assets/main/img/dui1.png" alt="" />
                     </div>
                     <p>完成</p>
                 </div>
             </div>
             <div class="content">
-                <h4><span>1</span>验证信息</h4>
+                <h4><span>2</span>验证信息</h4>
                 <p>
-                    <img src="img/dui1.png" alt="" />注册手机号码：<span id="RegPhone"></span>
+                    <img src="assets/main/img/dui1.png" alt="" />注册手机号码：<span id="RegPhone"></span>
                 </p>
                 
                 <div class="clearfix">
                     <input type="text" id="txtcode" class="form-control pull-left" style="width:173px" />
                     
-                    <input class="pull-left btn btn-info smsregisterverify" data-mode="1" style="width:80px;background:green;border:none;font-size:12px;margin-left:10px" type="button"  value="发送验证码" />
+                    <input class="pull-left btn btn-info smsregisterverify" data-mode="1" onclick="getCode()" style="width:80px;background:green;border:none;font-size:12px;margin-left:10px" type="button"  value="发送验证码" />
                 </div>
                 <p class="yzTip" style="display:none">
                     <img src="img/gth.png" alt="" /></p>
@@ -241,7 +242,6 @@ ul, li {
             (function () {
                 function init() {
                     phone();
-                    event();
                     nextStep();
                     password();
                 }
@@ -273,35 +273,33 @@ ul, li {
                     //console.log($nextStep.length)
                     $nextStep.click(function () {
                         var iNow = $(this).index('.login .nextStep');
+                        alert(iNow);
                         if (iNow == 0) {
                             if (!code.isverfiy) { alert("滑动验证失败！"); return false; }
-                            $.post("ashx/ValidateForm.ashx", { type: "VALIDATEPHONE", phone: $('#phone').val() }, function (data) {
-                                var info = eval("(" + data + ")");
+                            $.post("/user/check.json", { type: "VALIDATEPHONE", phone: $('#phone').val() }, function (data) {
                                 var $tip = $('.content .tip');
-                                if (info[0] == 1) {
+                                if (data.data == 1) {
                                     $('#RegPhone').text($('#phone').val());
                                     $login.eq(iNow + 1).show().siblings('.login').hide();
                                 }
                                 else {
                                     $tip.find('p').eq(0).show().siblings().hide();
-                                    $tip.find('p').eq(0).text(info[1]);
+                                    $tip.find('p').eq(0).text("该电话号码未注册,请确认!");
                                 }
                             });
                         }
                         if (iNow == 1) {
-                           
-                            $.post("ashx/ValidateForm.ashx", { type: "PHONEMESSAGE", PhoneVerifyCode: $('#txtcode').val() }, function (data) {
-                                var info = eval("(" + data + ")");
+                            $.post("/user/checkcode.json", { type: "PHONEMESSAGE",phone: $('#RegPhone').text(), code: $('#txtcode').val() }, function (data) {
                                 var $yzInput = $('.login2 .yzTip');
                                 $yzInput.css('opacity', 0);
-                                if (info[0] == 1) {
+                                if (data.status == 1) {
                                     $login.eq(iNow + 1).show().siblings('.login').hide();
                                     $yzInput.hide();
                                 }
                                 else {
                                     $yzInput.show();
                                     $yzInput.css('opacity', 1);
-                                    $yzInput.eq(0).text(info[1]);
+                                    $yzInput.eq(0).text(data.msg);
                                 }
                             });
                         }
@@ -315,9 +313,8 @@ ul, li {
                                     $passwordEvel.show();
                                     $passwordEvel.text("密码不符合规范（6位以上)！");
                                 }
-                                $.post("ashx/ValidateForm.ashx", { type: "CHANGEPSD", psd: $('#psd1').val(), phone: $('#phone').val() }, function (data) {
-                                    var info = eval("(" + data + ")");
-                                    if (info == 1) {
+                                $.post("/user/changePwd.json", { type: "CHANGEPSD", pwd: $('#psd1').val(), phone: $('#phone').val() }, function (data) {
+                                    if (data.status == 1) {
                                         $passwordEvel.hide();
                                         $login.eq(iNow + 1).show().siblings('.login').hide();
                                         if (iNow == $nextStep.length - 1) {
@@ -341,38 +338,7 @@ ul, li {
                     })
                 }
 
-                function event() {
-                    if ($.cookie("smscaptcha")) {
-                        var count = $.cookie("smscaptcha");
-                        if (count > 0) {
-                            dealmessage('.smsregisterverify', count, 1);
-                        }
-                    }
-                    $('.smsregisterverify').click(
-                       function () {
-                           if ($.cookie("smscaptcha")) {
-                               var count = $.cookie("smscaptcha");
-                               if (count > 0) {
-                                   dealmessage('.smsregisterverify', count, 1);
-                               }
-                           }
-                           else {
-                               $.ajax({
-                                   url: "/common/SMSAndVoice.aspx/GetRegisterSMSVerify",
-                                   type: "post",
-                                   dataType: "json",
-                                   contentType: "application/json; charset=utf-8",
-                                   data: JSON.stringify({ 'mode': $('.smsregisterverify').attr('data-mode'), 'phonenumber': $('#RegPhone').text(), 'type': "2" }),
-                                       success: function (data) {
-                                       },
-                                       error: function (data) {
-                                       }
-                                   });
-
-                                   dealmessage('.smsregisterverify', 60, 1);
-                               }
-                   });
-                 }
+                    
 
                 function password() {
                     var $input = $('.input input');
@@ -401,7 +367,7 @@ ul, li {
 
                         if (iNum == 0) {
                             clearInterval(timer);
-                            window.location.href = 'Index.aspx';
+                            window.location.href = '/';
                         }
                         iNum--;
                     }, 1000)
@@ -410,6 +376,37 @@ ul, li {
             })()
             
         })
+        
+         function getCode()
+            		{
+            			var mobile = $("#RegPhone").text();
+            			if(mobile=="")
+            				{
+            					alert("请输入手机号！");
+            					return;
+            				}
+            			var msg = $("#msgCode").val();
+            			var flag =false;
+            			$.post("/sms.json",{"mobile":mobile},function(data){
+            				time();
+            			  });
+            		}
+            		var wait=60;
+            		function time() {
+            			if (wait == 0) {
+            				$("#smsBtn").val("获取验证码");
+            				   wait = 60;
+            				  } else { 
+            				 
+            				$("#smsBtn").attr("disabled", true);
+            				$("#smsBtn").val("重新发送(" + wait + ")");
+            				   wait--;
+            				   setTimeout(function() {
+            				    time()
+            				   },
+            				   1000)
+            				  }
+            		 }
     </script>
 
         <div id="ctl00_hiddencode" class="hiddencode" style="display: none">120bfad6-5f42-4fbf-a6e6-5b2e4bc7a751</div>

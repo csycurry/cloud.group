@@ -28,7 +28,12 @@
 .login1 .content button{background:#e63233!important;border:none;border-radius:2px;width:130px;height:30px;}
 .login1 .content .yanzhen{position:absolute;right: 44%;bottom: 53%;}
 .login1 .content .tip{height:20px;}
-.login1 .content .tip p{display:none}
+.login1 .content .tip p{    display: none;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px 0;}
 
 
 

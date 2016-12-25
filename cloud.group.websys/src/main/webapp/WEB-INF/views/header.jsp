@@ -23,7 +23,7 @@ img{ border:0;}
 </script>
 <header class="head" style="position: relative; z-index: 999">
 	<div class="headNav">
-		<div class="container head clearfix" style="width: 1150px !important;">
+		<div class="container head clearfix" style="width: 100% !important;min-width: 900px;max-width: 1200px;">
 			<div class="logo pull-left ">
 				<a href="http://currychen.cn"> <img class="logo_img" src="assets/main/img/logo.png"
 					alt="" /></a>
@@ -43,7 +43,6 @@ img{ border:0;}
 							<div>个人中心</div>
 						</a><span></span>
 					</c:if></li>
-				<li></li>
 			</ul>
 			<div class="headlittle pull-right">
 				<c:if test="${userCode!=null&&userCode!='' }">

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -150,6 +151,28 @@ public class UserController extends BaseController{
 	@RequestMapping(value = "/password")
 	public String login() {
 		return "changePwd";
+	}
+	
+	@RequestMapping(value="/user/check",method=RequestMethod.POST)
+	@ResponseJson
+	public @ResponseBody long userPhone(@RequestParam("type") String type,@RequestParam("phone") String phone)
+	{
+		return userManager.check(type, phone);
+	}
+	
+	@RequestMapping(value="/user/checkcode",method=RequestMethod.POST)
+	@ResponseJson
+	public @ResponseBody long userCode(@RequestParam("type") String type,@RequestParam("phone") String phone,@RequestParam("code") String code)
+	{
+		return userManager.checkCode(type, phone, code);
+	}
+	
+	@RequestMapping(value="/user/changePwd")
+	@ResponseJson
+	public @ResponseBody void updatePwdByType(@RequestParam("type") String type,@RequestParam("phone") String phone,@RequestParam("pwd") String pwd)
+	{
+		pwd = MD5Utils.encoderByMd5With32Bit(pwd);
+		userManager.updateUserByPhone(phone, pwd);
 	}
 	
 	/**

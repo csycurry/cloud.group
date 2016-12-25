@@ -1,6 +1,7 @@
 package com.csy.common.manager;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -49,11 +50,13 @@ public class SmsManager {
 	
 	public String getCode(String mobile)
 	{
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MINUTE, -10);
 		MobileCodeExample example =new MobileCodeExample();
-		example.createCriteria().andMoblicEqualTo(mobile);
+		example.createCriteria().andMoblicEqualTo(mobile).andCreateTimeGreaterThan(calendar.getTime());
 		example.setOrderByClause("id desc");
 		List<MobileCode> list = mobileCodeMapper.selectByExample(example);
-		if(list!=null&&list.size()>1)
+		if(list!=null&&list.size()>0)
 			return list.get(0).getCode();
 		return "";
 	}
