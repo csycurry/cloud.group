@@ -52,7 +52,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>任务列表</div>
+            <div class='title'>员工列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -66,7 +66,7 @@
 				<form id="queryForm">
 
 					<div>
-						<span>项目名称 </span>
+						<span>员工名称 </span>
 						<input type="text" name="missionTitle" value="${u.missionTitle}" style="margin-left: 5px; margin-right: 5px;">
 						<div class='datetimepicker input-append form_datetime'
 							id='datetimepicker1'>
@@ -108,19 +108,19 @@
                         <thead>
                         <tr>
                             <th>
-                                项目Id
+                                员工Id
                             </th>
                             <th>
-                                项目名称
+                                员工名
                             </th>
                             <th>
-         	 单价                    
+         	 					员工电话                  
                             </th>
                             <th>
-                                开始时间
+                                登录时间
                             </th>
                              <th>
-                                结束时间
+                                登录次数
                             </th>
                             <th>
                             操作

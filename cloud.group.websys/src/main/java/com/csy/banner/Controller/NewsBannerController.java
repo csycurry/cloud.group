@@ -1,6 +1,5 @@
 package com.csy.banner.Controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +28,11 @@ public class NewsBannerController extends BaseController{
 		newsBannerManager.saveBanner(jsonArray);
 	}
 	
-	@RequestMapping(value="/banner/remove" , method = RequestMethod.POST)
-	public @ResponseBody void removeBanner(NewsBannerSearchDto bannerSearchDto)
+	@RequestMapping(value="/backstage/banner/remove" , method = RequestMethod.POST)
+	@ResponseJson
+	public @ResponseBody void removeBanner(int id)
 	{
-		newsBannerManager.remove(bannerSearchDto);
+		newsBannerManager.remove(id);
 	}
 	
 	@RequestMapping(value="/backstage/banner/view_list")

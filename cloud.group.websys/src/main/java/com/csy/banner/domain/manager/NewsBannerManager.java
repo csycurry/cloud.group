@@ -49,9 +49,9 @@ public class NewsBannerManager{
 		}
 	}
 	
-	public void remove(NewsBannerSearchDto bannerSearchDto)
+	public void remove(int id)
 	{
-		newsBannerMapper.deleteByPrimaryKey(bannerSearchDto.getId());
+		newsBannerMapper.deleteByPrimaryKey(id);
 	}
 	
 	public List<NewsBannerDto> viewList(NewsBannerSearchDto bannerSearchDto)

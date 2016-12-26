@@ -72,11 +72,11 @@ ul, li {
 
 							<div class="nologin">
 								<p>
-									<span class="pull-left">用户名：</span><input type="text" id="user" placeholder="用户名/手机号码/邮箱" />
+									<span class="pull-left">用户名：</span><input type="text" id="user" placeholder="用户名/手机号码/邮箱" value="${pwd.userCode}" />
 								</p>
 								<p>
 									<span class="pull-left">密&nbsp;&nbsp;码：</span> <input
-										type="password" id="psd" placeholder="请输入密码" />
+										type="password" id="psd" placeholder="请输入密码" value="${pwd.userPwd}" />
 								</p>
 								<div id="captchaIndex"
 									style="margin: 10px 0 10px; padding-top: 10px"></div>
@@ -743,6 +743,15 @@ ul, li {
                     banner();
                     weekRank();
                     loginmodal();
+                    cookieUser();
+                }
+                
+                function cookieUser()
+                {
+                	$.post("/user/cookie.json", {}, function (data) {
+                		$("#psd").val(data.data.userPwd);
+                		$("#user").val(data.data.userCode);
+                    });
                 }
                 var code={isverfiy:false}; 
                 Geetcaptcha("#captchaIndex",code);

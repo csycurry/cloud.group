@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csy.dao.StaffMapperExt">
+
+<update id="updateByTimes" parameterType="com.csy.model.Staff">
+    update `g_staff`
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="departId != null">
+        depart_id = #{departId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="leader != null">
+        leader = #{leader,jdbcType=TINYINT},
+      </if>
+      <if test="duty != null">
+        duty = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="joinDt != null">
+        join_dt = #{joinDt,jdbcType=DATE},
+      </if>
+      <if test="leaveDt != null">
+        leave_dt = #{leaveDt,jdbcType=DATE},
+      </if>
+      <if test="loginDt != null">
+        login_dt = #{loginDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updDt != null">
+        upd_dt = #{updDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="regularDt != null">
+        regular_dt = #{regularDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addlog != null">
+        addlog = #{addlog,jdbcType=VARCHAR},
+      </if>
+      <if test="oplog != null">
+        oplog = #{oplog,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="thirdpartyAccount != null">
+        thirdparty_account = #{thirdpartyAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creattime != null">
+        creattime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null">
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disable != null">
+        disable = #{disable,jdbcType=TINYINT},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="unmodifiable != null">
+        unmodifiable = #{unmodifiable,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTimes != null">
+        login_times = login_times + 1,
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

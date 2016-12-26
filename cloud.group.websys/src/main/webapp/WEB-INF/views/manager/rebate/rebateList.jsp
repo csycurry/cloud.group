@@ -67,7 +67,7 @@
 
 					<div>
 						<span>项目名称 </span>
-						<input type="text" name="missionTitle" value="${u.missionName}" style="margin-left: 5px; margin-right: 5px;">
+						<input type="text" name="missionName" value="${u.missionName}" style="margin-left: 5px; margin-right: 5px;">
 						
 						<br/>
 
@@ -113,13 +113,19 @@
                         <thead>
                         <tr>
                             <th>
-                                会员Id
+                                用户Id
                             </th>
                             <th>
-                                会员名
+                                用户名
                             </th>
                             <th>
-         	 会员工号                    
+         	 					用户工号                    
+                            </th>
+                            <th>
+         	 					项目工号                    
+                            </th>
+                            <th>
+         	 					项目名                    
                             </th>
                             <th>
                                 金额
@@ -143,6 +149,8 @@
 	                            <td>${u.userId}</td>
 	                            <td>${u.userName}</td>
 	                            <td>${u.userCode}</td>
+	                            <td>${u.missionId}</td>
+	                            <td>${u.missionName}</td>
 	                            <td>${u.earnings}</td>
 	                            <td>${u.statusCn}</td>
 	                            <td><fmt:formatDate value="${u.createTm}" pattern="yyyy-MM-dd HH:mm"/></td>

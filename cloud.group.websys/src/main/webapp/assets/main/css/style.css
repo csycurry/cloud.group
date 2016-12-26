@@ -6,7 +6,7 @@
 EMBED{ display:none}li{ vertical-align:bottom}
 body{ font-size:12px; background:#eee; color:#606060}table {border-collapse:collapse;border-spacing:0} fieldset,img {border:0}
 ol,ul {list-style:none}
-h1,h2,h3 {font-size:100%;font-weight:normal} q:before,q:after {content:''} abbr,acronym { border:0} 
+h1,h2,h3 {font-weight:normal} q:before,q:after {content:''} abbr,acronym { border:0} 
 .hidden{ display:none}
 .clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
 .clearfix{*zoom:1;}.clear{ clear:both}

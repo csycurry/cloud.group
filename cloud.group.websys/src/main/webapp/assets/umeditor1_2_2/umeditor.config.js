@@ -150,7 +150,13 @@
             'link unlink | emotion image video  | map',
             '| horizontal print preview fullscreen', 'drafts', 'formula'
         ]
-
+    	,wordCount:true
+        ,maximumWords:10000       //允许的最大字符数
+        //字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数,留空支持多语言自动切换，否则按此配置显示
+        ,wordCountMsg:'当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符'   //当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符
+        //超出字数限制提示  留空支持多语言自动切换，否则按此配置显示
+        ,wordOverFlowMsg:'<span style="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>'    //<span style="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>
+        
         //语言配置项,默认是zh-cn。有需要的话也可以使用如下这样的方式来自动多语言切换，当然，前提条件是lang文件夹下存在对应的语言文件：
         //lang值也可以通过自动获取 (navigator.language||navigator.browserLanguage ||navigator.userLanguage).toLowerCase()
         //,lang:"zh-cn"

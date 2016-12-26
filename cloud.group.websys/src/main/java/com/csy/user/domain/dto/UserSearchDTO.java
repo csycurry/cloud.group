@@ -10,6 +10,8 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Integer id;
+	
 	private String userCode;
 
     private String userName;
@@ -17,6 +19,15 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
     private String userMail;
     
     private String userPwd;
+
+    
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getUserCode() {
 		return userCode;

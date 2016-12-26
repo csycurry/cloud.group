@@ -25,15 +25,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.csy.dao.StaffMapper;
+import com.csy.dao.StaffMapperExt;
 import com.csy.model.Staff;
 import com.csy.model.StaffExample;
+import com.csy.model.base.DateUtil;
 import com.csy.staff.domain.dto.StaffDTO;
-import com.csy.staff.domain.dto.StaffSearchDTO;
 
 public class UserRealm extends AuthorizingRealm {
 	@Autowired
-	private StaffMapper StaffMapper;
+	private StaffMapperExt StaffMapper;
 	/*
 	 * 权限认证；
 	*/
@@ -83,6 +83,7 @@ public class UserRealm extends AuthorizingRealm {
 		if (!list.isEmpty()) {
 			StaffDTO staffDTO = new StaffDTO();
 			BeanUtils.copyProperties(list.get(0), staffDTO);
+			staffDTO.setLoginTime(DateUtil.toLocaleString(staffDTO.getLoginDt(), DateUtil.YYYY_MM_DD_HH_DD_SS));
 			setSession("staff",staffDTO);
 			return new SimpleAuthenticationInfo(token.getUsername(), token.getCredentials(),
 					getName());

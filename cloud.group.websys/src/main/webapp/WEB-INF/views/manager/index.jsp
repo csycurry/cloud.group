@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>运营管理平台</title>
+    <title>聚宝师运营管理平台</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
     
     <!--[if lt IE 9]>
@@ -61,15 +61,16 @@
     <div class='navbar'>
         <div class='navbar-inner'>
             <div class='container-fluid'>
-                <a class='brand' href='index.html'>
+                <a class='brand' href='index.html' >
                     <i class='icon-heart-empty'></i>
-                    <span class='hidden-phone'>运营管理平台</span>
+                    <span class='hidden-phone' >聚宝师运营管理平台</span>
                 </a>
-                <a class='toggle-nav btn pull-left' href='#'>
+                <a class='toggle-nav btn pull-left' href='#' style="padding: 10px 15px 10px;">
                     <i class='icon-reorder'></i>
                 </a>
                 <ul class='nav pull-right'>
-                <a href="/login.json" style="font-size: 20px;font-weight: 200; color: white;line-height: 38px;">退出</a>
+                <li id="staffname" style="font-size: 18px;font-weight: 200; color: white;line-height: 38px; padding: 10px 15px 10px;"></li>
+               <li> <a href="/login.json" style="font-size: 18px;font-weight: 200; color: white;line-height: 38px;">[退出]</a></li>
                 </ul>
                
             </div>
@@ -90,7 +91,7 @@
 </div>
 <ul class='nav nav-stacked'>
 <li class='active'>
-    <a href='/index.json'>
+    <a href='/main.json'>
         <i class='icon-dashboard'></i>
         <span>首页</span>
     </a>
@@ -440,6 +441,21 @@
 
 <script src="assets/uploadify/jquery.uploadify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+
+$.ajax({
+	 url:'/backstage/staff/loginstaff.json',
+	 data:{},// 你的formid
+		type:'post',  
+		dataType:'json',  
+		success:function(data) {  
+		if(data.status==1){  
+			$("#staffname").html('你好，'+data.data.name+' 登录时间:'+data.data.loginTime+' 登录次数:'+data.data.loginTimes);
+		}else{  
+			alert(data.msg);   
+		}  
+	   }
+
+});
 
 </script>
 </body>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -219,9 +220,7 @@ public class UserController extends BaseController{
                 UserDTO userDTO = userManager.getUserByOpenId(openID);
                 if(userDTO!=null)
                 {
-                	Subject currentUser = loginShiro(userDTO);
-                	currentUser.getSession().setAttribute("access_token", accessToken);
-        			currentUser.getSession().setAttribute("token_expirein", String.valueOf(tokenExpireIn));
+                	getHttpSession().setAttribute("user", userDTO);
         			return userDTO;
                 }
                 UserDTO dto = new UserDTO();
@@ -236,10 +235,10 @@ public class UserController extends BaseController{
                 	dto.setOpenId(openID);
                 	dto.setUserName(userInfoBean.getNickname());
                     userManager.insertUser(dto);
-                    Subject currentUser = loginShiro(userDTO);
-                	currentUser.getSession().setAttribute("access_token", accessToken);
-        			currentUser.getSession().setAttribute("token_expirein", String.valueOf(tokenExpireIn));
-        			currentUser.getSession().setAttribute("qq_openid", openID);
+                    getHttpSession().setAttribute("user", userDTO);
+                    getHttpSession().setAttribute("access_token", accessToken);
+                    getHttpSession().setAttribute("token_expirein", String.valueOf(tokenExpireIn));
+                    getHttpSession().setAttribute("qq_openid", openID);
                 } else {
                     throw new BusinessException("很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
                 }
@@ -253,28 +252,32 @@ public class UserController extends BaseController{
 		
 	}
 	
-	private Subject loginShiro(UserDTO userDTO)
+	/**
+	 * 记住密码
+	 * @param userDTO
+	 * @return
+	 */
+	@RequestMapping(value="/user/rememberpwd")
+	@ResponseJson
+	public @ResponseBody void rememberPwd(UserDTO userDTO)
 	{
-		UsernamePasswordToken token = new UsernamePasswordToken(userDTO.getUserCode(), userDTO.getUserPwd());
-		token.setRememberMe(true);
-
-		Subject currentUser = SecurityUtils.getSubject();
-		try {
-
-			currentUser.login(token);
-			currentUser.getSession().setAttribute("user", userDTO);
-			
-		} catch (AuthenticationException ae) {
-			ae.printStackTrace();
-			return currentUser;
-		}
-		if (currentUser.isAuthenticated()) {
-			return currentUser;
-		} else {
-
-			return currentUser;
-		}
+		Cookie cookie = new Cookie("cookie_user", userDTO.getUserCode()+"-"+userDTO.getUserPwd());               
+		cookie.setMaxAge(60*60*24*30); //cookie 保存30天
+		getResponse().addCookie(cookie);
 	}
+	
+	/**
+	 * 获取cookie
+	 * @param userDTO
+	 * @return
+	 */
+	@RequestMapping(value="/user/cookie")
+	@ResponseJson
+	public @ResponseBody UserDTO getCookieUser()
+	{
+		return getCookie();
+	}
+	
 	
 	/**
 	 * 用户注册
@@ -283,27 +286,9 @@ public class UserController extends BaseController{
 	 */
 	@RequestMapping(value="/user/register")
 	@ResponseJson
-	public @ResponseBody UserDTO inserUser(UserDTO userDTO)
+	public @ResponseBody void inserUser(UserDTO userDTO)
 	{
 		userManager.insertUser(userDTO);
-		UsernamePasswordToken token = new UsernamePasswordToken(userDTO.getUserCode(), userDTO.getUserPwd());
-		token.setRememberMe(true);
-	
-		Subject currentUser = SecurityUtils.getSubject();
-		try {
-			currentUser.login(token);
-			currentUser.getSession().setAttribute("user", userDTO);
-		} catch (AuthenticationException ae) {
-	
-			ae.printStackTrace();
-	
-			return null;
-		}
-		if (currentUser.isAuthenticated()) {
-			return userDTO;
-		} else {
-			return null;
-		}
 	}
 	
 	@RequestMapping(value="/user/modify")

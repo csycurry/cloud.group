@@ -26,7 +26,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>新闻查询</span>
+                <span>文章查询</span>
             </h1>
              <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -38,12 +38,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        新闻管理
+                                        文章管理
                                     </li>
                                     <li>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>新闻查询</li>
+                                    <li class='active'>文章查询</li>
                                 </ul>
                             </div>
         </div>
@@ -52,7 +52,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>新闻列表</div>
+            <div class='title'>文章列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -66,7 +66,7 @@
 				<form id="queryForm">
 
 					<div>
-						<span>新闻标题 </span>
+						<span>文章标题 </span>
 						<input type="text" name="title" value="${u.title}" style="margin-left: 5px; margin-right: 5px;">
 						
 						<span>更新时间</span>
@@ -105,16 +105,16 @@
                         <thead>
                         <tr>
                             <th>
-                                新闻Id
+                                文章Id
                             </th>
                             <th>
-                                新闻名称
+                                文章名称
                             </th>
                             <th>
          	 关键字                   
                             </th>
                             <th>
-                                新闻类型
+                                文章类型
                             </th>
                              <th>
                 添加时间                

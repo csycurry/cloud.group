@@ -47,9 +47,9 @@ ul, li {
 	<script src="assets/main/js/common.js" type="text/javascript"></script>
 	<script src="http://static.geetest.com/static/tools/gt.js"></script>
 
-	<section>
+	<section style="padding-top:140px">
 	<div class="container mainWidth"
-		style="background-color: white; margin: 20px auto;">
+		style="background-color: white;">
 		<div class="loginReg">
 			<ul class='loginState clearfix'>
 				<li>
@@ -92,7 +92,7 @@ ul, li {
 						<h3>注册</h3>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								登录账号<span class="red" style="font-size: 18px">*</span>
+								登录账号
 							</div>
 							<input type="text" id="userCode" name="userCode"
 								placeholder="用户名" class="pull-left form-control">
@@ -100,26 +100,7 @@ ul, li {
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								手机号码<span class="red" style="font-size: 20px">*</span>
-							</div>
-							<input name="userMobile" type="text"
-								id="ctl00_ContentPlaceHolder1_txtPhoneNumber"
-								class="form-control" placeholder="请输入手机号码(提现+密码找回)" />
-						</div>
-						<div class="piece clearfix">
-							<div class="text pull-left">
-								短信验证码<span class="red" style="font-size: 20px">*</span>
-							</div>
-							<input type="text" id="msgCode" name="code" class="form-control"
-								placeholder="短信验证码" required=""> <input type="button"
-								id="smsBtn" onclick="getCode()" class="btn pull-right"
-								value="获取验证码">
-						</div>
-
-
-						<div class="piece clearfix">
-							<div class="text pull-left">
-								输入密码<span class="red" style="font-size: 20px">*</span>
+								输入密码
 							</div>
 							<input name="userPwd" type="password"
 								id="ctl00_ContentPlaceHolder1_password1" class="form-control"
@@ -127,7 +108,7 @@ ul, li {
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								确认密码<span class="red" style="font-size: 20px">*</span>
+								确认密码
 							</div>
 							<input name="userPwd2" type="password"
 								id="ctl00_ContentPlaceHolder1_password2" class="form-control"
@@ -136,7 +117,7 @@ ul, li {
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								QQ号码<span class="red" style="font-size: 20px">*</span>
+								QQ号码
 							</div>
 							<input name="userMail" type="text"
 								id="ctl00_ContentPlaceHolder1_QQ" class="form-control"
@@ -145,7 +126,7 @@ ul, li {
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								电子邮箱<span class="red" style="font-size: 20px">*</span>
+								电子邮箱
 							</div>
 							<input name="userQq" type="text"
 								id="ctl00_ContentPlaceHolder1_eamil" class="form-control"
@@ -153,8 +134,26 @@ ul, li {
 
 						</div>
 						<div class="piece clearfix">
+							<div class="text pull-left">
+								手机号码
+							</div>
+							<input name="userMobile" type="text"
+								id="ctl00_ContentPlaceHolder1_txtPhoneNumber"
+								class="form-control pull-left" placeholder="请输入手机号码(提现+密码找回)" />
+						</div>
+						<div class="piece clearfix">
 							<div class="text pull-left">滑动验证</div>
 							<div id="captchaReg" style="margin-left: 120px"></div>
+						</div>
+						<div class="piece clearfix">
+							<div class="text pull-left">
+								短信验证码
+							</div>
+							<input type="text" id="msgCode" name="code" class="pull-left form-control"
+								placeholder="短信验证码"> <input type="button"
+								id="smsBtn" onclick="getCode()" class="btn pull-right"
+								style="background-color: gainsboro;"
+								value="获取验证码">
 						</div>
 						<div class="checkbox deal">
 							<label> <input type="checkbox" checked="checked" />已经阅读并同意《XXX注册协议》
@@ -164,7 +163,7 @@ ul, li {
 							value="立即注册" id="ctl00_ContentPlaceHolder1_btnRegister"
 							class="btn btn-info loginBtn" />
 						<p class="issue">
-							<a href="#">注册遇到问题？</a><span>已有账号,</span><a href="#">登陆</a>
+							<a href="http://wpa.qq.com/msgrd?v=3&uin=3001029570&site=qq&menu=yes">注册遇到问题？</a><span>已有账号,</span><a href="/">立刻登录</a>
 						</p>
 					</div>
 				</form>
@@ -238,19 +237,18 @@ ul, li {
             });
             
             $('#ctl00_ContentPlaceHolder1_btnRegister').click(function () {
-                if (!check || !code.isverfiy) { alert("验证失败！"); return false; }
-
                 var login = $('#userCode');
                 var email = $('#ctl00_ContentPlaceHolder1_eamil');
                 var ps1 = $('#ctl00_ContentPlaceHolder1_password1');
                 var ps2 = $('#ctl00_ContentPlaceHolder1_password2');
                 var phone = $('#ctl00_ContentPlaceHolder1_txtPhoneNumber');
-
+                var code = $('#msgCode');
                 if (!validateTextIsEmpty(login, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
                 if (!validateTextIsEmpty(ps1, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
                 if (!validateTextIsEmpty(ps2, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
                 if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">邮箱不可为空！</span>")) return false;
                 if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">手机号码不可为空！</span>")) return false;
+                if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">短信验证码不可为空！</span>")) return false;
 
                 if (login.val().length > 0) {
                     var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
@@ -279,6 +277,7 @@ ul, li {
                     ps2.focus();
                     return false;
                 }
+                if (!check || !code.isverfiy) { alert("验证失败！"); return false; }
                 $.post("/user/register.json",$('#registerForm').serialize(),function(data){
     				if(data.status==0)
     					{
@@ -312,6 +311,7 @@ ul, li {
         
         function getCode()
 		{
+        	if (!check || !code.isverfiy) { alert("请先验证！"); return false; }
 			var mobile = $("#ctl00_ContentPlaceHolder1_txtPhoneNumber").val();
 			if(mobile=="")
 				{

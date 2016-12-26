@@ -28,7 +28,6 @@ import com.csy.news.domain.dto.NewsPageDto;
 import com.csy.news.manager.NewsManager;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserAccountManager;
-import com.csy.util.SendMailUtil;
 
 @Controller
 public class IndexController extends BaseController{

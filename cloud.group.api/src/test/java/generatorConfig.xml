@@ -38,7 +38,7 @@
    <table tableName="g_authority" domainObjectName="Authority" delimitIdentifiers="true"></table>
    <table tableName="g_banner" domainObjectName="Banner" delimitIdentifiers="true"></table>
    <table tableName="g_role" domainObjectName="Role" delimitIdentifiers="true"></table>
-   <table tableName="g_staff" domainObjectName="Staff" delimitIdentifiers="true"></table>
+   
     
    <table tableName="mission" domainObjectName="Mission" delimitIdentifiers="true">
    		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
@@ -60,9 +60,11 @@
    <table tableName="r_staff_role" domainObjectName="StaffRole" delimitIdentifiers="true"></table>
    <table tableName="system_config" domainObjectName="SystemConfig" delimitIdentifiers="true"></table>
     <table tableName="mobile_code" domainObjectName="MobileCode" delimitIdentifiers="true"></table> 
+  	<table tableName="user_account" domainObjectName="UserAccount" delimitIdentifiers="true"></table>
+  	<table tableName="user" domainObjectName="User" delimitIdentifiers="true"></table>
   
-   <table tableName="user" domainObjectName="User" delimitIdentifiers="true"></table>
   -->
- <table tableName="user_account" domainObjectName="UserAccount" delimitIdentifiers="true"></table>
+   <table tableName="g_staff" domainObjectName="Staff" delimitIdentifiers="true"></table>
+ 
   </context>
 </generatorConfiguration>

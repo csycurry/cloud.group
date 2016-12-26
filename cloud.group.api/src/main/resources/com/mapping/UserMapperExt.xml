@@ -24,4 +24,12 @@
   	update `user` set balance = balance-#{balance,jdbcType=BIGINT}
   	where id = #{id,jdbcType=INTEGER} and balance>=#{balance,jdbcType=BIGINT}
   </update>
+  
+  <select id="checkUser" parameterType="com.csy.model.User" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from user where user_mobile = #{user.userMobile,jdbcType=VARCHAR}   
+	union   
+	select <include refid="Base_Column_List" />  from user where user_code = #{user.userCode,jdbcType=VARCHAR} 
+	union   
+	select <include refid="Base_Column_List" />  from user where user_mail = #{user.userMode,jdbcType=VARCHAR};
+  </select>
 </mapper>

@@ -95,17 +95,43 @@ public class UserManager {
 				throw new BusinessException("请输入正确的验证码!");
 			}
 		}
-		UserExample example = new UserExample();
-		example.createCriteria().andUserCodeEqualTo(userDTO.getUserCode());
-		long count = userMapperExt.countByExample(example);
-		if(count>0)
-		{
-			throw new BusinessException("该用户名已被使用！");
-		}
+		checkCode(userDTO.getUserCode());
+		checkMobile(userDTO.getUserMobile());
+		checkMail(userDTO.getUserMail());
 		User record = new User();
 		BeanUtils.copyProperties(userDTO, record);
 		record.setUserPwd(MD5Utils.encoderByMd5With32Bit(record.getUserPwd()));
 		userMapperExt.insert(record);
+	}
+	
+	public Boolean checkCode(String code)
+	{
+		UserExample example = new UserExample();
+		example.createCriteria().andUserCodeEqualTo(code);
+		long count = userMapperExt.countByExample(example);
+		if(count>0)
+			throw new BusinessException("该用户名已被使用！");
+		return true;
+	}
+	
+	public Boolean checkMobile(String mobile)
+	{
+		UserExample example = new UserExample();
+		example.createCriteria().andUserMobileEqualTo(mobile);
+		long count = userMapperExt.countByExample(example);
+		if(count>0)
+			throw new BusinessException("该手机号码已经被注册！");
+		return true;
+	}
+	
+	public Boolean checkMail(String mail)
+	{
+		UserExample example = new UserExample();
+		example.createCriteria().andUserMailEqualTo(mail);
+		long count = userMapperExt.countByExample(example);
+		if(count>0)
+			throw new BusinessException("该邮箱已经被注册！");
+		return true;
 	}
 	
 	public void updateUser(UserDTO userDTO)
@@ -210,6 +236,10 @@ public class UserManager {
 	{
 		UserExample example = new UserExample();
 		UserExample.Criteria criteria = example.createCriteria();
+		if(searchDTO.getId()!=null)
+		{
+			criteria.andIdEqualTo(searchDTO.getId());
+		}
 		if(StringUtils.isNotEmpty(searchDTO.getUserCode()))
 		{
 			criteria.andUserCodeEqualTo(searchDTO.getUserCode());
@@ -220,7 +250,7 @@ public class UserManager {
 		}
 		if(StringUtils.isNotEmpty(searchDTO.getUserName()))
 		{
-			criteria.andUserPwdLike(searchDTO.getUserPwd()+"%");
+			criteria.andUserNameLike(searchDTO.getUserName()+"%");
 		}
 		example.setOrderByClause("create_time desc");
 		return example;

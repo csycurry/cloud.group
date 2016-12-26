@@ -66,6 +66,8 @@
 				<form id="queryForm">
 
 					<div>
+						<span>用户Id </span>
+						<input type="text" name="id" value="${u.id}" style="margin-left: 5px; margin-right: 5px;">
 						<span>用户名 </span>
 						<input type="text" name="userName" value="${u.userName}" style="margin-left: 5px; margin-right: 5px;">
 						<span>Email </span>
@@ -98,13 +100,16 @@
                                 用户名
                             </th>
                             <th>
-         	 用户昵称                    
+         	 					用户昵称                    
                             </th>
                             <th>
-                                用户邮箱
+         	 					手机号码                    
+                            </th>
+                            <th>
+                                绑定邮箱
                             </th>
                              <th>
-                                用户qq
+                                绑定qq
                             </th>
                             <th>
                             真实姓名
@@ -129,6 +134,7 @@
 	                            <td>${u.id}</td>
 	                            <td>${u.userCode}</td>
 	                            <td>${u.userName}</td>
+	                            <td>${u.userMobile}</td>
 	                            <td>${u.userMail}</td>
 	                            <td>${u.userQq}</td>
 	                            <td>${u.realName}</td>

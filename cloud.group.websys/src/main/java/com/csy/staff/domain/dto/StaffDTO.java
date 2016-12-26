@@ -36,6 +36,8 @@ public class StaffDTO implements Serializable{
     private Date leaveDt;
    
     private Date loginDt;
+    
+    private String loginTime;
    
     private Date updDt;
 
@@ -72,6 +74,8 @@ public class StaffDTO implements Serializable{
     private String remark;
     
     private Integer roleId;
+    
+    private Integer loginTimes;
     
     public Integer getRoleId() {
 		return roleId;
@@ -354,4 +358,20 @@ public class StaffDTO implements Serializable{
 	}
 
 	private String loginIp;
+
+	public String getLoginTime() {
+		return loginTime;
+	}
+
+	public void setLoginTime(String loginTime) {
+		this.loginTime = loginTime;
+	}
+
+	public Integer getLoginTimes() {
+		return loginTimes;
+	}
+
+	public void setLoginTimes(Integer loginTimes) {
+		this.loginTimes = loginTimes;
+	}
 }

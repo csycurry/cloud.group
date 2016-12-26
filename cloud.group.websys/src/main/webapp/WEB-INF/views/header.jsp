@@ -52,7 +52,7 @@ img{ border:0;}
 							style="color:gray; font-size: 16px; height: 80px; line-height: 80px; vertical-align: bottom;">欢迎回来，${userCode}</span></a>	
 							<a onclick="cashclick()"><span
 							class="glyphicon"
-							style="color: #DA8528; font-size: 16px; height: 80px; line-height: 80px; vertical-align: bottom;" >[退出]</span></a>		
+							style="color: #DA8528; font-size: 16px; height: 80px; line-height: 80px; vertical-align: bottom;" role="button" >[退出]</span></a>		
 						</div>
 				</c:if>
 				<c:if test="${userCode==null||userCode=='' }">

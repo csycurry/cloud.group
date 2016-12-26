@@ -270,6 +270,10 @@ public class RebateManager {
 		{
 			criteria.andUserCodeEqualTo(searchDTO.getUserCode());
 		}
+		if(StringUtils.isNotEmpty(searchDTO.getMissionName()))
+		{
+			criteria.andMissionNameLike(searchDTO.getMissionName()+"%");
+		}
 		criteria.andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		example.setOrderByClause("mission_id desc");
 		return example;

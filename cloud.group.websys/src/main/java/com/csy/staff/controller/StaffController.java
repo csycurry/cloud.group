@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.csy.base.controller.BaseController;
 import com.csy.staff.domain.dto.StaffDTO;
 import com.csy.staff.domain.dto.StaffSearchDTO;
 import com.csy.staff.manager.StaffManager;
 import com.csy.util.ResponseJson;
 
 @Controller
-public class StaffController {
+public class StaffController extends BaseController{
 	@Autowired
 	private StaffManager staffManager;
 	
@@ -52,5 +53,12 @@ public class StaffController {
 		{
 			return "失败";
 		}
+	}
+	
+	@RequestMapping(value="/backstage/staff/loginstaff",method=RequestMethod.POST)
+	@ResponseJson
+	public @ResponseBody StaffDTO getStaff(StaffSearchDTO searchDTO)
+	{
+		return getLoginStaff();
 	}
 }
