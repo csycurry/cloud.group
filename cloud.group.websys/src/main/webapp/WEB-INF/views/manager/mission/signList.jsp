@@ -68,7 +68,7 @@
 					<div>
 						<span>项目名称 </span>
 						<input type="text" name="missionTitle" value="${u.missionTitle}" style="margin-left: 5px; margin-right: 5px;">
-						<span>用户名称 </span>
+						<span>用户名 </span>
 						<input type="text" name="userCode" value="${u.userCode}" style="margin-left: 5px; margin-right: 5px;">
 						<div class='datetimepicker input-append form_datetime'
 							id='datetimepicker1'>
@@ -119,7 +119,7 @@
          	用户Id                 
                             </th>
                             <th>
-                                用户名称
+                                用户名
                             </th>
                             <th>
                                 用户工号

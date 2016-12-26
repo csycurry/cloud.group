@@ -216,7 +216,21 @@ ul, li {
                         check = false;
                         return false;
                     }
-                    else { check = true; return true; }
+                    else {
+                    	$.post("/user/mobile.json",{mobile:phone.val()},function(data){
+            				if(data.status==0)
+            					{
+            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbphone);
+            					check = false;
+                                return false;
+            					}
+            				else
+            					{
+            					check = true; return true;
+            					}
+            				
+            			  });
+                    	 }
                 }
             });
 
@@ -232,8 +246,43 @@ ul, li {
                         check = false;
                         return false;
                     }
-                    else { check = true; return true; }
+                    else { 
+                    	$.post("/user/mail.json",{mail:email.val()},function(data){
+            				if(data.status==0)
+            					{
+            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbemail);
+            					check = false;
+                                return false;
+            					}
+            				else
+            					{
+            					check = true; return true;
+            					}
+            				
+            			  });
+                    	 }
                 }
+            });
+            
+            
+            $('#userCode').blur(function () {
+                var email = $('#userCode');
+                var lbemail = $('#userCode').parent();
+                lbemail.children('span').remove();
+                    	$.post("/user/usercode.json",{userCode:email.val()},function(data){
+            				if(data.status==0)
+            					{
+            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbemail);
+            					check = false;
+                                return false;
+            					}
+            				else
+            					{
+            					$("<span class=\"label label-success\">该用户名可以使用！</span>").appendTo(lbemail);
+            					check = true; return true;
+            					}
+            				
+            			  });
             });
             
             $('#ctl00_ContentPlaceHolder1_btnRegister').click(function () {

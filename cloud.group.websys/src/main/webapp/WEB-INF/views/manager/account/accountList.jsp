@@ -70,7 +70,7 @@
 						<input type="text" name="userId" value="${u.userId}" style="margin-left: 5px; margin-right: 5px;">
 						<span>用户名称 </span>
 						<input type="text" name="userCode" value="${u.userCode}" style="margin-left: 5px; margin-right: 5px;">
-						
+						<br/>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
 					                        <input id="beginDate" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='提现起始时间' type="date" value='<fmt:formatDate value="${u.beginTm}" pattern="yyyy-MM-dd HH:mm:ss"/>'  >
 								            <span class='add-on'>
@@ -84,7 +84,7 @@
 								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 								            </span>
 					                    </div>
-						<br/>
+						
 
 					</div>
 

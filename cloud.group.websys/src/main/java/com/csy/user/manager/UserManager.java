@@ -8,8 +8,6 @@ import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.csy.common.manager.SmsManager;
 import com.csy.config.domain.dto.SystemConfigDTO;
 import com.csy.config.domain.emus.ConfigEn;
@@ -64,12 +62,20 @@ public class UserManager {
 	{
 		if(StringUtils.isEmpty(searchDTO.getUserCode())||StringUtils.isEmpty(searchDTO.getUserPwd()))
 			throw new BusinessException("用户名或密码不能为空！");
-		List<UserDTO> userDTOs = pageSearch(searchDTO).getList();
+		User user = new User();
+		user.setUserCode(searchDTO.getUserCode());
+		user.setUserPwd(MD5Utils.encoderByMd5With32Bit(searchDTO.getUserPwd()));
+		List<User> userDTOs = userMapperExt.checkUser(user);
 		if(userDTOs==null||userDTOs.size()==0)
 		{
 			return null;
 		}
-		return userDTOs.get(0);
+		UserDTO dto = new UserDTO();
+		BeanUtils.copyProperties(userDTOs.get(0), dto);
+		dto.setCreateDate(DateUtil.toLocaleString(dto.getCreateTime(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+		SystemConfigDTO configDTO =systemConfigManager.detail(ConfigEn.exchangerate.getCode());
+		dto.setBalanceRMB(dto.getBalance()/Integer.valueOf(configDTO.getConfigValue()));
+		return dto;
 	}
 	
 	public UserDTO findDetail(int userId)

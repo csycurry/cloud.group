@@ -113,7 +113,7 @@
 		                            		<script type="text/plain" onchange="size()" id="myEditor"  style="height:240px; max-height: 300px;width: 100%">
 												${m.content}
 											</script>
-											<span id="size" class="pull-right"></span>
+											<span id="size" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
 		                            	</div>
 		                            </div>
                             	</div>
@@ -134,11 +134,9 @@
 <script type="text/javascript">
     //实例化编辑器
     var um = UM.getEditor('myEditor');
-    um.addListener('keydown',size(event));
-    function size(event)
-    {
-    	alert(1234);
-    	alert(UM.getEditor('myEditor').getContentTxt().length);
-    }
+    um.addListener('keyup',function(){  
+    		$("#size").html("已输入字数："+um.getContentLength(true)); 
+    	});  
+    
 </script>
  

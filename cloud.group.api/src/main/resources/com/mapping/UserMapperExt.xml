@@ -26,10 +26,10 @@
   </update>
   
   <select id="checkUser" parameterType="com.csy.model.User" resultMap="BaseResultMap">
-  	select <include refid="Base_Column_List" /> from user where user_mobile = #{user.userMobile,jdbcType=VARCHAR}   
+  	select <include refid="Base_Column_List" /> from user where user_mobile = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{userPwd,jdbcType=VARCHAR}   
 	union   
-	select <include refid="Base_Column_List" />  from user where user_code = #{user.userCode,jdbcType=VARCHAR} 
+	select <include refid="Base_Column_List" />  from user where user_code = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{userPwd,jdbcType=VARCHAR} 
 	union   
-	select <include refid="Base_Column_List" />  from user where user_mail = #{user.userMode,jdbcType=VARCHAR};
+	select <include refid="Base_Column_List" />  from user where user_mail = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{userPwd,jdbcType=VARCHAR};
   </select>
 </mapper>

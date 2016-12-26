@@ -8,10 +8,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -312,6 +308,27 @@ public class UserController extends BaseController{
 		userDTO.setId(dto.getId());
 		userDTO.setUserPwd(MD5Utils.encoderByMd5With32Bit(userDTO.getUserPwd()));
 		userManager.updateUser(userDTO);
+	}
+	
+	@RequestMapping(value="/user/usercode")
+	@ResponseJson
+	public @ResponseBody Boolean checkUsercode(@RequestParam("userCode") String userCode)
+	{
+		return userManager.checkCode(userCode);
+	}
+	
+	@RequestMapping(value="/user/mail")
+	@ResponseJson
+	public @ResponseBody Boolean checkUserMail(@RequestParam("mail") String mail)
+	{
+		return userManager.checkMail(mail);
+	}
+	
+	@RequestMapping(value="/user/mobile")
+	@ResponseJson
+	public @ResponseBody Boolean checkMobile(@RequestParam("mobile") String mobile)
+	{
+		return userManager.checkMobile(mobile);
 	}
 	
 	@RequestMapping(value="/user/pay")

@@ -68,7 +68,7 @@
 					<div>
 						<span>文章标题 </span>
 						<input type="text" name="title" value="${u.title}" style="margin-left: 5px; margin-right: 5px;">
-						
+						<br/>
 						<span>更新时间</span>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
 					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='开始时间' type="datetime" value='${u.beginTm}'  >
@@ -84,7 +84,7 @@
 								            </span>
 					                    </div>
 						
-						<br/>
+						
 
 					</div>
 

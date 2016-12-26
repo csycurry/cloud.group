@@ -96,15 +96,14 @@ ul, li {
 			</c:if>
 		</ul>
 		<ul class="bannerIcon text-center">
-
-			<li class='active'></li>
-
-			<li class=''></li>
-
-			<li class=''></li>
-
-			<li class=''></li>
-
+			<c:forEach items="${banners}" var="banner" varStatus="status">
+				<c:if test="${status.index==0}">
+					<li class='active'></li>
+				</c:if>
+				<c:if test="${status.index>0}">
+					<li></li>
+				</c:if>
+			</c:forEach>
 		</ul>
 
 	</div>

@@ -68,7 +68,7 @@
 					<div>
 						<span>收件人名称 </span>
 						<input type="text" name="targetName" value="${u.targetName}" style="margin-left: 5px; margin-right: 5px;">
-						
+						<br/>
 						<span>发送时间</span>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
 					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='开始时间' type="datetime" value='${u.beginTm}'  >
@@ -85,7 +85,6 @@
 					                    </div>
 						
 						
-						<br/>
 
 					</div>
 
