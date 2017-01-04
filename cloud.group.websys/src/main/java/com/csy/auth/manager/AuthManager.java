@@ -65,7 +65,8 @@ public class AuthManager {
 		AuthorityExample.Criteria criteria = example.createCriteria();
 		if(ids.size()>0)
 			criteria.andIdIn(ids);
-		example.setOrderByClause("id asc");
+		criteria.andDisableEqualTo((byte)1);
+		example.setOrderByClause("sort asc");
 		return example;
 	}
 	
@@ -79,11 +80,11 @@ public class AuthManager {
 				if(authorityDTO.getLevel().equals(AutoLevelEn.TOP.getCode()))
 				{
 					AuthorityExtendDTO authorityExtendDTO = new AuthorityExtendDTO();
+					authorityExtendDTO.setAuthorityDTO(authorityDTO);
 					authorityExtendDTO.setFuncDTO(new ArrayList<AuthorityDTO>());
 					authorityExtendDTO.setSourceDTO(new ArrayList<AuthorityDTO>());
 					buildSubExtend(authorityExtendDTO,list);
 					extendDTOs.add(authorityExtendDTO);
-					list.remove(authorityDTO);
 				}
 			}
 		}
@@ -95,7 +96,7 @@ public class AuthManager {
 	{
 		for(AuthorityDTO authorityDTO :list)
 		{
-			if(authorityDTO.getParent().equals(authorityExtendDTO.getAuthorityDTO().getId()))
+			if(authorityDTO.getParent()!=null&&authorityDTO.getParent().equals(authorityExtendDTO.getAuthorityDTO().getId()))
 			{
 				if(authorityDTO.getLevel().equals(AutoLevelEn.SECOND.getCode()))
 				{
@@ -105,7 +106,6 @@ public class AuthManager {
 				{
 					authorityExtendDTO.getFuncDTO().add(authorityDTO);
 				}
-				list.remove(authorityDTO);
 			}
 		}
 	}

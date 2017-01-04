@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,157 +98,25 @@
         <span>首页</span>
     </a>
 </li>
-<li class=''>
-    <a class='dropdown-collapse' href='#'>
-        <i class='icon-edit'></i>
-        <span>会员管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='#' class="userList">
-                <i class='icon-caret-right'></i>
-                <span>会员查询</span>
-            </a>
-        </li>
-        
-    </ul>
-</li>
-<li class=''>
-	<a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
-        <span>文章管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-     <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='#' class="newsForm">
-                <i class='icon-caret-right'></i>
-                <span>添加文章</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='#' id="newslist">
-                <i class='icon-caret-right'></i>
-                <span>文章查询</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='#' id="bannerlist">
-                <i class='icon-caret-right'></i>
-                <span>banner管理</span>
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-th'></i>
-        <span>任务管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='#' class='missonForm'>
-                <i class='icon-bar-chart'></i>
-                <span>添加任务</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='#' id='missionList'>
-                <i class='icon-envelope'></i>
-                <span>任务查询</span>
-            </a>
-        </li>
-       <li class=''>
-            <a href='#' id='signList'>
-                <i class='icon-envelope'></i>
-                <span>报名查询</span>
-            </a>
-        </li>
-    </ul>
-</li>
-
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-book'></i>
-        <span>佣金管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-         <li class=''>
-            <a href='#'id="rebatelist">
-                <i class='icon-bar-chart'></i>
-                <span>佣金查询</span>
-            </a>
-        </li>
-       
-       
-    </ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-calendar'></i>
-        <span>财务管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-         <li class=''>
-            <a href='#' id="cashList">
-                <i class='icon-bar-chart'></i>
-                <span>提现查询</span>
-            </a>
-        </li>
-       
-       
-    </ul>
-</li>
-<li>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-star'></i>
-        <span>消息管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-    <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='#' class="meaasgeList">
-                <i class='icon-caret-right'></i>
-                <span>消息查询</span>
-            </a>
-        </li>
-        
-    </ul>
-</li>
-<li class=''>
-    <a class="blog" href='#'>
-        <i class="icon-bar-chart"></i>
-        <span>友情链接</span>
-    </a>
-</li>
-<li class=''>
-    <a class='dropdown-collapse ' href='#'>
-        <i class='icon-cogs'></i>
-        <span>系统管理</span>
-        <i class='icon-angle-down angle-down'></i>
-    </a>
-     <ul class='nav nav-stacked'>
-        <li class=''>
-            <a href='#'>
-                <i class='icon-bar-chart'></i>
-                <span>修改密码</span>
-            </a>
-        </li>
-      
-        <li class=''>
-            <a href='#' class="feedback">
-                <i class='icon-envelope'></i>
-                <span>用户反馈查询</span>
-            </a>
-        </li>
-       
-    </ul>
-</li>
-
+<c:forEach items="${auths}" var="a">
+	<li class=''>
+	    <a class='dropdown-collapse ${a.authorityDTO.menudesc}' href='#'>
+	        <i class='${a.authorityDTO.rescode}'></i>
+	        <span>${a.authorityDTO.name}</span>
+	        <i class='icon-angle-down angle-down'></i>
+	    </a>
+	    <ul class='nav nav-stacked'>
+	    <c:forEach items="${a.sourceDTO}" var="s">
+	    	<li class=''>
+	            <a href='#' class="${s.menudesc}">
+	                <i class='${s.rescode}'></i>
+	                <span>${s.name}</span>
+	            </a>
+	        </li>
+	    </c:forEach>
+	    </ul>
+	</li>
+</c:forEach>
 </ul>
 </div>
 </nav>

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.emus.AccountTypeEn;
+import com.csy.auth.domain.dto.AuthorityExtendDTO;
 import com.csy.banner.domain.dto.NewsBannerDto;
 import com.csy.banner.domain.dto.NewsBannerSearchDto;
 import com.csy.banner.domain.manager.NewsBannerManager;
@@ -26,6 +27,7 @@ import com.csy.mission.domain.dto.MissionSearchDTO;
 import com.csy.mission.manager.MissionManager;
 import com.csy.news.domain.dto.NewsPageDto;
 import com.csy.news.manager.NewsManager;
+import com.csy.staff.manager.StaffManager;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserAccountManager;
 
@@ -43,11 +45,16 @@ public class IndexController extends BaseController{
 	private SystemConfigManager systemConfigManager;
 	@Autowired
 	private UserAccountManager userAccountManager;
+	@Autowired
+	private StaffManager staffManager;
 	
 	@RequestMapping(value = "/main")
-	public String index() {
-
-		return "/manager/index";
+	public ModelAndView index() {
+		ModelAndView modelAndView = new ModelAndView("/manager/index");
+		List<AuthorityExtendDTO> authorityExtendDTOs = staffManager.getAuthorityDTO(getLoginStaffId());
+		Map<String, Object> map = modelAndView.getModel();
+		map.put("auths", authorityExtendDTOs);
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/index")

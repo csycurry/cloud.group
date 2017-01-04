@@ -28,7 +28,7 @@ $(function() {
 
 						});
 			});
-	$('#missionList').click(
+	$('.missionList').click(
 			function() {
 				$('#content').load('/backstage/mission/page.json?page=1',
 						function(r, s, xhr) {
@@ -36,7 +36,7 @@ $(function() {
 						});
 			});
 
-	$('#signList').click(
+	$('.signList').click(
 					function() {
 						$('#content').load('/backstage/sign/page.json?page=1',
 								function(r, s, xhr) {
@@ -59,7 +59,7 @@ $(function() {
 						});
 			});
 
-	$('#rebatelist').click(
+	$('.rebatelist').click(
 			function() {
 				$('#content').load('/backstage/rebate/page.json?page=1',
 						function(r, s, xhr) {
@@ -67,7 +67,7 @@ $(function() {
 						});
 			});
 
-	$('#newslist').click(
+	$('.newslist').click(
 			function() {
 				$('#content').load('/backstage/news/page.json?page=1',
 						function(r, s, xhr) {
@@ -84,7 +84,7 @@ $(function() {
 						});
 			});
 	
-	$('#bannerlist').click(
+	$('.bannerlist').click(
 			function() {
 				$('#content').load('/backstage/banner/view_list.json',
 						function(r, s, xhr) {
@@ -92,7 +92,7 @@ $(function() {
 						});
 			});
 			
-			$('#cashList').click(
+			$('.cashList').click(
 					function() {
 
 						$('#content').load('/backstage/account/page.json?page=1',

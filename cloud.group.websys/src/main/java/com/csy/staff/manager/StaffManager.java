@@ -6,12 +6,17 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import com.csy.auth.domain.dto.AuthorityDTO;
+import com.csy.auth.domain.dto.AuthorityExtendDTO;
+import com.csy.auth.manager.AuthManager;
 import com.csy.dao.StaffMapperExt;
 import com.csy.dao.StaffRoleMapper;
 import com.csy.model.Staff;
 import com.csy.model.StaffExample;
 import com.csy.model.StaffRole;
+import com.csy.model.StaffRoleExample;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.StringUtils;
 import com.csy.staff.domain.dto.StaffDTO;
@@ -23,6 +28,8 @@ public class StaffManager {
 	private StaffMapperExt staffMapperExt;
 	@Autowired
 	private StaffRoleMapper staffRoleMapper;
+	@Autowired
+	private AuthManager authManager;
 	
 	public StaffDTO login(StaffSearchDTO searchDTO)
 	{
@@ -49,6 +56,16 @@ public class StaffManager {
 		staffRole.setStaffid(staff.getId());
 		staffRole.setRoleid(staffDTO.getRoleId());
 		staffRoleMapper.insert(staffRole);
+	}
+	
+	public List<AuthorityExtendDTO> getAuthorityDTO(int staffId){
+		StaffRoleExample example = new StaffRoleExample();
+		example.createCriteria().andStaffidEqualTo(staffId);
+		List<StaffRole> roles = staffRoleMapper.selectByExample(example);
+		if(CollectionUtils.isEmpty(roles)){
+			return null;
+		}
+		return authManager.getAuth(roles.get(0).getId());
 	}
 	
 	public StaffExample createExample(StaffSearchDTO searchDTO)
