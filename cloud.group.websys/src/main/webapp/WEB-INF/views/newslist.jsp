@@ -92,7 +92,7 @@ ul, li {
 										href="/detail.json?newsId=${n.id}">
 
 											<p class="h">${n.title}<span
-													style="float: right; margin-right: 5%;">日期：${n.createDate}</span>
+													style="float: right; margin-right: 5%;">${n.createDate}</span>
 											</p>
 
 									</a></li>
@@ -110,7 +110,7 @@ ul, li {
 							</c:forEach>
 						</ul>
 						<!--page-->
-						<div class="pagging">
+						<div class="pagging" style="padding-bottom: 10px">
 							<div class="left">共${userNum}条记录</div>
 							<div class="right">
 								<c:if test="${currentPage == 1}">
