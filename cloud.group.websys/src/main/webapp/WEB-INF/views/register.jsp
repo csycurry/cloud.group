@@ -267,6 +267,7 @@ ul, li {
             
             $('#userCode').blur(function () {
                 var email = $('#userCode');
+                if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
                 var lbemail = $('#userCode').parent();
                 lbemail.children('span').remove();
                     	$.post("/user/usercode.json",{userCode:email.val()},function(data){
@@ -285,48 +286,11 @@ ul, li {
             			  });
             });
             
+            
+            
             $('#ctl00_ContentPlaceHolder1_btnRegister').click(function () {
-                var login = $('#userCode');
-                var email = $('#ctl00_ContentPlaceHolder1_eamil');
-                var ps1 = $('#ctl00_ContentPlaceHolder1_password1');
-                var ps2 = $('#ctl00_ContentPlaceHolder1_password2');
-                var phone = $('#ctl00_ContentPlaceHolder1_txtPhoneNumber');
-                var code = $('#msgCode');
-                if (!validateTextIsEmpty(login, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
-                if (!validateTextIsEmpty(ps1, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
-                if (!validateTextIsEmpty(ps2, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
-                if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">邮箱不可为空！</span>")) return false;
-                if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">手机号码不可为空！</span>")) return false;
-                if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">短信验证码不可为空！</span>")) return false;
-
-                if (login.val().length > 0) {
-                    var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
-                    isok = reg.test(login.val());
-                    if (!isok) {
-                        var lblogin = login.parent();
-                        $("<span class=\"label label-warning\">请填写正确的登录名,保持在6-16字符内！！</span>").appendTo(lblogin);
-                        login.focus();
-                        return false;
-                    }
-                }
-
-                if (ps1.val().length > 0) {
-                    var reg = /^[\w-`=\\\[\];',./~!@#$%^&*()_+|{}:">?]{6,}$/;
-                    isok = reg.test(ps1.val());
-                    if (!isok) {
-                        var lbps1 = ps1.parent();
-                        $("<span class=\"label label-warning\">密码不符合规范（6位以上）！</span>").appendTo(lbps1);
-                        ps1.focus();
-                        return false;
-                    }
-                }
-                if (ps1.val() != ps2.val()) {
-                    var lbps2 = ps2.parent();
-                    $("<span class=\"label label-warning\">俩次密码键入不一致</span>").appendTo(lbps2);
-                    ps2.focus();
-                    return false;
-                }
-                if (!check || !code.isverfiy) { alert("验证失败！"); return false; }
+            	if(!checkParam())
+            		return false;
                 $.post("/user/register.json",$('#registerForm').serialize(),function(data){
     				if(data.status==0)
     					{
@@ -357,10 +321,56 @@ ul, li {
     			  });
             });
         });
+        function checkParam(){
+        	var login = $('#userCode');
+            var email = $('#ctl00_ContentPlaceHolder1_eamil');
+            var ps1 = $('#ctl00_ContentPlaceHolder1_password1');
+            var ps2 = $('#ctl00_ContentPlaceHolder1_password2');
+            var phone = $('#ctl00_ContentPlaceHolder1_txtPhoneNumber');
+            var msgCode = $('#msgCode');
+            if (!validateTextIsEmpty(login, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(ps1, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(ps2, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">邮箱不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">手机号码不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">短信验证码不可为空！</span>")) return false;
+
+            if (login.val().length > 0) {
+                var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
+                isok = reg.test(login.val());
+                if (!isok) {
+                    var lblogin = login.parent();
+                    $("<span class=\"label label-warning\">请填写正确的登录名,保持在6-16字符内！！</span>").appendTo(lblogin);
+                    login.focus();
+                    return false;
+                }
+            }
+
+            if (ps1.val().length > 0) {
+                var reg = /^[\w-`=\\\[\];',./~!@#$%^&*()_+|{}:">?]{6,}$/;
+                isok = reg.test(ps1.val());
+                if (!isok) {
+                    var lbps1 = ps1.parent();
+                    $("<span class=\"label label-warning\">密码不符合规范（6位以上）！</span>").appendTo(lbps1);
+                    ps1.focus();
+                    return false;
+                }
+            }
+            if (ps1.val() != ps2.val()) {
+                var lbps2 = ps2.parent();
+                $("<span class=\"label label-warning\">俩次密码键入不一致</span>").appendTo(lbps2);
+                ps2.focus();
+                return false;
+            }
+            if (!check || !code.isverfiy) { alert("请先验证！"); return false; }
+            return true;
+        }
         
         function getCode()
 		{
-        	if (!check || !code.isverfiy) { alert("请先验证！"); return false; }
+        	if(!checkParam())
+        		return false;
+        	
 			var mobile = $("#ctl00_ContentPlaceHolder1_txtPhoneNumber").val();
 			if(mobile=="")
 				{
