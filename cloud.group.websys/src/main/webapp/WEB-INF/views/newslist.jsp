@@ -46,7 +46,7 @@ ul, li {
 </head>
 <body>
 	<%@include file="header.jsp"%>
-	<div class='index' style="padding-top: 100px;">
+	<div class='index' style="padding-top: 100px;margin-bottom: 10px">
 		
 		<div class="w950 clearfix">
 		<div class="f13 bread-crumb">
@@ -83,7 +83,7 @@ ul, li {
 
 				</ul>
 				<div class="w700box">
-					<div class="clearfix">
+					<div class="clearfix" style="margin-bottom: 5px">
 						<ul class="image_text_list" style="min-height: 300px">
 
 							<c:forEach items="${list}" var="n" varStatus="status">
@@ -102,7 +102,7 @@ ul, li {
 										href="/detail.json?newsId=${n.id}">
 
 											<p class="h">${n.title}<span
-													style="float: right; margin-right: 5%;">日期：${n.createDate}</span>
+													style="float: right; margin-right: 5%;">${n.createDate}</span>
 											</p>
 
 									</a></li>
@@ -110,9 +110,9 @@ ul, li {
 							</c:forEach>
 						</ul>
 						<!--page-->
-						<div class="pagging" style="padding-bottom: 10px">
-							<div class="left">共${userNum}条记录</div>
-							<div class="right">
+						<div class="pagging">
+							<div class="left" style="padding-left: 5px">共${userNum}条记录</div>
+							<div class="right" style="padding-right: 5px">
 								<c:if test="${currentPage == 1}">
 									<span class="disabled"><< 前一页</span>
 								</c:if>
