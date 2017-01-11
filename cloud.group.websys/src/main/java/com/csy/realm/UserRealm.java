@@ -51,7 +51,7 @@ public class UserRealm extends AuthorizingRealm {
 			simpleAuthorInfo.addStringPermission("admin:manage");
 		
 			return simpleAuthorInfo;
-		} else if (null != currentUsername && "����".equals(currentUsername)) {
+		} else if (null != currentUsername) {
 			
 			return simpleAuthorInfo;
 		}
