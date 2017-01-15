@@ -294,7 +294,7 @@ ul, li {
                 $.post("/user/register.json",$('#registerForm').serialize(),function(data){
     				if(data.status==0)
     					{
-    					alter(data.msg)
+    					alert(data.msg)
     					}
     				else
     					{

@@ -284,7 +284,23 @@ public class UserController extends BaseController{
 	@ResponseJson
 	public @ResponseBody void inserUser(UserDTO userDTO)
 	{
+		Integer aff = (Integer) getHttpSession().getAttribute("aff");
+		if(aff!=null){
+			userDTO.setUserId(aff);
+		}
 		userManager.insertUser(userDTO);
+	}
+	
+	/**
+	 * 用户注册
+	 * @param userDTO
+	 * @return
+	 */
+	@RequestMapping(value="/promotion")
+	public String promotion(@RequestParam("aff") Integer aff)
+	{
+		getHttpSession().setAttribute("aff", aff);
+		return "register";
 	}
 	
 	@RequestMapping(value="/user/modify")

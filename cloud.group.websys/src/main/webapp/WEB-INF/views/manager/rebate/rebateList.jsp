@@ -122,6 +122,9 @@
          	 					用户工号                    
                             </th>
                             <th>
+         	 					 关联用户Id                   
+                            </th>
+                            <th>
          	 					项目工号                    
                             </th>
                             <th>
@@ -149,6 +152,7 @@
 	                            <td>${u.userId}</td>
 	                            <td>${u.userName}</td>
 	                            <td>${u.userCode}</td>
+	                            <td>${u.earningsFrom}</td>
 	                            <td>${u.missionId}</td>
 	                            <td>${u.missionName}</td>
 	                            <td>${u.earnings}</td>
@@ -160,6 +164,7 @@
 	                             <c:if test="${u.status==0}">
 	                             	<a href="#"><span class='label label-success' onclick="up(${u.id})">审核</span></a>
 	                             	<a href="#"><span class='label label-success' onclick="detail(${u.id})">修改</span></a>
+	                             	<a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
 	                             </c:if>
 	                            </td>
 	                        </tr>

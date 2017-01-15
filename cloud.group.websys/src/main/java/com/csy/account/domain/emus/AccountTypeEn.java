@@ -1,7 +1,7 @@
 package com.csy.account.domain.emus;
 
 public enum AccountTypeEn {
-	IN((byte)1,"收入"),OUT((byte)2,"提现"),DEL((byte)3,"扣款");
+	IN((byte)1,"收入"),OUT((byte)2,"提现"),DEL((byte)3,"扣款"),CALLBACK((byte)99,"撤回");
 	private Byte code;
 	private String mean;
 	

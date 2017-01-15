@@ -43,6 +43,8 @@ public class UserDTO implements Serializable{
     
     private String openId;
     
+    private Integer userId;
+    
     public String getCode() {
 		return code;
 	}
@@ -177,6 +179,14 @@ public class UserDTO implements Serializable{
 
 	public void setUserPwdOld(String userPwdOld) {
 		this.userPwdOld = userPwdOld;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	

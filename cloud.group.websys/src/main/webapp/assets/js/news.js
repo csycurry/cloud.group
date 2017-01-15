@@ -71,10 +71,6 @@ var openDetail = function(buyingId)
 	    area: ['80%', '90%'],
 	    content: '/backstage/news/detail.json?newsId='+buyingId 
 	}); 
-//	$('#content').load(getContextPath() +'/group/detail?buyingId='+buyingId,
-//			function(r, s, xhr) {
-//
-//			});
 }
 
 var remove = function(id)

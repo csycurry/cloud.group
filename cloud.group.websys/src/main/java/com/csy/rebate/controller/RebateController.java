@@ -82,6 +82,20 @@ public class RebateController extends BaseController{
 		
 	}
 	
+	/**
+	 * 佣金撤回
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/backstage/rebate/callback")
+	@ResponseJson
+	public @ResponseBody Boolean callback(int id)
+	{
+		rebateManager.callbackRebate(id,getLoginStaffCode());
+		return true;
+		
+	}
+	
 	@RequestMapping(value="/backstage/rebate/settlesearch")
 	@ResponseJson
 	public @ResponseBody Boolean rebateBySearch(RebateSearchDTO searchDTO)

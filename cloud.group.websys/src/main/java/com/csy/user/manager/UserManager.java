@@ -13,12 +13,15 @@ import com.csy.config.domain.dto.SystemConfigDTO;
 import com.csy.config.domain.emus.ConfigEn;
 import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.MissionSignMapperExt;
+import com.csy.dao.UserLevelMapper;
 import com.csy.dao.UserMapperExt;
 import com.csy.exception.BusinessException;
 import com.csy.model.MissionSign;
 import com.csy.model.MissionSignExample;
 import com.csy.model.User;
 import com.csy.model.UserExample;
+import com.csy.model.UserLevel;
+import com.csy.model.UserLevelExample;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
@@ -36,6 +39,8 @@ public class UserManager {
 	private SmsManager smsManager;
 	@Autowired
 	private SystemConfigManager systemConfigManager;
+	@Autowired
+	private UserLevelMapper userLevelMapper;
 	
 	public Pagination<UserDTO> pageSearch(UserSearchDTO searchDTO)
 	{
@@ -107,7 +112,28 @@ public class UserManager {
 		User record = new User();
 		BeanUtils.copyProperties(userDTO, record);
 		record.setUserPwd(MD5Utils.encoderByMd5With32Bit(record.getUserPwd()));
+		record.setBalance(0L);
+		record.setCreateTime(DateUtil.getCurrentTime());
 		userMapperExt.insert(record);
+		if(userDTO.getUserId()!=null){
+			UserLevelExample example = new UserLevelExample();
+			example.createCriteria().andUserIdEqualTo(userDTO.getUserId());
+			List<UserLevel> levels =userLevelMapper.selectByExample(example);
+			UserLevel level = new UserLevel();
+			if(!levels.isEmpty()){
+				UserLevel userLevel = levels.get(0);
+				level.setUserId(record.getId());
+				level.setLevel1(userLevel.getUserId());
+				level.setLevel2(userLevel.getLevel1());
+				level.setLevel3(userLevel.getLevel2());
+				level.setLevel4(userLevel.getLevel3());
+				level.setLevel5(userLevel.getLevel4());
+			}else{
+				level.setUserId(record.getId());
+				level.setLevel1(userDTO.getUserId());
+			}
+			userLevelMapper.insert(level);
+		}
 	}
 	
 	public Boolean checkCode(String code)
@@ -236,6 +262,16 @@ public class UserManager {
 			}
 		}
 		return 0;
+	}
+	
+	public UserLevel getLevel(Integer userId){
+		UserLevelExample example = new UserLevelExample();
+		example.createCriteria().andUserIdEqualTo(userId);
+		List<UserLevel> list = userLevelMapper.selectByExample(example);
+		if(list.isEmpty()){
+			return null;
+		}
+		return list.get(0);
 	}
 	
 	private UserExample createExample(UserSearchDTO searchDTO)

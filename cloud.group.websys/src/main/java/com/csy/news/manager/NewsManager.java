@@ -49,13 +49,13 @@ public class NewsManager {
 			news.setCreator(staffCode);
 			news.setCreateTime(new Date());
 			news.setModifier(staffCode);
-			news.setModifyTime(DateUtil.getCurrentDate());
+			news.setModifyTime(DateUtil.getCurrentTime());
 			newsMapper.insertSelective(news);
 		}
 		else
 		{
 			news.setModifier(staffCode);
-			news.setModifyTime(new Date());
+			news.setModifyTime(DateUtil.getCurrentTime());
 			newsMapper.updateByPrimaryKeySelective(news);
 		}
 	}

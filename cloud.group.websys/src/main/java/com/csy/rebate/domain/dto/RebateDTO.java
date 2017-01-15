@@ -18,6 +18,8 @@ public class RebateDTO implements Serializable{
 
     private String userName;
 
+    private Integer earningsFrom;
+    
     private Integer missionId;
 
     private String missionName;
@@ -76,6 +78,12 @@ public class RebateDTO implements Serializable{
 		this.userName = userName;
 	}
 	
+	public Integer getEarningsFrom() {
+		return earningsFrom;
+	}
+	public void setEarningsFrom(Integer earningsFrom) {
+		this.earningsFrom = earningsFrom;
+	}
 	public String getStatusCn() {
 		return statusCn;
 	}
