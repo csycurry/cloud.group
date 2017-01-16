@@ -122,7 +122,7 @@
          	 					用户工号                    
                             </th>
                             <th>
-         	 					 关联用户Id                   
+         	 					 推荐用户Id                   
                             </th>
                             <th>
          	 					项目工号                    
@@ -165,7 +165,9 @@
 	                             	<a href="#"><span class='label label-success' onclick="up(${u.id})">审核</span></a>
 	                             	<a href="#"><span class='label label-success' onclick="detail(${u.id})">修改</span></a>
 	                             </c:if>
-	                             <a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
+	                             <c:if test="${u.status!=9}">
+	                             	<a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
+	                           	</c:if>
 	                            </td>
 	                        </tr>
                         </c:forEach>

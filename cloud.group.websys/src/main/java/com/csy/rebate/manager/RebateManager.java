@@ -18,6 +18,7 @@ import com.csy.config.domain.dto.SystemConfigDTO;
 import com.csy.config.domain.emus.ConfigEn;
 import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.RebateMapperExt;
+import com.csy.exception.BusinessException;
 import com.csy.mission.domain.dto.MissionExtendDTO;
 import com.csy.mission.manager.MissionManager;
 import com.csy.model.Rebate;
@@ -196,17 +197,18 @@ public class RebateManager {
 	@Transactional
 	public void callbackRebate(Integer id, String staffCode) {
 		Rebate rebate = rebateMapperExt.selectByPrimaryKey(id);
-		if (rebate.getStatus().equals(RebateStatusEn.UNSETTLE.getCode())) {
-			rebate.setStatus(RebateStatusEn.CALLBACK.getCode());
-			rebate.setSettleTm(DateUtil.getCurrentTime());
-			rebate.setSettleMan(staffCode);
-			rebateMapperExt.updateByPrimaryKey(rebate);
-			if (!rebate.getAmount().isNaN()) {
-				callbackByFrom(rebate);
-			}
-			if(rebate.getStatus().equals(RebateStatusEn.SETTLE.getCode())){
-				callBackAccount(rebate);
-			}
+		if (rebate.getStatus().equals(RebateStatusEn.CALLBACK.getCode())) {
+			throw new BusinessException("已撤回,不能重复撤回!");
+		}
+		rebate.setStatus(RebateStatusEn.CALLBACK.getCode());
+		rebate.setSettleTm(DateUtil.getCurrentTime());
+		rebate.setSettleMan(staffCode);
+		rebateMapperExt.updateByPrimaryKey(rebate);
+		if (!rebate.getAmount().isNaN()) {
+			callbackByFrom(rebate);
+		}
+		if(rebate.getStatus().equals(RebateStatusEn.SETTLE.getCode())){
+			callBackAccount(rebate);
 		}
 	}
 
