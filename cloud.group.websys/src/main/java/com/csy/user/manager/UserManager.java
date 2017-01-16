@@ -181,6 +181,13 @@ public class UserManager {
 		userMapperExt.updateByPrimaryKeySelective(user);
 	}
 	
+	public void updateUserBalance(UserDTO userDTO)
+	{
+		User user = new User();
+		BeanUtils.copyProperties(userDTO, user);
+		userMapperExt.updateByPrimaryKeySelective(user);
+	}
+	
 	public void updateUserByPhone(String phone,String pwd)
 	{
 		

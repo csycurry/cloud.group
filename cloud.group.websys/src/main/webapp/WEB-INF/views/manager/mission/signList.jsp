@@ -109,6 +109,9 @@
                     <table class='table table-bordered table-hover table-striped' style='margin-bottom:0;'>
                         <thead>
                         <tr>
+                        	<th>
+                                id
+                            </th>
                             <th>
                                 项目Id
                             </th>
@@ -125,10 +128,7 @@
                                 用户工号
                             </th>
                              <th>
-                                ip
-                            </th>
-                             <th>
-                                结束时间
+                                报名时间
                             </th>
                             <th>
                             操作
@@ -144,7 +144,6 @@
 	                            <td>${u.userId}</td>
 	                            <td>${u.userCode}</td>
 	                            <td>${u.missionNum}</td>
-	                            <td>${u.ip}</td>
 	                            <td><fmt:formatDate value="${u.signTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td></td>
 	                        </tr>

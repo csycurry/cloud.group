@@ -64,12 +64,12 @@ a {text-decoration:none!important;}
 .headText a {color:#333}
 .headText .nologin{margin-top:12px}
 
-.header{height:100px;line-height:100px;background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;border-bottom:1px solid #ccc}
+.header{background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;border-bottom:1px solid #ccc}
 .header a{color:#7b7b7b;}
 .header .logo img{height:40px;}
 .header ul{margin:0 0 0 30px!important;}
-.header ul li{position:relative;margin-right:30px;float:left;}
-.header ul li a:after{content:'';position:absolute;top:17px;right:-11px;width:1px;height:16px;background:#7b7b7b}
+.header ul li{position:relative;margin-right:30px;float:left;top:17px;}
+.header ul li a:after{content:'';position:absolute;top:1px;right:-11px;width:1px;height:16px;background:#7b7b7b}
 .header ul li:last-of-type a:after{display:none;}
 .header .register a:nth-of-type(1){color:#f0594e;}
 .header .register a:nth-of-type(2){color:#129fe6;}

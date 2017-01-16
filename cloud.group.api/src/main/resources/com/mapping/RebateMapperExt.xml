@@ -37,7 +37,7 @@
       #{record.amount,jdbcType=DECIMAL}, #{record.earnings,jdbcType=DECIMAL}, #{record.status,jdbcType=TINYINT}, 
       #{record.createTm,jdbcType=TIMESTAMP}, #{record.creator,jdbcType=VARCHAR}, #{record.modifyTm,jdbcType=TIMESTAMP}, 
       #{record.modifior,jdbcType=VARCHAR}, #{record.settleTm,jdbcType=TIMESTAMP}, #{record.settleMan,jdbcType=VARCHAR}, 
-      #{record.type,jdbcType=TINYINT}, #{record.earningsFrom,jdbcType=INTEGER, #{record.importDate,jdbcType=DATE}})
+      #{record.type,jdbcType=TINYINT}, #{record.earningsFrom,jdbcType=INTEGER}, #{record.importDate,jdbcType=DATE})
 		</foreach>
 	</insert>
   

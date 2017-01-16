@@ -38,7 +38,6 @@ public class MissionSignManager {
 	{
 		Pagination<MissionSignDTO> pagination = new Pagination<MissionSignDTO>(searchDTO.getCurrentPage());
 		MissionSignExample example = bulidExample(searchDTO);
-		example.setOrderByClause("num,id DESC");
 		long count = missionSignMapperExt.countByExample(example);
 		pagination.setTotalCount((int)count);
 		if(count>0)

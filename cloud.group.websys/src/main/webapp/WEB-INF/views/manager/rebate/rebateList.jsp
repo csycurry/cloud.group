@@ -164,8 +164,8 @@
 	                             <c:if test="${u.status==0}">
 	                             	<a href="#"><span class='label label-success' onclick="up(${u.id})">审核</span></a>
 	                             	<a href="#"><span class='label label-success' onclick="detail(${u.id})">修改</span></a>
-	                             	<a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
 	                             </c:if>
+	                             <a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
 	                            </td>
 	                        </tr>
                         </c:forEach>

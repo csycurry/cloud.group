@@ -16,7 +16,7 @@
 </title>
 </head>
 <body>
-     
+<    
         <div class="header">
             
 <script src="http://static.geetest.com/static/tools/gt.js"></script>
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="accout">
-                        <h4 class='prl20'>
+                        <h4 class='prl20 orange'>
                             <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
                         <p><a href="/userDetail.html">基本信息</a></p>
@@ -75,20 +75,13 @@
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
-                    <div class="accout  orange">
+                    <div class="accout">
                         <h4 class='prl20'>
                             <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
                         <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
                 </div>
                 <div class="userContent pull-left">
-                    <script src="/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-                    <script src="/plugins/DataTables/js/jquery.dataTables.min.js"></script>
-                    <script src="/plugins/DataTables/js/dataTables.bootstrap.min.js"></script>
-                    <script src="/scripts/sweetalert2.min.js"></script>
-                    <!-- for IE support -->
-                    <script src="/scripts/es6-promise.min.js"></script>
-                    <script src="/scripts/peronalhadler.js?1.0" type="text/javascript"></script>
                     <script>
                         function accout() {
                             var $accoutBtn = $(".accout p a");
@@ -115,35 +108,14 @@
         <div class="col-md-12">
             <div class="panel panel-default" style="padding: 20px">
                 <div class="panel-heading">
-                    <span>收益记录</span>
+                    <span>您的唯一推荐链接</span>
                 </div>
                 <div class="panel-body">
-                <table data-toggle="table"
-					       data-url="/rebateslist.html"
-					       data-pagination="true"
-					       data-side-pagination="server"
-					       data-page-list="[5, 10, 20, 50, 100, 200]"
-					       data-height="300">
-					    <thead>
-					    <tr>
-					    	<th data-field="missionName" data-align="center" data-sortable="true">任务名称</th>
-					        <th data-field="createDate" data-align="right" data-sortable="true">时间</th>
-					        <th data-field="earnings" data-align="center" data-sortable="true">收益</th>
-					        <th data-field="amount" data-align="right" data-sortable="true">打码数量</th>
-					        <th data-field="statusCn" data-align="center" data-sortable="true">状态</th>
-					        <th data-field="typeCn" data-align="center" data-sortable="true">类型</th>
-					    </tr>
-					    </thead>
-				</table>
+                	<input type="text" readonly="readonly" value="${url}" style="width: 100%;height: 50px;font-size: 20px;text-align: center;">
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(function () {
-            getAccountDetail();
-        });
-    </script>
 
                 </div>
             </div>

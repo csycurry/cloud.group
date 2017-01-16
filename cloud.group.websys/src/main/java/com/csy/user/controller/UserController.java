@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,8 @@ public class UserController extends BaseController{
 	private UserManager userManager;
 	@Autowired
 	private UserAccountManager userAccountManager; 
+	@Value("${service.url}")
+	private String service;
 	
 	@RequestMapping(value="/userinfo")
 	public ModelAndView listSearch()
@@ -101,6 +104,22 @@ public class UserController extends BaseController{
 		ModelAndView modelAndView = new ModelAndView("alipay");
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("user", userDTO);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/affiliates")
+	public ModelAndView affiliates()
+	{
+		UserDTO userDTO =  userManager.findDetail(getLoginUserId());
+		if(userDTO==null)
+		{
+			return new ModelAndView("redirect:/index.html");
+		}
+		ModelAndView modelAndView = new ModelAndView("affiliates");
+		Map<String, Object> map= modelAndView.getModel();
+		StringBuffer buffer = new StringBuffer(service);
+		buffer.append("promotion?aff=").append(getLoginUserId());
+		map.put("url", buffer.toString());
 		return modelAndView;
 	}
 	

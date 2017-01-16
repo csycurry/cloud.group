@@ -16,7 +16,7 @@
 <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
 <link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css"
 	rel="stylesheet">
-	<script type="text/javascript" src="assets/main/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="assets/main/js/jquery.cookie.js"></script>
 <script src="/assets/js/bootstrap-table.min.js"></script>
 <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
 <title></title>
@@ -33,20 +33,17 @@
 				<li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>
 			</ul>
 
-			<div class="register pull-right">
+			<div class="register pull-right" style="margin-top: 15px">
 
-				<a class="dropdown-toggle abtn pull-left"
-					href="/user/UserManage.aspx" style="width: 120px"> <span
-					class="apostrophe pull-right"
+				<a class="dropdown-toggle abtn pull-left" href="/"
+					style="width: 120px"> <span class="apostrophe pull-right"
 					style="width: 80px; display: block; color: #f5894e">
-						您好：${user.userCode}</span> <img src="/img/header/head-005.png" alt=""
-					class="pull-right img-circle"
-					style="height: 20px; margin-top: 15px" />
+						您好：${user.userCode}</span> <img src="assets/main/img/hean.png" alt=""
+					class="pull-right img-circle" style="height: 20px" />
 				</a> <span class="pull-left">|</span> <a id="ctl00_ctl09_linkExit"
 					class="dropdown-toggle abtn"
-					href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)"
-					style="margin-top: 30px"> <i
-					class="glyphicon glyphicon-off pull-left" style="margin-top: 20px"></i>退出
+					href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)">
+					<i class="glyphicon glyphicon-off pull-left"></i>退出
 				</a>
 
 			</div>
@@ -84,6 +81,7 @@
 				<p>
 					<a href="/userDetail.html">基本信息</a>
 				</p>
+				<p><a href="/affiliates.html">联盟推广</a></p>
 			</div>
 			<div class="accout">
 				<h4 class='prl20 orange'>
@@ -158,68 +156,71 @@
 								<span>申请提现</span>
 							</div>
 							<div class="panel-body">
-							<form id="payForm">
-								<div class="form-group">
-									<p>
-										<span style="width: 100px; display: inline-block">
-											账户余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
-											style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}元</span>
-									</p>
-								</div>
-								<div class="form-group">
-									<p>
-										<span style="width: 100px; display: inline-block">收款账户：</span><span
-											id="ctl00_ContentPlaceHolder1_lbZhiFuBao"
-											style="color: #dd5a43; line-height: 15px; font-size: 16px">${user.userCode}</span>
-									</p>
-								</div>
-								<div class="form-group">
-									<c:if test="${user.userMobile==null||user.userMobile==''}">
+								<form id="payForm">
+									<div class="form-group">
 										<p>
-											<span style="width: 100px; display: inline-block">手机号码：</span><input
-												name="ctl00$ContentPlaceHolder1$txtphone" type="text"
-												id="ctl00_ContentPlaceHolder1_txtphone" disabled="disabled"
-												placeholder="请先在“基本信息”栏绑定手机号" style="width: 300px;" />
+											<span style="width: 100px; display: inline-block">
+												账户余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
+												style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}元</span>
 										</p>
-									</c:if>
-									<c:if test="${user.userMobile!=null&&user.userMobile!=''}">
+									</div>
+									<div class="form-group">
 										<p>
-											<span style="width: 100px; display: inline-block">手机号码：</span><input
-												name="ctl00$ContentPlaceHolder1$txtphone" type="text"
-												id="ctl00_ContentPlaceHolder1_txtphone" disabled="disabled"
-												value="${user.userMobile}" style="width: 300px;" />
+											<span style="width: 100px; display: inline-block">收款账户：</span><span
+												id="ctl00_ContentPlaceHolder1_lbZhiFuBao"
+												style="color: #dd5a43; line-height: 15px; font-size: 16px">${user.userCode}</span>
 										</p>
-									</c:if>
-								</div>
-								<div class="form-group">
-									<p>
-										<span style="width: 100px; display: inline-block">提现金额：</span><input
-											name="amount" type="text"
-											id="ctl00_ContentPlaceHolder1_askmoney" placeholder="单位是元"
-											style="width: 300px;" />
-									</p>
-								</div>
-								<div id="ctl00_ContentPlaceHolder1_div1" class="form-group">
-									<p>
-										点击获取短信：<input type="button" data-mode="1" value="发送验证码"
-											class="btn btn-sm btn-info phoneverify" />
-									</p>
-								</div>
-								<div id="ctl00_ContentPlaceHolder1_divVerify" class="form-group">
-	                                <p>
-	                                    验证码：<input name="code" type="text" id="ctl00_ContentPlaceHolder1_txtlistenNumer" placeholder="填写验证码" />
-	                                </p>
-	                            </div>
+									</div>
+									<div class="form-group">
+										<c:if test="${user.userMobile==null||user.userMobile==''}">
+											<p>
+												<span style="width: 100px; display: inline-block">手机号码：</span><input
+													name="ctl00$ContentPlaceHolder1$txtphone" type="text"
+													id="ctl00_ContentPlaceHolder1_txtphone" disabled="disabled"
+													placeholder="请先在“基本信息”栏绑定手机号" style="width: 300px;" />
+											</p>
+										</c:if>
+										<c:if test="${user.userMobile!=null&&user.userMobile!=''}">
+											<p>
+												<span style="width: 100px; display: inline-block">手机号码：</span><input
+													name="ctl00$ContentPlaceHolder1$txtphone" type="text"
+													id="ctl00_ContentPlaceHolder1_txtphone" disabled="disabled"
+													value="${user.userMobile}" style="width: 300px;" />
+											</p>
+										</c:if>
+									</div>
+									<div class="form-group">
+										<p>
+											<span style="width: 100px; display: inline-block">提现金额：</span><input
+												name="amount" type="text"
+												id="ctl00_ContentPlaceHolder1_askmoney" placeholder="单位是元"
+												style="width: 300px;" />
+										</p>
+									</div>
+									<div id="ctl00_ContentPlaceHolder1_div1" class="form-group">
+										<p>
+											点击获取短信：<input type="button" data-mode="1" value="发送验证码"
+												class="btn btn-sm btn-info phoneverify" />
+										</p>
+									</div>
+									<div id="ctl00_ContentPlaceHolder1_divVerify"
+										class="form-group">
+										<p>
+											验证码：<input name="code" type="text"
+												id="ctl00_ContentPlaceHolder1_txtlistenNumer"
+												placeholder="填写验证码" />
+										</p>
+									</div>
 
-								<div class="form-group">
-									<p class="pick">
-										<input type="button"
-											name="ctl00$ContentPlaceHolder1$btnpickCash" value="确定提现"
-											onclick="return cashclick();"
-											id="ctl00_ContentPlaceHolder1_btnpickCash"
-											class="btn btn-success" style="width: 300px" />
-									</p>
-								</div>
+									<div class="form-group">
+										<p class="pick">
+											<input type="button"
+												name="ctl00$ContentPlaceHolder1$btnpickCash" value="确定提现"
+												onclick="return cashclick();"
+												id="ctl00_ContentPlaceHolder1_btnpickCash"
+												class="btn btn-success" style="width: 300px" />
+										</p>
+									</div>
 								</form>
 							</div>
 						</div>
@@ -231,19 +232,15 @@
 						<div class="panel-heading">
 							<span>申请记录</span>
 						</div>
-						<table data-toggle="table" data-url="/account_CashData.html?type=2"
-							data-pagination="true" data-side-pagination="server"
+						<table data-toggle="table"
+							data-url="/account_CashData.html?type=2" data-pagination="true"
+							data-side-pagination="server"
 							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th>申请时间</th>
-									<th>申请金额</th>
-									<th>处理时间</th>
-									<th>处理信息反馈</th>
-									<th>处理结果</th>
-									<th data-field="time" data-align="center" data-sortable="true">时间</th>
-									<th data-field="total" data-align="right" data-sortable="true">金额</th>
+									<th data-field="time" data-align="center" data-sortable="true">申请时间</th>
+									<th data-field="total" data-align="right" data-sortable="true">申请金额</th>
 									<th data-field="reason">操作</th>
 								</tr>
 							</thead>

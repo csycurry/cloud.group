@@ -1,7 +1,7 @@
 package com.csy.rebate.domain.emus;
 
 public enum RebateStatusEn {
-	SETTLE((byte)1,"已结算"),UNSETTLE((byte)0,"未结算"),DELETE((byte)99,"作废");
+	SETTLE((byte)1,"已结算"),UNSETTLE((byte)0,"未结算"),CALLBACK((byte)9,"已撤回"),DELETE((byte)99,"作废");
 	private Byte code;
 	private String mean;
 	

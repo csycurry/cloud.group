@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.csy.account.domain.dto.UserAccountDTO;
 import com.csy.account.domain.emus.AccountStatusEn;
@@ -122,6 +123,7 @@ public class RebateManager {
 		rebateMapperExt.updateByPrimaryKeySelective(rebate);
 	}
 
+	@Transactional
 	public void settleRebate(List<Integer> ids, String staffCode) {
 		for (Integer id : ids) {
 			Rebate rebate = rebateMapperExt.selectByPrimaryKey(id);
@@ -130,7 +132,7 @@ public class RebateManager {
 				rebate.setSettleTm(DateUtil.getCurrentTime());
 				rebate.setSettleMan(staffCode);
 				rebateMapperExt.updateByPrimaryKey(rebate);
-				if (rebate.getAmount().isNaN()) {
+				if (!rebate.getAmount().isNaN()) {
 					getRebaetByFrom(rebate);
 				}
 				bulidAccount(rebate);
@@ -140,14 +142,19 @@ public class RebateManager {
 
 	public void getRebaetByFrom(Rebate rebate) {
 		RebateExample example = new RebateExample();
-		example.createCriteria().andUserIdEqualTo(rebate.getUserId()).andAmountIsNotNull()
-				.andMissionIdEqualTo(rebate.getMissionId()).andImportDateEqualTo(rebate.getImportDate());
+		example.createCriteria().andEarningsFromEqualTo(rebate.getUserId()).andAmountIsNull()
+				.andMissionIdEqualTo(rebate.getMissionId()).andImportDateEqualTo(rebate.getImportDate()).andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		List<Rebate> rebates = rebateMapperExt.selectByExample(example);
 		for (Rebate rebate2 : rebates) {
+			rebate2.setStatus(RebateStatusEn.SETTLE.getCode());
+			rebate2.setSettleTm(DateUtil.getCurrentTime());
+			rebate2.setSettleMan(rebate2.getSettleMan());
+			rebateMapperExt.updateByPrimaryKey(rebate2);
 			bulidAccount(rebate2);
 		}
 	}
 
+	@Transactional
 	public void settleRebateBySearch(RebateSearchDTO searchDTO, String staffCode) {
 		RebateExample example = createExample(searchDTO);
 		List<Rebate> list = rebateMapperExt.selectByExample(example);
@@ -167,7 +174,9 @@ public class RebateManager {
 		UserAccountDTO accountDTO = accountManager.getAccount(rebate.getUserId());
 		UserAccount account = new UserAccount();
 		account.setUserId(dto.getId());
-		account.setAmount(BigDecimal.valueOf(rebate.getAmount()));
+		SystemConfigDTO configDTO =systemConfigManager.detail(ConfigEn.exchangerate.getCode());
+		account.setAmount(rebate.getEarnings().divide(new BigDecimal(configDTO.getConfigValue())));
+		account.setAmountNum(rebate.getEarnings().longValue());
 		if (accountDTO == null) {
 			accountDTO = new UserAccountDTO();
 			accountDTO.setBalance(BigDecimal.ZERO);
@@ -179,34 +188,41 @@ public class RebateManager {
 		account.setType(AccountTypeEn.IN.getCode());
 		account.setCreateTime(new Date());
 		account.setStatus(AccountStatusEn.SETTLE.getCode());
-		account.setAmount(rebate.getEarnings());
-		account.setAmountNum(rebate.getAmount().intValue());
 		accountManager.insertAccount(account);
 		dto.setBalance(account.getBalance().longValue());
-		userManager.updateUser(dto);
+		userManager.updateUserBalance(dto);
 	}
 
+	@Transactional
 	public void callbackRebate(Integer id, String staffCode) {
 		Rebate rebate = rebateMapperExt.selectByPrimaryKey(id);
 		if (rebate.getStatus().equals(RebateStatusEn.UNSETTLE.getCode())) {
-			rebate.setStatus(RebateStatusEn.SETTLE.getCode());
+			rebate.setStatus(RebateStatusEn.CALLBACK.getCode());
 			rebate.setSettleTm(DateUtil.getCurrentTime());
 			rebate.setSettleMan(staffCode);
 			rebateMapperExt.updateByPrimaryKey(rebate);
-			if (rebate.getAmount().isNaN()) {
+			if (!rebate.getAmount().isNaN()) {
 				callbackByFrom(rebate);
 			}
-			callBackAccount(rebate);
+			if(rebate.getStatus().equals(RebateStatusEn.SETTLE.getCode())){
+				callBackAccount(rebate);
+			}
 		}
 	}
 
 	public void callbackByFrom(Rebate rebate) {
 		RebateExample example = new RebateExample();
-		example.createCriteria().andUserIdEqualTo(rebate.getUserId()).andAmountIsNotNull()
+		example.createCriteria().andEarningsFromEqualTo(rebate.getUserId()).andAmountIsNull()
 				.andMissionIdEqualTo(rebate.getMissionId()).andImportDateEqualTo(rebate.getImportDate());
 		List<Rebate> rebates = rebateMapperExt.selectByExample(example);
 		for (Rebate rebate2 : rebates) {
-			callBackAccount(rebate2);
+			rebate2.setStatus(RebateStatusEn.CALLBACK.getCode());
+			rebate2.setSettleTm(DateUtil.getCurrentTime());
+			rebate2.setSettleMan(rebate.getSettleMan());
+			rebateMapperExt.updateByPrimaryKey(rebate2);
+			if(rebate.getStatus().equals(RebateStatusEn.SETTLE.getCode())){
+				callBackAccount(rebate2);
+			}
 		}
 	}
 
@@ -215,7 +231,9 @@ public class RebateManager {
 		UserAccountDTO accountDTO = accountManager.getAccount(rebate.getUserId());
 		UserAccount account = new UserAccount();
 		account.setUserId(dto.getId());
-		account.setAmount(BigDecimal.valueOf(rebate.getAmount()));
+		SystemConfigDTO configDTO =systemConfigManager.detail(ConfigEn.exchangerate.getCode());
+		account.setAmount(rebate.getEarnings().divide(new BigDecimal(configDTO.getConfigValue())));
+		account.setAmountNum(rebate.getEarnings().longValue());
 		if (accountDTO == null) {
 			accountDTO = new UserAccountDTO();
 			accountDTO.setBalance(BigDecimal.ZERO);
@@ -227,11 +245,9 @@ public class RebateManager {
 		account.setType(AccountTypeEn.CALLBACK.getCode());
 		account.setCreateTime(new Date());
 		account.setStatus(AccountStatusEn.DELETE.getCode());
-		account.setAmount(rebate.getEarnings());
-		account.setAmountNum(rebate.getAmount().intValue());
 		accountManager.insertAccount(account);
 		dto.setBalance(account.getBalance().longValue());
-		userManager.updateUser(dto);
+		userManager.updateUserBalance(dto);
 	}
 
 	public void inserBatch(String[][] bodys, int missionId, String staffCode) {
@@ -319,7 +335,7 @@ public class RebateManager {
 		rebate1.setStatus(RebateStatusEn.UNSETTLE.getCode());
 		rebate1.setEarningsFrom(rebate.getUserId());
 		rebate1.setType((byte) 0);
-		rebate.setImportDate(DateUtil.getCurrentDate());
+		rebate1.setImportDate(DateUtil.getCurrentDate());
 		rebate1.setCreateTm(DateUtil.getCurrentTime());
 		rebate1.setMissionId(rebate.getMissionId());
 		rebate1.setMissionName(rebate.getMissionName());

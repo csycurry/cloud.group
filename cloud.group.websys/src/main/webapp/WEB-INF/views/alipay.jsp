@@ -28,15 +28,15 @@
         <li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>        
     </ul>
 
-    <div class="register pull-right">
+    <div class="register pull-right" style="margin-top:15px">
         
-        <a class="dropdown-toggle abtn pull-left" href="/user/UserManage.aspx" style="width:120px">            
+        <a class="dropdown-toggle abtn pull-left" href="/" style="width:120px">            
             <span class="apostrophe pull-right" style="width:80px;display:block;color:#f5894e"> 您好：${user.userCode}</span>
-            <img src="/img/header/head-005.png" alt="" class="pull-right img-circle" style="height: 20px;margin-top:15px" />
+            <img src="assets/main/img/hean.png" alt="" class="pull-right img-circle" style="height: 20px" />
         </a>
         <span class="pull-left">|</span>
-        <a id="ctl00_ctl09_linkExit" class="dropdown-toggle abtn" href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)" style="margin-top:30px">
-            <i class="glyphicon glyphicon-off pull-left" style="margin-top:20px"></i>退出
+        <a id="ctl00_ctl09_linkExit" class="dropdown-toggle abtn" href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)" >
+            <i class="glyphicon glyphicon-off pull-left" ></i>退出
         </a>
         
     </div>
@@ -64,6 +64,7 @@
                             <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
                         <p><a href="/userinfo.html">个人中心</a></p>
                         <p><a href="/userDetail.html">基本信息</a></p>
+                        <p><a href="/affiliates.html">联盟推广</a></p>
                     </div>
                     <div class="accout">
                         <h4 class='prl20 orange'>
