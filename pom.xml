@@ -189,9 +189,8 @@
 	</dependencies>
 	<modules>
 		<module>cloud.group.api</module>
-		<!--<module>cloud.group.service</module> 
-		<module>cloud.group.wechat</module> -->
 		<module>cloud.group.websys</module>
+		<module>cloud.group.commodity</module>
 	</modules>
 	<build>
 		<finalName>${project.artifactId}</finalName>

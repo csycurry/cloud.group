@@ -68,8 +68,13 @@
    <table tableName="user" domainObjectName="User" delimitIdentifiers="true">
  		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
  	</table>
- 	-->
  	<table tableName="user_account" domainObjectName="UserAccount" delimitIdentifiers="true"></table>
+ 	<table tableName="commodity" domainObjectName="Commodity" delimitIdentifiers="true"></table>
+ 	-->
+ 	<table tableName="user" domainObjectName="User" delimitIdentifiers="true">
+ 		<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+ 	</table>
+ 	
  	
  	
   </context>

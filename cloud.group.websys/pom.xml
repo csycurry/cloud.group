@@ -128,6 +128,26 @@
 		  <artifactId>Sdk4J</artifactId>
 		  <version>2.0</version>
 		</dependency>
+		<dependency>
+		  <groupId>org.springframework.data</groupId>
+		  <artifactId>spring-data-redis</artifactId>
+		  <version>1.7.6.RELEASE</version>
+		</dependency>
+		<dependency>
+		  <groupId>redis.clients</groupId>
+		  <artifactId>jedis</artifactId>
+		  <version>2.8.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.directory.studio</groupId>
+		  <artifactId>org.apache.commons.collections</artifactId>
+		  <version>3.2.1</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-web</artifactId>
+		  <version>1.4.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 	
 	

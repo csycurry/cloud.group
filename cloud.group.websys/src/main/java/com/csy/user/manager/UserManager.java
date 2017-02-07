@@ -25,6 +25,7 @@ import com.csy.model.UserLevelExample;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
+import com.csy.model.base.UserTypeEn;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.domain.dto.UserSearchDTO;
 import com.csy.util.MD5Utils;
@@ -70,6 +71,7 @@ public class UserManager {
 		User user = new User();
 		user.setUserCode(searchDTO.getUserCode());
 		user.setUserPwd(MD5Utils.encoderByMd5With32Bit(searchDTO.getUserPwd()));
+		user.setUserType(UserTypeEn.MARK.getCode());
 		List<User> userDTOs = userMapperExt.checkUser(user);
 		if(userDTOs==null||userDTOs.size()==0)
 		{
