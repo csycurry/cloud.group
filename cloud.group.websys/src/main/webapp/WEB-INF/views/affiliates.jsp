@@ -115,6 +115,131 @@
                 </div>
             </div>
         </div>
+        
+        <ul id="myTab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#one" data-toggle="tab">
+					 一级下线
+				</a>
+			</li>
+			<li>
+				<a href="#two" data-toggle="tab">
+					 二级下线
+				</a>
+			</li>
+			<li>
+				<a href="#three" data-toggle="tab">
+					 三级下线
+				</a>
+			</li>
+			<li>
+				<a href="#four" data-toggle="tab">
+					 四级下线
+				</a>
+			</li>
+			<li>
+				<a href="#five" data-toggle="tab">
+					 五级下线
+				</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="one">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/levellist.html?type=1" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
+									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="two">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/levellist.html?type=2" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
+									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="three">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/levellist.html?type=3" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
+									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="four">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/levellist.html?type=4" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
+									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="five">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/levellist.html?type=5" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
+									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+		</div>
+        
+        <div class="col-md-12">
+					
+				</div>
+			</div>
     </div>
 
                 </div>
@@ -123,4 +248,9 @@
         
 <%@include file="footer.jsp"%>
 </body>
+<script type="text/javascript">
+function runningFormatter(value, row, index) {
+	return index + 1;
+}
+</script>
 </html>

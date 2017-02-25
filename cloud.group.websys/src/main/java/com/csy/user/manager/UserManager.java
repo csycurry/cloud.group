@@ -1,6 +1,7 @@
 package com.csy.user.manager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,11 +10,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.csy.common.manager.SmsManager;
+import com.csy.common.redis.annotation.Cache;
 import com.csy.config.domain.dto.SystemConfigDTO;
 import com.csy.config.domain.emus.ConfigEn;
 import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.MissionSignMapperExt;
-import com.csy.dao.UserLevelMapper;
+import com.csy.dao.UserLevelMapperExt;
 import com.csy.dao.UserMapperExt;
 import com.csy.exception.BusinessException;
 import com.csy.model.MissionSign;
@@ -26,7 +28,9 @@ import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.model.base.UserTypeEn;
+import com.csy.rebate.manager.RebateManager;
 import com.csy.user.domain.dto.UserDTO;
+import com.csy.user.domain.dto.UserLevelExtendDTO;
 import com.csy.user.domain.dto.UserSearchDTO;
 import com.csy.util.MD5Utils;
 
@@ -41,7 +45,9 @@ public class UserManager {
 	@Autowired
 	private SystemConfigManager systemConfigManager;
 	@Autowired
-	private UserLevelMapper userLevelMapper;
+	private UserLevelMapperExt userLevelMapperExt;
+	@Autowired
+	private RebateManager rebateManager;
 	
 	public Pagination<UserDTO> pageSearch(UserSearchDTO searchDTO)
 	{
@@ -62,6 +68,54 @@ public class UserManager {
 		}
 		return pagination;
 		
+	}
+	
+	public Pagination<UserLevelExtendDTO> pageSearch(int type,Integer levelId, String order, int offset, int limit) {
+		Pagination<UserLevelExtendDTO> pagination = new Pagination<UserLevelExtendDTO>();
+		UserLevelExample example = new UserLevelExample();
+		UserLevelExample.Criteria criteria = example.createCriteria();
+		switch (type) {
+		case 1:
+			criteria.andLevel1EqualTo(levelId);
+			break;
+		case 2:
+			criteria.andLevel2EqualTo(levelId);
+			break;
+		case 3:
+			criteria.andLevel2EqualTo(levelId);
+			break;
+		case 4:
+			criteria.andLevel2EqualTo(levelId);
+			break;
+		case 5:
+			criteria.andLevel2EqualTo(levelId);
+			break;
+		default:
+			break;
+		}
+		Long count = userLevelMapperExt.countByExample(example);
+		pagination.setTotal(count.intValue());
+		if (count > 0) {
+			List<UserLevel> list = userLevelMapperExt.selectUserWithPage(example, offset, limit);
+			List<UserLevelExtendDTO> extendDTOs = new ArrayList<>();
+			for (UserLevel userLevel : list) {
+				UserLevelExtendDTO extendDTO = new UserLevelExtendDTO();
+				BeanUtils.copyProperties(userLevel, extendDTO);
+				extendDTO.setEarns(rebateManager.sumEarnings(userLevel.getUserId(),levelId));
+				extendDTO.setCreateDate(DateUtil.toLocaleString(userLevel.getCreateTm(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+				UserDTO userDTO = findDetail(userLevel.getUserId());
+				if(userDTO!=null){
+					extendDTO.setUserName(userDTO.getUserCode());
+				}
+				UserDTO level = findDetail(userLevel.getLevel1());
+				if(level!=null){
+					extendDTO.setLevel1Name(level.getUserCode());
+				}
+				extendDTOs.add(extendDTO);
+			}
+			pagination.setRows(extendDTOs);
+		}
+		return pagination;
 	}
 	
 	public UserDTO login(UserSearchDTO searchDTO)
@@ -85,6 +139,7 @@ public class UserManager {
 		return dto;
 	}
 	
+	@Cache(expire=60)
 	public UserDTO findDetail(int userId)
 	{
 		User user = userMapperExt.selectByPrimaryKey(userId);
@@ -120,7 +175,7 @@ public class UserManager {
 		if(userDTO.getUserId()!=null){
 			UserLevelExample example = new UserLevelExample();
 			example.createCriteria().andUserIdEqualTo(userDTO.getUserId());
-			List<UserLevel> levels =userLevelMapper.selectByExample(example);
+			List<UserLevel> levels =userLevelMapperExt.selectByExample(example);
 			UserLevel level = new UserLevel();
 			if(!levels.isEmpty()){
 				UserLevel userLevel = levels.get(0);
@@ -134,7 +189,8 @@ public class UserManager {
 				level.setUserId(record.getId());
 				level.setLevel1(userDTO.getUserId());
 			}
-			userLevelMapper.insert(level);
+			level.setCreateTm(new Date());
+			userLevelMapperExt.insert(level);
 		}
 	}
 	
@@ -276,7 +332,7 @@ public class UserManager {
 	public UserLevel getLevel(Integer userId){
 		UserLevelExample example = new UserLevelExample();
 		example.createCriteria().andUserIdEqualTo(userId);
-		List<UserLevel> list = userLevelMapper.selectByExample(example);
+		List<UserLevel> list = userLevelMapperExt.selectByExample(example);
 		if(list.isEmpty()){
 			return null;
 		}

@@ -22,9 +22,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.dto.UserAccountDTO;
 import com.csy.base.controller.BaseController;
 import com.csy.exception.BusinessException;
+import com.csy.model.UserLevel;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
+import com.csy.rebate.domain.dto.RebateDTO;
+import com.csy.rebate.domain.dto.RebateSearchDTO;
 import com.csy.user.domain.dto.UserDTO;
+import com.csy.user.domain.dto.UserLevelExtendDTO;
 import com.csy.user.domain.dto.UserSearchDTO;
 import com.csy.user.manager.UserAccountManager;
 import com.csy.user.manager.UserManager;
@@ -382,6 +386,14 @@ public class UserController extends BaseController{
 			accountDTO.setUserPay(userDTO.getUserAlipay());
 			userAccountManager.insertAccountDTO(accountDTO);
 		}
+	}
+	
+	@RequestMapping(value="/levellist")
+	@ResponseObject
+	public @ResponseBody Pagination<UserLevelExtendDTO> rebates(int type,String order ,int offset,int limit)
+	{
+		Pagination<UserLevelExtendDTO> pagination = userManager.pageSearch(type,getLoginUserId(),order,offset,limit);
+		return pagination;
 	}
 	
 	//+++++++++++++++++++++++++++++++后台管理++++++++++++++++++++++++

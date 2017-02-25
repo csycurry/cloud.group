@@ -1,7 +1,7 @@
 package com.csy.message.domain.emus;
 
 public enum MessageTypeEn {
-	Message((byte)0,"短信"),Email((byte)1,"邮件"),SEND((byte)2,"推送");
+	TAOBAO((byte)0,"淘宝"),TMAlL((byte)1,"天猫");
 	private Byte code;
 	private String mean;
 	

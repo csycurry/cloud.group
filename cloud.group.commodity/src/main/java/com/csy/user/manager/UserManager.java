@@ -13,7 +13,7 @@ import com.csy.config.domain.dto.SystemConfigDTO;
 import com.csy.config.domain.emus.ConfigEn;
 import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.MissionSignMapperExt;
-import com.csy.dao.UserLevelMapper;
+import com.csy.dao.UserLevelMapperExt;
 import com.csy.dao.UserMapperExt;
 import com.csy.exception.BusinessException;
 import com.csy.model.MissionSign;
@@ -41,7 +41,7 @@ public class UserManager {
 	@Autowired
 	private SystemConfigManager systemConfigManager;
 	@Autowired
-	private UserLevelMapper userLevelMapper;
+	private UserLevelMapperExt userLevelMapperExt;
 	
 	public Pagination<UserDTO> pageSearch(UserSearchDTO searchDTO)
 	{
@@ -120,7 +120,7 @@ public class UserManager {
 		if(userDTO.getUserId()!=null){
 			UserLevelExample example = new UserLevelExample();
 			example.createCriteria().andUserIdEqualTo(userDTO.getUserId());
-			List<UserLevel> levels =userLevelMapper.selectByExample(example);
+			List<UserLevel> levels =userLevelMapperExt.selectByExample(example);
 			UserLevel level = new UserLevel();
 			if(!levels.isEmpty()){
 				UserLevel userLevel = levels.get(0);
@@ -134,7 +134,7 @@ public class UserManager {
 				level.setUserId(record.getId());
 				level.setLevel1(userDTO.getUserId());
 			}
-			userLevelMapper.insert(level);
+			userLevelMapperExt.insert(level);
 		}
 	}
 	
@@ -276,7 +276,7 @@ public class UserManager {
 	public UserLevel getLevel(Integer userId){
 		UserLevelExample example = new UserLevelExample();
 		example.createCriteria().andUserIdEqualTo(userId);
-		List<UserLevel> list = userLevelMapper.selectByExample(example);
+		List<UserLevel> list = userLevelMapperExt.selectByExample(example);
 		if(list.isEmpty()){
 			return null;
 		}

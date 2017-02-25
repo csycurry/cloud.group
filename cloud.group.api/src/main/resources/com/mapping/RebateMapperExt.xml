@@ -40,5 +40,9 @@
       #{record.type,jdbcType=TINYINT}, #{record.earningsFrom,jdbcType=INTEGER}, #{record.importDate,jdbcType=DATE})
 		</foreach>
 	</insert>
+	
+	<select id="sumEarnings" parameterType="map" resultType="java.math.BigDecimal">
+		select sum(earnings) from rebate where earnings_from = #{earningsFrom,jdbcType=INTEGER} and user_id = #{userId};
+	</select>
   
 </mapper>

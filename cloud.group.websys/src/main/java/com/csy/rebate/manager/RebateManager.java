@@ -295,6 +295,10 @@ public class RebateManager {
 		rebateMapperExt.insertBatch(rebates);
 
 	}
+	
+	public BigDecimal sumEarnings(Integer enarnsForm,Integer levelId){
+		return rebateMapperExt.sumEarnings(enarnsForm,levelId);
+	}
 
 	private void addLevel(Rebate rebate, List<Rebate> rebates) {
 		UserLevel userLevel = userManager.getLevel(rebate.getUserId());
