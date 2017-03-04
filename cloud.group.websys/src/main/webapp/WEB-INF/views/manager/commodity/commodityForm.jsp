@@ -56,10 +56,28 @@
                         <div class='box-content'>
                          <form id="groupBuyForm" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
                                 <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品编号</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='commodityId' name='commodityId'>${m.commodityId}</textarea>
+                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品名称</label>
                                     <div class='controls'>
-                                    	<textarea rows="2"  class="form-control" id='missionTitle' name='missionTitle'>${m.missionTitle}</textarea>
-                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
+                                    	<textarea rows="2"  class="form-control" id='commodityName' name='commodityName'>${m.commodityName}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品图片地址</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='commodityPic' name='commodityPic'>${m.commodityPic}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品详情地址</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='commodityTbk' name='commodityTbk'>${m.commodityTbk}</textarea>
                                     </div>
                                 </div>
                                 <div class='control-group'>
