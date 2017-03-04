@@ -14,20 +14,20 @@
     <link rel="canonical" href="" />
     <link rel="icon" href="" type="image/x-icon" charset="utf-8" />
     <link rel="shortcut icon" href="" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="//js.fanhuan.com/css/global.css?v=201604282245" />
-    <link rel="stylesheet" type="text/css" href="//js.fanhuan.com/css/base.css?v=2016083018" />
-    <link rel="stylesheet" type="text/css" href="//js.fanhuan.com/css/home.css?v=20170119" />
-    <script type="text/javascript" src="//js.fanhuan.com/common/js/jquery1.8.3.min.js?v=2016042118"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/css/home.css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
 
-    <script type="text/javascript" src="//js.fanhuan.com/js/newtj.js?v=2016042118"></script>
-    <script type="text/javascript" src="//js.fanhuan.com/js/signIn.js?v=20161129"></script>
+    <script type="text/javascript" src="js/newtj.js?v=2016042118"></script>
+    <script type="text/javascript" src="js/signIn.js?v=20161129"></script>
     
     
     <meta name="Description" content="已经有1000多万用户使用返还网省钱，800家商城购物返现金" />
 <meta name="Keywords" content="返还网,返现网,返利,返利网站,返现,返钱网,当当网,京东商城" />
-<link rel="stylesheet" type="text/css" href="http://js.fanhuan.com/css/cgflist.css?v=201604181532" />
-<link rel="stylesheet" type="text/css" href="http://js.fanhuan.com/css/default.css?v=2016052616" />
-<link rel="stylesheet" type="text/css" href="http://js.fanhuan.com/css/new-home.css?v=20170119" />
+<link rel="stylesheet" type="text/css" href="css/list.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/new-home.css" />
 
 <script type="text/javascript">
     function browserRedirect() {

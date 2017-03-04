@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+.doubleele{display:none !important;}
+.pc1{ font-weight:bold;}
+.newtitle{ font-size:24px; font-family:微软雅黑; color:#333;}
+.newtitle .bh{font-size:18px;color:#666;text-indent:34px; line-height:25px;position:relative;top:5px; background:url(http://i.fanhuan.com/images/zdm/icon_clock.png) no-repeat left;}
+.newtitle .titile-bar{ position:relative;top:-7px;}
+.newmain-fot{ width:960px; margin:0 auto; background:#fff; border-top:2px solid #f33131; position:relative; height:1150px;}
+.show1{ margin:0 auto; display:block; margin-top:50px;}
+.np1{ position:absolute; left:42px; top:287px;font-size:18px; color:#f33333;font-family:微软雅黑;}
+.np2{ position:absolute; left:360px;top:287px;font-size:18px; color:#f33333;font-family:微软雅黑;} 
+.np3{ position:absolute; left:680px;top:287px;font-size:18px; color:#f33333;font-family:微软雅黑;}
+.pc1{ font-family:微软雅黑; color:#333; font-size:18px; padding:40px; padding-bottom:0; margin-bottom:15px;}
+.pc2{font-family:微软雅黑; color:#666; font-size:16px; padding-left:40px; padding-right:40px;}
+.newgl{ background:url("http://i.fanhuan.com/images/newcgf/asilt.jpg") no-repeat; padding-left:25px;}
+.pc3{ font-family:微软雅黑; color:#333; font-size:18px;padding-left:40px;}
+#newnew{ background:url("http://i.fanhuan.com/images/newcgf/newnew.png") no-repeat; width:45px; height:43px;}
+#newpp{background:url("http://i.fanhuan.com/images/newcgf/newpp.png") no-repeat;width:45px; height:43px; text-align:center;}
+#newxl{background:url("http://i.fanhuan.com/images/newcgf/newxl.png") no-repeat;width:45px; height:43px; text-align:center;}
+#newhd{background:url("http://i.fanhuan.com/images/newcgf/newhd.png") no-repeat;width:45px; height:43px; text-align:center;}
+.cgf-list .goods-info .num .ico-fan em{ line-height:22px; padding-left:6px;}
+.cgf-list .goods-name .tag{color:#000;}
+.cgf-list .goods-name a:hover .tag{ color:#f33131;}
+.cnp2{ margin-top:50px;}
+.show2{margin:0 auto; display:block;}
+.cgf-list li .price-old{font-family:微软雅黑;}
+.cgf-list .goods-pic .goods-pic-link .report:hover{opacity: 0.6;filter:alpha(opacity=60);}
+.pc1{ font-weight:bold;}
+.cgf-list .goods-pic .goods-pic-link img{ cursor:pointer;}
+.cgf-list .goods-name .tag{ padding-right:0;}
+.sh_sw{font-size:14px;text-align:center;line-height:74px;color:#ccc;}
+.cgf-list .goods-name .tag:hover{color:#f33131;}
+.ico-qg1 {width: 124px;height: 124px;line-height: 124px;background-position: 0 0;position: absolute;left: 50%;top: 50%;margin: -54px 0 0 -54px;text-align: center;color: #fff;font: 26px '微软雅黑';font-weight: bold;}
+.ico-qg{ background:url("http://i.fanhuan.com/images/newcgf/overnew.png?v=20160303") no-repeat; width:106px; height:106px;}
+.ico-qg1{ background:url("http://i.fanhuan.com/images/newcgf/over1new.png?v=20160303") no-repeat; width:106px; height:104px;}
+.m-left-sidebar{ display:none;}
+.btn-join{display:none;}
+#mbAPP{ display:none;}
+#J_bottom_sign{ display:none;}
+#newxl{ font-size:12px; font-family:Microsoft Yahei;}
+.cgf-list .goods-pic .goods-pic-link .tag-ap{ top:0;}
+#showindow{ position:fixed; right:20px; bottom:80px;background:url(http://i.fanhuan.com/images/newcgf/Showindow.jpg) no-repeat; width:137px; height:169px;display:none;z-index:999;}
+#showClose{height:30px;width:30px;float:right;cursor:pointer;}
+#showReload{height:30px;width:90px;cursor:pointer;position:absolute;bottom:18px;left:23px;}
+#new_bq-back{position:fixed;_position:absolute;z-index:170;width: 100%;height: 100%; bottom:0;background:#000;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";filter: alpha(opacity=70);opacity: 0.7;}
+.doubleele{display:none !important;}
