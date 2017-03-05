@@ -81,6 +81,36 @@
                                     </div>
                                 </div>
                                 <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品销售者id</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='sellerId' name='sellerId'>${m.sellerId}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品商铺名称</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='shopName' name='shopName'>${m.shopName}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品商铺名称</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='shopName' name='shopName'>${m.shopName}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品销售者名称</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='sellerName' name='sellerName'>${m.sellerName}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品详情地址</label>
+                                    <div class='controls'>
+                                    	<textarea rows="2"  class="form-control" id='commodityTbk' name='commodityTbk'>${m.commodityTbk}</textarea>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
                                     <label class='control-label' for='validation_date'>任务开始时间</label>
                                     <div class='controls' >
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
@@ -102,43 +132,7 @@
 					                    </div>
                                     </div>
                                 </div>
-                                <div class='control-group'>
-		                            <label class='control-label'>价格</label>
-		                            <div class='controls'>
-		                                <div class='input-prepend input-append'>
-		                                    <input class='text-right' id='price' name="price" value="${m.price}" type='text' />
-		                                </div>
-		                            </div>
-                            	</div>
-                                <div class='control-group'>
-                                    <label class='control-label' >结算周期</label>
-                                    <div class='controls'>
-                                        <input data-rule-minlength='6' data-rule-password='true' data-rule-required='true' value="${m.settlementInterval}" id='settlementInterval' name='settlementInterval' placeholder='结算周期(单位天)' type='text' />
-                                    </div>
-                                </div>
                    				
-                                 <div class='control-group'>
-				                    <label class='control-label'>类型</label>
-				                    <div class='controls'>
-				                        <label class='radio inline'>
-				                            <input type='radio' name="type" checked="checked"  value='1' />
-				                            	打码
-				                        </label>
-				                    </div>
-				                </div>
-				                
-				                
-				                 <div class='control-group'>
-				                    <label class='control-label'>工号类型</label>
-				                    <div class='controls'>
-				                        <label class='radio inline'>
-				                        	<select id="code" name="codeType" onchange="codeChange()">
-				                        		<option selected="selected" value="0">自动生成</option>
-				                        		<option value="1">导入</option>
-				                        	</select>
-				                        </label>
-				                    </div>
-				                </div>
 				                <div class='control-group' id="excel" style="display: none">
 				                    <label class='control-label'>导入Excel</label>
 				                    <div class='controls'>
@@ -150,29 +144,6 @@
 											
 									</div>
 				                </div>
-				                
-                            	<div class='control-group'>
-		                            <label class='control-label'>任务详情</label>
-		                            <div class='controls'>
-		                            	<div class="box-content">
-		                            		<script type="text/plain" id="myEditor"  style="height:240px; max-height: 300px;width: 100%">
-												${m.missionContent}
-											</script>
-											<span id="size" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
-		                            	</div>
-		                            </div>
-                            	</div>
-                            	<div class='control-group'>
-		                            <label class='control-label'>推荐</label>
-		                            <div class='controls'>
-		                            	<div class="box-content">
-		                            		<script type="text/plain" id="recommentEditor"  style="height:240px; max-height: 300px;width: 100%">
-												${recomment}
-											</script>
-											<span id="size2" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
-		                            	</div>
-		                            </div>
-                            	</div>
                                 <div class='form-actions' style='margin-bottom:0'>
                                     <button id="saveBtn" class='btn btn-primary' type="button" onclick="saveMission()">
                                         <i class='icon-save'></i>

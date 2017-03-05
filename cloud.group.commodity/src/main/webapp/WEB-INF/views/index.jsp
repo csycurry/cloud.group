@@ -316,211 +316,7 @@
                 </div>
                 <div class="divide" style="display: none;"></div>
                 <!-- list-mall 商城 -->
-                <div class="list-mall">
-                      <ul class="clearfix" id="list_mall_s">
-                        
-                                        <li class=""><a style="padding-top:3px"  href="http://taobao.fanhuan.com/" target="_blank" class="link-mall"
-                            data-fh="50%" data-code="淘宝网" data-title="淘宝返还">
-                            <img src="http://image.fanhuan.com/mall/s/淘宝网.jpg?v=2014111201"
-                                alt="淘宝返还" />
-                            <span class="info">最高返还<em>50</em><span>%</span></span></a>
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/360buy.html" target="_blank" class="link-mall"
-                            data-fh="5.6%" data-code="360buy" data-title="京东商城">
-                            <img src="http://image.fanhuan.com/mall/s/360buy.jpg?v=2014111201"
-                                alt="京东商城" />
-                            <span class="info">最高返还<em>5.6</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=360buy" data-code="360buy" data-title="京东商城"
-                                data-fh="5.6%" class="btn btn-1-25" target="_blank" 
-                                mallid="360buy">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/yihaodian.html" target="_blank" class="link-mall"
-                            data-fh="4.2%" data-code="yihaodian" data-title="一号店">
-                            <img src="http://image.fanhuan.com/mall/s/yihaodian.jpg?v=2014111201"
-                                alt="一号店" />
-                            <span class="info">最高返还<em>4.2</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=yihaodian" data-code="yihaodian" data-title="一号店"
-                                data-fh="4.2%" class="btn btn-1-25" target="_blank" 
-                                mallid="yihaodian">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/amazon.html" target="_blank" class="link-mall"
-                            data-fh="4.2%" data-code="amazon" data-title="亚马逊中国">
-                            <img src="http://image.fanhuan.com/mall/s/amazon.jpg?v=2014111201"
-                                alt="亚马逊中国" />
-                            <span class="info">最高返还<em>4.2</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=amazon" data-code="amazon" data-title="亚马逊中国"
-                                data-fh="4.2%" class="btn btn-1-25" target="_blank" 
-                                mallid="amazon">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/dangdang.html" target="_blank" class="link-mall"
-                            data-fh="4.8%" data-code="dangdang" data-title="当当">
-                            <img src="http://image.fanhuan.com/mall/s/dangdang.jpg?v=2014111201"
-                                alt="当当" />
-                            <span class="info">最高返还<em>4.8</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=dangdang" data-code="dangdang" data-title="当当"
-                                data-fh="4.8%" class="btn btn-1-25" target="_blank" 
-                                mallid="dangdang">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/vipshop.htm" target="_blank" class="link-mall"
-                            data-fh="2.1%" data-code="vipshop" data-title="唯品会">
-                            <img src="http://image.fanhuan.com/mall/s/vipshop.jpg?v=2014111201"
-                                alt="唯品会" />
-                            <span class="info">最高返还<em>2.1</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=vipshop" data-code="vipshop" data-title="唯品会"
-                                data-fh="2.1%" class="btn btn-1-25" target="_blank" 
-                                mallid="vipshop">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/jumei.html" target="_blank" class="link-mall"
-                            data-fh="4.2%" data-code="jumei" data-title="聚美优品">
-                            <img src="http://image.fanhuan.com/mall/s/jumei.jpg?v=2014111201"
-                                alt="聚美优品" />
-                            <span class="info">最高返还<em>4.2</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=jumei" data-code="jumei" data-title="聚美优品"
-                                data-fh="4.2%" class="btn btn-1-25" target="_blank" 
-                                mallid="jumei">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="padding-top:3px"  href="/suning.html" target="_blank" class="link-mall"
-                            data-fh="42%" data-code="suning" data-title="苏宁易购">
-                            <img src="http://image.fanhuan.com/mall/s/suning.jpg?v=2014111201"
-                                alt="苏宁易购" />
-                            <span class="info">最高返还<em>42</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=suning" data-code="suning" data-title="苏宁易购"
-                                data-fh="42%" class="btn btn-1-25" target="_blank" 
-                                mallid="suning">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/guomei.html" target="_blank" class="link-mall"
-                            data-fh="2.8%" data-code="guomei" data-title="国美在线">
-                            <img src="http://image.fanhuan.com/mall/s/guomei.jpg?v=2014111201"
-                                alt="国美在线" />
-                            <span class="info">最高返还<em>2.8</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=guomei" data-code="guomei" data-title="国美在线"
-                                data-fh="2.8%" class="btn btn-1-25" target="_blank" 
-                                mallid="guomei">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/lashou.html" target="_blank" class="link-mall"
-                            data-fh="4%" data-code="lashou" data-title="拉手网">
-                            <img src="http://image.fanhuan.com/mall/s/lashou.jpg?v=2014111201"
-                                alt="拉手网" />
-                            <span class="info">最高返还<em>4</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=lashou" data-code="lashou" data-title="拉手网"
-                                data-fh="4%" class="btn btn-1-25" target="_blank" 
-                                mallid="lashou">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/honghaizi.html" target="_blank" class="link-mall"
-                            data-fh="1.2%" data-code="honghaizi" data-title="红孩子">
-                            <img src="http://image.fanhuan.com/mall/s/honghaizi.jpg?v=2014111201"
-                                alt="红孩子" />
-                            <span class="info">最高返还<em>1.2</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=honghaizi" data-code="honghaizi" data-title="红孩子"
-                                data-fh="1.2%" class="btn btn-1-25" target="_blank" 
-                                mallid="honghaizi">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/huawei.html" target="_blank" class="link-mall"
-                            data-fh="3.5%" data-code="huawei" data-title="华为商城">
-                            <img src="http://image.fanhuan.com/mall/s/huawei.jpg?v=2014111201"
-                                alt="华为商城" />
-                            <span class="info">最高返还<em>3.5</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=huawei" data-code="huawei" data-title="华为商城"
-                                data-fh="3.5%" class="btn btn-1-25" target="_blank" 
-                                mallid="huawei">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/tianmaochaoshi.html" target="_blank" class="link-mall"
-                            data-fh="2.2%" data-code="tianmaochaoshi" data-title="天猫超市">
-                            <img src="http://image.fanhuan.com/mall/s/tianmaochaoshi.jpg?v=2014111201"
-                                alt="天猫超市" />
-                            <span class="info">最高返还<em>2.2</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=tianmaochaoshi" data-code="tianmaochaoshi" data-title="天猫超市"
-                                data-fh="2.2%" class="btn btn-1-25" target="_blank" 
-                                mallid="tianmaochaoshi">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/mogujie.html" target="_blank" class="link-mall"
-                            data-fh="70%" data-code="mogujie" data-title="蘑菇街">
-                            <img src="http://image.fanhuan.com/mall/s/mogujie.jpg?v=2014111201"
-                                alt="蘑菇街" />
-                            <span class="info">最高返还<em>70</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=mogujie" data-code="mogujie" data-title="蘑菇街"
-                                data-fh="70%" class="btn btn-1-25" target="_blank" 
-                                mallid="mogujie">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                                        <li class=""><a style="position: relative; top: -2px;" href="/handuyishe.html" target="_blank" class="link-mall"
-                            data-fh="21%" data-code="handuyishe" data-title="韩都衣舍官网">
-                            <img src="http://image.fanhuan.com/mall/s/handuyishe.jpg?v=2014111201"
-                                alt="韩都衣舍官网" />
-                            <span class="info">最高返还<em>21</em><span>%</span></span></a><a href="http://go.fanhuan.com/redirect/?s=handuyishe" data-code="handuyishe" data-title="韩都衣舍官网"
-                                data-fh="21%" class="btn btn-1-25" target="_blank" 
-                                mallid="handuyishe">全站返还通道<i></i></a>
-                            
-                        </li>
-                                        
-                    </ul>
-                    <a href="http://mall.fanhuan.com" target="_blank" class="arrow-shop-list"><i></i></a>
-                </div>
             </div>
-        <div class="pop-box-restore">
-            <div class="tippic-close">
-                <div class="bg"></div>
-                <a href="javascript:;" title="关闭提示"></a>
-            </div>
-            <div class="pop-tit">
-                <h3>管理常用的商家</h3>
-                <a href="javascript:;" class="pop-close ico-home i-home-pop-close"></a>
-            </div>
-            <div class="pop-con">
-                <div class="clearfix item">
-                    <h4>
-                        <i class="ico-home i-home-heart"></i>已添加商家：</h4>
-                    <div class="list-yet">
-                        <div class="poptip-full" id="J_poptip_full" style="display: none;">暂时只能添加这么多商家了哦~<b class="nei"></b><b class="wai"></b></div>
-                        <ul class="clearfix" id="J_added">
-                        </ul>
-                    </div> 
-                </div>
-                <div class="clearfix item">
-                    <h4><i class="ico-home i-home-home"></i>添加新商家：</h4>
-                    <div class="tab-new-saler">
-                        <div class="hd">
-                            <div class="search-new-saler">
-                                <label for="J_search_new_saler">
-                                    <i class="ico-home i-home-search"></i>
-                                </label>
-                                <input type="text" value="试试输入：凡客" id="J_search_new_saler" onkeyup="SearchMalls(this);" />
-                            </div>
-                        </div>
-                        <div class="bd">
-                            <div class="poptip-yet" style="display: none">
-                                <i class="ico-home i-home-true"></i>添加成功 <b class="nei"></b><b class="wai"></b>
-                            </div>
-                            <div class="tippic-add">
-                                <div class="bg"></div>
-                                <a href="javascript:;" title="关闭提示"></a>
-                            </div>
-                            <div class="tiptext-noresult" style="display: none">
-                                <p>没有找到与“XXX”相关的商城，试试按拼音首字母查找吧</p>
-                            </div>
-                            <div class="J_mall_item">
-                                <div id="J_mall_item"></div>
-                                <div class="loading" style="display: none"></div>
-                                <div id="J_mall_Soon_item" style="display: none"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     
     <div class="index_tab clearfix" id="index_tab">
@@ -547,8 +343,6 @@
                     <div class="zdm-list cgf-list home_lists_vbox_1" style="display:block">
                         <div class="titile-bar" style=" margin-top:7px;">
                             <ul class="leimu" id="cgfCategory">
-                                
-                                
                         <li><a id="category18" data-id="18" href="http://gou.fanhuan.com?s=18" target="_blank">全部</a></li>
                                 
                         <li><a id="category19" data-id="19" href="http://gou.fanhuan.com?s=19" target="_blank">食品</a></li>
@@ -729,19 +523,18 @@
     <input type="hidden" id="J_month" value="" />
     <div id="forajax" style="display: none"></div>
     
-    <script type="text/javascript" src="//js.fanhuan.com/common/js/json2.js?v=2016042118"></script>
-    <script type="text/javascript" src="//www.fanhuan.com/content/js/mall.js?v=20170228174240"></script>
-    <script type="text/javascript" src="//js.fanhuan.com/js/thickbox_v2.js?v=2016081614"></script>
-    <script type="text/javascript" src="//js.fanhuan.com/js/base.js?v=20161207"></script>
-    <script type="text/javascript" src="http://js.fanhuan.com/taobao/js/jquery.base64.min.js?v=2016042118"></script>
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript" src="js/thickbox_v2.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery.base64.min.js"></script>
     
     
-    <script type="text/javascript" src="http://js.fanhuan.com/js/home.js?v=20161026"></script>
+    <script type="text/javascript" src="js/home.js"></script>
     
-    <script type="text/javascript" src="http://js.fanhuan.com/js/new_home_v2.js?v=20170228"></script>
-    <script type="text/javascript" src="http://js.fanhuan.com/js/Navigation.js?v=2016042118"></script>
+    <script type="text/javascript" src="js/new_home.js"></script>
+    <script type="text/javascript" src="js/Navigation.js"></script>
     
-    <script type="text/javascript" src="http://js.fanhuan.com/js/slides.min.js?v=2016042118"></script>
+    <script type="text/javascript" src="js/slides.min.js"></script>
     <script type="text/javascript">
         $("a[biz-sellerid]").live("click", function () {
             return shopChannel($(this).data("code"), $(this).data("title"), $(this).data("fh"), this);
