@@ -208,12 +208,12 @@ FH.home = (function () {
                 var btn_name = '去购买';
                 var style = "";
                 var item = items[i],
-                    itemId = item.ProductID,
+                    itemId = item.commodityId,
                     id = item.ID,
-                    title = item.Title,
+                    title = item.commodityName,
                     statusSellout = item.SaleOut,
                     productType = item.ProductType,
-                    imageHtml = '<img src=' + (cgfPageIndexAfter == 1 || bool ? item.ImageUrl : "http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129") + ' data-url="' + item.ImageUrl;
+                    imageHtml = '<img src=' + (cgfPageIndexAfter == 1 || bool ? item.ImageUrl : "") + ' data-url="' + item.ImageUrl;
                 NUm = id + '|' + itemId + ',';
                 idPairs = idPairs + NUm;
 
@@ -223,14 +223,14 @@ FH.home = (function () {
                 if (item.Activity != 1 && item.Activity != 2) {
                     //0.超高返 1.折扣 2.领券减 3.普通返 UserPayRatio代表分成比例为0显示折扣样式 为1显示超高返样式
                     if (productType == 0) {
-                        source = (item.MallName == "淘宝" || item.MallName == "天猫") ? "c" : "73";
-                        type = (item.MallName == "淘宝" || item.MallName == "天猫") ? "c" : "jd";
+                        source = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "c" : "73";
+                        type = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "c" : "jd";
                         link += "&source=" + source + "&type=" + type + "&op=" + item.OriginalPrice + "&pp=" + item.PresentPrice + "&rp=" + item.ReturnPrice;
                     } else if (productType == 1) {
-                        source = (item.MallName == "淘宝" || item.MallName == "天猫") ? "bc" : "90";
+                        source = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "bc" : "90";
                         link += "&source=" + source + "&type=bc" + "&op=" + item.OriginalPrice + "&pp=" + item.PresentPrice;
                     } else if (productType == 2) {
-                        source = (item.MallName == "淘宝" || item.MallName == "天猫") ? "fc" : "94";
+                        source = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "fc" : "94";
                         link += "&source=" + source + "&type=fc" + "&op=" + item.OriginalPrice + "&pp=" + item.PresentPrice + "&rp=" + item.ReturnPrice + "&pp1=" + item.PhonePrice + "&img=" + item.ImageUrl;
                         if (item.FuliQuanUrl.indexOf("uland") > -1) {
                             link += "&lingquanjian=1&quanurl=" + item.FuliQuanUrl;
@@ -370,8 +370,6 @@ FH.home = (function () {
                 var className = "";
                 if (item.MallName == "天猫") {
                     className = item.SaleOut > 0 ? "shopIconTMout" : "shopIconTM";
-                } else if (item.MallName == "京东") {
-                    className = item.SaleOut > 0 ? "shopIconJDout" : "shopIconJD";
                 } else {
                     className = item.SaleOut > 0 ? "shopIconTBout" : "shopIconTB";
                 }
@@ -529,8 +527,6 @@ FH.home = (function () {
                 var className = "";
                 if (item.SourceMall == "天猫") {
                     className = "shopIconTM";
-                } else if (item.SourceMall == "京东") {
-                    className = "shopIconJD";
                 } else {
                     className = "shopIconTB";
                 }
