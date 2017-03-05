@@ -1,11 +1,11 @@
 package com.csy.commodity.manager;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.csy.commodity.dto.CommodityDTO;
 import com.csy.commodity.dto.CommoditySearchDTO;
@@ -17,7 +17,7 @@ import com.csy.model.CommodityExample;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
-
+@Service
 public class CommodityManager {
 	
 	@Autowired

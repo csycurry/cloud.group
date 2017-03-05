@@ -1,6 +1,7 @@
 package com.csy.commodity.dto;
 
 import java.io.Serializable;
+
 import com.csy.common.domain.dto.BasePageDTO;
 
 public class CommoditySearchDTO extends BasePageDTO implements Serializable{

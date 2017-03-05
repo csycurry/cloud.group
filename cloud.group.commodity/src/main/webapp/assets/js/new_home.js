@@ -124,8 +124,8 @@ FH.home = (function () {
         var html = "";
         var curType = $("#curType").val();
         if (curType == 1) {//cgf
-            var url = "http://gou.fanhuan.com/ajax/GetChaoGaoFanList?callback=?&random=";
-            url = url + new Date().getTime() + "&page=" + flagEle.data("curPage") + "&categoryId=" + firstCategoryId + (brandId < 0 ? ("&brandId=" + brandId) : "");
+            var url = "/commodity/page.json?";
+            url = url + "&page=" + flagEle.data("curPage") + "&categoryId=" + firstCategoryId + (brandId < 0 ? ("&brandId=" + brandId) : "");
             $.ajax({
                 type: "GET",
                 url: url,

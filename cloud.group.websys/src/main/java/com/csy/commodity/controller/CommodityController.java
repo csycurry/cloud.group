@@ -3,6 +3,7 @@ package com.csy.commodity.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,10 +17,11 @@ import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.util.ResponseJson;
 
+@Controller
 public class CommodityController extends BaseController{
 	@Autowired
 	private CommodityManager commodityManager;
-	@RequestMapping(value="/backstage/commodity/page")
+	@RequestMapping(value="/commodity/page")
 	public ModelAndView pageSearch(CommoditySearchDTO searchDTO,int page)
 	{
 		ModelAndView modelAndView = new ModelAndView("/manager/mission/missionList");
