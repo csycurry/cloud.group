@@ -19,6 +19,8 @@ public class CommodityDTO implements Serializable {
 
     private String commodityCategory;
 
+    private String commodityCategoryMean;
+    
     private BigDecimal commodityPrice;
 
     private Integer commoditySales;
@@ -66,6 +68,8 @@ public class CommodityDTO implements Serializable {
     private Date modifyTm;
 
     private String modifior;
+    
+    private BigDecimal couponPay;
 
     private static final long serialVersionUID = 1L;
 
@@ -123,6 +127,14 @@ public class CommodityDTO implements Serializable {
 
 	public void setCommodityCategory(String commodityCategory) {
 		this.commodityCategory = commodityCategory;
+	}
+
+	public String getCommodityCategoryMean() {
+		return commodityCategoryMean;
+	}
+
+	public void setCommodityCategoryMean(String commodityCategoryMean) {
+		this.commodityCategoryMean = commodityCategoryMean;
 	}
 
 	public BigDecimal getCommodityPrice() {
@@ -315,6 +327,14 @@ public class CommodityDTO implements Serializable {
 
 	public void setCouponEndDate(String couponEndDate) {
 		this.couponEndDate = couponEndDate;
+	}
+
+	public BigDecimal getCouponPay() {
+		return couponPay;
+	}
+
+	public void setCouponPay(BigDecimal couponPay) {
+		this.couponPay = couponPay;
 	}
 
 }

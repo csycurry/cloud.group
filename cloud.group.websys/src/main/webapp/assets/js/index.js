@@ -35,6 +35,22 @@ $(function() {
 
 						});
 			});
+	
+	$('.commodityList').click(
+			function() {
+				$('#content').load('/backstage/commodity/page.json?page=1',
+						function(r, s, xhr) {
+
+						});
+			});
+	$('.commodityForm').click(
+			function() {
+
+				$('#content').load('/backstage/commodity/commodityForm.json',
+						function(r, s, xhr) {
+
+						});
+			});
 
 	$('.signList').click(
 					function() {

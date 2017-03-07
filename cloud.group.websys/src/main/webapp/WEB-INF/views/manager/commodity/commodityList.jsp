@@ -26,7 +26,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>任务查询</span>
+                <span>商品查询</span>
             </h1>
              <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -38,12 +38,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        任务管理
+                                        商品管理
                                     </li>
                                     <li>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>任务查询</li>
+                                    <li class='active'>商品查询</li>
                                 </ul>
                             </div>
         </div>
@@ -52,7 +52,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>任务列表</div>
+            <div class='title'>商品列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -66,19 +66,42 @@
 				<form id="queryForm">
 
 					<div>
-						<span>项目名称 </span>
-						<input type="text" name="missionTitle" value="${u.missionTitle}" style="margin-left: 5px; margin-right: 5px;">
+						<span>商品id </span>
+						<input type="text" name="commodityId" value="${u.commodityId}" style="margin-left: 5px; margin-right: 5px;">
+						<div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品分类</label>
+                                    	<div class='controls'>
+				                        <select name="commodityCategory">
+				                        <c:if test="${m.commodityCategory==null}">
+				                        	<option value="0" selected="selected">请选择</option>
+				                        </c:if>
+				                        <c:if test="${m.commodityCategory!=null}">
+				                        	<option value="${u.commodityCategory}" selected="selected">${u.commodityCategoryMean}</option>
+				                        </c:if>
+				                        	<option value="1"s>食品</option>
+				                        	<option value="2">女装</option>
+				                        	<option value="3">居家</option>
+				                        	<option value="4">母婴童装</option>
+				                        	<option value="5">男装</option>
+				                        	<option value="6">内衣</option>
+				                        	<option value="7">数码家电</option>
+				                        	<option value="8">美妆个护</option>
+				                        	<option value="9">鞋包配饰</option>
+				                        	<option value="10">运动</option>
+				                        </select>
+                                    </div>
+						
 						<br/>
-                                    <span>任务时间</span>
+                                    <span>商品时间</span>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
-					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='任务开始时间' type="datetime" value='${u.beginTm}'  >
+					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='商品开始时间' type="datetime" value='${u.beginTm}'  >
 								            <span class='add-on'>
 								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 								            </span>
 					                    </div>
                                 	<span>至</span>
                                         <div class='datetimepicker input-append form_datetime' id='datetimepicker2'>
-					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='任务结束时间' type="datetime" value='${u.endTm}'  >
+					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='商品结束时间' type="datetime" value='${u.endTm}'  >
 								            <span class='add-on'>
 								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 								            </span>
@@ -104,25 +127,25 @@
                         <thead>
                         <tr>
                             <th>
-                                项目Id
+                                商品Id
                             </th>
                             <th>
-                                项目名称
+                                商品名称
                             </th>
                             <th>
          	 单价                    
                             </th>
                             <th>
-                                开始时间
+                                商品来源
                             </th>
                              <th>
-                                结束时间
+                                商品分类
                             </th>
                             <th>
-                                工号生成
+                                商品类型
                             </th>
                             <th>
-                                参加人数
+                                销售者名称
                             </th>
                             <th>
                             操作
@@ -132,13 +155,13 @@
                         <tbody>
                         <c:forEach items="${list}" var="u">
 	                        <tr>
-	                            <td>${u.id}</td>
-	                            <td>${u.missionTitle}</td>
-	                            <td>${u.price}</td>
-	                            <td><fmt:formatDate value="${u.beginTm}" pattern="yyyy-MM-dd HH:mm"/></td>
-	                            <td><fmt:formatDate value="${u.endTm}" pattern="yyyy-MM-dd HH:mm"/></td>
-	                            <td>${u.codeTypeCn}</td>
-	                            <td>${u.signNum}</td>
+	                            <td>${u.commodityId}</td>
+	                            <td>${u.commodityName}</td>
+	                            <td>${u.commodityPrice}</td>
+	                            <td>${u.shopTypeMean}</td>
+	                            <td>${u.commodityCategory}</td>
+	                            <td>${u.commodityTypeMean}</td>
+	                            <td>${u.sellerName}</td>
 	                            <td>
 	                            	<a href="#"><span class='label label-success' onclick="openDetail(${u.id})">查看</span></a>
 	                            	<a href="#"><span class='label label-fault' onclick="remove(${u.id})">删除</span></a>
@@ -186,4 +209,4 @@
 </div>
 </div>
 </div>
-<script src='assets/js/mission.js' type='text/javascript'></script>
+<script src='assets/js/commodity.js' type='text/javascript'></script>

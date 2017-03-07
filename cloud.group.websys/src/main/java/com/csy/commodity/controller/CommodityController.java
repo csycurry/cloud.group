@@ -21,10 +21,11 @@ import com.csy.util.ResponseJson;
 public class CommodityController extends BaseController{
 	@Autowired
 	private CommodityManager commodityManager;
-	@RequestMapping(value="/commodity/page")
+	
+	@RequestMapping(value="/backstage/commodity/page")
 	public ModelAndView pageSearch(CommoditySearchDTO searchDTO,int page)
 	{
-		ModelAndView modelAndView = new ModelAndView("/manager/mission/missionList");
+		ModelAndView modelAndView = new ModelAndView("/manager/commodity/commodityList");
 		Map<String, Object> map= modelAndView.getModel();
 		searchDTO.setCurrentPage(page);
 		Pagination<CommodityDTO> pagination =  commodityManager.pageSearch(searchDTO);
@@ -53,7 +54,7 @@ public class CommodityController extends BaseController{
 	@RequestMapping(value="/backstage/commodity/detail")
 	public ModelAndView detail(int id)
 	{
-		ModelAndView modelAndView = new ModelAndView("/manager/mission/missionForm");
+		ModelAndView modelAndView = new ModelAndView("/manager/commodity/commodityForm");
 		CommodityDTO extendDTO =  commodityManager.detail(id);
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("m", extendDTO);
@@ -66,4 +67,11 @@ public class CommodityController extends BaseController{
 	{
 		commodityManager.remove(id);
 	}
+	
+	@RequestMapping(value="/backstage/commodity/commodityForm")
+	public String MissionForm()
+	{
+		return "/manager/commodity/commodityForm";
+	}
+	
 }

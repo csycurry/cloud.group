@@ -1,37 +1,37 @@
 package com.csy.commodity.emus;
 
 public enum CategoryEn {
-	Message((byte)0,"全部"),
-	FOOD((byte)1,"食品"),
-	GIRL((byte)2,"女装"),
-	HOME((byte)3,"居家"),
-	BABY((byte)4,"母婴童装"),
-	MAN((byte)5,"男装"),
-	IN((byte)6,"内衣"),
-	SM((byte)7,"数码家电"),
-	WOMEN((byte)8,"美妆个护"),
-	BAG((byte)9,"鞋包配饰"),
-	SPORT((byte)10,"运动");
+	Message("0","全部"),
+	FOOD("1","食品"),
+	GIRL("2","女装"),
+	HOME("3","居家"),
+	BABY("4","母婴童装"),
+	MAN("5","男装"),
+	IN("6","内衣"),
+	SM("7","数码家电"),
+	WOMEN("8","美妆个护"),
+	BAG("9","鞋包配饰"),
+	SPORT("10","运动");
 	
-	private Byte code;
+	private String code;
 	private String mean;
 	
-	public static CategoryEn toEnum(int id) {
+	public static CategoryEn toEnum(String id) {
 		CategoryEn[] values = values();
 		for (CategoryEn en : values) {
-			if (en.getCode() == id) {
+			if (en.getCode().equals(id)) {
 				return en;
 			}
 		}
 		return null;
 	}
 
-	CategoryEn(Byte code, String mean) {
+	CategoryEn(String code, String mean) {
 		this.code =  code;
 		this.mean = mean;
 	}
 
-	public Byte getCode() {
+	public String getCode() {
 		return code;
 	}
 

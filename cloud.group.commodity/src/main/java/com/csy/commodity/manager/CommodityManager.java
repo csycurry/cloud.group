@@ -73,10 +73,14 @@ public class CommodityManager {
 		{
 			criteria.andCommodityNameLike("%"+searchDTO.getCommodityTitle()+"%");
 		}
-//		if(searchDTO.getType()!=null)
-//		{
-//			criteria.andTypeEqualTo(searchDTO.getType());
-//		}
+		if(searchDTO.getCommodityType()!=null)
+		{
+			criteria.andCommodityTypeEqualTo(searchDTO.getCommodityType());
+		}
+		if(StringUtils.isNotBlank(searchDTO.getCommodityCategory())&&!searchDTO.getCommodityCategory().equals("0"))
+		{
+			criteria.andCommodityCategoryEqualTo(searchDTO.getCommodityCategory());
+		}
 		if(StringUtils.isNotEmpty(searchDTO.getBeginTm()))
 		{
 			criteria.andCreateTmGreaterThanOrEqualTo(DateUtil.parse(searchDTO.getBeginTm(),DateUtil.YYYY_MM_DD_HH_DD_SS));
@@ -85,7 +89,7 @@ public class CommodityManager {
 		{
 			criteria.andCreateTmLessThanOrEqualTo(DateUtil.parse(searchDTO.getEndTm(),DateUtil.YYYY_MM_DD_HH_DD_SS));
 		}
-		example.setOrderByClause("begin_tm desc");
+		example.setOrderByClause("create_tm desc");
 		return example;
 	}
 	

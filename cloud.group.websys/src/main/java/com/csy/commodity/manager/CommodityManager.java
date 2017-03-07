@@ -10,14 +10,12 @@ import org.springframework.stereotype.Service;
 
 import com.csy.commodity.dto.CommodityDTO;
 import com.csy.commodity.dto.CommoditySearchDTO;
+import com.csy.commodity.emus.CategoryEn;
 import com.csy.commodity.emus.CommodityTypeEn;
 import com.csy.commodity.emus.ShopTypeEn;
 import com.csy.dao.CommodityMapperExt;
-import com.csy.mission.domain.dto.MissionExtendDTO;
-import com.csy.mission.domain.emus.MissionTypeEn;
 import com.csy.model.Commodity;
 import com.csy.model.CommodityExample;
-import com.csy.model.MissionWithBLOBs;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
@@ -78,6 +76,9 @@ public class CommodityManager {
 				if(result.getCommodityType()!=null){
 					commodityDTO.setCommodityTypeMean(CommodityTypeEn.toEnum(result.getCommodityType()).getMean());
 				}
+				if(result.getCommodityCategory()!=null){
+					commodityDTO.setCommodityCategoryMean(CategoryEn.toEnum(result.getCommodityCategory()).getMean());
+				}
 			}
 			pagination.setList(retList);
 		}
@@ -112,10 +113,17 @@ public class CommodityManager {
 		{
 			criteria.andCommodityNameLike("%"+searchDTO.getCommodityTitle()+"%");
 		}
-//		if(searchDTO.getType()!=null)
-//		{
-//			criteria.andTypeEqualTo(searchDTO.getType());
-//		}
+		if(searchDTO.getCommodityId()!=null){
+			criteria.andCommodityIdEqualTo(searchDTO.getCommodityId());
+		}
+		if(searchDTO.getCommodityType()!=null)
+		{
+			criteria.andCommodityTypeEqualTo(searchDTO.getCommodityType());
+		}
+		if(StringUtils.isNotBlank(searchDTO.getCommodityCategory())&&!searchDTO.getCommodityCategory().equals("0"))
+		{
+			criteria.andCommodityCategoryEqualTo(searchDTO.getCommodityCategory());
+		}
 		if(StringUtils.isNotEmpty(searchDTO.getBeginTm()))
 		{
 			criteria.andCreateTmGreaterThanOrEqualTo(DateUtil.parse(searchDTO.getBeginTm(),DateUtil.YYYY_MM_DD_HH_DD_SS));
@@ -124,7 +132,7 @@ public class CommodityManager {
 		{
 			criteria.andCreateTmLessThanOrEqualTo(DateUtil.parse(searchDTO.getEndTm(),DateUtil.YYYY_MM_DD_HH_DD_SS));
 		}
-		example.setOrderByClause("begin_tm desc");
+		example.setOrderByClause("create_tm desc");
 		return example;
 	}
 	

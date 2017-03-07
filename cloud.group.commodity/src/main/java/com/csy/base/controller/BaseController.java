@@ -5,9 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -56,12 +53,6 @@ public class BaseController {
 		if (userDTO != null)
 			return userDTO.getId();
 		return 0;
-	}
-
-
-	public Session getSession() {
-		Subject currentUser = SecurityUtils.getSubject();
-		return currentUser.getSession();
 	}
 
 	public static HttpSession getHttpSession() {

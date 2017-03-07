@@ -47,29 +47,6 @@
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"><!-- jackson2的配置 -->
 	</bean>
 
-	<!--Shiro配置 -->
-	<bean id="myRealm" class="com.websys.realm.UserRealm" />
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<property name="realm" ref="myRealm" />
-	</bean>
-	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/" />
-		<property name="unauthorizedUrl" value="/" />
-		<property name="filterChainDefinitions">
-			<value>
-				/assets/**=anon
-				/login=anon
-				/logionAction=anon
-				/file/** = anon
-				/supplier/uploadFile=anon
-				<!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login -->
-				/**=authc
-			</value>
-		</property>
-	</bean>
-	<bean id="authc" class="com.websys.filter.UserFilter" />
-	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
 	<bean id="springUtil" class="com.websys.util.SpringUtil"></bean>
 	<!--Aop切面配置 -->

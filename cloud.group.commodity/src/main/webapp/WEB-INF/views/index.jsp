@@ -14,20 +14,20 @@
     <link rel="canonical" href="" />
     <link rel="icon" href="" type="image/x-icon" charset="utf-8" />
     <link rel="shortcut icon" href="" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="/css/home.css" />
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets//css/index.css" />
+    <link rel="stylesheet" type="text/css" href="assets//css/base.css" />
+    <link rel="stylesheet" type="text/css" href="assets//css/home.css" />
+    <script type="text/javascript" src="assets/js/jquery1.8.3.min.js"></script>
 
-    <script type="text/javascript" src="js/newtj.js?v=2016042118"></script>
-    <script type="text/javascript" src="js/signIn.js?v=20161129"></script>
+    <script type="text/javascript" src="assets/js/news.js"></script>
+    <script type="text/javascript" src="assets/js/signIn.js"></script>
     
     
-    <meta name="Description" content="已经有1000多万用户使用返还网省钱，800家商城购物返现金" />
-<meta name="Keywords" content="返还网,返现网,返利,返利网站,返现,返钱网,当当网,京东商城" />
-<link rel="stylesheet" type="text/css" href="css/list.css" />
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/new-home.css" />
+    <meta name="Description" content="已经有1000多万用户使用返还网省钱" />
+<meta name="Keywords" content="返还网,返现网,返利,返利网站,返现,返钱网" />
+<link rel="stylesheet" type="text/css" href="assets/css/list.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
 
 <script type="text/javascript">
     function browserRedirect() {
@@ -62,23 +62,6 @@
     </script>
 </head>
 <body>
-    <!-- 弹窗 -->
-     
-    <div id="bq-back" style="display: none;"></div>
-    <div id="bq-tc" style="display: none;">
-        <div class="bq-content clearfix">
-            <div id="bq-rdiv">
-                <div id="bq-close">
-                    <img src="//i.fanhuan.com/images/close_05.png" alt="" />
-                </div>
-                <div id="bq-fufu">
-                    亲，现在购买商品不是超高返还哦~<br />
-                    现在购买只能以普通比例返还~。
-                </div>
-                <a id="bq-clo" target="_blank" class="bq-bnt">我知道了</a>
-            </div>
-        </div>
-    </div>
     <!-- 卖家保证金 -->
     <div id="new_bq-back" style="display: none"></div>
     <!-- 保证金 end -->
@@ -91,15 +74,7 @@
                 <ul>
                     <li class="invite_link" style="display:none"><a href="http://my.fanhuan.com/my/allordernew" target="_blank">我的订单</a><span
                         class="ver-line">|</span><em></em></li>
-                    <li class="invite_link tel_part"><i></i><a href="http://www.fanhuan.com/app/" target="_blank">手机版</a><span
-                        class="ver-line">|</span><a href="http://www.fanhuan.com/app" target="_blank" class="code_link"></a></li>
-                    
-                    
-                    <li class="invite_link"><a href="http://www.fanhuan.com/help/" target="_blank">帮助</a><span
-                        class="ver-line">|</span></li>
-                    <li class="invite_link"><a href="javascript:void(0);" onclick="ysf.open();return false;">客服在线</a><span class="ver-line" style="_margin-top: -3px; *margin-top: -3px;">|</span></li>
-                    <li class="invite_link"><a href="http://hezuo.fanhuan.com/" target="_blank">
-                        商家中心</a></li>
+                    <li class="invite_link"><a href="http://www.fanhuan.com/help/" target="_blank">帮助</a></li>
                 </ul>
             </div>
             <div class="top_header_l">
@@ -141,9 +116,6 @@
                     </div>
                 </div>
                 
-                <a href="http://www.fanhuan.com/app/" target="_blank" class="home-search-ad ">
-                    <img src="http://image.fanhuan.com/mf/120160428222340.png?t=1461882222692.18" width="120" height="90" />
-                </a>
                 
                 
                 <input type="hidden" id="homeNavId" value="hs_tb" />
@@ -173,7 +145,6 @@
                         </div>
                     </div>
                 </div>
-            <a href="http://www.fanhuan.com/app" target="_blank"><div class="phone-logo"></div></a>     
         </div>
     </div>
 
@@ -187,87 +158,17 @@
                     <li class="navfirst"><a class="nav-a" href="http://www.fanhuan.com/" name="nav-www">首页</a></li>
                     <li><a class="nav-a act-login" href="http://my.fanhuan.com/my/AllOrder_V3" name="nav-my">我的返还</a></li>
                     <li><a class="nav-a" href="http://taobao.fanhuan.com" name="nav-tb"><i class="icon-nav2"></i>淘宝返还</a> </li>
-                    <li><a class="nav-a" href="http://mall.fanhuan.com" name="nav-mall"><i class="icon-nav2"></i>商城返还</a> </li>
                     <li style="width: 123px;"><a class="nav-a" href="http://gou.fanhuan.com/" name="nav-gou" style="padding-left: 48px;"><i class="icon-nav2 nav-hot2"></i>今日好货</a></li>
                     
-                    <li><a class="nav-a" href="http://jiujiu.fanhuan.com/" name="nav-jiu">9块9</a>
                     </li>
                 </ul>
             </div>
             <div id="nav_notice">
-                <a id="sign-in1">签到 </a>
-                <span>
-                    <img class="signwi1" style="position: absolute; left:13px; top:10px; display: none;" src="//i.fanhuan.com/images/newjifen/showsignlogo.png?v=20160411" alt="" />
-                </span>
-                <span>
-                    <img class="signwi" style="position: absolute; left:13px; top:10px;" src="//i.fanhuan.com/images/newjifen/showsignlogo.png?v=20160411" alt="" />
-                </span>
-                <div id="show-sign-in">
-                    <div class="S-s-i-days">
-                    </div>
-                    <dl>
-                        <dt>
-                            <img class="show-sign-one show-sign" src="//i.fanhuan.com/images/newjifen/gou.png" alt="" />
-                        </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <img class="show-sign-two show-sign" src="//i.fanhuan.com/images/newjifen/gou.png" alt="" />
-                        </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <img class="show-sign-three show-sign" src="//i.fanhuan.com/images/newjifen/gou.png" alt="" />
-                        </dt>
-
-                    </dl>
-                    <dl>
-                        <dt>
-                            <img class="show-sign-four show-sign" src="//i.fanhuan.com/images/newjifen/gou.png" alt="" />
-                        </dt>
-                    </dl>
-                    <p class="time-axis"></p>
-                    <ul class="clearfix">
-                        <li>第1天</li>
-                        <li class="secli">连签2天</li>
-                        <li class="thirdli">连签3天</li>
-                        <li class="lastli">连签3天以上</li>
-                    </ul>
-                    
-                    <div class="show-admin clearfix">
-                        <div class="fl">
-                            我的积分：<span id="show-all"></span>分<img src="//i.fanhuan.com/images/newjifen/icon_ff.png" />
-                        </div>
-                        <div class="fr">
-                            <a class="show-get-money" style="left:150px;" href="http://my.fanhuan.com/my/cash" target="_blank">提现</a>
-                        </div>
-                    </div>
-                   <!-- <a class="show-get-find" href="http://www.fanhuan.com/jifen/" target="_blank">兑换</a> -->
-                   <span class="irrow"></span>
-                </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
         FH.signIn.init();
-    </script>
-    <script type="text/javascript">
-        $("#sign-in1").click(function () {
-            //$("#nav_notice").css("background-color", "#fdfce4");
-            $("#nav_notice").mouseleave(function () {
-                $("#nav_notice").css("background", "none");
-            })
-            $(".signwi").css({ 'display': 'none' });
-            $(".signwi1").css({ 'display': 'block' });
-        })
-        $("#nav_notice").mouseover(function () {
-            $(this).css("background", "#1280dd")
-        }).mouseleave(function () {
-            $(this).css("background", "none")
-            $("#sign-in1").css("color", "#fff");
-            $(".signwi").css({ 'display': 'block' });
-            $(".signwi1").css({ 'display': 'none' });
-        })
     </script>
     
                     <div id="box-play">
@@ -296,27 +197,6 @@
     <div id="showindow">
         <a id="showClose"></a>
         <a id="showReload"></a>
-    </div>
-    <div class="box-nav-site clearfix new_boxNav" id="J_nav_site">
-        <!-- 左侧 分类 -->
-        
-        
-        <div class="mall-pane" style="display: block; margin-bottom:0px;">
-                <!-- list-resort 常用(热门商城下面) -->
-                <div class="list-resort list-resort-normal">
-                    <ul class="clearfix" id="J_home_added">
-                        <li class="item-add" style="display: none;"><a href="javascript:void(0);" id="J_home_added_add" class="ico-home i-home-add-big" hidefocus="true"></a></li>
-                    </ul>
-                    <div class="tiptext" style="display: none">
-                        <a href="javascript:void(0);" id="J_home_add" title="添加常去的商铺">
-                            
-                        </a>
-                    </div>
-                    <div class="loading" style="display:none;"></div>
-                </div>
-                <div class="divide" style="display: none;"></div>
-                <!-- list-mall 商城 -->
-            </div>
     </div>
     
     <div class="index_tab clearfix" id="index_tab">
@@ -414,7 +294,7 @@
 
 <input type="hidden" id="timeoutToTen" value="45860" />
 <input type="hidden" id="timeoutToTenType" value="0" />
-<script type="text/javascript" src="http://js.fanhuan.com/js/refreshTip.js?v=20161020"></script>
+<script type="text/javascript" src="assets/js/refreshTip.js?v=20161020"></script>
 
         </div>
     </div>
@@ -425,37 +305,37 @@
                     <dl class="fo_a">
                         <dt>新手指南</dt>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b1" class="faqtips">什么是购物返还？</a>
+                            <a target="_blank" href="" class="faqtips">什么是购物返还？</a>
                         </dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b3" class="faqtips">为什么会返还？</a>
+                            <a target="_blank" href="" class="faqtips">为什么会返还？</a>
                         </dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b2" class="faqtips">怎样从返还网去购物？</a>
+                            <a target="_blank" href="" class="faqtips">怎样从返还网去购物？</a>
                         </dd>
                     </dl>
                     <dl class="fo_b">
                         <dt>返还问题</dt>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b6" class="faqtips">返还可以用来做什么？</a>
+                            <a target="_blank" href="" class="faqtips">返还可以用来做什么？</a>
                         </dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b8" class="faqtips">返还会影响原有的优惠吗？</a>
+                            <a target="_blank" href="" class="faqtips">返还会影响原有的优惠吗？</a>
                         </dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=fanhuanwenti&href=b15" class="faqtips">必须购物才有返还吗？</a>
+                            <a target="_blank" href="" class="faqtips">必须购物才有返还吗？</a>
                         </dd>
                     </dl>
                     <dl class="fo_c">
                         <dt>订单问题</dt>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=dingdanwenti&href=c1"
+                            <a target="_blank" href=""
                                 class="faqtips">什么是订单跟踪？</a></dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=dingdanwenti&href=c2"
+                            <a target="_blank" href=""
                                 class="faqtips">跟单不成功怎么办？</a></dd>
                         <dd>
-                            <a target="_blank" href="http://www.fanhuan.com/service/?type=dingdanwenti&href=c4"
+                            <a target="_blank" href=""
                                 class="faqtips">如何知道订单已经返还了？</a></dd>
                     </dl>
                     <dl class="fo_d online_work_time">
@@ -465,7 +345,7 @@
                         <dd class="call_servers on">
                             热线电话：400-0053-000</dd>
                         <dd class="bottom_suggest on">
-                            <a target="_blank" href="http://my.fanhuan.com/fankui" class="faqtips">投诉与建议</a></dd>
+                            <a target="_blank" href="" class="faqtips">投诉与建议</a></dd>
                     </dl>
                 </div>
                 <div class="footer_server clearfix">
@@ -483,7 +363,6 @@
         <div class="footer-bot-outer">
             <div class="footer-inner">
                 <div class="footer_tips clearfix">
-                    <a class="ftips1" target="_blank" href="http://www.fanhuan.com/help/#cctv">CCTV央视专题报道</a>
                     <a class="ftips2" target="_blank" href="http://www.51honest.org/wscredit/detail.credit?action=preLevel&credcode=NO.20000035756&axbFlag=axb">信用之星好评网站</a>
                     <a class="ftips3" href="https://ss.knet.cn/verifyseal.dll?sn=e16040635020063012ex5z000000&amp;ct=df&amp;a=1&amp;pa=0.4608156487811357" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;" src="http://rr.knet.cn/static/images/logo/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站"></a> 
                     <a class="ftips4" target="_blank" href="http://www.315online.com.cn/member/315120006.html">交易保障放心购物</a> 
@@ -503,7 +382,7 @@
                 </p>
                 <div class="police-icon">
 		 		    <a target="_blank" class="police-icon-a" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020302000080">
-                        <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/><span class="police-icon-span">闽公网安备 35020302000080号</span> 
+                        <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/><span class="police-icon-span">公网安备 35020302000080号</span> 
                     </a>
 		 	    </div>
             </div>
@@ -523,18 +402,18 @@
     <input type="hidden" id="J_month" value="" />
     <div id="forajax" style="display: none"></div>
     
-    <script type="text/javascript" src="js/json2.js"></script>
-    <script type="text/javascript" src="js/thickbox_v2.js"></script>
-    <script type="text/javascript" src="js/base.js"></script>
-    <script type="text/javascript" src="js/jquery.base64.min.js"></script>
+    <script type="text/javascript" src="assets/js/json2.js"></script>
+    <script type="text/javascript" src="assets/js/thickbox_v2.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.base64.min.js"></script>
     
     
-    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="assets/js/home.js"></script>
     
-    <script type="text/javascript" src="js/new_home.js"></script>
-    <script type="text/javascript" src="js/Navigation.js"></script>
+    <script type="text/javascript" src="assets/js/new_home.js"></script>
+    <script type="text/javascript" src="assets/js/Navigation.js"></script>
     
-    <script type="text/javascript" src="js/slides.min.js"></script>
+    <script type="text/javascript" src="assets/js/slides.min.js"></script>
     <script type="text/javascript">
         $("a[biz-sellerid]").live("click", function () {
             return shopChannel($(this).data("code"), $(this).data("title"), $(this).data("fh"), this);
@@ -566,15 +445,7 @@
             $("#newrightfie").hide();
         });
     </script>
-    <script type="text/javascript">
-        //监控宝
-        (function () {
-            var jkb = document.createElement('script'); jkb.type = "text/javascript"; jkb.async = true;
-            jkb.src = "http://exp.jiankongbao.com/loadtrace.php?host_id=6761&style=6&type=1";
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(jkb, s);
-        })();
-    </script>
-    <script type="text/javascript" src="http://js.fanhuan.com/js/floatSearch.js?v=201604282150"></script>
+    <script type="text/javascript" src="assets/js/floatSearch.js"></script>
     ﻿<script type="text/javascript">
          initFloatSearchBox($(".cont"), $(".newlogoshowindex"), null, 0);
          window["_BFD"] = window["_BFD"] || {};
@@ -661,7 +532,6 @@
         document.getElementsByTagName("head")[0].appendChild(_BFD.script);
     </script>
 
-    <script src="https://qiyukf.com/script/310c8bbae562b0f3146f0e9de9211bdb.js" defer async></script>
     <script>
         if (CurrentUser.UserId) {
             $.getJSON("http://my.fanhuan.com/simple/GetUserCompensation?callback=?", function (data) {
