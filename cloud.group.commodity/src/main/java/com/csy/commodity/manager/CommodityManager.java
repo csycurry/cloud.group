@@ -51,7 +51,7 @@ public class CommodityManager {
 		return pagination;
 	}
 	
-	public CommodityDTO detail(int commodityId)
+	public CommodityDTO detail(Long commodityId)
 	{
 		Commodity commodity = commodityMapperExt.selectByPrimaryKey(commodityId);
 		CommodityDTO commodityDTO = new CommodityDTO();

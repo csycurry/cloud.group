@@ -92,49 +92,22 @@ FH.home = (function () {
     };
 
 
-    var getCategory = function () {
-        $.ajax({
-            type: "GET",
-            url: "http://gw.fanhuan.com/zhi/GetJiuJiuCategory",
-            cache: false,
-            dataType: "jsonp",
-            success: function (data) {
-                var html = "";
-                data = data.datas;
-                for (var i = 0; i < data.length; i++) {
-                    var item = data[i];
-                    if (i == 0) {
-                        html += '<li><a class="activeClass" href="javascript:;">' + item.CategoryName + '</a></li>';
-                    } else {
-                        html += '<li><a class="defaultClass"  href="http://jiujiu.fanhuan.com?category=' + item.CategoryCode + '" target="_blank">' + item.CategoryName + '</a></li>';
-                    }
-                }
-
-                $("#leimu").html(html);
-
-            }, error: function () {
-
-            }
-        })
-    }
-
-
     var getGoods = function (type, target, mode) {
         ifLoad = false;
         var html = "";
         var curType = $("#curType").val();
         if (curType == 1) {//cgf
             var url = "/commodity/page.json?";
-            url = url + "&page=" + flagEle.data("curPage") + "&categoryId=" + firstCategoryId + (brandId < 0 ? ("&brandId=" + brandId) : "");
+            url = url + "commodityType=2&page=" + flagEle.data("curPage") + "&commodityCategory=" + firstCategoryId;
             $.ajax({
                 type: "GET",
                 url: url,
                 cache: false,
-                dataType: "jsonp",
+                dataType: "json",
                 success: function (result) {
-                    cgfPageIndexAfter = result.pageIndex;
-                    cgfData[cgfPageIndexAfter] = result;
-                    html = getCgfGoodsHtmls(result, cgfPageIndexAfter);
+                    cgfPageIndexAfter = result.data.pageCount;
+                    cgfData[cgfPageIndexAfter] = result.data;
+                    html = getCgfGoodsHtmls(result.data, cgfPageIndexAfter);
                     target.append(html);
                     getCGFQiangNum();
 
@@ -143,8 +116,8 @@ FH.home = (function () {
                     if (cgfPageIndexAfter == 1) {
                         cgfBox.css("height", (liHeight * 3));
                     }
-                    else if (result.pageIndex == result.pageCount) {
-                        cgfBox.css("height", cgfBox.height() + (liHeight * Math.ceil(result.Datas.length / 3)));
+                    else if (result.data.pageIndex == result.data.pageCount) {
+                        cgfBox.css("height", cgfBox.height() + (liHeight * Math.ceil(result.list.length / 3)));
                     } else {
                         cgfBox.css("height", cgfBox.height() + (liHeight * 3));
                     }
@@ -153,49 +126,60 @@ FH.home = (function () {
                     //
                 }
             })
-        } else {//9.9
-            var curPage = flagEle.data("curPage");
-            //            var url = "http://jiujiu.fanhuan.com/ajax/GetJiuJiuProductListV2?callback=?&random=" + new Date().getTime() + "&page=" + flagEle.data("curPage") + "&categoryId=-1";
-            var url = "http://jiujiu.fanhuan.com/ajax/GetJiuJiuProductsV3?category=all&pageIndex=" + flagEle.data("curPage") + "&random=" + new Date().getTime();
+        } 
+        flagEle.data("curPage", flagEle.data("curPage") + 1);
+    };
+    
+    var switchCategory = function (categoryId, a) {
+        var category = a.attr("data-id");
+        $("#cgfCategory").children().children().removeClass("activeClass");
+        a.addClass("activeClass");
+        var category2 = $(".activeClass").attr("id").split("category")[1];
+        var that = this;
+        if (category2 != categoryId) {
+        	var url = "/commodity/page.json?";
+            url = url + "commodityType=2&page=" + flagEle.data("curPage") + "&commodityCategory=" + category;
             $.ajax({
                 type: "GET",
                 url: url,
                 cache: false,
-                dataType: "jsonp",
+                dataType: "json",
                 success: function (result) {
-                    jiujiuPageIndexAfter = curPage;
-                    jiujiuData[jiujiuPageIndexAfter] = result;
-                    html = getJiuGoodsHtmls(result, jiujiuPageIndexAfter);
-                    target.append(html);
-                    getJIUQiangNum();
+                	$(".home_lists_vbox_1").find(".list_box_m").html("");
+                    cgfPageIndexAfter = result.data.pageCount;
+                    cgfData[cgfPageIndexAfter] = result.data;
+                    html = getCgfGoodsHtmls(result.data, cgfPageIndexAfter);
+                    
+                    $(".home_lists_vbox_1").find(".list_box_m").append(html);
+                    getCGFQiangNum();
 
                     // 设置整个列表的高度
-                    var jiujiu = $("#J_jiujiu");
-                    if (jiujiuPageIndexAfter == 1) {
-                        jiujiu.css("height", (liHeight * 3));
+                    var cgfBox = $("#J_box_cgf");
+                    if (cgfPageIndexAfter == 1) {
+                        cgfBox.css("height", (liHeight * 3));
                     }
-                    else if (curPage == result.pagecount) {
-                        jiujiu.css("height", jiujiu.height() + (liHeight * Math.ceil(result.datas.length / 3)));
+                    else if (result.data.pageIndex == result.data.pageCount) {
+                        cgfBox.css("height", cgfBox.height() + (liHeight * Math.ceil(result.list.length / 3)));
                     } else {
-                        jiujiu.css("height", jiujiu.height() + (liHeight * 3));
+                        cgfBox.css("height", cgfBox.height() + (liHeight * 3));
                     }
                     ifLoad = true;
                 }, error: function () {
                     //
                 }
             })
+            flagEle.data("curPage", flagEle.data("curPage") + 1);
         }
-        flagEle.data("curPage", flagEle.data("curPage") + 1);
     };
 
     // up表示向上滚动
     var getCgfGoodsHtmls = function (result, pageIndex, bool, up) {
         idPairs = "";
-        flagEle.data("totalPage", result.pageCount);
+        flagEle.data("totalPage", result.totalCount);
         var html = "";
         var idArray = [];
-        if (result.Datas != "") {
-            var items = result.Datas,
+        if (result.list != "") {
+            var items = result.list,
                 getTime = result.getTime,
                 module2 = "",
                 uid = "",
@@ -205,22 +189,21 @@ FH.home = (function () {
 
             function liHtml(items, i) {
                 var html = "";
-                var btn_name = '去购买';
+                var btn_name = '去领卷';
                 var style = "";
                 var item = items[i],
                     itemId = item.commodityId,
-                    id = item.ID,
+                    id = item.id,
                     title = item.commodityName,
-                    statusSellout = item.SaleOut,
-                    productType = item.ProductType,
-                    imageHtml = '<img src=' + (cgfPageIndexAfter == 1 || bool ? item.ImageUrl : "") + ' data-url="' + item.ImageUrl;
+                    statusSellout = item.commoditySales,
+                    productType = item.commodityType,
+                    imageHtml = '<img src=' + (cgfPageIndexAfter == 1 || bool ? item.commodityPic : "") + ' data-url="' + item.commodityPic;
                 NUm = id + '|' + itemId + ',';
                 idPairs = idPairs + NUm;
 
-                var link = item.ProductUrl + "&id=" + id;
+                var link = item.couponLink + "&id=" + id;
 
                 var source, type;
-                if (item.Activity != 1 && item.Activity != 2) {
                     //0.超高返 1.折扣 2.领券减 3.普通返 UserPayRatio代表分成比例为0显示折扣样式 为1显示超高返样式
                     if (productType == 0) {
                         source = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "c" : "73";
@@ -232,8 +215,8 @@ FH.home = (function () {
                     } else if (productType == 2) {
                         source = (item.shopTypeMean == "淘宝" || item.shopTypeMean == "天猫") ? "fc" : "94";
                         link += "&source=" + source + "&type=fc" + "&op=" + item.OriginalPrice + "&pp=" + item.PresentPrice + "&rp=" + item.ReturnPrice + "&pp1=" + item.PhonePrice + "&img=" + item.ImageUrl;
-                        if (item.FuliQuanUrl.indexOf("uland") > -1) {
-                            link += "&lingquanjian=1&quanurl=" + item.FuliQuanUrl;
+                        if (item.couponLink.indexOf("uland") > -1) {
+                            link += "&lingquanjian=1&quanurl=" + item.couponLink;
                         } else {
                             link += "&lingquanjian=1";
                         }
@@ -241,7 +224,6 @@ FH.home = (function () {
                         source = (item.MallName == "淘宝" || item.MallName == "天猫") ? "ac" : "71";
                         link += "&source=" + source + "&type=bc" + "&op=" + item.OriginalPrice + "&pp=" + item.PresentPrice;
                     }
-                }
 
                 //                if (item.FuliQuanUrl && item.Activity != 1 && item.Activity != 2) {
                 //                    if (item.FuliQuanUrl.indexOf("uland") > -1) {
@@ -271,21 +253,14 @@ FH.home = (function () {
                     '<div class="goods-pic-link">';
 
                 html += '<a ';
-                if (item.ProductUrl.indexOf("gou.fanhuan.com") < 0 && item.SaleOut == 0) {
+                if (item.couponLink.indexOf("gou.fanhuan.com") < 0 && item.SaleOut == 0) {
                     html += 'onclick="FH.home.tanchuang($(this))"';
                 }
 
                 html += ' href=';
 
-                if (item.ProductUrl.indexOf("gou.fanhuan.com") < 0) {
-                    html += "javascript:;";
-                } else {
-                    html += link;
-                }
+                html += link;
 
-                if (item.ProductUrl.indexOf("gou.fanhuan.com") >= 0) {
-                    html += ' target="_blank"';
-                }
 
                 html += ' class="li-box J_btn_jump clearfix"' +
                     ' itemId="' + id + '" id="' + id + '" getTime="' + getTime + '"  nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '"' +
@@ -301,25 +276,17 @@ FH.home = (function () {
                 }
                 html += '</span>';
 
-                if (item.SaleOut > 0 && item.ProductUrl.indexOf("gou.fanhuan.com") < 0) { //已卖光，且不是品牌或者活动的。显示已抢光
+                if (item.couponNum == 0 ) { //已卖光，且不是品牌或者活动的。显示已抢光
                     html += '<i class="ico-qg" style="line-height:124px;"></i>';
                 }
 
-                if (item.PhonePrice > 0 && item.ProductType != 2) {
-                    if (statusSellout == 0) {
-                        html += '<span class="phone-box"><span class="new-phoneIcon"></span><span class="phone-word">手机专享价 ¥ ' + item.PhonePrice + '</span></span>';
-                        html += '<span class="phone-icon">手机专享价 ¥ ' + item.PhonePrice + '</span>';
-                    }
-                }
 
                 html += '</div></div>';
                 html += '<div class="goods-name f-ellipsis">';
 
-                if (statusSellout > 0 && item.ProductUrl.indexOf("gou.fanhuan.com") < 0) {
+                if (statusSellout > 0 ) {
                     html += '<a href="javascript:;" class="czg-wqg sell-out">' + title + '</a>';
-                } else if (item.ProductUrl.indexOf("gou.fanhuan.com") > -1) {
-                    html += '<a href="' + link + '" target="_blank" class="czg-wqg J_btn_jump" data-tongji=' + tongji("jump0", id, "title") + '>' + title + '</a>';
-                } else {
+                }  else {
                     html += '<a href="javascript:;" data-href="' + link + '"  itemId="' + id + '" getTime="' + getTime + '" nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '" class="czg-wqg J_btn_jump" data-tongji=' + tongji("jump0", id, "title") + ' onclick="FH.home.tanchuang($(this))">' + title + '</a>';
                 }
                 html += '</div>';
@@ -334,32 +301,25 @@ FH.home = (function () {
                         '<span class="price-return">返还   ' + item.ReturnPrice + '</span>' +
                         '</div>';
                 } else if (productType == 1 || (productType == 3 && item.UserPayRatio == 0)) {
-                    finalPrice = item.PresentPrice;
-                    if (Number(item.PresentPrice) < Number(item.OriginalPrice)) {
+                    finalPrice = item.commodityPrice;
+                    if (Number(item.PresentPrice) < Number(item.commodityPrice)) {
                         originalPrice = '<del class="original-price">¥' + item.OriginalPrice + '</del>';
                     }
                 } else if (productType == 2) {
-                    finalPrice = item.PhonePrice;
+                    finalPrice = item.couponPay;
                     originalPrice = '<div class="price-info">' +
                         '<i></i>' +
-                        '<span class="price-pay">' + item.PresentPrice + '</span>' +
-                        '<span class="price-return">领券减 ' + item.ReturnPrice + '</span>' +
+                        '<span class="price-pay">' + item.commodityPrice + '</span>' +
+                        '<span class="price-return">'+item.couponDetail + '</span>' +
                         '</div>';
                 }
 
                 html += '<div class="good-price"><span class="price-final"><em>¥</em>' + (finalPrice == 0 ? 0 : finalPrice) + '</span>' + originalPrice + '</div>';
 
-                if (statusSellout > 0 && item.ProductUrl.indexOf("gou.fanhuan.com") < 0) {
+                if (statusSellout > 0) {
                     html += '<span class="buy-icon disabled">' + btn_name + '</span>';
-                } else if (item.ProductUrl.indexOf("gou.fanhuan.com") >= 0) {
-                    if (item.Activity == 1) {
-                        btn_name = "活动专场";
-                    } else if (item.Activity == 2) {
-                        btn_name = "品牌特卖";
-                    }
-                    html += '<a class="buy-icon" href="' + link + '" target="_blank" data-tongji=' + tongji("jump0", id, "shop") + '>' + btn_name + '</a>';
                 } else {
-                    if (item.FuliQuanUrl && item.FuliQuanUrl.indexOf("uland") == -1) {
+                    if (item.couponLink && item.couponLink.indexOf("uland") == -1) {
                         html += '<a target="_blank" href="' + item.FuliQuanUrl + '" class="quan_link">领 ' + item.ReturnPrice + '元券</a>';
                         style = 'bottom: 44px';
                     }
@@ -368,7 +328,7 @@ FH.home = (function () {
                 }
 
                 var className = "";
-                if (item.MallName == "天猫") {
+                if (item.shopTypeMean == "天猫") {
                     className = item.SaleOut > 0 ? "shopIconTMout" : "shopIconTM";
                 } else {
                     className = item.SaleOut > 0 ? "shopIconTBout" : "shopIconTB";
@@ -396,10 +356,6 @@ FH.home = (function () {
             }
         }
 
-        // 曝光统计
-        if (!up) {
-            FH.base.exposureTongJi("chaogaofan", idArray);
-        }
 
         return html;
     };
@@ -787,6 +743,7 @@ FH.home = (function () {
         init: init,
         getMAPgoods: getMAPgoods,
         tanchuang: tanchuang,
-        imgLoadError: imgLoadError
+        imgLoadError: imgLoadError,
+        switchCategory :switchCategory
     };
 })();

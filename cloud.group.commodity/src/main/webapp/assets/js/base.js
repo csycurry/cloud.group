@@ -13,36 +13,23 @@ function isScrollTop() {
 }
 
 if (typeof fp4 != "undefined") {
-    $.cookie("cookie_clientid", fp4.get(), { path: "/", expires: 1, domain: "fanhuan.com" });
+    $.cookie("cookie_clientid", fp4.get(), { path: "/", expires: 1, domain: "" });
 }
 
 //cnzz统计图标
 $('span[id^="cnzz_stat_icon"]').hide();
 //判断用户是否登录，显示的内容
-if (CurrentUser.UserName != undefined) {
+if ($.cookie("user_name") != null) {
     $('.iframe_tips').show();
-    if (!$("#double11").length) {
-        $.getJSON("//my.fanhuan.com/simple/PhoneIsBind?callback=?", function (data) {
-            if (data.Error != null && data.Error.Code == 201) {
-                $(".ifbindphone").show();
-                $("#formailafter").css("_top", "3px");
-                /*改变链接开始*/
-                $("#formailafter").attr("href", "http://my.fanhuan.com/my/bindphone");
-                /*改变链接结束*/
-            } else if (data.Result.Succeed == true) {
-                $(".ifbindphone").css("display", "none");
-            }
-        });
-    }
 
-    $("#site_userinfo").html("<span class='Hello'>Hi,</span><a id='formailafter' href='http://my.fanhuan.com/my/' target='_blank'>" + CurrentUser.UserName + "<span class='ifbindphone'><span class='kuohao'>（</span>请绑定手机<span class='kuohao'>）</span></span></a><a class='logout' href='javascript:LogOut();'>退出</a><span class='ver-line' style='margin-left:6px;'>|</span>");
+    $("#site_userinfo").html("<span class='Hello'>Hi,</span><a id='formailafter' href='/userinfo.html' target='_blank'>" + $.cookie("user_name") + "</a><a class='logout' href='javascript:LogOut();'>退出</a><span class='ver-line' style='margin-left:6px;'>|</span>");
 }
 else {
     //$('.iframe_tips').hide();
     /*改版登陆条开始  by sh*/
     var index = 1;
     if ($.cookie("user_name") == null) {
-        $("#site_userinfo").html("<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = 'https://passport.fanhuan.com/reg/' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='http://i.fanhuan.com/images/newtop/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a><a href= \"javascript:LoginFrom('sina')\" class='topwb_login new-toplogin1'>微博登录</a><a href= \"javascript:LoginFrom('wechat')\" class='topwb_login new-toplogin1'>微信登录</a></span>");
+        $("#site_userinfo").html("<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='assets/images/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a></span>");
         $("#login_link").attr("href", "javascript:Login('index')");
     } else {
         //如果cookie中user_name长度超过27个字符的话，使用省略号
@@ -50,7 +37,7 @@ else {
         if (oCookieUserName.length > 20) {
             oCookieUserName = oCookieUserName.substring(0, 15) + "...";
         }
-        $("#site_userinfo").html("Hi , <span class='user-name f-ellipsis' title=" + oCookieUserName + ">" + oCookieUserName + "</span>&nbsp;&nbsp;<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = 'https://passport.fanhuan.com/reg/' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='http://i.fanhuan.com/images/newtop/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a><a href= \"javascript:LoginFrom('sina')\" class='topwb_login new-toplogin1'>微博登录</a><a href= \"javascript:LoginFrom('wechat')\" class='topwb_login new-toplogin1'>微信登录</a></span>");
+        $("#site_userinfo").html("Hi , <span class='user-name f-ellipsis' title=" + oCookieUserName + ">" + oCookieUserName + "</span>&nbsp;&nbsp;<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='assets/images/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a>");
         $(".newshowbox").css({ "right": "10px" });
         $("#login_link").attr("href", "javascript:Login('index')");
     }
@@ -62,13 +49,13 @@ $(".topqq_login,.newshowbox").mouseover(function () {
     $(".newshowbox").css("display", "none");
 });
 $("#af").mouseover(function () {
-    $("#top_star").css("background", "url(http://i.fanhuan.com/images/newtop/star-light.png) no-repeat");
+    $("#top_star").css("background", "url(assets/images/star-light.png) no-repeat");
 }).mouseleave(function () {
-    $("#top_star").css("background", "url(http://i.fanhuan.com/images/newtop/star.png) no-repeat");
+    $("#top_star").css("background", "url(assets/images/star.png) no-repeat");
 });
 
 $(".act-login").live("click", function () {
-    if (CurrentUser.UserId == undefined) {
+    if ($.cookie("user_id") == null) {
         Login();
         return false;
     }
@@ -332,7 +319,7 @@ $(".search_input .sts").live("mouseover", function () {
         for (var i = 0, l = $(".show > .sts").length; i < l; i++) {
             if (_url == $(".show > .sts").eq(i).attr("url")) {
                 var _type = $(".show > .sts").eq(i).attr("data-type");
-                if (_type == "mall" && _url.indexOf("www.fanhuan.com") > -1) {
+                if (_type == "mall") {
                     $.cookie("home_cur_catename", null, { path: "/", expires: -1, domain: _domain });
                     break;
                 }
@@ -380,27 +367,7 @@ function SearchMall(event) {
         alert("请输入关键字。");
         return false; 
     }
-    if (navIndex == 0) {
-        // 判断如果是URL地址则按地址方式搜索 by cjf 20131205 隐藏
-        //        var sSearchText = getValue($(".SearchInputText"));
-        //        var rUrlPattern = /^[a-zA-z]+:\/\/[^\s]*$/;
-        //        if (rUrlPattern.test(sSearchText)) {
-        //            $(".head_form").attr("action", "http://taobao.fanhuan.com/search/item?url=" + encodeURIComponent(sSearchText));
-        //            return true;
-        //        }
-        //        if ($(".Text_Ts_Box .show .sts").length) {
-        //            if ($(".Text_Ts_Box .show .sts").hasClass("hover")) {
-        //                $(".head_form").attr("action", $(".Text_Ts_Box .show .hover").eq(0).attr("url"));
-        //            } else {
-        //                $(".head_form").attr("action", $(".Text_Ts_Box .show .sts").eq(0).attr("url"));
-        //            }
-        //        } else {
-        //            alert("抱歉，搜索不到任何商城");
-        //            return false;
-        //        }
-        //        return true;
-    }
-    else if (navIndex == 3) {
+   if (navIndex == 3) {
         // 判断如果是URL地址则按地址方式搜索
         var sSearchText = getValue($(".SearchInputText"));
         var rUrlPattern = /^[a-zA-z]+:\/\/[^\s]*$/;
@@ -441,7 +408,7 @@ function SearchMall(event) {
         for (var i = 0, l = $(".show > .sts").length; i < l; i++) {
             if (_url == $(".show > .sts").eq(i).attr("url")) {
                 var _type = $(".show > .sts").eq(i).attr("data-type");
-                if (_type == "mall" && _url.indexOf("www.fanhuan.com") > -1) {
+                if (_type == "mall") {
                     $.cookie("home_cur_catename", null, { path: "/", expires: -1, domain: _domain });
                     return true;
                 }
@@ -462,56 +429,9 @@ function HeadMallSuggest(neword) {
         navId = $("#homeNavId").val();
     }
     /* 首页单独处理 */
-    if (navId == "hs_mall") {
-        //        var suggestRow = '';
-        //        var i = 0;
-        //        for (var key in AllMall) {
-        //            for (var id in AllMall[key]) {
-        //                var mall = AllMall[key][id];
-        //                if (mall.SS.toLowerCase().indexOf(neword.toLowerCase()) >= 0 && i < 5) {
-        //                    var Link = "";
-        //                    if (mall.IC == "淘宝网") { Link = "http://taobao.fanhuan.com/"; }
-        //                    else if (mall.IC == "tmall") { Link = "http://taobao.fanhuan.com/qijian/"; }
-        //                    else if (mall.IC == "paipai") { Link = "http://paipai.fanhuan.com/"; }
-        //                    else if (mall.IC == "tgfh") { Link = "http://tuan.fanhuan.com/"; }
-        //                    else { Link = "http://www.fanhuan.com/" + mall.IC + ".html"; }
-        //                    imgSrcDefault = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/ico-default.png';
-        //                    imgSrc = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/' + mall.IC + '.png';
-        //                    suggestRow += '<div class="sts" url="' + Link + '"><span class="left"><img src="' + imgSrc + '" onerror="this.src=(\'' + imgSrcDefault + '\')"  />' + mall.T + '</span><span class="right">返还' + mall.FH + '</span><div class="clear"></div></div>';
-        //                    i++;
-        //                }
-        //            }
-        //        }
-        //        $(".search_input .show").html(suggestRow);
-        //        $(".search_input .show .sts:first").addClass("sts-first").siblings().removeClass("sts-first");
-        //        $(".search_input .show .sts:last").addClass("sts-last").siblings().removeClass("sts-last");
-    }
-    //搜优惠券 需要引用http://kanjia.com/Content/js/mallquan.js
-    //    else if (navId == "hs_yhq") {
-    //        var suggestRow = '';
-    //        var i = 0;
-    //        for (var key in AllMallQuan) {
-    //            for (var id in AllMallQuan[key]) {
-    //                var mall = AllMallQuan[key][id];
-    //                if (mall.SS.toLowerCase().indexOf(neword.toLowerCase().replace(regRow, "")) >= 0 && i<5) {
-    //                    var Link = "http://quan.fanhuan.com/" + mall.IC;
-    //                    imgSrcDefault = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/ico-default.png';
-    //                    imgSrc = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/' + mall.IC + '.png';
-    //                    suggestRow += '<div class="sts" url="' + Link + '"><span class="left"><img src="' + imgSrc + '" onerror="this.src=(\'' + imgSrcDefault + '\')"  />' + mall.T + '</span><span class="right"></span><div class="clear"></div></div>';
-    //                    i++;
-    //                }
-    //            }
-    //        }
-    //        $(".search_input .show").html(suggestRow);
-    //        $(".search_input .show .sts:first").addClass("sts-first").siblings().removeClass("sts-first");
-    //        $(".search_input .show .sts:last").addClass("sts-last").siblings().removeClass("sts-last");
-    //    }
-    //搜团购 
-    else if (navId == "hs_tg") {
-
-    }
+   
     //搜淘宝/天猫
-    else if (navId == "hs_tb") {
+    if (navId == "hs_tb") {
         if (neword.toLowerCase().replace(regRow, "") != "") {
             if (testKeyWord(neword)) {
                 $(".J_show").html("");
@@ -527,73 +447,9 @@ function HeadMallSuggest(neword) {
                 var val = $('.SearchInputText').val();
                 var reg = /http:\/\/.+/gi;
                 var status = reg.test(val);
-                //搜索商城相关
-                if (isSearching == 1) {
-                    
-                } else {
-                    for (var key in AllMall) {
-                        for (var id in AllMall[key]) {
-                            var mall = AllMall[key][id];
-                            if (mall.SS.toLowerCase().indexOf(neword.toLowerCase().replace(regRow, "")) >= 0 && j < 5) {
-                                //if (!(mall.IC == "淘宝网" || mall.IC == "tmall")) {
-                                var Link = "";
-                                if (mall.IC == "淘宝网") { Link = "http://taobao.fanhuan.com/"; }
-                                else if (mall.IC == "tmall") { Link = "http://taobao.fanhuan.com/qijian/"; }
-                                //else if (mall.IC == "paipai") { Link = "http://paipai.fanhuan.com/"; }
-                                else if (mall.IC == "tgfh") { Link = "http://tuan.fanhuan.com/"; }
-                                else {
-
-                                    if (status) { // 如果是商城则走这个链接地址
-
-                                        var href = $('.SearchInputText').val();
-
-                                        Link = 'http://go.fanhuan.com/redirect/?s=' + mall.IC + '&p=' + encodeURIComponent(href);
-
-
-                                    } else { // 否则，走这个
-                                        Link = "http://www.fanhuan.com/" + mall.IC + ".html";
-                                    }
-                                }
-                                if (j == 0) {
-                                    mallRow += '<div class="sts sts-tit sts-add" data-type="mall" url="' + Link + '" ><span class="left">搜“<strong>' + formatKeyword(neword) + '</strong>”相关商城<em>&gt;&gt;</em></span><span class="right"></span><div class="clear"></div></div>';
-                                }
-                                try {
-                                    if (mall.LM.toLowerCase() == "tb") {
-                                        isTbMall = true;
-                                    } else {
-                                        isTbMall = false;
-                                    }
-                                } catch (err) { }
-
-                                if (isTbMall) {
-                                    imgSrcDefault = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/淘宝网.png';
-                                } else {
-                                    imgSrcDefault = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/ico-default.png';
-                                }
-
-                                imgSrc = 'http:\/\/i.fanhuan.com\/images\/ico_mall\/' + mall.IC + '.png';
-                                mallRow += '<div class="sts sts-add" data-type="mall" url="' + Link + '"><span class="left"><img src="' + imgSrc + '" onerror="this.src=(\'' + imgSrcDefault + '\')"  />' + mall.T + '</span><span class="right">返还' + mall.FH + '</span><div class="clear"></div></div>';
-                                j++;
-                                //}
-                            }
-                        }
-                    }
-                }
-                if (mallRow == "") {
-                    Head_TB_Suggest(neword);
-                } else {
-                    $(".J_show").append(mallRow);
-                    if (status) { // 如果是商城
-                        $(".J_show").hide();
-                    }
-
-                }
 
                 //搜索淘宝/天猫相关
                 tbRow = '<div class="sts sts-tb sts-tit sts-add" url="' + 'http://taobao.fanhuan.com/tbs/?keyword=' + encodeURIComponent(formatKeyword(neword)) + '"><span class="left">搜“<strong>' + charAtEllipsis(formatKeyword(neword), 10, 8) + '</strong>”相关淘宝/天猫宝贝<em>&gt;&gt;</em></span><span class="right"></span><div class="clear"></div></div>';
-                if (status) { // 如果是商城
-                    $(".J_show").hide();
-                }
                 $(".J_show").append(tbRow);
                 $(".J_show").append(yhqRow);
 
@@ -961,18 +817,21 @@ function LoginFrom(site) {
         top.location.href = "https://passport.fanhuan.com/ajax/" + site + "/?lp=" + encodeURIComponent(location.href);
     }
 }
+
+window.code = { isverfiy: false };
 // login box
 function Login(index) {
     //var login = location.search.split("&tip")[1];
 
-    var index_login = encodeURIComponent("登录后记得签到赚积分哦！");
+    var index_login = encodeURIComponent("");
     var other_login = encodeURIComponent("请先登录");
     $('#TB_window').hide().html("");
     if (index) {
-        var str = tb_show('', 'https://passport.fanhuan.com/loginbox/?keepThis=true&tip=' + index_login + '&TB_iframe=true&height=284&width=611', '', index_login);
+        var str = tb_show('', '', '', index_login);
+        Geetcaptcha("#captchaReg", code);
     } else {
-        tb_show('', 'https://passport.fanhuan.com/loginbox/?keepThis=true&tip=' + other_login + '&TB_iframe=true&height=284&width=611', '', other_login);
-
+        tb_show('', '', '', other_login);
+        Geetcaptcha("#captchaReg", code);
     }
     $('#TB_window').css({
         "border": "6px solid #b4b4b4",
@@ -1008,64 +867,15 @@ function Login(index) {
     });
     $("#TB_closeWindowButton").html("×").addClass("pop-close");
 }
-//登录V2
-function LoginV2(configExtend) {
-    var config = {
-        conticeMsg: "登录后记得签到赚积分哦！",
-        lp: null
-    }; //跳转地址
-    if (configExtend) config = $.extend(config, configExtend);
-    $('#TB_window').hide().html("");
-    var url = 'https://passport.fanhuan.com/loginbox/?keepThis=true';
-    if (config.conticeMsg) url += '&tip=' + config.conticeMsg;
-    if (config.lp) url += '&lp=' + config.lp;
-    url += '&TB_iframe=true&height=284&width=611'
-    tb_show('', url, '');
-    $('#TB_window').css({
-        "border": "6px solid #b4b4b4",
-        "border-color": "rgba(0,0,0,0.15)",
-        "background": "none",
-        "width": "640px",
-        "height": "308px",
-        "overflow": "hidden"
-    });
-    $("#TB_title").css({
-        "background": "#fff",
-        "border": "0 none",
-        "height": 0
-    }).next("iframe").css({
-        "margin": 0,
-        "height": "324px"
-
-    }).attr({ "scrolling": "no", "frameborder": 0 });
-    $("#TB_ajaxWindowTitle").css({
-        "float": "none",
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeAjaxWindow").css({
-        "float": "none",
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeAjaxWindow_a").css({
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeWindowButton").html("×").addClass("pop-close");
-}
 
 function LogOut() {
-    $.cookie("userDetial", "", { path: "/", expires: -1, domain: _domain });
+    $.cookie("user_id", "", { path: "/", expires: -1, domain: _domain });
+    $.cookie("user_name", "", { path: "/", expires: -1, domain: _domain });
     $.cookie("A9D5EMD96D5E5G", "", { path: "/", expires: -1, domain: _domain });
     $.cookie("ctuskytime_cookie", "", { path: "/", expires: -1, domain: _domain });
     $.cookie("wel_cookie", "", { path: "/", expires: -1, domain: _domain });
     $.cookie("my_cookie", "", { path: "/", expires: -1, domain: _domain });
-    if (_path.indexOf("/ajax/") != -1) {
-        location = "/";
-    } else {
-        location.reload();
-    }
+     location.href = "/user/loginout.html";
 }
 function ShowPageNum(total, currentpage, pagesize, url, functionname, isdetialed, endMiddlePage) {
     var PageCount = total % pagesize == 0 ? total / pagesize : Math.ceil(total / pagesize);
@@ -1170,9 +980,9 @@ function addFavorite(par) {
     CloseNLRAF(true);
     var _addHref = null;
     if (par == "childreTop") {
-        var _addHref = "http://www.fanhuan.com";
+        var _addHref = "/";
     } else if (par == 'welcomefavorite') {
-        var _addHref = "http://www.fanhuan.com?from=welcomefavorite";
+        var _addHref = "/";
     } else {
         var _addHref = location.href + (par == true ? "?from=topfavorite" : "");
     }
@@ -1226,29 +1036,12 @@ function SetHome(par) {
 $("a").click(function () { $(this).blur(); });
 
 // navigation
-if (location.hostname == "my.fanhuan.com" || (location.hostname == "quan.fanhuan.com" && _path.indexOf("/couponmanage") > -1)) {
-    $("#nav li a[name='nav-my']").addClass("active");
-} else if (location.hostname == "taobao.fanhuan.com") {
+if ( ( _path.indexOf("/rebate") > -1)) {
     $("#nav li a[name='nav-tb']").addClass("active");
-} else if (location.hostname == "pinpai.fanhuan.com" || (location.hostname == "gou.fanhuan.com" && location.pathname.split("/")[1] != "" && location.pathname.split("/")[1] != "default")) {
-    $("#nav li a[name='nav-pinpai']").addClass("active");
-} else if (location.hostname == "mall.fanhuan.com") {
-    $("#nav li a[name='nav-mall']").addClass("active");
-} else if (location.hostname == "gou.fanhuan.com") {
-    $("#nav li a[name='nav-gou']").addClass("active");
-} else if (location.hostname == "jiujiu.fanhuan.com") {
-    $("#nav li a[name='nav-jiu']").addClass("active");
-} else if (location.hostname == "quan.fanhuan.com") {
-    $("#nav li a[name='nav-quan']").addClass("active");
-} else if (location.href == "http://www.fanhuan.com/app") {
-    $("#nav li a[name='nav-app']").addClass("active");
 } else if (_path == "/") {
     $("#nav li").eq(0).children("a").addClass("active");
 }
-$('#J_navApp').click(function () {
-    location.href = "http://www.fanhuan.com/app"
 
-})
 //导航下拉
 $(".nav-a").mouseover(function () {
     $(this).next(".nav-dropdown").show();
@@ -1309,8 +1102,6 @@ function LogSeo(referrerUrl) {
         return;
     }
     var encoding = parameters["ie"] || "gb2312";
-    var url = "http://tj.fanhuan.com/seo/?se=baidu&k=" + encodeURIComponent(keyword) + "&e=" + encoding + "&s=" + encodeURIComponent(referrerUrl.split("?")[1]);
-    CreateJScript("forseo", url);
 }
 function LogSeoCallback(ticket) { $.cookie("advertisement", ticket, { path: "/", domain: _domain }); }
 // 获取链接的参数
@@ -1357,7 +1148,7 @@ function Search_form() {
 }
 // 淘宝暂停搜索
 var SuspendSearch = function (url) {
-    var _html = '<div id="pop_bg" style=""></div><div id="q_message"><p class="q_con"><img src="http://taobao.fanhuan.com/content/image/qin_bg.png" alt="亲爱的用户：你的搜索将直接跳转到淘宝网的搜索结果页面，从该搜索结果中挑选宝贝并购买，不会影响购物返还。除虚拟商品外，所有商品均可享受现金返还。" /></p><p class="q_tips">该搜索结果页面因淘宝接口变化，暂时看不到返还比例。但您可以通过点击<a href="http://taobao.fanhuan.com/">taobao.fanhuan.com</a>的搜索框顶部的“搜宝贝返还”来搜索该店铺的返还比例。</p><p class="solign_active"><label for="q_remind"><input type="checkbox" name="remind" id="q_remind" />下次不再提醒</label><a class="q_btn" target = "_blank" href=' + url + ' onclick = "return POP_close();">我知道了，跳转吧</a></p></div>';
+    var _html = '<div id="pop_bg" style=""></div><div id="q_message"><p class="q_con"><img src="assets/images/qin_bg.png" alt="亲爱的用户：你的搜索将直接跳转到淘宝网的搜索结果页面，从该搜索结果中挑选宝贝并购买，不会影响购物返还。除虚拟商品外，所有商品均可享受现金返还。" /></p><p class="q_tips">该搜索结果页面因淘宝接口变化，暂时看不到返还比例。但您可以通过点击<a href="http://taobao.fanhuan.com/">taobao.fanhuan.com</a>的搜索框顶部的“搜宝贝返还”来搜索该店铺的返还比例。</p><p class="solign_active"><label for="q_remind"><input type="checkbox" name="remind" id="q_remind" />下次不再提醒</label><a class="q_btn" target = "_blank" href=' + url + ' onclick = "return POP_close();">我知道了，跳转吧</a></p></div>';
     $('#wrapper').after(_html);
 }
 //淘宝亲 关闭、打开弹窗
@@ -1849,130 +1640,6 @@ FH.report = function () {
             var that = tar;
             var status = $(tar).hasClass('J_btn_report');
 
-            if (status) {
-                e.preventDefault();
-                if (!CurrentUser.UserName) {
-                    Login();
-                    //e.preventDefault();
-                    return false;
-                }
-                // 判断举报的栏目
-                var href = location.href;
-                if (href == 'http://www.fanhuan.com/' || href == 'http://gou.fanhuan.com/') { // chaogaofan
-                    appType = 1;
-
-                    if ($(tar).parents("#J_jiujiu").length) {
-                        appType = 2;
-                    }
-
-                } else if (href.indexOf('http://jiujiu.fanhuan.com/') > -1) { // jiujiu
-                    appType = 2;
-                } else {
-                    appType = 1;
-                }
-                // 判断是否已举报过
-                // load layer.js
-                seajs.use('http://js.fanhuan.com/common/js/layer.min.js?v=201502121', function () {
-                    var appData = $(that).data('id')
-                    $.getJSON('http://my.fanhuan.com/ajax/GetUserReportInfo?callback=?', { 'AppType': appType, 'AppData': appData }, function (data) {
-
-                        if (data.code == '1000') {
-                            // run layer
-                            var timer = setInterval(function () {
-                                var len = $('#J_report_box').length;
-                                if (len) {
-                                    clearInterval(timer);
-                                    $('#J_report_form').find('input:checked').removeAttr('checked');
-                                    $('#J_report_form').find('.text').val('');
-
-                                    // run layer
-                                    $.layer({
-                                        shade: [0.5, '#000', true],
-                                        type: 1,
-                                        area: ['auto', 'auto'],
-                                        title: false,
-                                        move: ['#J_drag', true],
-                                        page: { dom: '#J_report_box' }
-
-                                    });
-                                    $('.xubox_close1_0').css({ 'background-position': '0 -310px', 'top': 10, 'background-color': '#2F97F0', 'border': '1px solid #2F97F0', 'right': 8 });
-                                    if (isIE_7) {
-                                        $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                                    }
-
-                                    $('#J_btn_report_submit').data('id', $(that).data('id'));
-
-
-                                } else {
-                                    // create dom
-                                    createHtml();
-                                }
-                            }, 100);
-
-                        } else {
-                            layer.msg('' + data.msg + '', 2, 1);
-                            if (isIE_7) {
-                                $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                            }
-                            return false;
-                        }
-                    })
-
-
-
-                })
-
-
-            }
-
-        })
-        // 提交
-        $('#J_btn_report_submit').live('click', function (e) {
-            e.preventDefault();
-            // 验证表单
-            var ele = $('#J_report_form').find('input:checked'),
-                        len = ele.length;
-            if (!len) {
-                layer.msg('请选择举报理由~', 2, 1);
-                if (isIE_7) {
-                    $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                }
-                return false;
-            }
-            var val = $('#J_report_form').find('.text').val();
-            var len = $('#reason6:checked').length;
-            if (!val && len) {
-                layer.msg('举报理由不能为空~', 2, 1);
-                if (isIE_7) {
-                    $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                }
-                return false;
-            }
-            var appData = $(this).data('id'),
-                        reportContent = ele.val() || $('#J_report_form').find('.text').val();
-            if (len) {
-                id = 100; // 其他原因id
-            } else {
-                id = ele.parent().index() + 1;
-            }
-            // 获取浏览器唯一标识
-            var clientID = fp4.get();
-            $.getJSON('http://my.fanhuan.com/ajax/AddReportInfo?callback=?', { 'AppType': appType, 'AppData': appData, 'ReportContent': reportContent, 'ReportContentID': id, 'MachineID': clientID },
-                    function (data) {
-                        //console.log(data);
-                        if (data.code == '1000') {
-                            LAYER.close(LAYER.getIndex('#J_report_form'));
-                            layer.msg('举报成功~', 2, 2);
-                            if (isIE_7) {
-                                $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                            }
-                        } else {
-                            layer.msg('' + data.msg + '', 2, 1);
-                            if (isIE_7) {
-                                $('.xubox_shade,.xubox_layer').css({ 'position': 'fixed' });
-                            }
-                        }
-                    })
         })
     }
     // 暴露公共接口
@@ -1985,26 +1652,6 @@ FH.report = function () {
     }
 } ();
 FH.report.init();
-//判断手机是否绑定 by sh
-$("#sh_sel").click(function () {
-    var smt = window.open();
-    if (CurrentUser.UserName == undefined) {
-        smt.location.href = "http://hezuo.fanhuan.com/NewApply";
-        return;
-    }
-    $.getJSON("//my.fanhuan.com/simple/PhoneIsBind?callback=?", function (data) {
-        smt.location.href = "http://hezuo.fanhuan.com/applylist";
-    })
-});
-//通用广告登录跳转 by lin
-$(".login_jump").click(function () {
-    if (CurrentUser.UserId == undefined || CurrentUser.UserId == "") { Login(); return false; };
-    userid = CurrentUser.UserId;
-    var jump_url = $(this).attr("href");
-    if (jump_url.indexOf("=" + userid) <= -1) {
-        $(this).attr("href", jump_url + userid);
-    }
-})
 //手机版hover
 $(".tel_part").mouseenter(function () {
     $(this).css("z-index", "1000").find(".code_link").show();
@@ -2041,3 +1688,30 @@ Math.add = function(v1, v2) {
 
     return ((v1 * m + v2 * m) / m).toFixed(n);
 };
+
+function Geetcaptcha(captcha, notice) {
+    var handler = function (captchaObj) {
+        if ($(captcha).length > 0) {
+            captchaObj.appendTo(captcha);
+            captchaObj.onSuccess(function () {
+                notice.isverfiy = true;
+            });
+            captchaObj.onFail(function () {
+                notice.isverfiy = false;
+            });
+        }
+    };
+    $.ajax({
+        url: "/geetest/register.json?t=" + (new Date()).getTime(),
+        type: "get",
+        dataType: "json", // 使用jsonp格式
+        success: function (data) {
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                product: "float", // 产品形式
+                offline: !data.success
+            }, handler);
+        }
+    });
+}

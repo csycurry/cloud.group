@@ -14,14 +14,14 @@
     <link rel="canonical" href="" />
     <link rel="icon" href="" type="image/x-icon" charset="utf-8" />
     <link rel="shortcut icon" href="" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="assets//css/index.css" />
-    <link rel="stylesheet" type="text/css" href="assets//css/base.css" />
-    <link rel="stylesheet" type="text/css" href="assets//css/home.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
     <script type="text/javascript" src="assets/js/jquery1.8.3.min.js"></script>
 
     <script type="text/javascript" src="assets/js/news.js"></script>
     <script type="text/javascript" src="assets/js/signIn.js"></script>
-    
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
     
     <meta name="Description" content="已经有1000多万用户使用返还网省钱" />
 <meta name="Keywords" content="返还网,返现网,返利,返利网站,返现,返钱网" />
@@ -44,7 +44,7 @@
         var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
         var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
         if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-            window.location.href = "http://m.fanhuan.com";
+            window.location.href = "/";
         };
     };
     if (location.href.indexOf("?view=pc") < 0) {
@@ -62,19 +62,13 @@
     </script>
 </head>
 <body>
-    <!-- 卖家保证金 -->
-    <div id="new_bq-back" style="display: none"></div>
-    <!-- 保证金 end -->
     <div class="top_content">
         <div id="top_header">
             <span class="top_header_newl"><a id="af" class="top_word" href="javascript:void(0)"
-                    onclick="addFavorite(true)">收藏一下</a><span class="ver-line">|</span> <a href="http://www.fanhuan.com/down/%E8%BF%94%E8%BF%98%E7%BD%91.url"
-                            class="top_word">放到桌面</a> </span>
+                    onclick="addFavorite(true)">收藏一下</a><span class="ver-line">|</span> </span>
             <div class="top_header_r">
                 <ul>
-                    <li class="invite_link" style="display:none"><a href="http://my.fanhuan.com/my/allordernew" target="_blank">我的订单</a><span
-                        class="ver-line">|</span><em></em></li>
-                    <li class="invite_link"><a href="http://www.fanhuan.com/help/" target="_blank">帮助</a></li>
+                    <li class="invite_link"><a href="/help.html" target="_blank">帮助</a></li>
                 </ul>
             </div>
             <div class="top_header_l">
@@ -91,12 +85,12 @@
         <div id="header">
             <div class="inner clearfix" style="position: relative;">
                 <div class="newlogoshowindex" id="header_l" style="display:block">
-                    <a class="gwa" href="http://www.fanhuan.com"></a>
+                    <a class="gwa" href="/"></a>
                 </div>
                 
                 <div class="newlogoshowtaobao">
-                    <a class="gwa" href="http://www.fanhuan.com"></a>
-                    <a class="cgfa" href="http://taobao.fanhuan.com"></a>
+                    <a class="gwa" href="/"></a>
+                    <a class="cgfa" href="/"></a>
                 </div>
                 
                 <div class="home-search clearfix blue">
@@ -155,12 +149,10 @@
         <div class="navinner clearfix">
             <div id="nav">
                 <ul> 
-                    <li class="navfirst"><a class="nav-a" href="http://www.fanhuan.com/" name="nav-www">首页</a></li>
-                    <li><a class="nav-a act-login" href="http://my.fanhuan.com/my/AllOrder_V3" name="nav-my">我的返还</a></li>
-                    <li><a class="nav-a" href="http://taobao.fanhuan.com" name="nav-tb"><i class="icon-nav2"></i>淘宝返还</a> </li>
-                    <li style="width: 123px;"><a class="nav-a" href="http://gou.fanhuan.com/" name="nav-gou" style="padding-left: 48px;"><i class="icon-nav2 nav-hot2"></i>今日好货</a></li>
+                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">首页</a></li>
+                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>淘宝返还</a> </li>
+                    <li><a class="nav-a act-login" href="/userinfo.html" name="nav-my">我的返还</a></li>
                     
-                    </li>
                 </ul>
             </div>
             <div id="nav_notice">
@@ -175,7 +167,7 @@
 	                    <ul class="img-list">
                             
     	                            <li class="cur"  style="background:url('http://image.fanhuan.com/mf/weipinhui2.28%20meizhuanjie20170228150406.jpg?t=1488294248239.6') 49.99% top no-repeat;" data-url="http://image.fanhuan.com/mf/weipinhui2.28%20meizhuanjie20170228150406.jpg?t=1488294248239.6">
-                                        <a href="http://go.fanhuan.com/redirect/?s=vipshop&p=http%3A%2F%2Fwww.vip.com" class="" target="_blank" hidefocus="true"></a>
+                                        <a href="" class="" target="_blank" hidefocus="true"></a>
                                     </li>
                             
                         </ul>
@@ -204,7 +196,6 @@
             <ul class="clearfix">
                 <li class="curr"><a href="javascript:;" onclick="FH.home.getMAPgoods($(this),1)">今日好货</a></li>
                 
-                <li><a href="javascript:;" onclick="FH.home.getMAPgoods($(this),3)">9块9</a></li>
             </ul>
         </div>
         <div class="fr bh-fr">每天早10晚8点上新</div>
@@ -223,28 +214,27 @@
                     <div class="zdm-list cgf-list home_lists_vbox_1" style="display:block">
                         <div class="titile-bar" style=" margin-top:7px;">
                             <ul class="leimu" id="cgfCategory">
-                        <li><a id="category18" data-id="18" href="http://gou.fanhuan.com?s=18" target="_blank">全部</a></li>
+                        <li><a id="category18" data-id="0" onclick="FH.home.switchCategory(0,$(this))" target="_blank">全部</a></li>
                                 
-                        <li><a id="category19" data-id="19" href="http://gou.fanhuan.com?s=19" target="_blank">食品</a></li>
+                        <li><a id="category19" data-id="1" onclick="FH.home.switchCategory(1,$(this))" target="_blank">食品</a></li>
                                 
-                        <li><a id="category20" data-id="20" href="http://gou.fanhuan.com?s=20" target="_blank">女装</a></li>
+                        <li><a id="category20" data-id="2" onclick="FH.home.switchCategory(2,$(this))" target="_blank">女装</a></li>
                                 
-                        <li><a id="category21" data-id="21" href="http://gou.fanhuan.com?s=21" target="_blank">居家</a></li>
+                        <li><a id="category21" data-id="3" onclick="FH.home.switchCategory(3,$(this))" target="_blank">居家</a></li>
                                 
-                        <li><a id="category22" data-id="22" href="http://gou.fanhuan.com?s=22" target="_blank">母婴童装</a></li>
+                        <li><a id="category22" data-id="4" onclick="FH.home.switchCategory(4,$(this))" target="_blank">母婴童装</a></li>
                                 
-                        <li><a id="category23" data-id="23" href="http://gou.fanhuan.com?s=23" target="_blank">男装</a></li>
+                        <li><a id="category23" data-id="5" onclick="FH.home.switchCategory(5,$(this))" target="_blank">男装</a></li>
                                 
-                        <li><a id="category24" data-id="24" href="http://gou.fanhuan.com?s=24" target="_blank">内衣</a></li>
+                        <li><a id="category24" data-id="6" onclick="FH.home.switchCategory(6,$(this))" target="_blank">内衣</a></li>
                                 
-                        <li><a id="category25" data-id="25" href="http://gou.fanhuan.com?s=25" target="_blank">数码家电</a></li>
+                        <li><a id="category25" data-id="7" onclick="FH.home.switchCategory(7,$(this))" target="_blank">数码家电</a></li>
                                 
-                        <li><a id="category26" data-id="26" href="http://gou.fanhuan.com?s=26" target="_blank">美妆个护</a></li>
+                        <li><a id="category26" data-id="8" onclick="FH.home.switchCategory(8,$(this))" target="_blank">美妆个护</a></li>
                                 
-                        <li><a id="category27" data-id="27" href="http://gou.fanhuan.com?s=27" target="_blank">鞋包配饰</a></li>
+                        <li><a id="category27" data-id="9" onclick="FH.home.switchCategory(9,$(this))" target="_blank">鞋包配饰</a></li>
                                 
-                        <li><a id="category28" data-id="28" href="http://gou.fanhuan.com?s=28" target="_blank">运动</a></li>
-                                
+                        <li><a id="category28" data-id="10" onclick="FH.home.switchCategory(10,$(this))" target="_blank">运动</a></li>
                             </ul>
                             
                             
@@ -264,11 +254,11 @@
                     </div>
                 </div>
                 <div class="loading f-tc loading_j">
-                    <img alt="Loading..." src="http://i.fanhuan.com/images/zdm/loader.gif?v=20150312" />
+                    <img alt="Loading..." src="assets/images/loader.gif" />
                 </div>
                 <div class="clear"></div>
                 <div class="m-ad f-hide" id="J_ad">
-                    <img src="http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129" data-url="http://i.fanhuan.com/images/cgf/banner.png?v=20150315" width="960" height="100" alt="" />
+                    <img src="" data-url="assets/images/banner.png" width="960" height="100" alt="" />
                 </div>
                 <!-- 商品分页 -->
                 <div class="pagination2" id="pagination1">
@@ -370,12 +360,10 @@
                     <a class="ftips6" href="http://xmwj.gov.cn/ei/Ei!certificate.action?id=40288a8556c64ea30156dab86ec30038" target="_blank" style="border:0;"><img src="http://xmwj.gov.cn/ei/Ei!readEiImgByMemory.action" style="border:0;height:47px"></a>
                 </div>
                 <p class="footer_link">
-                    <span class="copyright">&nbsp;&copy;2008-2016返还网 fanhuan.com</span>
-                    <a target="_blank" href="http://www.fanhuan.com/kexinma/" rel="nofollow">关于返还网</a><span>|</span>
-                    <a target="_blank" href="http://gou.fanhuan.com">今日好货</a><span>|</span>
-                    <a target="_blank" href="http://www.fanhuan.com/joinus.html" rel="nofollow">人才招聘</a><span>|</span>
-                    <a target="_blank" href="http://www.fanhuan.com/privacy.html" rel="nofollow">隐私政策</a><span>|</span>
-                    <a target="_blank" href="http://www.fanhuan.com/links/" rel="nofollow">友情链接</a><span>|</span>
+                    <span class="copyright">&nbsp;&copy;2008-2016XX网 XXXX.com</span>
+                    <a target="_blank" href="/" rel="nofollow">关于返还网</a><span>|</span>
+                    <a target="_blank" href="privacy.html" rel="nofollow">隐私政策</a><span>|</span>
+                    <a target="_blank" href="#" rel="nofollow">友情链接</a><span>|</span>
                     <a target="_blank" href="http://www.fanhuan.com/help/">帮助</a><span>|</span>
                     <a target="_blank" href="http://www.meiyou.com/">美柚</a><span>|</span>
                     <a target="_blank" href="http://www.xixiaoyou.com/">柚子街</a>
@@ -457,50 +445,9 @@
     </script>
 
 
-    <!--[if IE 6]>
-         <script type="text/javascript" src="//js.fanhuan.com/common/js/png.js"></script>
-         <script type="text/javascript">
-            DD_belatedPNG.fix('.download-spread,.bg-cgf,.bg-fan,.ico-qg,.show-sign-one,.show-sign-two,.show-sign-three,.show-sign-four,.show-sign-five,.signwi,.signwi1,.greNewnow,.tenNewnow,.logotaobaofanhuan,#search');
-         </script>  
-     <![endif]-->
-    <script class="tongji" type="text/javascript">       
-        UrlTj("");
-        var unneedtj = ["/my", "/ajax", "/login"];var tj = true;for (var i = 0; i < unneedtj.length; i++) { if (_path.toLowerCase().indexOf(unneedtj[i]) == 0) { tj = false; break; } }
-        if (tj) { var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F29a7ebc4f6a8c90821d8b062a0bf830e' type='text/javascript'%3E%3C/script%3E")); }
-    </script>
-    <script type="text/javascript">
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//js.fanhuan.com/js/analytics.js', 'ga');
-        ga('create', 'UA-1068666-2', 'auto');
-        ga('send', 'pageview');
-        //var fp4 = new Fingerprint({ screen_resolution: true });
-        var _paq = _paq || [];
-        _paq.push(["setCookieDomain", "*.fanhuan.com"]);
-        _paq.push(["setDomains", "*.fanhuan.com"]);
-        _paq.push(["setCampaignNameKey", "utm_source"]);
-        _paq.push(["setCampaignKeywordKey", "utm_term"]);
-        _paq.push(["setUserId", CurrentUser.UserId != undefined ? CurrentUser.UserId : ""]);
-        _paq.push(["setCustomVariable", 1, 'clientID', fp4.get(), 'page']);
-        _paq.push(['trackPageView']);
-        (function () {
-            var u = "//tracker.fanhuan.com/";
-            _paq.push(['setTrackerUrl', u + 'ajax/tracker']);
-            _paq.push(['setSiteId', 'www.fanhuan.com']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = '//js.fanhuan.com/js/piwik.js'; s.parentNode.insertBefore(g, s);
-        })();
-    </script>
     <script type="text/javascript">
         $("#nav_notice").mouseover(function () {
-            if (location.hostname == "taobao.fanhuan.com" || location.hostname == "pinpai.fanhuan.com") {
-                $("#nav_notice").css({ 'z-index': '301' });
-            } else {
-                $("#nav_notice").css({ 'z-index': '20' });
-            }
+               $("#nav_notice").css({ 'z-index': '20' });
         }).mouseleave(function () {
             $("#nav_notice").css({ 'z-index': '0' });
         })
@@ -519,36 +466,11 @@
     <script type="text/javascript">
         window["_BFD"] = window["_BFD"] || {};
         _BFD.bfd_pid = ""; //当前页面的页面id
-        _BFD.client_id = "Cfanhuan";
-        _BFD.BFD_USER = {
-            "user_id": CurrentUser.UserId != undefined ? CurrentUser.UserId : "", //网站当前用户id，如果未登录就为0或空字符串
-            "user_cookie": $.cookie("cookie_clientid")
-        };
         _BFD.script = document.createElement("script");
         _BFD.script.type = "text/javascript";
         _BFD.script.async = true;
         _BFD.script.charset = "utf-8";
-        _BFD.script.src = (('https:' == document.location.protocol ? 'https://ssl-static1' : 'http://static1') + '.bfdcdn.com/service/fanhuan/fanhuan.js');
         document.getElementsByTagName("head")[0].appendChild(_BFD.script);
-    </script>
-
-    <script>
-        if (CurrentUser.UserId) {
-            $.getJSON("http://my.fanhuan.com/simple/GetUserCompensation?callback=?", function (data) {
-                if (data.rt == 1) {
-                    ysf.config({
-                        uid: data.UserId,
-                        name: data.UserName,
-                        email: data.Email,
-                        mobile: data.Mobile,
-                        data: JSON.stringify([
-                        { "index": 0, "key": "IsCash", "label": "提现中", "value": (data.IsCash == 1 ? "是" : "否") },
-                        { "index": 1, "key": "IsExistOrderCompensation", "label": "未处理订单", "value": (data.IsExistOrderCompensation == 1 ? "是" : "否") }
-                    ])
-                    });
-                }
-            });
-        }
     </script>
 </body>
 </html>

@@ -33,7 +33,7 @@ public class CommodityController extends BaseController{
 	}
 	
 	@RequestMapping(value="/commodity/detail")
-	public ModelAndView detail(int id)
+	public ModelAndView detail(Long id)
 	{
 		ModelAndView modelAndView = new ModelAndView("/manager/mission/missionForm");
 		CommodityDTO extendDTO =  commodityManager.detail(id);
@@ -42,4 +42,8 @@ public class CommodityController extends BaseController{
 		return modelAndView;
 	}
 	
+	@RequestMapping(value = "/rebate")
+	public String login() {
+		return "rebate";
+	}
 }

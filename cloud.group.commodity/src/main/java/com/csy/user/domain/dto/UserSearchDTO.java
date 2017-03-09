@@ -19,6 +19,8 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
     private String userMail;
     
     private String userPwd;
+    
+    private boolean remember;
 
     
 	public Integer getId() {
@@ -59,6 +61,14 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
 
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+
+	public boolean isRemember() {
+		return remember;
+	}
+
+	public void setRemember(boolean remember) {
+		this.remember = remember;
 	}
     
     

@@ -148,6 +148,11 @@
 		  <artifactId>spring-boot-starter-web</artifactId>
 		  <version>1.4.4.RELEASE</version>
 		</dependency>
+		<dependency>
+		  <groupId>com.ganshane.specs</groupId>
+		  <artifactId>taobao-sdk</artifactId>
+		  <version>20120515</version>
+		</dependency>
 	</dependencies>
 	
 	

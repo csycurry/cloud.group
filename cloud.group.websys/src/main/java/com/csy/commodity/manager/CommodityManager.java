@@ -26,7 +26,7 @@ public class CommodityManager {
 	@Autowired
 	private CommodityMapperExt commodityMapperExt;
 	
-	public CommodityDTO insertMission(CommodityDTO commodityDTO,String staffCode)
+	public CommodityDTO insertCommodity(CommodityDTO commodityDTO,String staffCode)
 	{
 		Commodity commodity = new Commodity();
 		BeanUtils.copyProperties(commodityDTO, commodity);
@@ -47,10 +47,18 @@ public class CommodityManager {
 		return commodityDTO;
 	}
 	
-	public void updateMission(CommodityDTO commodityDTO,String staffCode)
+	public void updateCommodity(CommodityDTO commodityDTO,String staffCode)
 	{
 		Commodity commodity = new Commodity();
 		BeanUtils.copyProperties(commodityDTO, commodity);
+		if(StringUtils.isNotEmpty(commodityDTO.getCouponStartDate()))
+		{
+			commodity.setCouponStart(DateUtil.parse(commodityDTO.getCouponStartDate(),DateUtil.YYYY_MM_DD_HH_DD_SS));
+		}
+		if(StringUtils.isNotEmpty(commodityDTO.getCouponEndDate()))
+		{
+			commodity.setCouponEnd(DateUtil.parse(commodityDTO.getCouponEndDate(),DateUtil.YYYY_MM_DD_HH_DD_SS));
+		}
 		commodity.setModifior(staffCode);
 		commodity.setModifyTm(new Date());
 		commodityMapperExt.updateByPrimaryKeySelective(commodity);
@@ -86,7 +94,7 @@ public class CommodityManager {
 		return pagination;
 	}
 	
-	public CommodityDTO detail(int commodityId)
+	public CommodityDTO detail(Long commodityId)
 	{
 		Commodity commodity = commodityMapperExt.selectByPrimaryKey(commodityId);
 		CommodityDTO commodityDTO = new CommodityDTO();
@@ -101,7 +109,7 @@ public class CommodityManager {
 		
 	}
 	
-	public void remove(int commodityId)
+	public void remove(Long commodityId)
 	{
 		commodityMapperExt.deleteByPrimaryKey(commodityId);
 	}

@@ -66,23 +66,6 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 border-top-color: #00C0EF;
 }
 
-.box-header.with-border {
-border-bottom: 1px solid #F4F4F4;
-}
-
-.box-header {
-color: #444;
-display: block;
-padding: 10px;
-position: relative;
-}
-
-.box-header .box-title {
-display: inline-block;
-font-size: 18px;
-margin: 0px;
-line-height: 1;
-}
 
 .box-body {
 border-radius: 0px 0px 3px 3px;
@@ -101,18 +84,6 @@ padding: 50px;
 background-color: #FFF;
 }
 
-footer {
-width: 100%;
-background: #25252E none repeat scroll 0% 0%;
-}
-
-.footer_box {
-width: 90%;
-margin: 0px auto;
-font-size: 12px;
-color: #979797;
-padding: 20px 10px;
-}
 
 .common .offer-bgr {
 background: url(/img/fina-num.png) no-repeat scroll 0% 0%;
@@ -155,13 +126,6 @@ h4.smaller {
 font-size: 17px;
 }
 
-.header {
-line-height: 28px;
-margin-bottom: 16px;
-margin-top: 18px;
-padding-bottom: 4px;
-border-bottom: 1px solid #CCC;
-}
 
 
 .bolder {
@@ -274,15 +238,6 @@ white-space: nowrap;
 content: "…";
 }
 
-
-.modal-header {
-background: #F15A22 repeat scroll 0% 0%;
-color: white;
-}
-
-.modal-header i, .modal-header span {
-font-size: 18px;
-}
 
 .thumbnail:hover {
 border: 1px solid #FBA838;

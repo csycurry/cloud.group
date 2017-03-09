@@ -1,7 +1,7 @@
 package com.csy.commodity.emus;
 
 public enum CommodityTypeEn {
-	RETURN((byte)0,"返利"),COUPON((byte)1,"优惠券");
+	RETURN((byte)1,"返利"),COUPON((byte)2,"优惠券");
 	private Byte code;
 	private String mean;
 	

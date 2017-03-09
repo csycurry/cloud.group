@@ -1,0 +1,103 @@
+﻿/* File Created: 八月 26, 2016 */
+body{margin:0;font-family:"Microsoft YaHei";font-size:14px}
+a{text-decoration:none}
+.clearfix {*zoom: 1;}
+.clearfix:after {display: block;clear: both;height: 0;overflow: hidden;content: "";}
+.header, .content{width:930px;margin:0 auto}
+.logo{float:left;width:173px;height:50px;margin-top:26px}
+.login_logo{background:url(//i.fanhuan.com/images/passport/login_logo.png) no-repeat;}
+.reg_logo{background:url(//i.fanhuan.com/images/passport/reg_logo.png) no-repeat;}
+.union_login_logo{width:222px;background:url(//i.fanhuan.com/images/passport/union_login_logo.png) no-repeat;}
+.fr{float:right}
+.fl{float:left}
+.users{margin-top:40px;color:#666;text-align:right}
+.users span{color:#ff3300}
+.content{margin:116px auto 135px;}
+.reg_banner{float:left;width:374px;height:470px;background:url(//i.fanhuan.com/images/passport/reg_banner.png) no-repeat;margin:51px 0 0 82px;}
+.login_banner{float:left;width:430px;height:372px;background:url(//i.fanhuan.com/images/passport/login_banner.png) no-repeat;margin:40px 0 0 60px;}
+.reg_login_box{width:288px;border:1px solid #eee;border-top:3px solid #2f97f0;padding:38px 40px;color: #666;min-height:273px}
+.title, .title a{color:#2f97f0}
+.title a:hover{color:#ff4400}
+.title .fr{font-size:12px;color:#666;margin-top: 2px}
+.width_288{width:278px;background-position: 264px center}
+.width_158{width:148px;background-position: 134px center}
+.width_318{width:308px;background-position: 294px center}
+.width_172{width:162px;background-position: 148px center}
+.reg_login_box input{border:1px solid #eee;outline: none;height: 34px;line-height:34px;font-family:"Microsoft YaHei";font-size:14px;color: #666;padding-left: 10px;vertical-align:middle;}
+.reg_login_box [type="text"], .reg_login_box [type="password"]{-webkit-box-shadow: 0 0 0px 1000px white inset !important;}
+.reg_login_box input.success{background-image:url("//i.fanhuan.com/images/passport/right_icon.png?v=20160825");background-repeat:no-repeat;}
+.reg_login_box .item{margin-top: 23px;position: relative}
+.error_txt{background:url("//i.fanhuan.com/images/passport/wrong_icon.png?v=20160825") left center no-repeat;position: absolute;bottom: -20px;left: 0;font-size: 12px;color: #ff3300;padding-left: 18px;display:none}
+.success_tip{width:20px;height:20px;position: absolute;top:9px;background-color:#fff;}
+.width_288 ~ .success_tip{left:262px}
+.width_158 ~ .success_tip{left:134px;}
+.width_318 ~ .success_tip{left:372px;}
+.width_172 ~ .success_tip{left:225px;}
+
+.graph_code{position: absolute;top: 0;right:40px;cursor:pointer}
+.graph_code:hover ~ .change_code_btn{color:#2f97f0}
+.change_code_btn{position: absolute;top: 8px;right:0;cursor: pointer}
+.change_code_btn:hover{color:#2f97f0}
+.placeholder{position:absolute;top:10px;left:11px;color: #ccc;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;}
+.term a{color: #2f97f0}
+.term a:hover{color:#ff4400}
+.term .check_term, .reg_login_box .auto_login{height: 14px;vertical-align: middle;border:none;padding-left:0}
+.btn{display:inline-block;width:288px;height:36px;line-height:36px;text-align:center;background-color: #2f97f0;border:1px solid #2f97f0;color: #fff;cursor: pointer;border-radius: 3px}
+.btn:hover{background-color: #1280dd}
+.other_way_login{display: inline-block;width: 24px;height: 24px;background: url(//i.fanhuan.com/images/passport/Main/login_icon_sp.png?v=20160824) no-repeat;margin: 8px 8px 0 0}
+.qq_login{background-position: 0 0}
+.wx_login{background-position: -24px 0}
+.tb_login{background-position: -48px 0}
+.xl_login{background-position: -72px 0}
+.qq_login:hover{background-position: 0 -24px}
+.wx_login:hover{background-position: -24px -24px}
+.tb_login:hover{background-position: -48px -24px}
+.xl_login:hover{background-position: -72px -24px}
+.get_code_btn{width: 108px;height: 34px;line-height: 34px;float: right;border: 1px solid #2f97f0;border-radius: 3px;text-align: center;color: #2f97f0;cursor: pointer;font-size: 12px;*margin-top:-38px}
+.get_code_btn:hover{color:#1280dd}
+.disabled_btn{border: 1px solid #d8d8d8;color: #fff;background: #d8d8d8;cursor: default;}
+.disabled_btn:hover{background: #d8d8d8;color:#fff}
+.footer{position: relative;color: #999;width: 100%;padding: 50px 0 20px 0;background: #fff;border-top: 3px solid #00a0ed;font-size: 12px;}
+.footer_inner{width: 930px;margin: 0 auto;}
+.footer_tips{height: 47px;padding-left: 54px;}
+.footer_tips a{display: block;float: left;height: 47px;margin-right: 10px;text-indent: -999em;overflow: hidden;background: url(//i.fanhuan.com/images/site_master/bg-fh-trust.png) 0 0 no-repeat;}
+.footer_tips .ftips1{width: 151px;background-position: 0 0;}
+.footer_tips .ftips2{width: 151px;background-position: -151px 0;}
+.footer_tips .ftips3{width: 128px;background-position: -302px 0;}
+.footer_tips .ftips4{width: 121px;background-position: -430px 0;}
+.footer_tips .ftips5{width: 121px;background-position: -551px 0;}
+.footer_tips .ftips6 {width: 127px;text-indent: 0px;background: none;}
+.footer_link{width: 710px;margin-left: auto;margin-right: auto;padding: 20px 0;color: #999;text-align: center;font-size: 12px;}
+.footer_link a{color: #999;}
+.footer_link span{color: #999;padding: 0 6px;}
+.copyright{margin-right: 12px;display:inline-block;float:left;padding:0;}
+.police-icon{width: 200px;margin: 0 auto;}
+.police-icon-a{display: inline-block;text-decoration: none;height: 20px;line-height: 20px;}
+.police-icon-a img{float: left;border:0}
+.police-icon-span{float: left;height: 20px;line-height: 20px;margin: 0 0 0 5px;color: #939393;}
+
+.union_content{width:960px;margin:55px auto 78px}
+.user_info{font-size:18px;color:#333;text-align:center}
+.user_info .avatar{width:50px;height:50px;vertical-align: middle;margin-right:10px;border-radius:50%}
+.union_content .tab{border:1px solid #eee;text-align:center;margin-top:32px;font-size:18px;color:#999}
+.union_content .tab span{display:inline-block;height:62px;line-height:62px;margin:0 20px;cursor:pointer}
+.union_content .tab span.active{color:#2f97f0;border-bottom:3px solid #2f97f0;margin-bottom:-1px}
+.bind_account_box{width:auto;border-top:none;}
+.bind_account_box .item{width:402px;margin:24px auto}
+.bind_account_box .item label{display:inline-block;width:70px;vertical-align:middle;text-align:right;margin-right:6px}
+.bind_account_box .item .get_code_btn{width:124px}
+.bind_account_box .item .graph_code{right:50px}
+.bind_account_box .item .btn{width:320px;margin-left:81px}
+.bind_account_box .tip{width:402px;font-size:16px;margin:8px auto 30px}
+.bind_account_box .item .error_txt{left: 80px;display:none}
+.forget_psd{color:#666;*margin-top:-18px}
+.forget_psd:hover{color:#2f97f0}
+.bind_account_box .item .placeholder{left: 90px;}
+
+.window_box{text-align:left}
+.window_content .bind_account_box {border:none;padding:0;font-weight:normal;font-size:14px;margin-top:-15px}
+
+.content_success{width:960px;height:445px;border:1px solid #eee;margin: 90px auto 130px;font-size:28px;color:#333;text-align:center}
+.content_success .tip{margin:170px 0 10px}
+.content_success .go_btn{font-size:16px;width:160px;height:40px;line-height:40px}
+.content_success .tip img{width:30px;vertical-align:middle;margin:-6px 8px 0 -34px;*margin-top:4px}

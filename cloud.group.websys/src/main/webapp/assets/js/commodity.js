@@ -71,7 +71,7 @@ var openDetail = function(buyingId)
 {
 	layer.open({
 	    type: 2,
-	    title: '任务详情',
+	    title: '商品详情',
 	    shadeClose: true,
 	    shade: 0.8,
 	    area: ['80%', '90%'],

@@ -68,6 +68,18 @@
                                     	<input class="form-control" id='commodityName' name='commodityName' value="${m.commodityName}"></input>
                                     </div>
                                 </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品价格</label>
+                                    <div class='controls'>
+                                    	<input class="form-control" id='commodityPrice' name='commodityPrice' value="${m.commodityPrice}"></input>
+                                    </div>
+                                </div>
+                                <div class='control-group'>
+                                    <label class='control-label' for='validation_name'>商品销量</label>
+                                    <div class='controls'>
+                                    	<input class="form-control" id='commoditySales' name='commoditySales' value="${m.commoditySales}"></input>
+                                    </div>
+                                </div>
                                  <div class='control-group'>
                                     <label class='control-label' for='validation_name'>商品分类</label>
                                     	<div class='controls'>
@@ -159,7 +171,12 @@
 				                        </select>
 				                    </div>
                                 </div>
-                                <div id="reback">
+                                <c:if test="${m==null||m.commodityType==1}">
+                                	<div id="reback">
+                                </c:if>
+                                <c:if test="${m!=null&&m.commodityType!=1 }">
+                                	<div id="reback" style="display: none;">
+                                </c:if>
                                 	<div class='control-group'>
 	                                    <label class='control-label' for='validation_name'>商品推广链接</label>
 	                                    <div class='controls'>
@@ -173,7 +190,12 @@
 	                                    </div>
 	                                </div>
                                 </div>
-                                <div id="coupon" style="display: none;">
+                                 <c:if test="${m.commodityType==2 }">
+                                	<div id="coupon">
+                                </c:if>
+                                <c:if test="${m.commodityType!=2 }">
+                                	<div id="coupon" style="display: none;">
+                                </c:if>
                                 	<div class='control-group'>
 	                                    <label class='control-label' for='validation_name'>优惠卷id</label>
 	                                    <div class='controls'>
@@ -214,7 +236,7 @@
 	                                    <label class='control-label' for='validation_date'>优惠卷开始时间</label>
 	                                    <div class='controls' >
 	                                     	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
-						                        <input id="beginDate" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='优惠卷开始时间' type="datetime" value='<fmt:formatDate value="${m.beginTm}" pattern="yyyy-MM-dd HH:mm:ss"/>'  >
+						                        <input id="beginDate" name="couponStartDate"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='优惠卷开始时间' type="datetime" value='<fmt:formatDate value="${m.couponStart}" pattern="yyyy-MM-dd HH:mm:ss"/>'  >
 									            <span class='add-on'>
 									              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 									            </span>
@@ -225,7 +247,7 @@
 	                                    <label class='control-label' for='validation_date'>优惠卷结束时间</label>
 	                                    <div class='controls'>
 	                                        <div class='datetimepicker input-append form_datetime' id='datetimepicker2'>
-						                        <input id="endDate" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='优惠卷结束时间' type="datetime" value='<fmt:formatDate value="${m.endTm}" pattern="yyyy-MM-dd HH:mm:ss"/>'  >
+						                        <input id="endDate" name="couponEndDate"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='优惠卷结束时间' type="datetime" value='<fmt:formatDate value="${m.couponEnd}" pattern="yyyy-MM-dd HH:mm:ss"/>'  >
 									            <span class='add-on'>
 									              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 									            </span>

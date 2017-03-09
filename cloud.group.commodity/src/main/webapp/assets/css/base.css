@@ -13,11 +13,11 @@
 .f-block{display:block;}
 .f-ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .f-break{word-wrap:break-word;word-break:break-all;}
-/* ÏÔÊ¾Î»ÖÃ */
+/* ï¿½ï¿½Ê¾Î»ï¿½ï¿½ */
 .f-tc{text-align:center;}
 .f-tl{text-align:left;}
 .f-tr{text-align:right;}
-/* ×ÖÌå */
+/* ï¿½ï¿½ï¿½ï¿½ */
 .f-song{font-family:"SimSun";}
 .f-yahei{font-family:"Microsoft YaHei";}
 .f-tahoma{font-family:"tahoma" !important;}
@@ -148,7 +148,7 @@
 .btn-4-45 span{ height:45px; padding-right:25px; font:14px/45px Microsoft Yahei; color:#666; background-position:right -1111px;cursor:default;}
 .btn-5-30 {padding-left:15px;background-position: 0 -1159px;cursor:default;}
 .btn-5-30 span{ height:30px; padding-right:15px; font:12px/30px Microsoft Yahei; color:#fff;background-position:right -1159px;cursor:default;}
-/* pop µ¯´° 
+/* pop ï¿½ï¿½ï¿½ï¿½ 
  * by cjf 2013-08-19
  */
 #mask{ position:absolute;left:0;top:0;width:100%;background:#000;opacity:0.45;filter:alpha(opacity = 45);z-index:1001;}
@@ -162,7 +162,7 @@
 .pop-bindphone .inner p{font-size:14px;color:#333;font-weight:bold;padding-top:40px;}
 .pop-bindphone .inner strong{color:#F40;}
 .pop-bindphone .inner .btn-outer{margin-top:30px;}
-#TB_window .pop-close:hover{ color:#008be4;}/* µÇÂ¼µ¯´° ¹Ø±Õ ÒÆÈëÐ§¹û */
+#TB_window .pop-close:hover{ color:#008be4;}/* ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ */
     /* pop-tip */
 .pop-tip{ width:450px; margin-left:-225px;}
 .pop-tip .con{ padding:40px;}
@@ -176,7 +176,7 @@
 .pop-goodshare-other .goodshare-btn{ float:right;}
 .pop-goodshare-other .goodshare-btn span{ font-size:14px; font-weight:bold;}
 
-/* ico-site Ä¸°åÒ³spriteÍ¼Æ¬
+/* ico-site Ä¸ï¿½ï¿½Ò³spriteÍ¼Æ¬
  * by cjf 2013-04-15
  */
 .ico-site,#searchInputImage{ display:inline-block; *display:inline; *zoom:1; overflow:hidden; background:url(http://i.fanhuan.com/images/site_master/ico-site.png?v=2014122401) no-repeat; vertical-align:middle;}
@@ -194,7 +194,7 @@
 .i-site-kf{ width:16px;height:16px;background-position: -116px 0;_background-position: -116px -2px;margin-bottom: 2px;+vertical-align:top; _vertical-align:middle; _margin-top:7px;}
 .off .i-site-servers{ background-position:-35px -99px;}
 .off .i-site-call{ background-position:-105px -99px;}
-/* top_content ¶¥²¿
+/* top_content ï¿½ï¿½ï¿½ï¿½
  * by cjf 2013-04-15
  */
 .ver-line{ margin:0 8px 0 7px; display:inline-block; vertical-align:middle; color:#ddd;}
@@ -245,7 +245,7 @@
 .top_header_l p a.gotomail:hover font{ color:#F40;}
 .top_header_l .user-name{display:inline-block;width:55px;vertical-align:top;}
 /* = Top banners effect
- * by 2013-08-16 Òþ²Ø
+ * by 2013-08-16 ï¿½ï¿½ï¿½ï¿½
  */
 /*#topB{width:960px; overflow:hidden;}
 #topBImg{position:relative;width:960px;margin:0 auto; padding-top:15px;}
@@ -269,7 +269,7 @@
 .header_l .logo-zdm{ width:110px;}
 .heaer_l  .logo-app{width:136px;}
 #logo_index_i{ display:block; width:335px; height:58px;}
-/* search  ËÑË÷ 
+/* search  ï¿½ï¿½ï¿½ï¿½ 
  * by cjf 2013-04-15
  */
 #search_item{ position:absolute; left:1px; top:1px; z-index:30; border:1px solid #e6e6e6; border-top:none; border-left-width:1px; background:#ffffff; cursor:pointer; display:none; _zoom:1; overflow:hidden; }
@@ -340,7 +340,7 @@
 #nav_notice .notice_inner li a{ display:block;height:26px; line-height:26px;width:190px;padding-left:23px; overflow:hidden;/*white-space: nowrap;text-overflow: ellipsis;*/ color:#fff; font:12px/26px Microsoft Yahei,Trebuchet MS;}
 #nav_notice .i-site-speaker{ position:absolute; top:15px; left:10px; z-index:10;display:none;}
 #nav_notice .i-site-arrow{ position:absolute; top:17px; right:10px; z-index:11;}
-    /* nav-right Òþ²Ø by cjf 20131210
+    /* nav-right ï¿½ï¿½ï¿½ï¿½ by cjf 20131210
 .nav-right{ position:relative; float:right;}
 .nav-right .nav-my{ position:relative; z-index:111;}
 .nav-right .nav-my a{ position:absolute; right:0; top:0; display:block; width:80px; padding:1px 16px 1px 4px; height:38px; color:#fff; font:bold 14px/38px Simsun; text-align:center;}
@@ -359,22 +359,22 @@
 .nav-right .nav-sub .list-nav-sub li{ height:30px; vertical-align:top; overflow:hidden;}
 .nav-right .nav-sub .list-nav-sub a{ display:block; text-align:center; font:12px/30px Simsun; color:#008be4;}
 .nav-right .nav-sub .list-nav-sub a:hover{ text-decoration:underline; color:#F40;}*/
-    /* ×¨Ìâ16.ÌìÃ¨Ë«Ê®Ò»Ôö¼ÓµÄµ¼º½ by cjf 20131210
+    /* ×¨ï¿½ï¿½16.ï¿½ï¿½Ã¨Ë«Ê®Ò»ï¿½ï¿½ï¿½ÓµÄµï¿½ï¿½ï¿½ by cjf 20131210
 #nav li.nav_zt16 a{position:relative;background:url(http://i.fanhuan.com/images/zhuanti/zt16/nav_zt16.png) no-repeat}
 #nav li.nav_zt16 a:hover,#nav li.nav_zt16 a.active{ position:absolute; top:-16px; height:56px;background:url(http://i.fanhuan.com/images/zhuanti/zt16/nav_zt16.png) no-repeat 0 -41px;}*/
     /* Nav Notice */
-/* Òþ²Ø by cjf 20131031
+/* ï¿½ï¿½ï¿½ï¿½ by cjf 20131031
 #nav_notice{float:right;width:240px;height:39px;overflow:hidden; position:relative; z-index:101;background-position:right -40px;}
 #nav_notice.nav_notice_hover{ overflow:visible;background-color:#31a2d9; background-position:right -218px;}
 #nav_notice.nav_notice_hover .notice_inner{background:#31a2d9;}
 #nav_notice.nav_notice_hover .notice_inner li a{background:url("http://i.fanhuan.com/images/site_master/bg-notice-list.png") no-repeat 10px center;}
 #nav_notice.nav_notice_hover .notice_inner li a:hover{text-decoration:underline;}
 #nav_notice .notice_inner{position:absolute;left:0px;width:240px;padding-bottom:8px;}
-#nav_notice .notice_inner li a{ display:block;height:26px; line-height:26px;width:210px;padding-left:23px;color:#fff; font:12px/26px ËÎÌå,Trebuchet MS;}
+#nav_notice .notice_inner li a{ display:block;height:26px; line-height:26px;width:210px;padding-left:23px;color:#fff; font:12px/26px ï¿½ï¿½ï¿½ï¿½,Trebuchet MS;}
 #nav_notice .i-site-speaker{ position:absolute; top:15px; left:10px; z-index:10;}
 #nav_notice .i-site-arrow{ position:absolute; top:17px; right:10px; z-index:11;}
 */
-/* start ÒÔÏÂ²¿·Ö¿ÉÄÜÃ»ÓÃ*/
+/* start ï¿½ï¿½ï¿½Â²ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½*/
 #nav li.first_menu{ position:relative; }
 #nav li.first_menu a{padding-left:13px; width:87px; text-align:left; overflow:hidden;}
 #nav li.first_menu a i{ position:absolute; top:17px; left:76px; overflow:hidden; display:inline-block; width:10px; height:5px;background-position:right -206px;}
@@ -389,8 +389,8 @@ li.first_menu #second_menu dd a:hover{background:#5ebdec;}
 .singles i{ display:inline-block;width:20px; height:20px; float:right; }
 .singles a:hover {text-decoration:underline;}
 #nav li .i-new{ position:absolute; width:24px; height:15px; right:3px; top:5px; background:url("http://i.fanhuan.com/images/site_master/new.png") no-repeat;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://i.fanhuan.com/images/site_master/new.png");}
- /* Footer µ×²¿
- * by cjf 2013-04-15
+ /* 
+ * 
  */
 #footer{position:relative;}
 #footer{ color:#999; width:100%; min-width:960px; padding-bottom:20px; background:#fff; border-top:3px solid #00a0ed;}
@@ -441,7 +441,7 @@ li.first_menu #second_menu dd a:hover{background:#5ebdec;}
 #tipsaq span{width:23px;height:17px;position:absolute;display:block;bottom:-11px;left:45px;z-index:9999;}
 #tips_a a:hover,#tbfaq dd a.six:hover,.footer_help a.mail_server:hover{color:#F40; text-decoration:underline;}
 #tbfaq dd a.six{color:#008be4; font-family:Microsoft Yahei;}
-    /* ÓÃ»§·µ»ØÒ³Ãæ */
+    /* */
 #userreturn{ border:1px solid #ccc;padding:50px 0 50px 0;}
 #userreturn .tips_info{position:relative;padding-left:100px; height:88px; line-height:88px;font-size:20px; font-weight:bold; width:110px; margin:0 auto;}
 #userreturn #bq_error{ width:315px;font-size:20px; }
@@ -449,7 +449,7 @@ li.first_menu #second_menu dd a:hover{background:#5ebdec;}
 #userreturn .btn_area{padding-top:100px;}
 #userreturn .btn_area a{ display:block; margin:0 auto;width:240px; text-align:center; height:34px; line-height:30px; font-size:14px; color:#fff; background:url("http://i.fanhuan.com/images/regbg.png") no-repeat scroll 0 -25px; }
 #fk_iframe { background-color:#EBF4FA;   padding:0px; margin:0; width:100%;}
-    /* Ê×Ò³·ÖÏí */
+    /*  */
 #share{ width: 100%; background-color:#ffffee; height: 50px; overflow:hidden; border:1px solid #ddd;border-width:1px 0; display: block; text-align: center;}
 #share_left{ float:left; margin-top:8px; color:#000000; margin-left:0px; color:#008be4; font-size:14px; font-weight:bold; width:375px; }
 #close_share{ float:left; width:16px; height:16px; background:url(http://i.fanhuan.com/images/share_close.png) no-repeat 0 0 transparent; margin-top:20px; cursor:pointer;}
@@ -477,7 +477,7 @@ li.first_menu #second_menu dd a:hover{background:#5ebdec;}
 .other_sitelogin .taobao_login{width:64px;background:url(http://i.fanhuan.com/images/regbg.png) no-repeat -307px -26px;}
 .other_sitelogin .sina_login{width:76px; background:url(http://i.fanhuan.com/images/regbg.png) no-repeat -378px -26px;}						
 #forajax{display:none;}
-/* ÎÒµÄ·µ»¹ */		
+/*  */		
 #containerContTop{padding:15px 10px; width:940px;height:20px;overflow:hidden;}
 .fenl{float:left; width:67px;height:100%;}
 .fenl_1{float:left; width:390px;height:100%;margin-left:40px;}
@@ -535,7 +535,7 @@ td.nick_cre{width:100px; text-align:left;}
 * html #TB_HideSelect{position:absolute;height:expression(document.body.scrollHeight>document.body.offsetHeight ? document.body.scrollHeight:document.body.offsetHeight+'px');}
 #TB_iframeContent{clear:both;border:none;margin-bottom:-1px;margin-top:1px;_margin-bottom:1px;_overflow-y:hidden;}
 html, body{_height:auto;}
-/* À¶É«·ÖÒ³ */
+/* ï¿½ï¿½É«ï¿½ï¿½Ò³ */
 .page_area{ clear:both; display:inline-block; overflow:hidden; padding:35px 0; }
 .page_area span,.page_area a{ float:left; display:inline-block; height:28px; padding:0px 10px; margin-right:5px; color:#282828; text-decoration:none; border:1px solid #e9e9e9; font:14px/28px Tahoma; background:#ffffff;}
 .page_area a:hover{ color:#00a0ed; border-color:#00a0ed; text-decoration:none;}
@@ -549,10 +549,10 @@ border-width:6px; border-color: transparent\9; border-color: rgba(255,255,255,0)
 .page_area .page_prev,.page_area .page_start{ padding:0 12px 0 4px;}
 .page_area .page_prev i{ border-right-color:#00a0ed;}
 .page_area .page_start i{ border-right-color:#cbcbcb;}
-/* ·ÖÒ³¶ÔÆë·½Ê½ */ 
+/* ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ë·½Ê½ */ 
 .pagination{ text-align:right; }
 .pagination2{ text-align:center; }
-/* ³ÈÉ«·ÖÒ³ */
+/* ï¿½ï¿½É«ï¿½ï¿½Ò³ */
 .page_orange .page_area a:hover{ color:#f40; border-color:#f40;}
 .page_orange .page_area .page_cur{ background-color:#f40; border-color:#f40;}
 .page_orange .page_area .page_next i{ border-left-color:#f40;}
@@ -602,14 +602,14 @@ border-width:6px; border-color: transparent\9; border-color: rgba(255,255,255,0)
 #q_remind{ position:relative; top:3px;margin-right:5px;}
 #q_message .q_btn{display:inline-block;background:url(/content/image/qin_btn.png) no-repeat 0 0;width:150px; height:38px;color:#000;font-weight:bold;font-size:14px;padding-left:20px;}*/
 /*
-´º½ÚÆÚ¼ä¹«¸æ
+ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ä¹«ï¿½ï¿½
 */
 .newyear-notice-base{background:#ffffd7;color:#ff4400;border:1px solid #ffe3c8;padding:6px 0 6px 10px;margin-bottom:10px;}
 .newyear-notice-base a{color:#008be4;margin-left: 15px;}
 .newyear-notice-base a:hover{text-decoration:underline;color:#008be4;}
 .newyear-notice-base .icon-speak{vertical-align:middle;margin-right:10px;}
 /*
-Î´°ó¶¨ÊÖ»úÌáÊ¾
+Î´ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ê¾
 */
 .opacity-bg-box{z-index:99999;position: fixed;_position:absolute;top:0;background:rgba(0,0,0,0.14902);filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);*filter:none;padding:6px;_width:392px;*border:6px solid #b4b4b4;*padding:0px;}
 .con-phonetip{z-index:9999;display: inline-block;padding:30px 52px;background: #fff;}
@@ -618,7 +618,7 @@ border-width:6px; border-color: transparent\9; border-color: rgba(255,255,255,0)
 .con-phonetip p{color:#555555;font:bold 14px Microsoft Yahei;letter-spacing: 1px;}
 .con-phonetip .phonetip-mg{margin-top:34px;margin-bottom:15px;}
 .con-phonetip .phonetip-mg-p{margin-top:5px;}
-/*³õ´ÎµÇÂ¼ÏÂÔØappÌáÊ¾*/
+/*ï¿½ï¿½ï¿½Îµï¿½Â¼ï¿½ï¿½ï¿½ï¿½appï¿½ï¿½Ê¾*/
 .download-spread{position:fixed;_position:absolute;z-index:130;background: url(http://i.fanhuan.com/images/appdownload/download_spread.png?v=2015030301) no-repeat;width: 806px;height:720px;}
 .download-spread .btn-close{position:absolute;width:40px;height:40px;right:29px;top: 56px;right: 75px;z-index:999;}
 /*.download-spread .lookfor-details{font:20px Microsoft Yahei;color:#ffe139;position: absolute;bottom: 26px;left: 342px;font-weight:bold;border-bottom:1px solid #e62828;}
@@ -629,7 +629,7 @@ border-width:6px; border-color: transparent\9; border-color: rgba(255,255,255,0)
 .download-spread .doload-ios:hover{background-position:0 -346px;}
 .download-spread .doload-android{position:absolute;background-position: 0 -412px;bottom:105px;width:226px;height:66px;left:140px;z-index:999;}
 .download-spread .doload-android:hover{background-position: 0 -478px;} 
-/*¸Ä°æµÇÂ½Ìõ¿ªÊ¼*/
+/*ï¿½Ä°ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½Ê¼*/
 .newshowbox{display:none;width:70px;height:132px;line-height:30px;text-align:center;background:#fff;
 border:1px solid #ddd;border-top:none;position:absolute;top:0px;margin-left:112px;z-index:2; *margin-left:-86px}
 .newshowbox-user{display:none;width:78px;height:43px;_height:126px;line-height:30px;text-align:center;background:#fff;
@@ -660,8 +660,8 @@ margin-bottom: 2px;+vertical-align:top; _vertical-align:middle; _margin-top:7px;
 .ifbindphone{color:#ff4400;font-size:12px;display:none;}
 .kuohao{color:#666;}
 .Hello{width:15px;display:inline-block;}
-/*¸Ä°æµÇÂ½Ìõ½áÊø*/
-/*ÐÂ°æÇ©µ½*/
+/*ï¿½Ä°ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+/*ï¿½Â°ï¿½Ç©ï¿½ï¿½*/
 #show-sign-in{width:462px;height:249px;background:#fff9ee;position:absolute;display:none;left:-378px;top:38px;z-index: 2; border-bottom:1px solid #eee;border-left:1px solid #eee;border-right:1px solid #eee;font-family:"Microsoft Yahei";}
 #sign-in1{font-size:16px; font-family:"Microsoft Yahei"; color:#fff;line-height:40px; cursor:pointer;height:40px; display:inline-block; padding-left:39px; text-align:left;}
 #sign-in1:hover{ text-decoration:none}

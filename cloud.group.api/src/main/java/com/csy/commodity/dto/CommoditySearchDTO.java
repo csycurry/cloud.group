@@ -11,7 +11,7 @@ public class CommoditySearchDTO extends BasePageDTO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Integer commodityId;
+	private Long commodityId;
 	
 	private String commodityTitle;
 	
@@ -28,11 +28,11 @@ public class CommoditySearchDTO extends BasePageDTO implements Serializable{
 	private Byte commodityType;
 	
 
-	public Integer getCommodityId() {
+	public Long getCommodityId() {
 		return commodityId;
 	}
 
-	public void setCommodityId(Integer commodityId) {
+	public void setCommodityId(Long commodityId) {
 		this.commodityId = commodityId;
 	}
 

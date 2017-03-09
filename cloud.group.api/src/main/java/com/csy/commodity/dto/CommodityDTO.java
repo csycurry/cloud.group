@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class CommodityDTO implements Serializable {
-    private Integer id;
+    private Long id;
 
-    private Integer commodityId;
+    private Long commodityId;
 
     private String commodityName;
 
@@ -25,9 +25,9 @@ public class CommodityDTO implements Serializable {
 
     private Integer commoditySales;
 
-    private Integer commodityRate;
+    private Double commodityRate;
 
-    private Integer sellerId;
+    private Long sellerId;
 
     private String sellerName;
 
@@ -73,19 +73,19 @@ public class CommodityDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getCommodityId() {
+	public Long getCommodityId() {
 		return commodityId;
 	}
 
-	public void setCommodityId(Integer commodityId) {
+	public void setCommodityId(Long commodityId) {
 		this.commodityId = commodityId;
 	}
 
@@ -153,19 +153,19 @@ public class CommodityDTO implements Serializable {
 		this.commoditySales = commoditySales;
 	}
 
-	public Integer getCommodityRate() {
+	public Double getCommodityRate() {
 		return commodityRate;
 	}
 
-	public void setCommodityRate(Integer commodityRate) {
+	public void setCommodityRate(Double commodityRate) {
 		this.commodityRate = commodityRate;
 	}
 
-	public Integer getSellerId() {
+	public Long getSellerId() {
 		return sellerId;
 	}
 
-	public void setSellerId(Integer sellerId) {
+	public void setSellerId(Long sellerId) {
 		this.sellerId = sellerId;
 	}
 

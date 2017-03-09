@@ -28,9 +28,9 @@ public class GTestController extends BaseController{
 		int gtServerStatus = gtSdk.preProcess(userid);
 		
 		//将服务器状态设置到session中
-		getSession().setAttribute(gtSdk.gtServerStatusSessionKey, gtServerStatus);
+		getHttpSession().setAttribute(gtSdk.gtServerStatusSessionKey, gtServerStatus);
 		//将userid设置到session中
-		getSession().setAttribute("userid", userid);
+		getHttpSession().setAttribute("userid", userid);
 		
 		resStr = gtSdk.getResponseStr();
 		return JSONObject.parseObject(resStr);

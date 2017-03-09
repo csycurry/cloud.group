@@ -259,7 +259,7 @@
             var canvas = document.createElement('canvas');
             var ctx = canvas.getContext('2d');
             // https://www.browserleaks.com/canvas#how-does-it-work
-            var txt = 'http://www.fanhuan.com';
+            var txt = '/';
             ctx.textBaseline = "top";
             ctx.font = "14px 'Arial'";
             ctx.textBaseline = "alphabetic";

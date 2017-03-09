@@ -45,14 +45,18 @@ public class CommodityController extends BaseController{
 		{
 			throw new BusinessException("商品名称不能为空");
 		}
-		
-		commodityManager.insertMission(commodityDTO,getLoginStaffCode());
+		if(commodityDTO.getId()==null){
+			commodityManager.insertCommodity(commodityDTO,getLoginStaffCode());
+		}
+		else{
+			commodityManager.updateCommodity(commodityDTO, getLoginStaffCode());
+		}
 		return true;
 		
 	}
 	
 	@RequestMapping(value="/backstage/commodity/detail")
-	public ModelAndView detail(int id)
+	public ModelAndView detail(Long id)
 	{
 		ModelAndView modelAndView = new ModelAndView("/manager/commodity/commodityForm");
 		CommodityDTO extendDTO =  commodityManager.detail(id);
@@ -63,7 +67,7 @@ public class CommodityController extends BaseController{
 	
 	@RequestMapping(value="/backstage/commodity/remove")
 	@ResponseJson
-	public @ResponseBody void remove(int id)
+	public @ResponseBody void remove(Long id)
 	{
 		commodityManager.remove(id);
 	}

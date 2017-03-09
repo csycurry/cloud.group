@@ -171,6 +171,7 @@ public class UserManager {
 		record.setUserPwd(MD5Utils.encoderByMd5With32Bit(record.getUserPwd()));
 		record.setBalance(0L);
 		record.setCreateTime(DateUtil.getCurrentTime());
+		record.setUserType(UserTypeEn.MARK.getCode());
 		userMapperExt.insert(record);
 		if(userDTO.getUserId()!=null){
 			UserLevelExample example = new UserLevelExample();

@@ -1,0 +1,75 @@
+﻿.txt{ height: 20px; font: 14px;line-height:normal;padding:6px; border:1px solid #ccc; color: #333;}
+	.txt:focus{border-color:#008be4; outline: none;}
+    .txt-1{ width: 186px;}
+	.txt-2{ width: 128px;}
+
+	/** 
+	* ico-login-otherway
+	*/
+	.ico-login-otherway{ width:24px; height: 24px; display:inline-block; *display:inline; *zoom:1; background:url(http://i.fanhuan.com/images/passport/Main/login_icon_sp.png?v=2015012001) no-repeat; vertical-align:middle;margin-right: 10px;}
+	.i-login-otherway-sina{ background-position:-72px 0;}
+	.i-login-otherway-qq{ background-position:0 0;}
+	.i-login-otherway-tb{ background-position:-48px 0;}
+	.i-login-otherway-wechat{background-position:-24px 0;}
+	
+	.i-login-otherway-sina:hover{ background-position:-72px -24px;;}
+	.i-login-otherway-qq:hover{ background-position:0 -24px;}
+	.i-login-otherway-tb:hover{ background-position:-48px -24px;}
+	.i-login-otherway-alipay:hover{ background-position:-16px -48px; }
+    .i-login-otherway-wechat:hover{background-position:-24px -24px;}
+	
+    /* pop-login */
+	.pop-login{ position:relative; width:640px; height:308px;margin:0 auto; background:url(https://i.fanhuan.com/images/passport/Main/login_bg.png?v=2015012001);z-index:1003;}
+	.pop-login .con{ padding:58px 25px 25px; *zoom:1;}
+	.pop-login .con-1{ float: left; width: 350px;}
+	.pop-login .con-1 h3{ margin-bottom: 15px; font:bold 16px/1.5 Microsoft Yahei; color: #008be4;}
+	.pop-login .con-2{ margin-left:350px; padding-left: 68px;padding-top:18px;}
+	.pop-login .con-2 h4{ margin:0 0 10px; font: 16px/1.5 Microsoft Yahei; color: #333;}
+	.pop-login .con-2 .btn-outer{ margin-bottom:30px;text-align:left;}
+	.pop-login .con-2 p{ margin-bottom:10px; font:14px/1.5 Microsoft Yahei;color:#333333;}
+	.pop-login .con-2 ul{position: absolute;bottom: 70px;}
+	.pop-login .con-2 ul li{ float:left;height: 24px;}
+	/*.pop-login .con-2 ul li a{ display:inline-block; font:12px/1.5 Simsun; color:#666; text-decoration:none; cursor:pointer;}
+	.pop-login .con-2 ul li a.f14{ font-size:14px;	font-family: arial;}
+	.pop-login .con-2 ul li a:hover{ text-decoration:underline;}
+	.pop-login .con-2 ul li a i{ margin:0 5px 3px 0; *margin:0 5px 0 0; }*/
+	.pop-login .con-2 .btn-2{ padding-left: 20px;}
+	.pop-login .con-2 .btn-2 span{ width:110px; text-align:center; padding-right: 20px; font-size: 14px;}
+    .pop-login .con-2 .btn-outer .btn-1 {padding-left:36px}
+    .pop-login .con-2 .btn-outer .btn-1 span{padding-right:36px;}
+	
+	.form-login{}
+	.form-login .form-item{ position:relative; padding-left:25px; margin-bottom: 15px; *zoom:1;}
+    .form-login .form-item-s{margin-top:-10px;margin-bottom:8px;padding-left: 65px;}
+	.form-login .form-item .label,.form-login .form-item input,.form-login .form-item span,.form-login .form-item img{ display: inline-block; vertical-align: middle;}
+	.form-item img{margin-left:2px;}
+	#reg_checkcode{ margin:0 20px;}
+	.form-login .form-item .label{ float:left;width: 44px; margin:0 14px 0 -18px;text-align: right; font:14px/32px Microsoft Yahei;}
+	.form-login .form-action{ padding-left: 65px;}
+	.form-login .form-item p.login_tips{ padding:2px 0 0; color: red;}
+	
+	.form-login .form-item .error{ color:red;}
+	.form-login .form-action .btn-1{ padding-left: 75px;}
+	.form-login .form-action .btn-1 span{ width:50px; padding-right: 75px; font-size: 16px;}
+
+	.login-code-change{ display:inline-block; vertical-align: middle; color: #aeaeae; text-decoration:none;}
+	.login-code-change:hover{ text-decoration:underline; color:#666;}
+
+	.link-forget{ display: inline-block; vertical-align: middle; color: #a9a9a9; text-decoration: none; font:12px/1.5 Microsoft Yahei;}
+	.link-forget:hover{ color: #666; text-decoration: underline;}
+	.login_tips .link-forget{ display: inline; color: #008be4; vertical-align:middle;}
+	.login_tips .link-forget:hover{ color: #F40;}
+
+	.login-remember{ color: #666;}
+	.login-remember input{ vertical-align: middle; margin: -3px 5px 0 0; *margin-top:0;}
+	    /* poptip-pass */
+	.poptip-pass{ display: none; _zoom:1; position:absolute; left: 65px;;  _left:66px;top: 44px; _top:45px; z-index:2; width:100px; height:27px; line-height:27px; text-align:center; color:#444; box-shadow:1px 1px 3px rgba(0,0,0,0.18);}
+	.poptip-pass .bg{ position:absolute; left:0; top:0; z-index:-1; width:100%; height:25px; background:#fff; /*opacity:0.85; filter:alpha(opacity=85);*/ border:1px solid #269ce8;}
+	.poptip-pass b{ position:absolute; left:10px; top:-5px; z-index:0; font:12px/1 Microsoft Yahei;}
+	.poptip-pass .wai{ color:#269ce8;}
+	.poptip-pass .nei{ top:-3px; color:#fff;}
+	.default-val{position:absolute;left: 74px;top:6px;color:#A9A9A9; font-size:14px;}
+	.reg-code{left:33px;}
+	/**/
+	.login-title{position:absolute;left:35px;top:20px;color:#666;}
+    

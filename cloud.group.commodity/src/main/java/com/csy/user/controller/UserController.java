@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +21,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.dto.UserAccountDTO;
 import com.csy.base.controller.BaseController;
 import com.csy.exception.BusinessException;
-import com.csy.model.UserLevel;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.user.domain.dto.UserDTO;
@@ -51,7 +49,7 @@ public class UserController extends BaseController{
 	@RequestMapping(value="/userinfo")
 	public ModelAndView listSearch()
 	{
-		ModelAndView modelAndView = new ModelAndView("userInfo");
+		ModelAndView modelAndView = new ModelAndView("/person/userInfo");
 		Map<String, Object> map= modelAndView.getModel();
 		UserDTO userDTO =  userManager.findDetail(getLoginUserId());
 		if(userDTO==null)
@@ -70,7 +68,7 @@ public class UserController extends BaseController{
 		{
 			return new ModelAndView("redirect:/index.html");
 		}
-		ModelAndView modelAndView = new ModelAndView("userDetail");
+		ModelAndView modelAndView = new ModelAndView("/person/userDetail");
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("user", userDTO);
 		return modelAndView;
@@ -86,10 +84,10 @@ public class UserController extends BaseController{
 		}
 		if(StringUtils.isEmpty(userDTO.getUserAlipay()))
 		{
-			ModelAndView modelAndView = new ModelAndView("alipay");
+			ModelAndView modelAndView = new ModelAndView("/person/alipay");
 			return modelAndView;
 		}
-		ModelAndView modelAndView = new ModelAndView("accountPay");
+		ModelAndView modelAndView = new ModelAndView("/person/accountPay");
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("user", userDTO);
 		return modelAndView;
@@ -103,7 +101,7 @@ public class UserController extends BaseController{
 		{
 			return new ModelAndView("redirect:/index.html");
 		}
-		ModelAndView modelAndView = new ModelAndView("alipay");
+		ModelAndView modelAndView = new ModelAndView("/person/alipay");
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("user", userDTO);
 		return modelAndView;
@@ -117,7 +115,7 @@ public class UserController extends BaseController{
 		{
 			return new ModelAndView("redirect:/index.html");
 		}
-		ModelAndView modelAndView = new ModelAndView("affiliates");
+		ModelAndView modelAndView = new ModelAndView("/person/affiliates");
 		Map<String, Object> map= modelAndView.getModel();
 		StringBuffer buffer = new StringBuffer(service);
 		buffer.append("promotion?aff=").append(getLoginUserId());
@@ -150,6 +148,9 @@ public class UserController extends BaseController{
 		UserDTO dto = userManager.login(searchDTO);
 		if(dto!=null)
 		{
+			Cookie cookie = new Cookie("userDetial", dto.getUserCode());               
+			cookie.setMaxAge(60*60*24*30); //cookie 保存30天
+			getResponse().addCookie(cookie);
 			getHttpSession().setAttribute("user", dto);
 			return dto;
 		}
@@ -318,10 +319,23 @@ public class UserController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value="/promotion")
-	public String promotion(@RequestParam("aff") Integer aff)
+	public String promotion(@RequestParam(value="aff",required=false) Integer aff)
 	{
-		getHttpSession().setAttribute("aff", aff);
+		if(aff!=null){
+			getHttpSession().setAttribute("aff", aff);
+		}
 		return "register";
+	}
+	
+	/**
+	 * 用户注册
+	 * @param userDTO
+	 * @return
+	 */
+	@RequestMapping(value="/privacy")
+	public String privacy()
+	{
+		return "privacy";
 	}
 	
 	@RequestMapping(value="/user/modify")

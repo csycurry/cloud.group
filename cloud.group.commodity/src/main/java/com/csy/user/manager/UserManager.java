@@ -121,7 +121,7 @@ public class UserManager {
 		User user = new User();
 		user.setUserCode(searchDTO.getUserCode());
 		user.setUserPwd(MD5Utils.encoderByMd5With32Bit(searchDTO.getUserPwd()));
-		user.setUserType(UserTypeEn.MARK.getCode());
+		user.setUserType(UserTypeEn.RETURN.getCode());
 		List<User> userDTOs = userMapperExt.checkUser(user);
 		if(userDTOs==null||userDTOs.size()==0)
 		{
@@ -165,6 +165,7 @@ public class UserManager {
 		record.setUserPwd(MD5Utils.encoderByMd5With32Bit(record.getUserPwd()));
 		record.setBalance(0L);
 		record.setCreateTime(DateUtil.getCurrentTime());
+		record.setUserType(UserTypeEn.RETURN.getCode());
 		userMapperExt.insert(record);
 		if(userDTO.getUserId()!=null){
 			UserLevelExample example = new UserLevelExample();
@@ -191,7 +192,7 @@ public class UserManager {
 	public Boolean checkCode(String code)
 	{
 		UserExample example = new UserExample();
-		example.createCriteria().andUserCodeEqualTo(code);
+		example.createCriteria().andUserCodeEqualTo(code).andUserTypeEqualTo(UserTypeEn.RETURN.getCode());
 		long count = userMapperExt.countByExample(example);
 		if(count>0)
 			throw new BusinessException("该用户名已被使用！");
@@ -201,7 +202,7 @@ public class UserManager {
 	public Boolean checkMobile(String mobile)
 	{
 		UserExample example = new UserExample();
-		example.createCriteria().andUserMobileEqualTo(mobile);
+		example.createCriteria().andUserMobileEqualTo(mobile).andUserTypeEqualTo(UserTypeEn.RETURN.getCode());
 		long count = userMapperExt.countByExample(example);
 		if(count>0)
 			throw new BusinessException("该手机号码已经被注册！");
@@ -211,7 +212,7 @@ public class UserManager {
 	public Boolean checkMail(String mail)
 	{
 		UserExample example = new UserExample();
-		example.createCriteria().andUserMailEqualTo(mail);
+		example.createCriteria().andUserMailEqualTo(mail).andUserTypeEqualTo(UserTypeEn.RETURN.getCode());
 		long count = userMapperExt.countByExample(example);
 		if(count>0)
 			throw new BusinessException("该邮箱已经被注册！");
