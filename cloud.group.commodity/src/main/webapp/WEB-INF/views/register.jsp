@@ -232,6 +232,16 @@ ul, li {
             $('#userCode').blur(function () {
                 var email = $('#userCode');
                 if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
+                if (login.val().length > 0) {
+                    var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
+                    isok = reg.test(login.val());
+                    if (!isok) {
+                        var lblogin = login.parent();
+                        $("<span class=\"label label-warning\">请填写正确的登录名,保持在6-16字符内！！</span>").appendTo(lblogin);
+                        login.focus();
+                        return false;
+                    }
+                }
                 var lbemail = $('#userCode').parent();
                 lbemail.children('span').remove();
                     	$.post("/user/usercode.json",{userCode:email.val()},function(data){
