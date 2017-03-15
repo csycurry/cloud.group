@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  	<title>
-        XXX-网购省钱助手,购物返利返现金,天天特价9.9包邮值得买
+        	聚宝师
     </title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="renderer" content="webkit">
@@ -24,7 +24,7 @@
     <script src="http://static.geetest.com/static/tools/gt.js"></script>
     
     <meta name="Description" content="已经有1000多万用户使用返还网省钱" />
-<meta name="Keywords" content="返还网,返现网,返利,返利网站,返现,返钱网" />
+<meta name="Keywords" content="聚宝师,返现网,返利,返利网站,返现,返钱网" />
 <link rel="stylesheet" type="text/css" href="assets/css/list.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />

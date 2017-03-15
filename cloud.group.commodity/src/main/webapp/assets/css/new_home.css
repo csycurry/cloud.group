@@ -3,7 +3,7 @@
 .headeBlock{ z-index:9999;}
 .fixed{position:fixed; top:20px;_position:absolute; _top:expression(((noValue = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');}
 .fixed #header{height:68px;}
-.newlogoshowindex{width:310px;height: 53px;background: url("http://i.fanhuan.com/images/baseimages/logo_www2.png?v=20160412") no-repeat;position: absolute;top:19px;display: block;}
+.newlogoshowindex{width:310px;height: 53px;background: url("/assets/main/img/logo.png") no-repeat;position: absolute;top:19px;display: block;}
 .cgf-list{display:none}
 #header .blue #search {background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;}
 #header .blue #searchInputImage{background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;background-position:-445px 0;}
