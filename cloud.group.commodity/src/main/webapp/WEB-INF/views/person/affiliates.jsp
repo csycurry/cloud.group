@@ -26,8 +26,6 @@
     </div>
     <ul class="pull-left clearfix">
         <li><a href="/index.html" target="_blank">首页</a></li>
-        <li><a href="/codes.html" target="_blank">打码专区</a></li>
-        <li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>        
     </ul>
 
      <div class="register pull-right" style="margin-top:15px">
@@ -58,7 +56,6 @@
                         <p>余<span>&nbsp;&nbsp;&nbsp;</span>额：<span class='orange'>
                             ${user.balance}
                             </span>
-                            <img src="assets/main/img/money.png" class='money' /></p>
                     </div>
 
                     <div class="accout">
@@ -74,11 +71,6 @@
                         <p><a href="/userPay.html">申请提现</a></p>
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
-                    </div>
-                    <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
-                        <p><a href="/user_codes.html">收益记录</a></p>
                     </div>
                 </div>
                 <div class="userContent pull-left">

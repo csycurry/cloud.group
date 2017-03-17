@@ -29,8 +29,6 @@
 			</div>
 			<ul class="pull-left clearfix">
 				<li><a href="/index.html" target="_blank">首页</a></li>
-				<li><a href="/codes.html" target="_blank">打码专区</a></li>
-				<li><a href="/newslist.html?page=1&type=1" target="_blank">资讯中心</a></li>
 			</ul>
 
 			<div class="register pull-right" style="margin-top: 15px">
@@ -66,8 +64,7 @@
 					<span>账号：</span>${user.userCode}</p>
 				<p>
 					余<span>&nbsp;&nbsp;&nbsp;</span>额：<span class='orange'>
-						${user.balance} </span> <img src="assets/main/img/money.png"
-						class='money' />
+						${user.balance} </span> 
 				</p>
 			</div>
 
@@ -95,14 +92,6 @@
 				</p>
 				<p>
 					<a href="/alipay.html">支付宝信息</a>
-				</p>
-			</div>
-			<div class="accout">
-				<h4 class='prl20'>
-					<img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span>
-				</h4>
-				<p>
-					<a href="/user_codes.html">收益记录</a>
 				</p>
 			</div>
 		</div>
@@ -161,7 +150,7 @@
 										<p>
 											<span style="width: 100px; display: inline-block">
 												账户余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
-												style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}元</span>
+												style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}</span>元
 										</p>
 									</div>
 									<div class="form-group">
@@ -206,9 +195,9 @@
 									<div id="ctl00_ContentPlaceHolder1_divVerify"
 										class="form-group">
 										<p>
-											验证码：<input name="code" type="text"
+											验证码：<input id="mobileCode" name="code" type="text"
 												id="ctl00_ContentPlaceHolder1_txtlistenNumer"
-												placeholder="填写验证码" />
+												placeholder="请填写验证码" />
 										</p>
 									</div>
 
@@ -272,11 +261,15 @@
 														.appendTo(lbmoney);
 												return false;
 											} else if (money.val() > 10000) {
-												alert("提现金额超过1万请自己联系客服额哦！");
+												alert("提现金额超过1万请联系客服哦！");
 												return false;
 											}else if(money.val()>$("#ctl00_ContentPlaceHolder1_lbleftmoney").text())
 											{
 												alert("提现金额超过账户余额，不能提现！");
+												return false;
+											}
+											if($('#mobileCode').val()==null||$('#mobileCode').val()==''){
+												alert("请填写短信验证码！");
 												return false;
 											}
 											$.post("/user/pay.json",$('#payForm').serialize(),function(data){
@@ -286,7 +279,7 @@
 					                        		}
 					                        	else
 					                        		{
-					                        		alert("修改成功!");
+					                        		alert("申请成功!");
 					                        		}
 					          			  });
 										}

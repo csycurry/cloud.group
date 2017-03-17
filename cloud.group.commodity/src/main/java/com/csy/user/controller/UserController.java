@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.csy.account.domain.dto.UserAccountDTO;
+import com.csy.account.domain.emus.AccountTypeEn;
 import com.csy.base.controller.BaseController;
 import com.csy.exception.BusinessException;
 import com.csy.model.base.Pagination;
@@ -130,7 +131,7 @@ public class UserController extends BaseController{
 		{
 			return "redirect:/index.html";
 		}
-		return "/userhistory";
+		return "/person/userhistory";
 	}
 	
 	@RequestMapping(value="/account_CashData")
@@ -396,6 +397,7 @@ public class UserController extends BaseController{
 			accountDTO.setUserId(userDTO.getId());
 			accountDTO.setUserCode(userDTO.getUserCode());
 			accountDTO.setUserPay(userDTO.getUserAlipay());
+			accountDTO.setType(AccountTypeEn.OUT.getCode());
 			userAccountManager.insertAccountDTO(accountDTO);
 		}
 	}

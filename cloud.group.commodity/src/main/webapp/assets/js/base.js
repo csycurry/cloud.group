@@ -869,13 +869,9 @@ function Login(index) {
 }
 
 function LogOut() {
-    $.cookie("user_id", "", { path: "/", expires: -1, domain: _domain });
-    $.cookie("user_name", "", { path: "/", expires: -1, domain: _domain });
-    $.cookie("A9D5EMD96D5E5G", "", { path: "/", expires: -1, domain: _domain });
-    $.cookie("ctuskytime_cookie", "", { path: "/", expires: -1, domain: _domain });
-    $.cookie("wel_cookie", "", { path: "/", expires: -1, domain: _domain });
-    $.cookie("my_cookie", "", { path: "/", expires: -1, domain: _domain });
-     location.href = "/user/loginout.html";
+    $.cookie("user_id", null, { path: "/", expires: -1, domain: _domain });
+    $.cookie("user_name", null, { path: "/", expires: -1, domain: _domain });
+    location.href = "/user/loginout.html";
 }
 function ShowPageNum(total, currentpage, pagesize, url, functionname, isdetialed, endMiddlePage) {
     var PageCount = total % pagesize == 0 ? total / pagesize : Math.ceil(total / pagesize);

@@ -80,9 +80,9 @@ public class UserAccountManager {
 	public void  insertAccountDTO(UserAccountDTO accountDTO)
 	{
 		UserAccount account = new UserAccount();
-		account.setStatus(AccountStatusEn.UNSETTLE.getCode());
 		BeanUtils.copyProperties(accountDTO, account);
-		userAccountMapperExt.insert(account );
+		account.setStatus(AccountStatusEn.UNSETTLE.getCode());
+		userAccountMapperExt.insert(account);
 	}
 	
 	public BigDecimal staticaccount()

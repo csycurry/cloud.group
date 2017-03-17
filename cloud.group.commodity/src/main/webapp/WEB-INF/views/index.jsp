@@ -149,8 +149,8 @@
         <div class="navinner clearfix">
             <div id="nav">
                 <ul> 
-                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">首页</a></li>
-                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>淘宝返还</a> </li>
+                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">今日好货</a></li>
+                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>热门商品</a> </li>
                     <li><a class="nav-a act-login" href="/userinfo.html" name="nav-my">我的返还</a></li>
                     
                 </ul>

@@ -89,6 +89,8 @@ public class CommodityManager {
 		{
 			criteria.andCreateTmLessThanOrEqualTo(DateUtil.parse(searchDTO.getEndTm(),DateUtil.YYYY_MM_DD_HH_DD_SS));
 		}
+		if(searchDTO.get)
+		criteria.and
 		example.setOrderByClause("create_tm desc");
 		return example;
 	}

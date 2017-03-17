@@ -53,11 +53,6 @@
                         <p><a href="/account_CashDeatil.html">我的账本</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
-                    <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon5-1.png" class='icon' /><span>任务体验</span></h4>
-                        <p><a href="/user_codes.html">收益记录</a></p>
-                    </div>
                 </div>
                 <div class="userContent pull-left">
                     <script>

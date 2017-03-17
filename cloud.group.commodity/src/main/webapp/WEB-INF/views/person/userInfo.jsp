@@ -38,9 +38,6 @@
                     <img src="assets/main/img/userIcon10.png" />账户余额
                 </div>
                 <div class="balanceCtn">
-                    <p class="jb">
-                        <img src="assets/main/img/money.png" />${user.balance}元宝
-                    </p>
                     <p>可兑换 = ${user.balanceRMB}元</p>
                     <a href="/userPay.html" class='sqtx'>
                         <img src="assets/main//img/sqtx.png" /></a>
@@ -49,13 +46,14 @@
         </div>
         <div class="userCommon">
             <h4>
-                <img src="assets/main/img/userIcon11.png" />结算记录</h4>
+                <img src="assets/main/img/userIcon11.png" />收益记录</h4>
             <table class="table table-bordered text-center">
                 <thead>
                     <tr>
                         <th>结算金额</th>
-                        <th>打码数量</th>
+                        <th>商品</th>
                         <th>结算说明</th>
+                        <th>结算状态</th>
                         <th>结算时间</th>
                     </tr>
                 </thead>

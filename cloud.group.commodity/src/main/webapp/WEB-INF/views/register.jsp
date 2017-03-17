@@ -6,10 +6,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>聚宝师</title>
+<title>XXX打码</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
-<meta name="description" content="打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
 <link href="/assets/index/css/bootstrap.css" type="text/css"
 	rel="stylesheet" />
 <link href="/assets/main/css/common.css" type="text/css"
@@ -61,15 +61,16 @@ ul, li {
 							</div>
 							<input type="text" id="userCode" name="userCode"
 								placeholder="用户名" class="pull-left form-control">
-
+							<p style="color: red">*请输入6-16位字符</p>
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
 								输入密码
 							</div>
 							<input name="userPwd" type="password"
-								id="ctl00_ContentPlaceHolder1_password1" class="form-control"
+								id="ctl00_ContentPlaceHolder1_password1" class="pull-left form-control"
 								placeholder="请输入密码" />
+								<p style="color: red">*请输入6位以上密码</p>
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
@@ -230,15 +231,15 @@ ul, li {
             
             
             $('#userCode').blur(function () {
-                var email = $('#userCode');
-                if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
-                if (login.val().length > 0) {
+                var userCode = $('#userCode');
+                if (!validateTextIsEmpty(userCode, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
+                if (userCode.val().length > 0) {
                     var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
-                    isok = reg.test(login.val());
+                    isok = reg.test(userCode.val());
                     if (!isok) {
-                        var lblogin = login.parent();
-                        $("<span class=\"label label-warning\">请填写正确的登录名,保持在6-16字符内！！</span>").appendTo(lblogin);
-                        login.focus();
+                        var lblogin = userCode.parent();
+                        $("<span class=\"label label-warning\">请填写正确的登录名！！</span>").appendTo(lblogin);
+                        userCode.focus();
                         return false;
                     }
                 }
@@ -297,7 +298,7 @@ ul, li {
                 isok = reg.test(login.val());
                 if (!isok) {
                     var lblogin = login.parent();
-                    $("<span class=\"label label-warning\">请填写正确的登录名,保持在6-16字符内！！</span>").appendTo(lblogin);
+                    $("<span class=\"label label-warning\">请填写正确的登录名！！</span>").appendTo(lblogin);
                     login.focus();
                     return false;
                 }
@@ -308,14 +309,14 @@ ul, li {
                 isok = reg.test(ps1.val());
                 if (!isok) {
                     var lbps1 = ps1.parent();
-                    $("<span class=\"label label-warning\">密码不符合规范（6位以上）！</span>").appendTo(lbps1);
+                    $("<span class=\"label label-warning\">密码不符合规范！</span>").appendTo(lbps1);
                     ps1.focus();
                     return false;
                 }
             }
             if (ps1.val() != ps2.val()) {
                 var lbps2 = ps2.parent();
-                $("<span class=\"label label-warning\">俩次密码键入不一致</span>").appendTo(lbps2);
+                $("<span class=\"label label-warning\">两次密码输入不一致</span>").appendTo(lbps2);
                 ps2.focus();
                 return false;
             }
@@ -343,8 +344,9 @@ ul, li {
 		var wait=60;
 		function time() {
 			if (wait == 0) {
-				$("#smsBtn").val("获取验证码");
+				$("#smsBtn").val("重新获取验证码");
 				   wait = 60;
+				   $("#smsBtn").attr("disabled", false);
 				  } else { 
 				 
 				$("#smsBtn").attr("disabled", true);

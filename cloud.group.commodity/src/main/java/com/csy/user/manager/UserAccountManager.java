@@ -43,7 +43,7 @@ public class UserAccountManager {
 		UserAccountExample.Criteria criteria = accountExample.createCriteria();
 		if(userId!=null)
 			criteria.andUserIdEqualTo(userId);
-		criteria.andStatusEqualTo((byte)1);
+		criteria.andStatusNotEqualTo(AccountStatusEn.DELETE.getCode());
 		if(type!=null)
 			criteria.andTypeEqualTo(type);
 		accountExample.setOrderByClause("create_time desc");
@@ -74,8 +74,10 @@ public class UserAccountManager {
 	public void  insertAccountDTO(UserAccountDTO accountDTO)
 	{
 		UserAccount account = new UserAccount();
-		account.setStatus(AccountStatusEn.UNSETTLE.getCode());
 		BeanUtils.copyProperties(accountDTO, account);
+		account.setStatus(AccountStatusEn.UNSETTLE.getCode());
+		account.setCreateTime(DateUtil.getCurrentTime());
+		account.setModifyTime(DateUtil.getCurrentTime());
 		userAccountMapperExt.insert(account );
 	}
 	
