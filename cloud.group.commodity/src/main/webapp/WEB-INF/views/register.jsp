@@ -65,7 +65,7 @@ ul, li {
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
-								输入密码
+								登录密码
 							</div>
 							<input name="userPwd" type="password"
 								id="ctl00_ContentPlaceHolder1_password1" class="pull-left form-control"
@@ -85,7 +85,7 @@ ul, li {
 							<div class="text pull-left">
 								QQ号码
 							</div>
-							<input name="userMail" type="text"
+							<input name="userQq" type="text"
 								id="ctl00_ContentPlaceHolder1_QQ" class="form-control"
 								placeholder="请输入qq" />
 
@@ -94,7 +94,7 @@ ul, li {
 							<div class="text pull-left">
 								电子邮箱
 							</div>
-							<input name="userQq" type="text"
+							<input name="userMail" type="text"
 								id="ctl00_ContentPlaceHolder1_eamil" class="form-control"
 								placeholder="请输入电子邮箱" />
 
@@ -118,7 +118,7 @@ ul, li {
 							<input type="text" id="msgCode" name="code" class="pull-left form-control"
 								placeholder="短信验证码"> <input type="button"
 								id="smsBtn" onclick="getCode()" class="btn pull-right"
-								style="background-color: gainsboro;"
+								style="background-color: #e6e252;"
 								value="获取验证码">
 						</div>
 						<div class="checkbox deal">
@@ -245,7 +245,7 @@ ul, li {
                 }
                 var lbemail = $('#userCode').parent();
                 lbemail.children('span').remove();
-                    	$.post("/user/usercode.json",{userCode:email.val()},function(data){
+                    	$.post("/user/usercode.json",{userCode:userCode.val()},function(data){
             				if(data.status==0)
             					{
             					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbemail);
@@ -273,6 +273,7 @@ ul, li {
     					}
     				else
     					{
+    	            		$.cookie('user_name', $('#userCode').val()); 
 	    					location.href= "/index.html";
     					}
     				
@@ -328,6 +329,7 @@ ul, li {
 		{
         	if(!checkParam())
         		return false;
+        	$("#smsBtn").css("background","gainsboro");
         	
 			var mobile = $("#ctl00_ContentPlaceHolder1_txtPhoneNumber").val();
 			if(mobile=="")
@@ -347,6 +349,7 @@ ul, li {
 				$("#smsBtn").val("重新获取验证码");
 				   wait = 60;
 				   $("#smsBtn").attr("disabled", false);
+				   $("#smsBtn").css("background","#e6e252");
 				  } else { 
 				 
 				$("#smsBtn").attr("disabled", true);

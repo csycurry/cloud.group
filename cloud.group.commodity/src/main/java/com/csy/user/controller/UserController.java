@@ -312,6 +312,10 @@ public class UserController extends BaseController{
 			userDTO.setUserId(aff);
 		}
 		userManager.insertUser(userDTO);
+		Cookie cookie = new Cookie("userDetial", userDTO.getUserCode());               
+		cookie.setMaxAge(60*60*24*30); //cookie 保存30天
+		getResponse().addCookie(cookie);
+		getHttpSession().setAttribute("user", userDTO);
 	}
 	
 	/**
@@ -345,6 +349,12 @@ public class UserController extends BaseController{
 	{
 		userDTO.setId(getLoginUserId());
 		userManager.updateUser(userDTO);
+	}
+	
+	@RequestMapping(value="/newpwd")
+	public String newpwd(UserDTO userDTO)
+	{
+		return "/person/newPwd";
 	}
 	
 	@RequestMapping(value="/user/pwd")

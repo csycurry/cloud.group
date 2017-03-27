@@ -1,7 +1,7 @@
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,
 blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ margin:0; padding:0;}
 body{ font:12px/1.5 "Microsoft Yahei"; color:#333333;}
-a{text-decoration:none; color:#008be4;}
+a{text-decoration:none; color:#fe6b01;}
 table{ border-collapse:collapse;}
 h1{font-size:24px; font-weight:bold;}  
 h2{font-size:20px; font-weight:bold;} 
@@ -26,10 +26,7 @@ a:hover.uline{text-decoration:underline; color:#F40;}
 select{border: 1px solid #CCC;border-radius: 3px;}
 .inner {z-index:120;}
 
-/* cnzzÍ³¼Æ´úÂë */
-#cnzz_stat_icon_1000300453{ display:none;}
-
-/* ico-jrqd ½ñÈÕÇ©µ½
+/* ico-jrqd ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½
  * by cjf 2013-09-26
  */
 .ico-jrqd{ display:inline-block; *display:inline; *zoom:1; overflow:hidden;}
@@ -63,7 +60,7 @@ select{border: 1px solid #CCC;border-radius: 3px;}
 .nav_sign_action .list .i-jrqd-arrow,.nav_sign_action .list .i-jrqd-arrow:hover{position:absolute;width:15px;height:8px;background-position:0 -229px;}
 .nav_sign_action .list .ico-yes{background-position: 0px -593px;}
 .nav_sign_action .i-jrqd-btn1,.nav_sign_action .i-jrqd-btn2{ margin-top:6px;}
-/* µ×²¿Ç©µ½ */
+/* ï¿½×²ï¿½Ç©ï¿½ï¿½ */
 .bottom-sign{margin-top: 0;float:none;margin-bottom: 10px;_margin-bottom: 0;}
 .bottom-sign .nav_sign_action .list .btn{ display:block; width:45px; height:45px; background:url(http://i.fanhuan.com/images/return-top.png?v=201410221) 0px -55px no-repeat; margin-top:5px;}
 .bottom-sign .nav_sign_action .list .ico-jrqd{}
@@ -124,7 +121,7 @@ top: 25px;}
 #signDate1 table td.cur{background:#299cd4; color:#fff; font-weight:bold;}
 
 .nav_sign_tip .sign-info{ margin-left:255px;_zoom:1;width:160px;height:172px;background-position:-160px -247px;}
-.nav_sign_tip .sign-info .date{font-size: 24px;color: #BA6536;font-family: 'Î¢ÈíÑÅºÚ';text-align: center;}
+.nav_sign_tip .sign-info .date{font-size: 24px;color: #BA6536;font-family: 'Î¢ï¿½ï¿½ï¿½Åºï¿½';text-align: center;}
 .nav_sign_tip .sign-info .day{padding-right: 20px;font-size: 14px;font-family: 'Microsoft Yahei';color:#BA6536;}
 .nav_sign_tip .sign-info .day em{font-size: 32px;font-weight: bold;position:relative;top:2px;color:#BA6536;}
 .nav_sign_tip .sign-info .info{padding-left: 70px;margin-top: 25px;}
@@ -139,9 +136,9 @@ top: 25px;}
 .nav_sign_tip .sign-info .sign-success{ font:14px/1.5 Microsoft YaHei; color:#F40;}
 .nav_sign_tip .sign-info .tip{ color:#abaaaa; font:12px/1.5 Microsoft Yahei; word-break:break-all; word-wrap:break-word;}
 .nav_sign_tip .sign-info .tip h6{ font-weight:bold;}
-    /* ¼ÓÔØÖÐ */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .nav_sign_tip .sign-load{ width:270px; height:70px; background:url("http://i.fanhuan.com/images/site_master/load.gif") center center no-repeat;}
-    /* Ç©µ½Ê§°Ü */
+    /* Ç©ï¿½ï¿½Ê§ï¿½ï¿½ */
 .nav_sign_tip .sign-fail{ width:270px; height:70px; text-align:center; font:14px/70px Microsoft YaHei; color:#afafaf;}
 .nav_sign_tip .sign-fail a{ color:#7cc6e9;}
 .nav_sign_tip .sign-fail a:hover{ text-decoration:underline;}
@@ -150,16 +147,16 @@ top: 25px;}
 .nav_sign_pop{ width:222px; height:30px; padding:5px 0; position:absolute; right:0; top:40px; overflow:hidden; text-align:center; font:bold 14px/30px Microsoft Yahei; color:#525252; background:url("http://i.fanhuan.com/images/site_master/bg-jrqd-success.jpg") 0 0 no-repeat; border:1px solid #faebc4; box-shadow:2px 2px 2px rgba(11,3,6,0.1);}
 .nav_sign_pop strong{ color:#F40;}
 .nav_sign_pop strong b{ font-family:Microsoft YaHei; font-size:24px; font-weight:normal; vertical-align:middle; margin-bottom:5px;}   
-   /*2014-8-28 hyx Ê×Ò³appÏÂÔØÈë¿Úlogo*/
+   /*2014-8-28 hyx ï¿½ï¿½Ò³appï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½logo*/
 .nav_appdolow_logo{display:inline-block;float:right;margin-left:50px;padding-top:7px;}
-   /*2014-8-28 hyx ¶þÎ¬ÂëÉ¨Ãè*/
+   /*2014-8-28 hyx ï¿½ï¿½Î¬ï¿½ï¿½É¨ï¿½ï¿½*/
 .nav_app_ewm{display:none;position:absolute;right:0px;top:45px;padding:10px;background:#fff;border:1px solid #c3d2dc;box-shadow:1px 1px 4px rgba(11,3,6,0.2),0 -1px 0 #fff inset;}
 #mbAPP .nav_app_ewm{right: 55px;_right:105px;top:-78px;}     
 .nav_app_ewm p{width:120px;color:#1c1c1c;font:12px Microsoft Yahei;margin-top:10px;text-align:center;}
 
-/*ÉÌÆ·¾Ù±¨£¨2015.5.13£©*/
+/*ï¿½ï¿½Æ·ï¿½Ù±ï¿½ï¿½ï¿½2015.5.13ï¿½ï¿½*/
 .m-report{width: 500px;background: white;}
-.m-report h2{font-weight: bold;font: 24px "Î¢ÈíÑÅºÚ";text-align: center;background: #2f97f0;color: #fff;padding: 10px 0;cursor:move;position:relative;}
+.m-report h2{font-weight: bold;font: 24px "Î¢ï¿½ï¿½ï¿½Åºï¿½";text-align: center;background: #2f97f0;color: #fff;padding: 10px 0;cursor:move;position:relative;}
 .m-report .cont{padding: 30px;}
 .m-report .cont h3{font-size: 14px;}
 .m-report .form-list{}

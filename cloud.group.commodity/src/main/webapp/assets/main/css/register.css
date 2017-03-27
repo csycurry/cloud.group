@@ -12,7 +12,7 @@
 .loginCtn .piece{margin-top:15px;width: 560px}
 .loginCtn .piece .text{width:110px;line-height:35px;text-align:right;font-size:16px;margin-right:5px}
 .loginCtn .piece input{width:300px;}
-.loginCtn .piece input[type="button"]{width:100px;}
+.loginCtn .piece input[type="button"]{width:120px;}
 .loginCtn .authCode input{width:150px;}
 .loginCtn .authCode .btn{width:100px;margin-left:20px;border-radius:20px;background:#fe4600;border-color:#fe4600;outline:none;}
 .loginCtn .deal{padding-left:86px;color:#9f9f9f;}
@@ -32,8 +32,8 @@
 .clearfix:after {display: block;clear: both;height: 0;overflow: hidden;content: "";}
 .header, .content{width:930px;margin:0 auto}
 .logo{float:left;width:173px;height:50px;margin-top:26px}
-.login_logo{background:url(//i.fanhuan.com/images/passport/login_logo.png) no-repeat;}
-.reg_logo{background:url(//i.fanhuan.com/images/passport/reg_logo.png) no-repeat;}
+.login_logo{background:url(/assets/main/img/logo.png) no-repeat;}
+.reg_logo{background:url(/assets/main/img/logo.png) no-repeat;}
 .union_login_logo{width:222px;background:url(//i.fanhuan.com/images/passport/union_login_logo.png) no-repeat;}
 
 #footer{position:relative;}

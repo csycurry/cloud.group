@@ -11,12 +11,12 @@ if ($.cookie("NLRAF") == null && !/favorite|desk|zt11/.test(location.search)) {
             var explorer = window.navigator.userAgent;
             if (explorer.indexOf("Firefox") >= 0 || explorer.indexOf("Chrome") >= 0) {
                 //firefox chrome 360 qq
-                $("#s_toptitle").text("按 Ctrl+D，把返还网加入收藏夹，购物更省钱！");
+                $("#s_toptitle").text("按 Ctrl+D，把 聚宝师加入收藏夹，购物更省钱！");
             } else if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
                 //判断是否是ie11
-                $("#s_toptitle").text("按 Ctrl+D，把返还网加入收藏夹，购物更省钱！");
+                $("#s_toptitle").text("按 Ctrl+D，把聚宝师加入收藏夹，购物更省钱！");
             } else {
-                $("#s_toptitle").text("网购，不要忘了用返还网省钱哦，您可以把返还网：");
+                $("#s_toptitle").text("网购，不要忘了用聚宝师省钱哦，您可以把聚宝师：");
                 $(".afpa").css("display", "");
                 $(".desktop").css("display", "");
             }
@@ -59,17 +59,6 @@ function GetAdtype() {
     if (keyWords.indexOf("taobao") != -1 || keyWords.indexOf("%E6%B7%98%E5%AE%9D") != -1 || keyWords.indexOf("%CC%D4%B1%A6") != -1) {
         if (keyWords.indexOf("shangcheng") != -1 || keyWords.indexOf("%E5%95%86%E5%9F%8E") != -1 || keyWords.indexOf("%C9%CC%B3%C7") != -1) { return "sc"; }
         return "tb";
-    }
-}
-var _adtype = GetAdtype();
-if (_adtype != undefined && CurrentUser.UserId == undefined && $.cookie("userName") == null && $.cookie("user_name") == null) {
-    if (_adtype != "tm") {
-        CreateJScript('ShowInfo', 'https://passport.fanhuan.com/ajax/getclientinfo?callback=ShowInfo&_=0.8711712812796429');
-        setTimeout(function () {
-            if (!$.cookie("FH_TaobaoOrTmallGuider_over")) {
-                FH_TaobaoOrTmallGuider($("#_userInfo_count").val(), /(tm)|(sc)/.test(_adtype) ? "tmall" : "taobao");
-            }
-        }, 300);
     }
 }
 //获取用户数

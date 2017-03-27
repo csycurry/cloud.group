@@ -1,7 +1,7 @@
 package com.csy.commodity.emus;
 
 public enum ShopTypeEn {
-	Message((byte)1,"淘宝"),Email((byte)2,"天猫");
+	TB((byte)1,"淘宝"),Tmail((byte)2,"天猫");
 	private Byte code;
 	private String mean;
 	

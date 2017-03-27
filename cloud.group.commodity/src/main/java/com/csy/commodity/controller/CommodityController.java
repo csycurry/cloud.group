@@ -1,5 +1,6 @@
 package com.csy.commodity.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.csy.banner.domain.dto.NewsBannerDto;
+import com.csy.banner.domain.dto.NewsBannerSearchDto;
+import com.csy.banner.domain.manager.NewsBannerManager;
 import com.csy.base.controller.BaseController;
 import com.csy.commodity.dto.CommodityDTO;
 import com.csy.commodity.dto.CommoditySearchDTO;
@@ -18,6 +22,9 @@ import com.csy.util.ResponseJson;
 @Controller
 public class CommodityController extends BaseController{
 	@Autowired
+	private NewsBannerManager newsBannerManager;
+
+	@Autowired
 	private CommodityManager commodityManager;
 	@RequestMapping(value="/commodity/page")
 	@ResponseJson
@@ -27,9 +34,16 @@ public class CommodityController extends BaseController{
 		return pagination;
 	}
 	@RequestMapping(value="/index")
-	public String index()
+	public ModelAndView index()
 	{
-		return "index";
+		ModelAndView modelAndView = new ModelAndView("/index");
+		Map<String, Object> map = modelAndView.getModel();
+		NewsBannerSearchDto bannerSearchDto = new NewsBannerSearchDto();
+		bannerSearchDto.setType((byte)1);
+		bannerSearchDto.setStatus((byte)1);
+		List<NewsBannerDto> bannerDtos = newsBannerManager.viewList(bannerSearchDto);
+		map.put("banners", bannerDtos);
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/commodity/detail")

@@ -3,7 +3,7 @@
 .headeBlock{ z-index:9999;}
 .fixed{position:fixed; top:20px;_position:absolute; _top:expression(((noValue = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');}
 .fixed #header{height:68px;}
-.newlogoshowindex{width:310px;height: 53px;background: url("/assets/main/img/logo.png") no-repeat;position: absolute;top:19px;display: block;}
+.newlogoshowindex{width:310px;height: 70px;background: url("/assets/main/img/logo.png") no-repeat;position: absolute;top:10px;display: block;}
 .cgf-list{display:none}
 #header .blue #search {background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;}
 #header .blue #searchInputImage{background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;background-position:-445px 0;}
@@ -12,11 +12,11 @@
 /*tab切换*/
 .cgf-list .list_box_m{min-height:1416px;}
 .index_tab{border-bottom:3px solid #e6e6e6;line-height:30px; margin-top:-10px;}
-.index_tab .bh-fr{font-size:14px;color:#666; background:url(http://i.fanhuan.com/images/icon_clock_gray.png?v=20160331) no-repeat; padding-left:26px; background-position:0 4px; position:relative;top:4px;}
+.index_tab .bh-fr{font-size:12px;color:#666; padding-left:26px; background-position:0 4px; position:relative;top:4px;}
 .index_tab ul{ position:relative; top:3px;}
-.index_tab ul li{float:left;margin-right:25px; padding-bottom:3px;}
-.index_tab ul li.curr{border-bottom:3px solid #2f97f0;}
-.index_tab ul li.curr a{color:#2f97f0}
+.index_tab ul li{float:left; padding-bottom:3px;}
+.index_tab ul li.curr{border-bottom:3px solid #fe6b01;}
+.index_tab ul li.curr a{color:#fe6b01}
 .index_tab ul li a{color:#5e5e5e; font-size:16px; height:30px; display:block}
 .index_tab ul li a:hover{ color:#2f97f0}
 .leimu li a:hover,.rightNow:hover{color:#2f97f0}

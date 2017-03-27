@@ -8,68 +8,115 @@
 	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="assets/js/clipboard.min.js"></script>
 <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />   
 <link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
-<script src="/assets/js/bootstrap-table.min.js"></script>    
+<script src="/assets/js/bootstrap-table.min.js"></script> 
+<script src="/assets/js/jquery.zclip.min.js"></script> 
+   
     <title>
 
 </title>
 </head>
 <body>
-<    
-        <div class="header">
-            
-<script src="http://static.geetest.com/static/tools/gt.js"></script>
-<div class="container mainWidth">
-    <div class="logo pull-left">
-        <img src="" alt="" />
+ <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
+<title></title>
+</head>
+<body>
+	<div class="headerPlaceBlock">
     </div>
-    <ul class="pull-left clearfix">
-        <li><a href="/index.html" target="_blank">首页</a></li>
-    </ul>
-
-     <div class="register pull-right" style="margin-top:15px">
-        
-        <a class="dropdown-toggle abtn pull-left" href="/" style="width:120px">            
-            <span class="apostrophe pull-right" style="width:80px;display:block;color:#f5894e"> 您好：${user.userCode}</span>
-            <img src="assets/main/img/hean.png" alt="" class="pull-right img-circle" style="height: 20px" />
-        </a>
-        <span class="pull-left">|</span>
-        <a id="ctl00_ctl09_linkExit" class="dropdown-toggle abtn" href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)" >
-            <i class="glyphicon glyphicon-off pull-left" ></i>退出
-        </a>
-        
-    </div>
-    <div id="ctl00_ctl09_hiddencode" class="hiddencode" style="display:none">57de586d-b506-4f1f-8313-04c6eea88e77</div>
-</div>
-
-
+    <div class="headeBlock">
+        <div id="header">
+            <div class="inner clearfix" style="position: relative;">
+                <div class="newlogoshowindex" id="header_l" style="display:block">
+                    <a class="gwa" href="/"></a>
+                </div>
+                
+                <div class="newlogoshowtaobao">
+                    <a class="gwa" href="/"></a>
+                    <a class="cgfa" href="/"></a>
+                </div>
+                
+                <div class="home-search clearfix blue">
+                    <div class="search">
+                        <div class="search_input">
+                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
+                                <div class="Text_Ts_Box blue">
+                                    <div class="TextBox">
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <span class="icon-search"></span>
+                                    </div>
+                                    <div class="show J_show" id=""></div>
+                                </div>
+                                <input type="submit" class="searchInputImage" class="blue" value=""/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <input type="hidden" id="homeNavId" value="hs_tb" />
+            </div>
         </div>
-        <section class='user'>
-            <div class="mainWidth container clearfix">
-                <div class="aside pull-left">
-                    <div class="userCenter">
-                        <h3>
-                            <img src="assets/main/img/user.png" />个人中心</h3>
-                        <p class='zh'><span>ID：</span>${user.id}</p>
-                        <p class='zh'><span>账号：</span>${user.userCode}</p>
-                        <p>余<span>&nbsp;&nbsp;&nbsp;</span>额：<span class='orange'>
-                            ${user.balance}
-                            </span>
-                    </div>
+    </div>
 
+    
+    <div class="opacity_background animate_block"></div>
+    <div class="float_search_box animate_block">
+        <div class="content">
+            <div class="logotaobaofanhuan">
+                    <a class="gwa" href="http://taobao.fanhuan.com" target="_blank"></a>
+            </div>
+            <div class="home-search clearfix blue">
+                    <div class="search">
+                        <div class="search_input">
+                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
+                                <div class="Text_Ts_Box blue">
+                                    <div class="TextBox">
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <span class="icon-search"></span>
+                                    </div>
+                                </div>
+                                <input type="submit" class="searchInputImage" class="blue" value=""/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+    
+    <div id="navouter">
+        <div class="navinner clearfix">
+            <div id="nav">
+                <ul> 
+                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">今日好货</a></li>
+                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>热门商品</a> </li>
+                    <li><a class="nav-a act-login" href="/userinfo.html" name="nav-my">我的返还</a></li>
+                    
+                </ul>
+            </div>
+            <div id="nav_notice">
+            </div>
+        </div>
+    </div>
+	<section class='user'>
+	<div class="mainWidth container clearfix">
+                <div class="aside pull-left">
                     <div class="accout">
-                        <h4 class='prl20 orange'>
-                            <img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span></h4>
-                        <p><a href="/userinfo.html">个人中心</a></p>
-                        <p><a href="/userDetail.html">基本信息</a></p>
-                        <p><a href="/affiliates.html">联盟推广</a></p>
+                        <p><a href="/userinfo.html">我的收益</a></p>
+                         <p><a href="/affiliates.html">联盟推广</a></p>
                     </div>
                     <div class="accout">
-                        <h4 class='prl20'>
-                            <img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span></h4>
                         <p><a href="/userPay.html">申请提现</a></p>
-                        <p><a href="/account_CashDeatil.html">我的账本</a></p>
+                        <p><a href="/account_CashDeatil.html">收益记录</a></p>
                         <p><a href="/alipay.html">支付宝信息</a></p>
                     </div>
                 </div>
@@ -103,7 +150,8 @@
                     <span>您的唯一推荐链接</span>
                 </div>
                 <div class="panel-body">
-                	<input type="text" readonly="readonly" value="${url}" style="width: 100%;height: 50px;font-size: 20px;text-align: center;">
+                	<input id="copyTo" type="text" disabled="disabled" data-clipboard-action="copy" data-clipboard-target="#copyTo" value="${url}" style="width: 90%;height: 50px;font-size: 20px;text-align: center;">
+                	<input id="copyBtn" type="button" value="复制" onclick="copy()" style="font-size: 15px">
                 </div>
             </div>
         </div>
@@ -111,27 +159,27 @@
         <ul id="myTab" class="nav nav-tabs">
 			<li class="active">
 				<a href="#one" data-toggle="tab">
-					 一级下线
+					 一级好友
 				</a>
 			</li>
 			<li>
 				<a href="#two" data-toggle="tab">
-					 二级下线
+					 二级好友
 				</a>
 			</li>
 			<li>
 				<a href="#three" data-toggle="tab">
-					 三级下线
+					 三级好友
 				</a>
 			</li>
 			<li>
 				<a href="#four" data-toggle="tab">
-					 四级下线
+					 四级好友
 				</a>
 			</li>
 			<li>
 				<a href="#five" data-toggle="tab">
-					 五级下线
+					 五级好友
 				</a>
 			</li>
 		</ul>
@@ -145,8 +193,8 @@
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
-									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="userName" data-align="center" data-sortable="true">用户名</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人</th>
 									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
 									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
 								</tr>
@@ -243,6 +291,22 @@
 <script type="text/javascript">
 function runningFormatter(value, row, index) {
 	return index + 1;
+}
+
+function copy() {
+	if (window.clipboardData) {
+        window.clipboardData.clearData();
+        window.clipboardData.setData("Text", $("#copyTo").val());
+        alert("已经成功复制到剪帖板上！");
+    }else{
+    	$('#copyBtn').zclip({
+            path: "/assets/js/ZeroClipboard.swf",
+            copy: function(){
+                return $('#copyTo').val();
+  　　　 　　}
+        });
+
+    }
 }
 </script>
 </html>

@@ -19,11 +19,11 @@
     <div class="panel panel-default" style="padding: 20px">
         <div class="panel-body">
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#edit-basic" data-toggle="tab">绑定手机号</a></li>
-                <li class=""><a href="#edit-password" data-toggle="tab">密码修改</a></li>
+                <li class=""><a href="#edit-basic" data-toggle="tab">绑定手机号</a></li>
+                <li class="active"><a href="#edit-password" data-toggle="tab">密码修改</a></li>
             </ul>
             <div class="tab-content profile-edit-tab-content editMail">
-                <div id="edit-basic" class="tab-pane active">
+                <div id="edit-basic" class="tab-pane">
                 <form id="userform">
                     <div class="form-group">
                         <label for="phone" class="col-sm-2 control-label">手机号码</label>
@@ -46,7 +46,7 @@
                     <div class="space-4"></div>
                     </form>
                 </div>
-                <div id="edit-password" class="tab-pane">
+                <div id="edit-password" class="tab-pane active">
                 <form id="pwdForm">
                     <div class="form-group">
                         <label for="txtoldpsd1" class="col-sm-2 control-label">原密码</label>

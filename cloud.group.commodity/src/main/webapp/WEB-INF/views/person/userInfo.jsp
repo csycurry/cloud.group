@@ -11,7 +11,9 @@
 	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
-<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
+    <script type="text/javascript" src="assets/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="assets/js/user_base.js"></script>
+	<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
     <title>
 
 </title>
@@ -19,16 +21,13 @@
 <body>
        <%@include file="user-header.jsp"%>         
     <h3>
-            <img src="assets/main/img/userIcon9.png" />个人中心<span>> 基本信息</span></h3>
+            <img src="assets/main/img/userIcon9.png" />我的收益<span></span></h3>
         <div class="head clearfix">
-            <div class="userImg pull-left">
-                <div class="headImg">
-                    <img style="height: 150px" src="assets/main/img/hean.png" />
-                </div>
-            </div>
             <div class="userCtn pull-left">
-                <p>您好，<span class='username'>${user.userCode}</span></p>
-                <p><span>手机号码：</span>${user.userMobile}</p>
+                <p>您好，<span class='username'>${user.userCode}</span> <input type="button" class="btn" onclick="changePwd()" value="修改密码"	/></p>
+                <p><span>ID：</span>${user.id}</p>
+                <p><span>手机号码：</span>${user.userMobile} <c:if test="${user.userMobile==null||user.userMobile=='' }">
+                <input type="button" onclick="bind()" class="btn" value="绑定手机号"	/></c:if></p>
                 <p><span>QQ 号码：</span>${user.userQq}</p>
                 <p><span>邮<span class='mg'></span>箱：</span>${user.userMail}</p>
                 <p><span>注册日期：</span>${user.createDate}</p>
@@ -38,6 +37,9 @@
                     <img src="assets/main/img/userIcon10.png" />账户余额
                 </div>
                 <div class="balanceCtn">
+                    <p class="jb">
+                        <img src="assets/main/img/money.png" />${user.balance}元宝
+                    </p>
                     <p>可兑换 = ${user.balanceRMB}元</p>
                     <a href="/userPay.html" class='sqtx'>
                         <img src="assets/main//img/sqtx.png" /></a>
@@ -69,6 +71,15 @@
 
                 </div>
         </section>
+<script type="text/javascript">
+	function changePwd(){
+		location.href= "/newpwd.html";
+	}
+	
+	function bind(){
+		location.href= "/userDetail.html";
+	}
+</script>        
 <%@include file="footer.jsp"%>
 </body>
 </html>

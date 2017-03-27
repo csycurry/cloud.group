@@ -26,7 +26,7 @@ else {
     /*改版登陆条开始  by sh*/
     var index = 1;
     if ($.cookie("user_name") == null) {
-        $("#site_userinfo").html("<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login'>QQ登录</a><span class='ver-line'>|</span> <a href=\"javascript:LoginFrom('taobao')\" class='toptb_login' >淘宝登录</a>");
+        $("#site_userinfo").html("<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='assets/images/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a></span>");
         $("#login_link").attr("href", "javascript:Login('index')");
     } else {
         //如果cookie中user_name长度超过27个字符的话，使用省略号
@@ -34,7 +34,7 @@ else {
         if (oCookieUserName.length > 20) {
             oCookieUserName = oCookieUserName.substring(0, 15) + "...";
         }
-        $("#site_userinfo").html("欢迎您 , <span class='user-name f-ellipsis' title=" + oCookieUserName + ">" + oCookieUserName + "</span>&nbsp;&nbsp;<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login'>QQ登录</a><span class='ver-line'>|</span> <a href=\"javascript:LoginFrom('taobao')\" class='toptb_login' >淘宝登录</a>");
+        $("#site_userinfo").html("欢迎您 , <span class='user-name f-ellipsis' title=" + oCookieUserName + ">" + oCookieUserName + "</span>&nbsp;&nbsp;<a href = 'javascript:Login()' id = 'login_link'>请登录</a><span class='ver-line'>|</span><a href = '/promotion.html' target='_blank' class='top_reg' id='top_reg_new'>免费注册</a><span class='ver-line'>|</span><a href=\"javascript:LoginFrom('qq')\" class='topqq_login topqq_login_new'>QQ登录<img src='assets/images/arror.png' class='top-arror'/></a><span class='ver-line'>|</span> <span class='newshowbox'><span class='top-block'></span><a href=\"javascript:LoginFrom('taobao')\" class='toptb_login new-toplogin1' >淘宝登录</a>");
         $(".newshowbox").css({ "right": "10px" });
         $("#login_link").attr("href", "javascript:Login('index')");
     }
@@ -51,12 +51,6 @@ $("#af").mouseover(function () {
     $("#top_star").css("background", "url(assets/images/star.png) no-repeat");
 });
 
-$(".act-login").live("click", function () {
-    if ($.cookie("user_id") == null) {
-        Login();
-        return false;
-    }
-})
 /* 获取URL参数
 * by llm
 */
@@ -120,9 +114,9 @@ $("#shopper_lists li").hover(function () {
         $("#shopper_lists li").removeClass("current");
     }, 300);
 });
-$("#mallLogoList").find("li").live("mouseover", function () {
+$("#mallLogoList").find("li").bind("mouseover", function () {
     $(this).addClass("hover").siblings().removeClass("hover");
-}).live("mouseout", function () {
+}).bind("mouseout", function () {
     $("#mallLogoList").find("li").removeClass("hover");
 });
 
@@ -288,12 +282,12 @@ $(".SearchInputText").focus(function () {
 });
 
 // search suggest
-$(".search_input .sts").live("mouseover", function () {
+$(".search_input .sts").bind("mouseover", function () {
     $(".search_input .sts").removeClass("hover");
     $(this).addClass("hover");
-}).live("mouseout", function () {
+}).bind("mouseout", function () {
     $(this).removeClass("hover");
-}).live("click", function () {
+}).bind("click", function () {
     var navIndex = $("#search_item li.current").attr("id");
     switch (navIndex) {
         case "hs_tb":
@@ -800,54 +794,6 @@ function LoginFrom(site) {
 }
 
 window.code = { isverfiy: false };
-// login box
-function Login(index) {
-    //var login = location.search.split("&tip")[1];
-
-    var index_login = encodeURIComponent("");
-    var other_login = encodeURIComponent("请先登录");
-    $('#TB_window').hide().html("");
-    if (index) {
-        var str = tb_show('', '', '', index_login);
-        Geetcaptcha("#captchaReg", code);
-    } else {
-        tb_show('', '', '', other_login);
-        Geetcaptcha("#captchaReg", code);
-    }
-    $('#TB_window').css({
-        "border": "6px solid #b4b4b4",
-        "border-color": "rgba(0,0,0,0.15)",
-        "background": "none",
-        "width": "640px",
-        "height": "308px",
-        "overflow": "hidden",
-        "z-index": 1002
-    });
-    $("#TB_title").css({
-        "background": "#fff",
-        "border": "0 none",
-        "height": 0
-    }).next("iframe").css({
-        "margin": 0,
-        "height": "324px"
-
-    }).attr({ "scrolling": "no", "frameborder": 0 });
-    $("#TB_ajaxWindowTitle").css({
-        "float": "none",
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeAjaxWindow").css({
-        "float": "none",
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeAjaxWindow_a").css({
-        "padding": 0,
-        "margin": 0
-    });
-    $("#TB_closeWindowButton").html("×").addClass("pop-close");
-}
 
 function LogOut() {
     $.cookie("user_id", null, { path: "/", expires: -1, domain: _domain });
@@ -1256,7 +1202,7 @@ function SetServerLink(link) {
 }
 
 
-$('.navfirst').live('click', function () {
+$('.navfirst').bind('click', function () {
     $.cookie("product_cur_catename", "", { path: "/", expires: -1, domain: _domain });
 });
 
@@ -1310,7 +1256,7 @@ btns.on('click', function () {
             $('body').append(phoneHtml);
         }
         //点击隐藏弹窗
-        $(".pop-close,.next-close,#bind-phone").live("click", function () {
+        $(".pop-close,.next-close,#bind-phone").bind("click", function () {
             $.cookie(cookieName, 'F%8i3%5fg,45.@/123,y52rtD.6#$', { path: "/", expires: 7, domain: _domain });
             $(".TB_overlayBG").hide();
             $(".opacity-bg-box").hide();
@@ -1338,16 +1284,6 @@ btns.on('click', function () {
 //    // imgLoadError
 function imgLoadError(obj) {
     obj.src = 'http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129';
-}
-// 判断ie版本
-var isIE_6 = false,
-        isIE_7 = false;
-if ($.browser.msie) {
-    if ($.browser.version == "6.0") {
-        isIE_6 = true;
-    } else if ($.browser.version == "7.0") {
-        isIE_7 = true;
-    }
 }
 // 基础函数(公用)
 var FH = FH || {};
@@ -1561,7 +1497,7 @@ FH.base = {
 $(function () {
     // 用户行为记录分析(通用)
     var btn_jump = $('.J_btn_jump'); // 行为记录标示class（J_btn_jump），其他情况，请禁止使用该class
-    btn_jump.live('click', function () {
+    btn_jump.bind('click', function () {
         var isClick = $(this).attr('status-isClick');
         if (isClick == 1) {
             // 防止重复点击
@@ -1581,7 +1517,7 @@ $(function () {
 
     })
     // 提示登录(需要事先登录的元素，都可以绑定此class（J_login）。其他情况下请不要使用此class)
-    $('.J_login').live('click', function (e) {
+    $('.J_login').bind('click', function (e) {
         if (!CurrentUser.UserName) {
             Login();
             e.preventDefault();
@@ -1639,7 +1575,7 @@ $(".tel_part").mouseenter(function () {
     $(this).removeClass("topz");
     $(this).find("a").eq(0).css("color", "#666");
 })
-if (CurrentUser.UserId == undefined || CurrentUser.UserId == "") {
+if ($.cookie("user_name") == null) {
     $(".top_header_r li").eq(0).hide();
 } else {
     $(".top_header_r li").eq(0).show();

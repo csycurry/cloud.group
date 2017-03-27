@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<div class="serviceCenter">
+	<div class="serviceCenter">
             <ul>
                 
                 <li class="onlineConsultant">
@@ -37,13 +37,6 @@
                         </p>
                         <img src="assets/main/img/center-3.png" class='right' />
                     </div>
-                </li>
-                <li class="BookMark">
-                    <a href="javascript:void(0)" onclick="AddFavorite('聚宝师','www.jubaos.com')">
-                        <img src="assets/main/img/serviceCenter6.png" />
-                        <br />
-                        <span>收藏本站</span>
-                    </a>
                 </li>
                 <li class="backTOP">
                     <img src="assets/main/img/serviceCenter7.png" />
@@ -89,7 +82,6 @@
             </div>
         </div>
     </div>
-    <script  src="http://s95.cnzz.com/stat.php?id=1259812033&web_id=1259812033" language="JavaScript"></script>
 </div>
 
     <script src="assets/index/js/bootstrap.min.js" type="text/javascript"></script>

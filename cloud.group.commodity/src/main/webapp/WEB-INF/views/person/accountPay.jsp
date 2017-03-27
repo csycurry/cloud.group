@@ -19,82 +19,106 @@
 <script type="text/javascript" src="assets/main/js/jquery.cookie.js"></script>
 <script src="/assets/js/bootstrap-table.min.js"></script>
 <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
 <title></title>
 </head>
 <body>
-	<div class="header">
-		<div class="container mainWidth">
-			<div class="logo pull-left">
-				<img src="" alt="" />
-			</div>
-			<ul class="pull-left clearfix">
-				<li><a href="/index.html" target="_blank">首页</a></li>
-			</ul>
+	<div class="headerPlaceBlock">
+    </div>
+    <div class="headeBlock">
+        <div id="header">
+            <div class="inner clearfix" style="position: relative;">
+                <div class="newlogoshowindex" id="header_l" style="display:block">
+                    <a class="gwa" href="/"></a>
+                </div>
+                
+                <div class="newlogoshowtaobao">
+                    <a class="gwa" href="/"></a>
+                    <a class="cgfa" href="/"></a>
+                </div>
+                
+                <div class="home-search clearfix blue">
+                    <div class="search">
+                        <div class="search_input">
+                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
+                                <div class="Text_Ts_Box blue">
+                                    <div class="TextBox">
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <span class="icon-search"></span>
+                                    </div>
+                                    <div class="show J_show" id=""></div>
+                                </div>
+                                <input type="submit" class="searchInputImage" class="blue" value=""/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <input type="hidden" id="homeNavId" value="hs_tb" />
+            </div>
+        </div>
+    </div>
 
-			<div class="register pull-right" style="margin-top: 15px">
+    
+    <div class="opacity_background animate_block"></div>
+    <div class="float_search_box animate_block">
+        <div class="content">
+            <div class="logotaobaofanhuan">
+                    <a class="gwa" href="http://taobao.fanhuan.com" target="_blank"></a>
+            </div>
+            <div class="home-search clearfix blue">
+                    <div class="search">
+                        <div class="search_input">
+                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
+                                <div class="Text_Ts_Box blue">
+                                    <div class="TextBox">
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <span class="icon-search"></span>
+                                    </div>
+                                </div>
+                                <input type="submit" class="searchInputImage" class="blue" value=""/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 
-				<a class="dropdown-toggle abtn pull-left" href="/"
-					style="width: 120px"> <span class="apostrophe pull-right"
-					style="width: 80px; display: block; color: #f5894e">
-						您好：${user.userCode}</span> <img src="assets/main/img/hean.png" alt=""
-					class="pull-right img-circle" style="height: 20px" />
-				</a> <span class="pull-left">|</span> <a id="ctl00_ctl09_linkExit"
-					class="dropdown-toggle abtn"
-					href="javascript:__doPostBack(&#39;ctl00$ctl09$linkExit&#39;,&#39;&#39;)">
-					<i class="glyphicon glyphicon-off pull-left"></i>退出
-				</a>
-
-			</div>
-			<div id="ctl00_ctl09_hiddencode" class="hiddencode"
-				style="display: none">57de586d-b506-4f1f-8313-04c6eea88e77</div>
-		</div>
 
 
-	</div>
+    
+    <div id="navouter">
+        <div class="navinner clearfix">
+            <div id="nav">
+                <ul> 
+                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">今日好货</a></li>
+                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>热门商品</a> </li>
+                    <li><a class="nav-a act-login" href="/userinfo.html" name="nav-my">我的返还</a></li>
+                    
+                </ul>
+            </div>
+            <div id="nav_notice">
+            </div>
+        </div>
+    </div>
 	<section class='user'>
 	<div class="mainWidth container clearfix">
-		<div class="aside pull-left">
-			<div class="userCenter">
-				<h3>
-					<img src="assets/main/img/user.png" />个人中心
-				</h3>
-				<p class='zh'>
-					<span>ID：</span>${user.id}</p>
-				<p class='zh'>
-					<span>账号：</span>${user.userCode}</p>
-				<p>
-					余<span>&nbsp;&nbsp;&nbsp;</span>额：<span class='orange'>
-						${user.balance} </span> 
-				</p>
-			</div>
-
-			<div class="accout">
-				<h4 class='prl20'>
-					<img src="assets/main/img/userIcon3-2.png" class='icon' /><span>账号设置</span>
-				</h4>
-				<p>
-					<a href="/userinfo.html">个人中心</a>
-				</p>
-				<p>
-					<a href="/userDetail.html">基本信息</a>
-				</p>
-				<p><a href="/affiliates.html">联盟推广</a></p>
-			</div>
-			<div class="accout">
-				<h4 class='prl20 orange'>
-					<img src="assets/main/img/userIcon4-1.png" class='icon' /><span>我的资产</span>
-				</h4>
-				<p>
-					<a href="/userPay.html">申请提现</a>
-				</p>
-				<p>
-					<a href="/account_CashDeatil.html">我的账本</a>
-				</p>
-				<p>
-					<a href="/alipay.html">支付宝信息</a>
-				</p>
-			</div>
-		</div>
+                <div class="aside pull-left">
+                    <div class="accout">
+                        <p><a href="/userinfo.html">我的收益</a></p>
+                         <p><a href="/affiliates.html">联盟推广</a></p>
+                    </div>
+                    <div class="accout">
+                        <p><a href="/userPay.html">申请提现</a></p>
+                        <p><a href="/account_CashDeatil.html">收益记录</a></p>
+                        <p><a href="/alipay.html">支付宝信息</a></p>
+                    </div>
+                </div>
 		<div class="userContent pull-left">
 			<script>
 				function accout() {
@@ -131,9 +155,9 @@
 					<hr style="color: #6D6D6D" />
 					<p>
 						提现说明：提现金额为1元的整数倍，满<span class="red" style="font-size: 18px">1元</span>即可提现,管理员确认后<span
-							class="red" style="font-size: 18px">48小时内</span>支付玩家
+							class="red" style="font-size: 18px">48小时内</span>给您提现
 					</p>
-					<p>官网申明：提现前请确认自己的收款账号无误，我们只支付一次支付后由于收款账号问题造成的资金退回、冻结、消失本站概不负责。
+					<p>官网申明：提现前请确认自己的收款账号无误
 					</p>
 				</div>
 				<div class="col-md-12">
@@ -149,13 +173,13 @@
 									<div class="form-group">
 										<p>
 											<span style="width: 100px; display: inline-block">
-												账户余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
+												可提现余额：</span><span id="ctl00_ContentPlaceHolder1_lbleftmoney"
 												style="color: #478fca !important; line-height: 21px; font-size: 22px">${user.balanceRMB}</span>元
 										</p>
 									</div>
 									<div class="form-group">
 										<p>
-											<span style="width: 100px; display: inline-block">收款账户：</span><span
+											<span style="width: 100px; display: inline-block">支付宝账户：</span><span
 												id="ctl00_ContentPlaceHolder1_lbZhiFuBao"
 												style="color: #dd5a43; line-height: 15px; font-size: 16px">${user.userCode}</span>
 										</p>
@@ -182,14 +206,8 @@
 										<p>
 											<span style="width: 100px; display: inline-block">提现金额：</span><input
 												name="amount" type="text"
-												id="ctl00_ContentPlaceHolder1_askmoney" placeholder="单位是元"
+												id="ctl00_ContentPlaceHolder1_askmoney" placeholder="请输入1的整数倍"
 												style="width: 300px;" />
-										</p>
-									</div>
-									<div id="ctl00_ContentPlaceHolder1_div1" class="form-group">
-										<p>
-											点击获取短信：<input type="button" data-mode="1" value="发送验证码"
-												class="btn btn-sm btn-info phoneverify" />
 										</p>
 									</div>
 									<div id="ctl00_ContentPlaceHolder1_divVerify"
@@ -197,7 +215,8 @@
 										<p>
 											验证码：<input id="mobileCode" name="code" type="text"
 												id="ctl00_ContentPlaceHolder1_txtlistenNumer"
-												placeholder="请填写验证码" />
+												placeholder="请填写验证码" /> <input type="button" data-mode="1" value="发送验证码"
+												class="btn btn-sm btn-info phoneverify" />
 										</p>
 									</div>
 

@@ -18,6 +18,8 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
 
     private String userMail;
     
+    private String phone;
+    
     private String userPwd;
 
     
@@ -59,6 +61,14 @@ public class UserSearchDTO extends BasePageDTO implements Serializable{
 
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
     
     

@@ -360,6 +360,10 @@ public class UserManager {
 		{
 			criteria.andUserNameLike(searchDTO.getUserName()+"%");
 		}
+		if(StringUtils.isNotEmpty(searchDTO.getPhone()))
+		{
+			criteria.andUserMobileLike(searchDTO.getPhone()+"%");
+		}
 		example.setOrderByClause("create_time desc");
 		return example;
 	}

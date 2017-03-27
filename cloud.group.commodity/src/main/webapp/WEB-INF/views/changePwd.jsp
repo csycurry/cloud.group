@@ -6,12 +6,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
-	XXX
+	聚宝师
 </title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="keywords" content="" />
+<meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description"
-	content="" />
+	content="聚宝师是一个玩游戏、体验产品赚积分。玩家可以通过玩游戏赚钱，打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
 <link href="/assets/index/css/bootstrap.css" type="text/css"
 	rel="stylesheet" />
 <link href="/assets/main/css/common.css" type="text/css"
@@ -51,11 +51,12 @@ ul, li {
 <link type="text/css" rel="stylesheet" href="/assets/main/css/login1.css" />
 </head>
 <body>
-    <%@include file="user-header.jsp"%>
 	<script src="assets/main/js/dialog.js" type="text/javascript"></script>
 	<script src="assets/main/js/common.js" type="text/javascript"></script>
 	<script src="http://static.geetest.com/static/tools/gt.js"></script>
-   
+   <div class="header clearfix">
+        <a class="logo reg_logo" href="/"></a>
+    </div>
     <section class='login1 login' style="
     padding-top: 70px;">
         <div class="container mainWidth">
@@ -410,7 +411,6 @@ ul, li {
     </script>
 
         <div id="ctl00_hiddencode" class="hiddencode" style="display: none">120bfad6-5f42-4fbf-a6e6-5b2e4bc7a751</div>
-        <%@include file="footer.jsp"%>   
     <script type="text/javascript">
         $(function () {
             (function () {

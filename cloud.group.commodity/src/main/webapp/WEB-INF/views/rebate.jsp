@@ -43,9 +43,6 @@
         var bIsAndroid = sUserAgent.match(/android/i) == "android";
         var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
         var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-            window.location.href = "/";
-        };
     };
     if (location.href.indexOf("?view=pc") < 0) {
         browserRedirect();
@@ -64,12 +61,7 @@
 <body>
     <div class="top_content">
         <div id="top_header">
-            <span class="top_header_newl"><a id="af" class="top_word" href="javascript:void(0)"
-                    onclick="addFavorite(true)">收藏一下</a><span class="ver-line">|</span> </span>
             <div class="top_header_r">
-                <ul>
-                    <li class="invite_link"><a href="/help.html" target="_blank">帮助</a></li>
-                </ul>
             </div>
             <div class="top_header_l">
                 <p class="login_info" id="site_userinfo"></p>
@@ -99,7 +91,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="搜商城 或 粘贴淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                     <div class="show J_show" id=""></div>
@@ -130,7 +122,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="搜商城 或 粘贴淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                 </div>
@@ -165,11 +157,11 @@
     
                     <div id="box-play">
 	                    <ul class="img-list">
-                            
-    	                            <li class="cur"  style="background:url('http://image.fanhuan.com/mf/weipinhui2.28%20meizhuanjie20170228150406.jpg?t=1488294248239.6') 49.99% top no-repeat;" data-url="http://image.fanhuan.com/mf/weipinhui2.28%20meizhuanjie20170228150406.jpg?t=1488294248239.6">
-                                        <a href="" class="" target="_blank" hidefocus="true"></a>
+                            <c:forEach items="${banners}" var="b">
+    	                            <li class="cur"  style="background:url('${b.url}') 49.99% top no-repeat;" data-url="√">
+                                        <a href="${b.link}" class="" target="_blank" hidefocus="true"></a>
                                     </li>
-                            
+                            </c:forEach>
                         </ul>
                         <ul class="count-num"></ul>
                     </div>
@@ -194,27 +186,14 @@
     <div class="index_tab clearfix" id="index_tab">
         <div class="fl bh-fl">
             <ul class="clearfix">
-                <li class="curr"><a href="javascript:;" onclick="FH.home.getMAPgoods($(this),1)">今日好货</a></li>
+                <li class="curr"><a href="javascript:;" onclick="FH.home.getMAPgoods($(this),1)">每天早10晚8点上新</a></li>
                 
             </ul>
         </div>
-        <div class="fr bh-fr">每天早10晚8点上新</div>
-    </div>
-    <div class="zdm-wrap-box"></div>
-       <div class="zdm-wrap clearfix">
-       <div class="newrightfie" id="newrightfie">
-            <div style=" position:relative;">
-                <div id="newclose" style=" position:absolute; top:0;right:0; cursor:pointer; width:10px; height:10px;"></div>
-            </div>
-       </div>
-        <div class="zdm-main">
-            <div class="shop-box" id="J_shop_list">
-                <div class="cont" style="display:block;">
-                    
-                    <div class="zdm-list cgf-list home_lists_vbox_1" style="display:block">
-                        <div class="titile-bar" style=" margin-top:7px;">
+        <div class="fr bh-fr">
+			<div class="titile-bar" style=" margin-top:7px;">
                             <ul class="leimu" id="cgfCategory">
-                         
+                        <li><a id="category18" data-id="-1" onclick="FH.home.switchCategory(-1,$(this))" target="_blank">精选</a></li>
                         <li><a id="category18" data-id="0" onclick="FH.home.switchCategory(0,$(this))" target="_blank">全部</a></li>
                                 
                         <li><a id="category19" data-id="1" onclick="FH.home.switchCategory(1,$(this))" target="_blank">食品</a></li>
@@ -240,6 +219,20 @@
                             
                             
                         </div>
+		</div>
+    </div>
+    <div class="zdm-wrap-box"></div>
+       <div class="zdm-wrap clearfix">
+       <div class="newrightfie" id="newrightfie">
+            <div style=" position:relative;">
+                <div id="newclose" style=" position:absolute; top:0;right:0; cursor:pointer; width:10px; height:10px;"></div>
+            </div>
+       </div>
+        <div class="zdm-main">
+            <div class="shop-box" id="J_shop_list">
+                <div class="cont" style="display:block;">
+                    
+                    <div class="zdm-list cgf-list home_lists_vbox_1" style="display:block">
                         <ul id="J_box_cgf" class="clearfix list_box_m" style="position:relative"></ul>  
                     </div>
                     <div class="cgf-list home_lists_vbox_2">

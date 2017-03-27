@@ -5,7 +5,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csy.base.controller.BaseController;
@@ -16,6 +19,7 @@ import com.csy.exception.BusinessException;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.util.ResponseJson;
+import com.csy.util.XSSFWorkbookUtil;
 
 @Controller
 public class CommodityController extends BaseController{
@@ -72,10 +76,40 @@ public class CommodityController extends BaseController{
 		commodityManager.remove(id);
 	}
 	
+	@RequestMapping(value="/backstage/commodity/choice")
+	@ResponseJson
+	public @ResponseBody void choice(Long id)
+	{
+		commodityManager.choice(id);
+	}
+	
+	
 	@RequestMapping(value="/backstage/commodity/commodityForm")
 	public String MissionForm()
 	{
 		return "/manager/commodity/commodityForm";
 	}
+	
+	/**
+     * 导入佣金
+     * @throws Exception
+     */
+    @RequestMapping(value = "/backstage/commodity/importEx", method = RequestMethod.POST)
+    @ResponseJson
+    public @ResponseBody void importCode(@RequestParam("file") MultipartFile file,int type) throws Exception {
+        if (file.getOriginalFilename().indexOf("xlsx") < 0&&file.getOriginalFilename().indexOf("xls") < 0)
+            throw new BusinessException("文件格式错误，只支持后缀为xlsx的Excel");
+        String[][] bodys = null;
+        if(file.getOriginalFilename().indexOf("xlsx")>0)
+        {
+        	bodys = XSSFWorkbookUtil.readWorkBook(file.getInputStream(), 1);
+        }
+        else if(file.getOriginalFilename().indexOf("xls") > 0)
+        {
+        	bodys = XSSFWorkbookUtil.readHssWorkBook(file.getInputStream(), 1);
+        }
+        System.out.println(bodys.toString());
+        commodityManager.inserBatch(bodys, type,getLoginStaffCode());
+    }
 	
 }

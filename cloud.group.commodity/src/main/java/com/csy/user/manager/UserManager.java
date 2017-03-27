@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.csy.commodity.manager.SmsManager;
 import com.csy.common.redis.annotation.Cache;
+import com.csy.config.domain.dto.SystemConfigDTO;
+import com.csy.config.domain.emus.ConfigEn;
+import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.MissionSignMapperExt;
 import com.csy.dao.UserLevelMapperExt;
 import com.csy.dao.UserMapperExt;
@@ -44,6 +47,8 @@ public class UserManager {
 	private UserLevelMapperExt userLevelMapperExt;
 	@Autowired
 	private RebateManager rebateManager;
+	@Autowired
+	private SystemConfigManager systemConfigManager;
 	
 	public Pagination<UserDTO> pageSearch(UserSearchDTO searchDTO)
 	{
@@ -143,7 +148,8 @@ public class UserManager {
 		UserDTO dto = new UserDTO();
 		BeanUtils.copyProperties(user, dto);
 		dto.setCreateDate(DateUtil.toLocaleString(dto.getCreateTime(), DateUtil.YYYY_MM_DD_HH_DD_SS));
-		dto.setBalanceRMB(dto.getBalance());
+		SystemConfigDTO configDTO =systemConfigManager.detail(ConfigEn.exchangerate.getCode());
+		dto.setBalanceRMB(dto.getBalance()/Integer.valueOf(configDTO.getConfigValue()));
 		return dto;
 	}
 	

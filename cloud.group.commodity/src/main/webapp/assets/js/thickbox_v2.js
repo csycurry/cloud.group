@@ -10,12 +10,11 @@
                                 '<form class="form-login" method="post" action = "">' +
                                     '<div class="form-item" style="z-index:3;">' +
                                         '<label for="login_mail_2" class="label">账&nbsp;&nbsp;号</label>' +
-                                        '<input type="text" tabindex="1" id="login_mail_2" name="identifier" value = "' + ($.cookie("cookie_user") || "") + '" class="txt txt-1 auto_input"   maxlength="40" />' +
-                                        '<p class="default-val" style="">手机号 / 用户名 / 邮箱 </p>' +
+                                        '<input type="text" tabindex="1" id="login_mail_2" name="identifier" placeholder="请输入手机号/用户名/邮箱" value = "' + ($.cookie("cookie_user") || "") + '" class="txt txt-1 auto_input"   maxlength="40" />' +
                                     '</div>' +
                                     '<div class="form-item" style="z-index:2;">' +
                                         '<label for="reg_pass" class="label">密&nbsp;&nbsp;码</label>' +
-                                        '<input type="password" tabindex="2" id="reg_pass" class="txt txt-1" name="password"/>' +
+                                        '<input type="password" tabindex="2" id="reg_pass" class="txt txt-1" name="password" placeholder="请输入密码"/><a href="/password.html" target="_blank" class="link-forget" style="margin-left:10px">忘记密码？</a>' +
                                         '<div class="poptip-pass" style="display:none;"><b class="wai">◆</b><b class="nei">◆</b><div class="bg"></div>大写锁定已打开</div>' +
                                     '</div>' +
                                     '<div class="form-item" style="z-index:5;">'+

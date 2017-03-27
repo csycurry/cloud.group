@@ -99,6 +99,20 @@ var remove = function(id)
 		});    
 }
 
+var choice = function(id)
+{
+	layer.open({
+		  content: '是否确定加精',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			  var data = {"id":id};
+			  httpJsonPost("/backstage/commodity/choice.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});    
+}
 
 
 $('.form_datetime').datetimepicker({

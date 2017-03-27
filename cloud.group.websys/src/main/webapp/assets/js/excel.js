@@ -76,7 +76,37 @@ $(function() {
 
 			});
 		
-		
+		$('#commodity_upload')
+		.uploadify(
+		{
+			'swf' : '/assets/uploadify/uploadify.swf',
+			'uploader' : '/backstage/commodity/importEx.json',
+			'height' : 25,
+			'whith' : 120,
+			'auto' : false,
+			'fileObjName' : 'file',
+			'buttonText' : '选择文件...',
+			'fileTypeExts' : '*.*',
+			'formData'	: {"missionId":$("#missionId").val()},
+			'multi' : false,
+			'method' : 'post',
+			'debug' : false,
+			'onUploadStart' : function(file) {
+				var param = {};
+				param.picHref = $('#file_upload_href').val();
+				$("#file_upload").uploadify("settings",
+						"formData", param);
+			},
+			'onUploadSuccess' : function(file, data, response) {
+				successList(data);
+			},
+			'onUploadError' : function(file, errorCode,
+					errorMsg, errorString) {
+				alert('文件： ' + file.name + ' 上传失败 '
+						+ errorString + errorMsg);
+			}
+
+		});
 });
 
 function deloperate(id) {

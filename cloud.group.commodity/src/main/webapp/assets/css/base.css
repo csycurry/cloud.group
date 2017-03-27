@@ -1,10 +1,5 @@
 @font-face {
 	font-family: 'king';
-	src:url('//i.fanhuan.com/images/site_master/fonts/king.eot?uyhzzi0626');
-	src:url('//i.fanhuan.com/images/site_master/fonts/king.eot?#iefixuyhzzi0626') format('embedded-opentype'),
-		url('//i.fanhuan.com/images/site_master/fonts/king.woff?uyhzzi0626') format('woff'),
-		url('//i.fanhuan.com/images/site_master/fonts/king.ttf?uyhzzi0626') format('truetype'),
-		url('//i.fanhuan.com/images/site_master/fonts/king.svg?uyhzzi#king0626') format('svg');
 	font-weight: normal;font-style: normal;}
 .iconfont{ font-family:'king'; font-style: normal; font-variant: normal; font-weight: normal; font-size:16px; line-height:1; speak: none; text-transform: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
 .fn-hide{ display:none;}
@@ -13,11 +8,9 @@
 .f-block{display:block;}
 .f-ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .f-break{word-wrap:break-word;word-break:break-all;}
-/* ��ʾλ�� */
 .f-tc{text-align:center;}
 .f-tl{text-align:left;}
 .f-tr{text-align:right;}
-/* ���� */
 .f-song{font-family:"SimSun";}
 .f-yahei{font-family:"Microsoft YaHei";}
 .f-tahoma{font-family:"tahoma" !important;}
@@ -72,13 +65,13 @@
 .f-rotate:hover{-webkit-transform: rotate(45deg);transform: rotate(45deg);}
  .s-red{color:#d10000;}
  .s-orange{color:#f40;}
- .m-loading{width:100%;height:200px;background:url(http://i.fanhuan.com/images/loading_home.gif?v=20140704) no-repeat center center #fff;margin:0 auto;}
+ .m-loading{width:100%;height:200px;background:url(/assets/images/loading_home.gif) no-repeat center center #fff;margin:0 auto;}
 .txt{ border:1px solid #c5c5c5; line-height:18px; height:18px; padding:3px 5px; background:#ffffff;}
 .txt-num{ width:100px;}
 .txt-price{ width:50px; margin-right:10px;}
 .txt-info{ width:140px;}
 .required{ color:#ff0000;}
-.btn,.btn span{ display:inline-block; background:url(http://i.fanhuan.com/images/site_master/btn_site.png?v=2015012102);background-position: 0 0; background-repeat: no-repeat; cursor:pointer;}
+.btn,.btn span{ display:inline-block; background:url(/assets/images/btn_site.png);background-position: 0 0; background-repeat: no-repeat; cursor:pointer;}
 .btn{ padding-left:15px; background-position:left 0;}
 .btn span{ padding-right:15px; text-align:center; background-position:right 0; text-align:center; font-family:Tahoma,Microsoft Yahei;}
 .btn:hover,.btn:hover span{ text-decoration:none; }
@@ -194,8 +187,8 @@
 .i-site-kf{ width:16px;height:16px;background-position: -116px 0;_background-position: -116px -2px;margin-bottom: 2px;+vertical-align:top; _vertical-align:middle; _margin-top:7px;}
 .off .i-site-servers{ background-position:-35px -99px;}
 .off .i-site-call{ background-position:-105px -99px;}
-/* top_content ����
- * by cjf 2013-04-15
+/* top_content 
+ * 
  */
 .ver-line{ margin:0 8px 0 7px; display:inline-block; vertical-align:middle; color:#ddd;}
 .login_info .ico-site{ margin-right:5px;} 
@@ -304,14 +297,14 @@
 .search .search_hot a{margin-right:15px; color:#666; font-size:12px;}
 #wrapper{ width:100%; background:#fff; padding:15px 0 50px 0;z-index:10;overflow:hidden;}
 #main{margin:0 auto; width:960px;}
-#navouter{ width:100%; min-width:960px; height:38px; /*position:relative;*/ z-index:110; background:#2f97f0;} 
+#navouter{ width:100%; min-width:960px; height:38px; /*position:relative;*/ z-index:110; background:#fe6b01;} 
 .navinner{ width:960px; margin:0 auto;}
 #nav{ position:relative; z-index:1;}
 #nav li{float:left; display:block; white-space:nowrap; position:relative;}
 #nav li .nav-a{ position:relative; display:inline-block; height:38px; line-height:38px; padding:0 20px; text-align:center;color:#fff;font-size:16px; font-family:"Microsoft Yahei"}
 #nav li a.nav-a:hover,#nav li a.active{ text-decoration:none; cursor:pointer;}
-#nav li a.nav-a:hover{ background:#1280dd;}
-#nav li a.active{ background:#1280dd;}
+#nav li a.nav-a:hover{ background:#ea570c;}
+#nav li a.active{ background:#ea570c;}
 #nav li.nav-tao{ position:relative;}
 #nav li.nav-tao .nav-a{ padding:0 30px; width:60px;}
 #nav li.nav-tao i{ position:absolute; right:15px; top:17px;}
@@ -659,7 +652,7 @@ margin-bottom: 2px;+vertical-align:top; _vertical-align:middle; _margin-top:7px;
 @-moz-document url-prefix() {.newshowbox-user{left:14px;}}
 .ifbindphone{color:#ff4400;font-size:12px;display:none;}
 .kuohao{color:#666;}
-.Hello{width:15px;display:inline-block;}
+.Hello{width:45px;display:inline-block;}
 /*�İ��½������*/
 /*�°�ǩ��*/
 #show-sign-in{width:462px;height:249px;background:#fff9ee;position:absolute;display:none;left:-378px;top:38px;z-index: 2; border-bottom:1px solid #eee;border-left:1px solid #eee;border-right:1px solid #eee;font-family:"Microsoft Yahei";}
@@ -690,8 +683,8 @@ margin-bottom: 2px;+vertical-align:top; _vertical-align:middle; _margin-top:7px;
 .show-get-money:hover{background:#1280dd; color:#fff}
 .gwa{width: 240px;height: 53px;display: block;float: left;}
 .newlogoshowindex{width:310px;height: 53px;background: url("/assets/main/img/logo.png") no-repeat;position: absolute;top:19px;left:0px;display: block;z-index:10000}
-.logotaobaofanhuan{width:190px;height: 50px;background: url("http://i.fanhuan.com/images/logo/taobao-logo.png?v=201604182008") no-repeat;position: absolute;top:0px;left:0px;display: none;}
+.logotaobaofanhuan{width:190px;height: 50px;background: url("/assets/main/img/logo2.png") no-repeat;position: absolute;top:0px;left:0px;display: none;}
 .newlogoshowjiujiu{display: none;}
 .newlogoshowtaobao{display: none;}
-.opacity_background{position:fixed;z-index:9999;top:-50px;left:0;width:100%;height:50px;opacity:0.95;background-color:#4dacfe;}
+.opacity_background{position:fixed;z-index:9999;top:-50px;left:0;width:100%;height:50px;opacity:0.95;background-color:#fe6b01;}
 .headeBlock .home-search-ad{ position:absolute; right:0; top:2px;}

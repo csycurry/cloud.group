@@ -145,7 +145,7 @@
                                 商品类型
                             </th>
                             <th>
-                                销售者名称
+                                卖家名称
                             </th>
                             <th>
                             操作
@@ -165,6 +165,7 @@
 	                            <td>
 	                            	<a href="#"><span class='label label-success' onclick="openDetail(${u.id})">查看</span></a>
 	                            	<a href="#"><span class='label label-fault' onclick="remove(${u.id})">删除</span></a>
+	                            	<a href="#"><span class='label label-fault' onclick="choice(${u.id})">加精</span></a>
 	                            </td>
 	                        </tr>
                         </c:forEach>
