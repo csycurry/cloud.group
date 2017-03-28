@@ -26,7 +26,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>商品查询</span>
+                <span>订单查询</span>
             </h1>
              <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -38,12 +38,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        商品管理
+                                        订单管理
                                     </li>
                                     <li>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>商品查询</li>
+                                    <li class='active'>订单查询</li>
                                 </ul>
                             </div>
         </div>
@@ -52,7 +52,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>商品列表</div>
+            <div class='title'>订单列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -66,51 +66,46 @@
 				<form id="queryForm">
 
 					<div>
-						<span>商品id </span>
-						<input type="text" name="commodityId" value="${u.commodityId}" style="margin-left: 5px; margin-right: 5px;">
-                                    <label class='control-label' for='validation_name'>商品分类</label>
-                                    	<div class='controls'>
-				                        <select name="commodityCategory">
-				                        <c:if test="${m.commodityCategory==null}">
+						<span>用户Id </span>
+						<input type="text" name="userId" value="${u.userId}" style="margin-left: 5px; margin-right: 5px;">
+						
+						<span>商品Id </span>
+						<input type="text" name="missionId" value="${u.missionId}" style="margin-left: 5px; margin-right: 5px;">
+						
+						<span>收益来源</span>
+						<select name="comeFrom">
+				                        <c:if test="${u.comeFrom==null}">
 				                        	<option value="0" selected="selected">请选择</option>
 				                        </c:if>
-				                        <c:if test="${m.commodityCategory!=null}">
-				                        	<option value="${u.commodityCategory}" selected="selected">${u.commodityCategoryMean}</option>
+				                        <c:if test="${u.comeFrom!=null}">
+				                        	<option value="${u.comeFrom}" selected="selected">${u.comeFromMean}</option>
 				                        </c:if>
-				                        	<option value="1"s>食品</option>
-				                        	<option value="2">女装</option>
-				                        	<option value="3">居家</option>
-				                        	<option value="4">母婴童装</option>
-				                        	<option value="5">男装</option>
-				                        	<option value="6">内衣</option>
-				                        	<option value="7">数码家电</option>
-				                        	<option value="8">美妆个护</option>
-				                        	<option value="9">鞋包配饰</option>
-				                        	<option value="10">运动</option>
+				                        	<option value="1">订单</option>
+				                        	<option value="2">推广</option>
 				                        </select>
 						
 						<br/>
-                                    <span>商品时间</span>
+                        <span>创建时间</span>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
-					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='商品开始时间' type="datetime" value='${u.beginTm}'  >
+					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='起始时间' type="datetime" value='${u.beginTm}'  >
 								            <span class='add-on'>
 								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 								            </span>
 					                    </div>
                                 	<span>至</span>
                                         <div class='datetimepicker input-append form_datetime' id='datetimepicker2'>
-					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='商品结束时间' type="datetime" value='${u.endTm}'  >
+					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='截止时间' type="datetime" value='${u.endTm}'  >
 								            <span class='add-on'>
 								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
 								            </span>
-					                    </div>
-						
 
 					</div>
 
 					<div>
 					 <input type="button"
 							style="margin-left: 20px" value="查询" onclick="listpage(1);">
+					<input type="button"
+							style="margin-left: 20px" value="按条件批量审核" onclick="up_batch();">
 					</div>
 
 				</form>
@@ -121,53 +116,62 @@
         <div class='box-content box-no-padding'>
             <div class='responsive-table'>
                 <div class='scrollable-area'>
-                    <table class='table table-bordered table-hover table-striped' style='margin-bottom:0;'>
+                    <table class='table table-bordered table-hover table-striped' style='margin-bottom:0;' data-click-to-select="true">
                         <thead>
                         <tr>
                             <th>
-                                商品Id
+                                用户Id
                             </th>
                             <th>
-                                商品名称
+                                用户名
                             </th>
                             <th>
-         	 单价                    
+         	 					 推荐用户Id                   
                             </th>
                             <th>
-                                商品来源
+         	 					商品Id                   
+                            </th>
+                            <th>
+         	 					商品名称                    
+                            </th>
+                            <th>
+                                金额
+                            </th>
+                            <th>
+                                状态
                             </th>
                              <th>
-                                商品分类
+                                导入时间
                             </th>
-                            <th>
-                            属性　
-                            </th>
-                            <th>
-                                商品类型
-                            </th>
-                            <th>
-                                卖家名称
-                            </th>
+                            <th>审核人</th>
+                            <th>审核时间</th>
                             <th>
                             操作
                             </th>
                         </tr>
                         </thead>
                         <tbody>
+                        
                         <c:forEach items="${list}" var="u">
 	                        <tr>
-	                            <td>${u.commodityId}</td>
-	                            <td style="max-width: 100px">${u.commodityName}</td>
-	                            <td>${u.commodityPrice}</td>
-	                            <td>${u.shopTypeMean}</td>
-	                            <td>${u.commodityCategory}</td>
-	                            <td>${u.choiceness?"精选":""}</td>
-	                            <td>${u.commodityTypeMean}</td>
-	                            <td>${u.sellerName}</td>
+	                            <td>${u.userId}</td>
+	                            <td>${u.userCode}</td>
+	                            <td>${u.earningsFrom}</td>
+	                            <td>${u.missionId}</td>
+	                            <td style="max-width: 100px">${u.missionName}</td>
+	                            <td>${u.earnings}</td>
+	                            <td>${u.statusCn}</td>
+	                            <td><fmt:formatDate value="${u.createTm}" pattern="yyyy-MM-dd HH:mm"/></td>
+	                            <td>${u.settleMan}</td>
+	                            <td><fmt:formatDate value="${u.settleTm}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td>
-	                            	<a href="#"><span class='label label-success' onclick="openDetail(${u.id})">查看</span></a>
-	                            	<a href="#"><span class='label label-fault' onclick="remove(${u.id})">删除</span></a>
-	                            	<c:if test="${!u.choiceness}"><a href="#"><span class='label label-fault' onclick="choice(${u.id})">加精</span></a></c:if>
+	                             <c:if test="${u.status==0}">
+	                             	<a href="#"><span class='label label-success' onclick="up(${u.id})">审核</span></a>
+	                             	<a href="#"><span class='label label-success' onclick="detail(${u.id})">修改</span></a>
+	                             </c:if>
+	                             <c:if test="${u.status!=9}">
+	                             	<a href="#"><span class='label label-warning' onclick="callback(${u.id})">撤回</span></a>
+	                           	</c:if>
 	                            </td>
 	                        </tr>
                         </c:forEach>
@@ -212,4 +216,5 @@
 </div>
 </div>
 </div>
-<script src='assets/js/commodity.js' type='text/javascript'></script>
+
+<script src='assets/js/order.js' type='text/javascript'></script>

@@ -14,9 +14,9 @@ function isScrollTop() {
 if (typeof fp4 != "undefined") {
     $.cookie("cookie_clientid", fp4.get(), { path: "/", expires: 1, domain: "" });
 }
-
+var userName = $.session.get('user_name');
 //判断用户是否登录，显示的内容
-if ($.cookie("user_name") != null) {
+if (userName!= "undefined" && userName != null) {
     $('.iframe_tips').show();
 
     $("#site_userinfo").html("<span class='Hello'>欢迎您 ,</span><a id='formailafter' href='/userinfo.html' target='_blank'>" + $.cookie("user_name") + "</a><a class='logout' href='javascript:LogOut();'>退出</a><span class='ver-line' style='margin-left:6px;'>|</span>");
@@ -852,6 +852,7 @@ function Login(index) {
 function LogOut() {
     $.cookie("user_id", null, { path: "/", expires: -1, domain: _domain });
     $.cookie("user_name", null, { path: "/", expires: -1, domain: _domain });
+    $.session.clear();
     location.href = "/user/loginout.html";
 }
 function ShowPageNum(total, currentpage, pagesize, url, functionname, isdetialed, endMiddlePage) {

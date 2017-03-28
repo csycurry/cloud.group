@@ -105,6 +105,23 @@ public class RebateController extends BaseController{
 		
 	}
 	
+	
+	@RequestMapping(value="/backstage/rebate/orderlist")
+	public ModelAndView orderlist(RebateSearchDTO searchDTO,int page)
+	{
+		ModelAndView modelAndView = new ModelAndView("/manager/order/orderList");
+		Map<String, Object> map= modelAndView.getModel();
+		searchDTO.setCurrentPage(page);
+		searchDTO.setType((byte)9);
+		Pagination<RebateDTO> pagination = rebateManager.pageSearch(searchDTO);
+		map.put("list", pagination.getList());
+		map.put("userNum", pagination.getTotalCount());
+		map.put("u", searchDTO);
+		map.put("currentPage", pagination.getCurrentPageIndex());
+		map.put("pageNum", pagination.getCurrentPage());
+		return modelAndView;
+	}
+	
 	@RequestMapping(value="/backstage/rebate/modify")
 	@ResponseJson
 	public @ResponseBody Boolean modify(RebateDTO dto)

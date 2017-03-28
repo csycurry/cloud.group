@@ -211,8 +211,8 @@
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
-									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="userName" data-align="center" data-sortable="true">用户名</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人</th>
 									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
 									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
 								</tr>
@@ -229,8 +229,8 @@
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
-									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="userName" data-align="center" data-sortable="true">用户名</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人</th>
 									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
 									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
 								</tr>
@@ -247,8 +247,8 @@
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
-									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="userName" data-align="center" data-sortable="true">用户名</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人</th>
 									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
 									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
 								</tr>
@@ -265,8 +265,8 @@
 							<thead>
 								<tr>
 									<th data-formatter="runningFormatter">序号</th>
-									<th data-field="userName" data-align="center" data-sortable="true">妮称</th>
-									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人妮称</th>
+									<th data-field="userName" data-align="center" data-sortable="true">用户名</th>
+									<th data-field="level1Name" data-align="center" data-sortable="true">推荐人</th>
 									<th data-field="createDate" data-align="center" data-sortable="true">注册时间</th>
 									<th data-field="earns" data-align="right" data-sortable="true">我的提成</th>
 								</tr>

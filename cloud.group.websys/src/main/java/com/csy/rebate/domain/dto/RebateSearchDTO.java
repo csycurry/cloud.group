@@ -42,6 +42,14 @@ public class RebateSearchDTO extends BasePageDTO implements Serializable{
     private String settleMan;
     private Byte type;
     private String typeCn;
+    
+    private String beginTm;
+	
+	private String endTm;
+	
+	private int comeFrom;
+	
+	private String comeFromMean;
 	public Integer getId() {
 		return id;
 	}
@@ -143,6 +151,35 @@ public class RebateSearchDTO extends BasePageDTO implements Serializable{
 	}
 	public void setTypeCn(String typeCn) {
 		this.typeCn = typeCn;
+	}
+	public String getBeginTm() {
+		return beginTm;
+	}
+	public void setBeginTm(String beginTm) {
+		this.beginTm = beginTm;
+	}
+	public String getEndTm() {
+		return endTm;
+	}
+	public void setEndTm(String endTm) {
+		this.endTm = endTm;
+	}
+	public int getComeFrom() {
+		return comeFrom;
+	}
+	public void setComeFrom(int comeFrom) {
+		this.comeFrom = comeFrom;
+	}
+	public String getComeFromMean() {
+		if(comeFrom==1){
+			return "订单";
+		}else if(comeFrom==2){
+			return "推广";
+		}
+		return "请选择";
+	}
+	public void setComeFromMean(String comeFromMean) {
+		this.comeFromMean = comeFromMean;
 	}
 	
     

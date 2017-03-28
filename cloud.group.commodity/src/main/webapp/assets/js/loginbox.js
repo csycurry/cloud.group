@@ -74,7 +74,8 @@ function LoginBoxLogin(btn) {
             }
             else if (response.status==1) {
             	$.cookie('user_id', response.data.id); 
-            	$.cookie('user_name', userCode); 
+            	$.cookie('user_name', userCode);
+            	$.session.set('user_name', userCode)
                     top.location.href = "/";
                     return false;
             }

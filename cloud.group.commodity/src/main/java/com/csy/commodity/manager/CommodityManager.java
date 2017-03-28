@@ -69,6 +69,7 @@ public class CommodityManager {
 	private CommodityExample bulidExample(CommoditySearchDTO searchDTO) {
 		CommodityExample example = new CommodityExample();
 		CommodityExample.Criteria criteria = example.createCriteria();
+		criteria.andCouponEndGreaterThanOrEqualTo(DateUtil.getCurrentTime());
 		if(StringUtils.isNotEmpty(searchDTO.getCommodityTitle()))
 		{
 			criteria.andCommodityNameLike("%"+searchDTO.getCommodityTitle()+"%");

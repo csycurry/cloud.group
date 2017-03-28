@@ -153,6 +153,7 @@ public class UserController extends BaseController{
 			cookie.setMaxAge(60*60*24*30); //cookie 保存30天
 			getResponse().addCookie(cookie);
 			getHttpSession().setAttribute("user", dto);
+			getHttpSession().setAttribute("userCode", dto.getUserCode());
 			return dto;
 		}
 		else

@@ -71,7 +71,7 @@ public class RebateManager {
 				BeanUtils.copyProperties(rebate, dto);
 				dto.setStatusCn(RebateStatusEn.toEnum(rebate.getStatus()).getMean());
 				dto.setCreateDate(DateUtil.toLocaleString(rebate.getCreateTm(), DateUtil.YYYY_MM_DD));
-				dto.setTypeCn("打码");
+				dto.setTypeCn("返利");
 				userDTOs.add(dto);
 			}
 			pagination.setRows(userDTOs);
@@ -248,6 +248,9 @@ public class RebateManager {
 		}
 		if (StringUtils.isNotEmpty(searchDTO.getMissionName())) {
 			criteria.andMissionNameLike(searchDTO.getMissionName() + "%");
+		}
+		if(searchDTO.getStatus()!=null){
+			criteria.andStatusEqualTo(searchDTO.getStatus());
 		}
 		criteria.andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		example.setOrderByClause("mission_id desc");

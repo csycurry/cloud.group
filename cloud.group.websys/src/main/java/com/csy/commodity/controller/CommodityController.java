@@ -43,7 +43,7 @@ public class CommodityController extends BaseController{
 	
 	@RequestMapping(value="/backstage/commodity/save")
 	@ResponseJson
-	public @ResponseBody Boolean addMission(CommodityDTO commodityDTO)
+	public @ResponseBody Boolean addCommodity(CommodityDTO commodityDTO)
 	{
 		if(StringUtils.isEmpty(commodityDTO.getCommodityName()))
 		{
@@ -84,14 +84,19 @@ public class CommodityController extends BaseController{
 	}
 	
 	
+	@RequestMapping(value="/backstage/commodity/importcommodity")
+	public String commodityForm()
+	{
+		return "/manager/commodity/importcommodity";
+	}
+	
 	@RequestMapping(value="/backstage/commodity/commodityForm")
-	public String MissionForm()
+	public String commodityImport()
 	{
 		return "/manager/commodity/commodityForm";
 	}
-	
 	/**
-     * 导入佣金
+     * 导入商品
      * @throws Exception
      */
     @RequestMapping(value = "/backstage/commodity/importEx", method = RequestMethod.POST)

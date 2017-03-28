@@ -70,6 +70,8 @@ public class CommodityDTO implements Serializable {
     private String modifior;
     
     private BigDecimal couponPay;
+    
+    private Boolean choiceness;
 
     private static final long serialVersionUID = 1L;
 
@@ -335,6 +337,14 @@ public class CommodityDTO implements Serializable {
 
 	public void setCouponPay(BigDecimal couponPay) {
 		this.couponPay = couponPay;
+	}
+
+	public Boolean getChoiceness() {
+		return choiceness;
+	}
+
+	public void setChoiceness(Boolean choiceness) {
+		this.choiceness = choiceness;
 	}
 
 }

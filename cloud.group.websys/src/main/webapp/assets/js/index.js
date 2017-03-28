@@ -51,6 +51,14 @@ $(function() {
 
 						});
 			});
+	$('.commodityImport').click(
+			function() {
+
+				$('#content').load('/backstage/commodity/importcommodity.json',
+						function(r, s, xhr) {
+
+						});
+			});
 
 	$('.signList').click(
 					function() {
@@ -78,6 +86,14 @@ $(function() {
 	$('.rebatelist').click(
 			function() {
 				$('#content').load('/backstage/rebate/page.json?page=1',
+						function(r, s, xhr) {
+
+						});
+			});
+	
+	$('.orderlist').click(
+			function() {
+				$('#content').load('/backstage/rebate/orderlist.json?page=1',
 						function(r, s, xhr) {
 
 						});

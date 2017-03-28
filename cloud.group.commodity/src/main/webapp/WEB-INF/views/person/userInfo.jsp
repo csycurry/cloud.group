@@ -14,8 +14,10 @@
     <script type="text/javascript" src="assets/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="assets/js/user_base.js"></script>
 	<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
+    <link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<script src="/assets/js/bootstrap-table.min.js"></script>  
     <title>
-
+	聚宝师
 </title>
 </head>
 <body>
@@ -49,22 +51,83 @@
         <div class="userCommon">
             <h4>
                 <img src="assets/main/img/userIcon11.png" />收益记录</h4>
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>结算金额</th>
-                        <th>商品</th>
-                        <th>结算说明</th>
-                        <th>结算状态</th>
-                        <th>结算时间</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                       
-                    </tr>
-                </tbody>
-            </table>
+            <ul id="myTab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#one" data-toggle="tab">
+					 待返还
+				</a>
+			</li>
+			<li>
+				<a href="#two" data-toggle="tab">
+					 已返还
+				</a>
+			</li>
+			<li>
+				<a href="#three" data-toggle="tab">
+					 无返还
+				</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="one">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=1" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="two">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=2" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="three">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=3" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+		</div>
+            
         </div>       
     </div>
 

@@ -385,7 +385,7 @@
     <input type="hidden" id="J_year" value="" />
     <input type="hidden" id="J_month" value="" />
     <div id="forajax" style="display: none"></div>
-    
+    <script type="text/javascript" src="assets/js/jquerysession.js"></script>
     <script type="text/javascript" src="assets/js/json2.js"></script>
     <script type="text/javascript" src="assets/js/thickbox_v2.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>

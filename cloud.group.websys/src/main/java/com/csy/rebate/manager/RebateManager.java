@@ -388,6 +388,22 @@ public class RebateManager {
 		if (StringUtils.isNotEmpty(searchDTO.getMissionName())) {
 			criteria.andMissionNameLike(searchDTO.getMissionName() + "%");
 		}
+		if (StringUtils.isNotEmpty(searchDTO.getBeginTm())) {
+			criteria.andCreateTmGreaterThanOrEqualTo(
+					DateUtil.parse(searchDTO.getBeginTm(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+		}
+		if (StringUtils.isNotEmpty(searchDTO.getEndTm())) {
+			criteria.andCreateTmLessThanOrEqualTo(DateUtil.parse(searchDTO.getEndTm(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+		}
+		if(searchDTO.getType()!=null){
+			criteria.andTypeEqualTo(searchDTO.getType());
+		}
+		if(searchDTO.getComeFrom()==1){
+			criteria.andEarningsFromIsNull();
+		}
+		else if(searchDTO.getComeFrom()==2){
+			criteria.andEarningsFromIsNotNull();
+		}
 		criteria.andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		example.setOrderByClause("mission_id desc");
 		return example;

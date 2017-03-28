@@ -35,8 +35,6 @@
     <link href='assets/stylesheets/plugins/tabdrop/tabdrop.css' media='all' rel='stylesheet' type='text/css' />
     <!-- / jgrowl notifications -->
     <link href='assets/stylesheets/plugins/jgrowl/jquery.jgrowl.min.css' media='all' rel='stylesheet' type='text/css' />
-    <!-- / datatables -->
-    <link href='assets/stylesheets/plugins/datatables/bootstrap-datatable.css' media='all' rel='stylesheet' type='text/css' />
     <!-- / dynatrees (file trees) -->
     <link href='assets/stylesheets/plugins/dynatree/ui.dynatree.css' media='all' rel='stylesheet' type='text/css' />
     <!-- / color picker -->
@@ -56,6 +54,7 @@
     <!-- / demo -->
     <link href='assets/stylesheets/demo.css' media='all' rel='stylesheet' type='text/css' />
     <link href="assets/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+    
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body class='contrast-red '>
 <header>
@@ -308,7 +307,6 @@
 <script src='assets/js/index.js' type='text/javascript'></script>
 <script src='assets/js/global.js' type='text/javascript'></script>
 <script src='assets/layer/layer.js' type='text/javascript'></script>
-
 <script src="assets/uploadify/jquery.uploadify.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 

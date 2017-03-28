@@ -70,10 +70,10 @@
  	</table>
  	<table tableName="user_account" domainObjectName="UserAccount" delimitIdentifiers="true"></table>
  	
- 	
+ 	<table tableName="commodity" domainObjectName="Commodity" delimitIdentifiers="true"></table>
  	
  	<table tableName="user_level" domainObjectName="UserLevel" delimitIdentifiers="true"></table>
  	-->
- 	<table tableName="commodity" domainObjectName="Commodity" delimitIdentifiers="true"></table>
+ 	<table tableName="rebate" domainObjectName="Rebate" delimitIdentifiers="true"></table>
   </context>
 </generatorConfiguration>
