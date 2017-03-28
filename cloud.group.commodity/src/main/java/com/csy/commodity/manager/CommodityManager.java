@@ -69,13 +69,16 @@ public class CommodityManager {
 	private CommodityExample bulidExample(CommoditySearchDTO searchDTO) {
 		CommodityExample example = new CommodityExample();
 		CommodityExample.Criteria criteria = example.createCriteria();
-		criteria.andCouponEndGreaterThanOrEqualTo(DateUtil.getCurrentTime());
+		
 		if(StringUtils.isNotEmpty(searchDTO.getCommodityTitle()))
 		{
 			criteria.andCommodityNameLike("%"+searchDTO.getCommodityTitle()+"%");
 		}
 		if(searchDTO.getCommodityType()!=null)
 		{
+			if(searchDTO.getCommodityType().equals(CommodityTypeEn.COUPON.getCode())){
+				criteria.andCouponEndGreaterThanOrEqualTo(DateUtil.getCurrentTime());
+			}
 			criteria.andCommodityTypeEqualTo(searchDTO.getCommodityType());
 		}
 		if(StringUtils.isNotBlank(searchDTO.getCommodityCategory())&&!searchDTO.getCommodityCategory().equals("0")&&
