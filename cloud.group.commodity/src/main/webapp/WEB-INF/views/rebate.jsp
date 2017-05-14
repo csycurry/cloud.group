@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -150,9 +151,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        FH.signIn.init();
-    </script>
     
                     <div id="box-play">
 	                    <ul class="img-list">
@@ -185,35 +183,35 @@
     <div class="index_tab clearfix" id="index_tab">
         <div class="fl bh-fl">
             <ul class="clearfix">
-                <li class="curr"><a href="javascript:;" onclick="FH.home.getMAPgoods($(this),1)">每天早10晚8点上新</a></li>
+                <li class="curr"><a href="javascript:;" onclick="TH.home.getMAPgoods($(this),1)">每天早10晚8点上新</a></li>
                 
             </ul>
         </div>
         <div class="fr bh-fr">
 			<div class="titile-bar" style=" margin-top:7px;">
                             <ul class="leimu" id="cgfCategory">
-                        <li><a id="category18" data-id="-1" onclick="FH.home.switchCategory(-1,$(this))" target="_blank">精选</a></li>
-                        <li><a id="category18" data-id="0" onclick="FH.home.switchCategory(0,$(this))" target="_blank">全部</a></li>
+                        <li><a id="category16" data-id="-1" onclick="TH.home.switchCategory(-1,$(this))" target="_blank">精选</a></li>
+                        <li><a id="category18" data-id="0" onclick="TH.home.switchCategory(0,$(this))" target="_blank">全部</a></li>
                                 
-                        <li><a id="category19" data-id="1" onclick="FH.home.switchCategory(1,$(this))" target="_blank">食品</a></li>
+                        <li><a id="category19" data-id="1" onclick="TH.home.switchCategory(1,$(this))" target="_blank">食品</a></li>
                                 
-                        <li><a id="category20" data-id="2" onclick="FH.home.switchCategory(2,$(this))" target="_blank">女装</a></li>
+                        <li><a id="category20" data-id="2" onclick="TH.home.switchCategory(2,$(this))" target="_blank">女装</a></li>
                                 
-                        <li><a id="category21" data-id="3" onclick="FH.home.switchCategory(3,$(this))" target="_blank">居家</a></li>
+                        <li><a id="category21" data-id="3" onclick="TH.home.switchCategory(3,$(this))" target="_blank">居家</a></li>
                                 
-                        <li><a id="category22" data-id="4" onclick="FH.home.switchCategory(4,$(this))" target="_blank">母婴童装</a></li>
+                        <li><a id="category22" data-id="4" onclick="TH.home.switchCategory(4,$(this))" target="_blank">母婴童装</a></li>
                                 
-                        <li><a id="category23" data-id="5" onclick="FH.home.switchCategory(5,$(this))" target="_blank">男装</a></li>
+                        <li><a id="category23" data-id="5" onclick="TH.home.switchCategory(5,$(this))" target="_blank">男装</a></li>
                                 
-                        <li><a id="category24" data-id="6" onclick="FH.home.switchCategory(6,$(this))" target="_blank">内衣</a></li>
+                        <li><a id="category24" data-id="6" onclick="TH.home.switchCategory(6,$(this))" target="_blank">内衣</a></li>
                                 
-                        <li><a id="category25" data-id="7" onclick="FH.home.switchCategory(7,$(this))" target="_blank">数码家电</a></li>
+                        <li><a id="category25" data-id="7" onclick="TH.home.switchCategory(7,$(this))" target="_blank">数码家电</a></li>
                                 
-                        <li><a id="category26" data-id="8" onclick="FH.home.switchCategory(8,$(this))" target="_blank">美妆个护</a></li>
+                        <li><a id="category26" data-id="8" onclick="TH.home.switchCategory(8,$(this))" target="_blank">美妆个护</a></li>
                                 
-                        <li><a id="category27" data-id="9" onclick="FH.home.switchCategory(9,$(this))" target="_blank">鞋包配饰</a></li>
+                        <li><a id="category27" data-id="9" onclick="TH.home.switchCategory(9,$(this))" target="_blank">鞋包配饰</a></li>
                                 
-                        <li><a id="category28" data-id="10" onclick="FH.home.switchCategory(10,$(this))" target="_blank">运动</a></li>
+                        <li><a id="category28" data-id="10" onclick="TH.home.switchCategory(10,$(this))" target="_blank">运动</a></li>
                             </ul>
                             
                             
@@ -382,7 +380,7 @@
     <input type="hidden" id="J_year" value="" />
     <input type="hidden" id="J_month" value="" />
     <div id="forajax" style="display: none"></div>
-    
+    <script type="text/javascript" src="assets/js/jquerysession.js"></script>
     <script type="text/javascript" src="assets/js/json2.js"></script>
     <script type="text/javascript" src="assets/js/thickbox_v2.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
@@ -397,7 +395,7 @@
     <script type="text/javascript" src="assets/js/slides.min.js"></script>
     <script type="text/javascript">
         $("a[biz-sellerid]").live("click", function () {
-            return shopChannel($(this).data("code"), $(this).data("title"), $(this).data("fh"), this);
+            return shopChannel($(this).data("code"), $(this).data("title"), $(this).data("TH"), this);
         })
         function shopChannel(userId, shopName, commRate, click) {
             window.open('http://taobao.fanhuan.com/redirect?type=shop&id=' + userId + '&shopname=' + encodeURIComponent(shopName) + '&commrate=' + commRate.replace('元', '').replace('%', ''));
@@ -414,8 +412,8 @@
                 return false;
             }
         });
-        //FH.chaogaofan.init(-1, 1, 0, $("#J_box_cgf"));
-        FH.home.init();
+        //TH.chaogaofan.init(-1, 1, 0, $("#J_box_cgf"));
+        TH.home.init();
         $(function () {
             $("#Show-build").css({ 'display': 'inline-block' });
 //            $(".inner").css({ 'margin-bottom': '20px' });

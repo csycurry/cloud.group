@@ -77,9 +77,9 @@
 
 					</div>
 
-					<div>
+					<div style="width: 100%;text-align:right;">
 					 <input type="button"
-							style="margin-left: 20px" value="查询" onclick="listpage(1);">
+							style="margin:0 auto；;" value="查询" onclick="listpage(1);">
 					</div>
 
 				</form>
@@ -137,7 +137,9 @@
 	                            <td>${u.userAlipay}</td>
 	                            <td><fmt:formatDate value="${u.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td>${u.balance}</td>
-	                            <td></td>
+	                            <td>
+	                            <a href="#"><span class='label label-success' onclick="openDetail(${u.id})">修改</span></a>
+	                            </td>
 	                        </tr>
                         </c:forEach>
                         </tbody>

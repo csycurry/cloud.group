@@ -138,7 +138,7 @@ FH.home = (function () {
         var that = this;
         if (category2 != categoryId) {
         	var url = "/commodity/page.json?";
-            url = url + "commodityType=2&page=" + flagEle.data("curPage") + "&commodityCategory=" + category;
+            url = url + "commodityType=2&page=1&commodityCategory=" + category;
             $.ajax({
                 type: "GET",
                 url: url,
@@ -168,7 +168,6 @@ FH.home = (function () {
                     //
                 }
             })
-            flagEle.data("curPage", flagEle.data("curPage") + 1);
         }
     };
 

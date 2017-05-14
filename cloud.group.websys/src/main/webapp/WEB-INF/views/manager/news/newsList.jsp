@@ -88,7 +88,7 @@
 
 					</div>
 
-					<div>
+					<div style="width: 100%;text-align:right;">
 					 <input type="button"
 							style="margin-left: 20px" value="查询" onclick="listpage(1);">
 					</div>

@@ -68,9 +68,8 @@
 					<div>
 						<span>商品id </span>
 						<input type="text" name="commodityId" value="${u.commodityId}" style="margin-left: 5px; margin-right: 5px;">
-                                    <label class='control-label' for='validation_name'>商品分类</label>
-                                    	<div class='controls'>
-				                        <select name="commodityCategory">
+                                   <span>商品分类</span>
+				                        <select style="width: 100px" name="commodityCategory">
 				                        <c:if test="${m.commodityCategory==null}">
 				                        	<option value="0" selected="selected">请选择</option>
 				                        </c:if>
@@ -88,7 +87,6 @@
 				                        	<option value="9">鞋包配饰</option>
 				                        	<option value="10">运动</option>
 				                        </select>
-						
 						<br/>
                                     <span>商品时间</span>
                                      	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
@@ -108,7 +106,7 @@
 
 					</div>
 
-					<div>
+					<div style="width: 100%;text-align:right;">
 					 <input type="button"
 							style="margin-left: 20px" value="查询" onclick="listpage(1);">
 					</div>

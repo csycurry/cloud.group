@@ -1,10 +1,10 @@
 /**
  * 
  */
-var FH = FH || {};
+var TH = TH || {};
 $("#curPage").val("1");
 $("#curType").val("1");
-FH.home = (function () {
+TH.home = (function () {
     function getParam(url, param) {
         var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
         var paraObj = {};
@@ -138,7 +138,7 @@ FH.home = (function () {
         var that = this;
         if (category2 != categoryId) {
         	var url = "/commodity/page.json?";
-            url = url + "commodityType=2&page=" + flagEle.data("curPage") + "&commodityCategory=" + category;
+            url = url + "commodityType=1&page=1&commodityCategory=" + category;
             $.ajax({
                 type: "GET",
                 url: url,
@@ -168,7 +168,6 @@ FH.home = (function () {
                     //
                 }
             })
-            flagEle.data("curPage", flagEle.data("curPage") + 1);
         }
     };
 
@@ -254,7 +253,7 @@ FH.home = (function () {
 
                 html += '<a ';
                 if (item.couponLink.indexOf("gou.fanhuan.com") < 0 && item.SaleOut == 0) {
-                    html += 'onclick="FH.home.tanchuang($(this))"';
+                    html += 'onclick="TH.home.tanchuang($(this))"';
                 }
 
                 html += ' href=';
@@ -264,7 +263,7 @@ FH.home = (function () {
 
                 html += ' class="li-box J_btn_jump clearfix"' +
                     ' itemId="' + id + '" id="' + id + '" getTime="' + getTime + '"  nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '"' +
-                    ' data-href="' + link + '" data-tongji=' + tongji("jump0", id, "image") + '>' + imageHtml + '" data-tongji=' + tongji("exposure", id, "image") + ' alt="' + title + '" onerror="FH.home.imgLoadError(this);"></a>';
+                    ' data-href="' + link + '" data-tongji=' + tongji("jump0", id, "image") + '>' + imageHtml + '" data-tongji=' + tongji("exposure", id, "image") + ' alt="' + title + '" onerror="TH.home.imgLoadError(this);"></a>';
 
                 html += '<span class="tag-ap J_tags">';
                 if (item.IsNew == 1) {
@@ -283,7 +282,7 @@ FH.home = (function () {
                 if (statusSellout > 0 ) {
                     html += '<a href="javascript:;" class="czg-wqg sell-out">' + title + '</a>';
                 }  else {
-                    html += '<a href="javascript:;" data-href="' + link + '"  itemId="' + id + '" getTime="' + getTime + '" nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '" class="czg-wqg J_btn_jump" data-tongji=' + tongji("jump0", id, "title") + ' onclick="FH.home.tanchuang($(this))">' + title + '</a>';
+                    html += '<a href="javascript:;" data-href="' + link + '"  itemId="' + id + '" getTime="' + getTime + '" nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '" class="czg-wqg J_btn_jump" data-tongji=' + tongji("jump0", id, "title") + ' onclick="TH.home.tanchuang($(this))">' + title + '</a>';
                 }
                 html += '</div>';
 
@@ -320,7 +319,7 @@ FH.home = (function () {
                         style = 'bottom: 44px';
                     }
 
-                    html += '<a style="' + style + '" href="javascript:;" itemId="' + id + '" getTime="' + getTime + '" nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '" class="buy-icon" data-href="' + link + '" data-tongji=' + tongji("jump0", id, "shop") + ' onclick="FH.home.tanchuang($(this))">' + btn_name + '</a>';
+                    html += '<a style="' + style + '" href="javascript:;" itemId="' + id + '" getTime="' + getTime + '" nowPrice="' + item.PresentPrice + '" yongJinRate="' + item.Proportion + '" brandId="' + item.BrandID + '" class="buy-icon" data-href="' + link + '" data-tongji=' + tongji("jump0", id, "shop") + ' onclick="TH.home.tanchuang($(this))">' + btn_name + '</a>';
                 }
 
                 var className = "";
@@ -350,11 +349,6 @@ FH.home = (function () {
                     $('#showend').css({ 'display': 'block' });
                 }
             }
-        }
-
-        // 曝光统计
-        if (!up) {
-            FH.base.exposureTongJi("chaogaofan", idArray);
         }
 
         return html;
@@ -408,10 +402,10 @@ FH.home = (function () {
                 html += '<div  class="goods-pic-link">';
                 if (IsSellOut == 3) {
                     html += '<a href="javascript:;" class="li-box clearfix">' +
-                        '<img src=' + (jiujiuPageIndexAfter == 1 || bool ? imgUrl : "http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129") + ' data-url="' + imgUrl + '" data-tongji=' + tongji("exposure", id, "image") + ' title="' + title + '" alt="' + title + '" onerror="FH.home.imgLoadError(this);" ></a>';
+                        '<img src=' + (jiujiuPageIndexAfter == 1 || bool ? imgUrl : "http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129") + ' data-url="' + imgUrl + '" data-tongji=' + tongji("exposure", id, "image") + ' title="' + title + '" alt="' + title + '" onerror="TH.home.imgLoadError(this);" ></a>';
                 } else {
                     html += '<a target="_blank" href="' + link + '" class="li-box J_btn_jump  clearfix" data-tongji=' + tongji("jump0", id, "image") + '>' +
-                        '<img src=' + (jiujiuPageIndexAfter == 1 || bool ? imgUrl : "http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129") + ' data-url="' + imgUrl + '" data-tongji=' + tongji("exposure", id, "image") + ' title="' + title + '" alt="' + title + '" onerror="FH.home.imgLoadError(this);" ></a>';
+                        '<img src=' + (jiujiuPageIndexAfter == 1 || bool ? imgUrl : "http://i.fanhuan.com/images/zdm/zdm_loading.png?v=150129") + ' data-url="' + imgUrl + '" data-tongji=' + tongji("exposure", id, "image") + ' title="' + title + '" alt="' + title + '" onerror="TH.home.imgLoadError(this);" ></a>';
                 }
                 html += '<span class="tag-ap J_tags clearfix">';
                 if (item.IsNewProduct == 1) {
@@ -503,7 +497,7 @@ FH.home = (function () {
 
         // 曝光统计
         if (!up) {
-            FH.base.exposureTongJi("jiujiu", idArray);
+            TH.base.exposureTongJi("jiujiu", idArray);
         }
 
         return html;

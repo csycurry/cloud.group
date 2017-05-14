@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>XXX打码</title>
+<title>聚宝师</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -60,8 +60,8 @@ ul, li {
 								登录账号
 							</div>
 							<input type="text" id="userCode" name="userCode"
-								placeholder="用户名" class="pull-left form-control">
-							<p style="color: red">*请输入6-16位字符</p>
+								placeholder="请输入6-16位字符" class="pull-left form-control">
+							
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
@@ -69,15 +69,14 @@ ul, li {
 							</div>
 							<input name="userPwd" type="password"
 								id="ctl00_ContentPlaceHolder1_password1" class="pull-left form-control"
-								placeholder="请输入密码" />
-								<p style="color: red">*请输入6位以上密码</p>
+								placeholder="请输入6位以上密码" />
 						</div>
 						<div class="piece clearfix">
 							<div class="text pull-left">
 								确认密码
 							</div>
 							<input name="userPwd2" type="password"
-								id="ctl00_ContentPlaceHolder1_password2" class="form-control"
+								id="ctl00_ContentPlaceHolder1_password2" class="pull-left form-control"
 								placeholder="请输入确认密码" />
 
 						</div>
@@ -86,7 +85,7 @@ ul, li {
 								QQ号码
 							</div>
 							<input name="userQq" type="text"
-								id="ctl00_ContentPlaceHolder1_QQ" class="form-control"
+								id="ctl00_ContentPlaceHolder1_QQ" class="pull-left form-control"
 								placeholder="请输入qq" />
 
 						</div>
@@ -95,7 +94,7 @@ ul, li {
 								电子邮箱
 							</div>
 							<input name="userMail" type="text"
-								id="ctl00_ContentPlaceHolder1_eamil" class="form-control"
+								id="ctl00_ContentPlaceHolder1_eamil" class="pull-left form-control"
 								placeholder="请输入电子邮箱" />
 
 						</div>
@@ -129,7 +128,7 @@ ul, li {
 							value="立即注册" id="ctl00_ContentPlaceHolder1_btnRegister"
 							class="btn btn-info loginBtn" />
 						<p class="issue">
-							<a href="http://wpa.qq.com/msgrd?v=3&uin=3001029570&site=qq&menu=yes">注册遇到问题？</a><span>已有账号,</span><a href="/">立刻登录</a>
+							<a href="http://wpa.qq.com/msgrd?v=3&uin=3001029570&site=qq&menu=yes">注册遇到问题？</a><span>已有账号,</span><a href="javascript:Login()">立刻登录</a>
 						</p>
 					</div>
 				</form>
@@ -142,6 +141,7 @@ ul, li {
         function validateTextIsEmpty(item, content) {
             var lbitem = item.parent();
             lbitem.children('span').remove();
+            lbitem.children('p').remove();
             if (item == null || item.val().length == 0) {
                 $(content).appendTo(lbitem);
                 item.focus();
@@ -172,12 +172,12 @@ ul, li {
             $('#ctl00_ContentPlaceHolder1_txtPhoneNumber').blur(function () {
                 var phone = $('#ctl00_ContentPlaceHolder1_txtPhoneNumber');
                 var lbphone = phone.parent();
-                lbphone.children('span').remove();
+                lbphone.children('p').remove();
                 if (phone != null && phone.val().length > 0) {
                     var reg = /^[1][0-9]{10}$/;
                     isok = reg.test(phone.val());
                     if (!isok) {
-                        $("<span class=\"label label-warning\">请填写正确的手机格式！</span>").appendTo(lbphone);
+                        $("<p style=\"color: red\">请填写正确的手机格式！</p>").appendTo(lbphone);
                         check = false;
                         return false;
                     }
@@ -185,7 +185,7 @@ ul, li {
                     	$.post("/user/mobile.json",{mobile:phone.val()},function(data){
             				if(data.status==0)
             					{
-            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbphone);
+            					$("<p style=\"color: red\">"+data.msg+"！</p>").appendTo(lbphone);
             					check = false;
                                 return false;
             					}
@@ -207,7 +207,7 @@ ul, li {
                     var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
                     isok = reg.test(email.val());
                     if (!isok) {
-                        $("<span class=\"label label-warning\">请填写正确的邮件地址！</span>").appendTo(lbemail);
+                        $("<p style=\"color: red\">请填写正确的邮件地址！</p>").appendTo(lbemail);
                         check = false;
                         return false;
                     }
@@ -215,7 +215,7 @@ ul, li {
                     	$.post("/user/mail.json",{mail:email.val()},function(data){
             				if(data.status==0)
             					{
-            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbemail);
+            					$("<p style=\"color: red\">"+data.msg+"！</p>").appendTo(lbemail);
             					check = false;
                                 return false;
             					}
@@ -232,23 +232,24 @@ ul, li {
             
             $('#userCode').blur(function () {
                 var userCode = $('#userCode');
-                if (!validateTextIsEmpty(userCode, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
+                if (!validateTextIsEmpty(userCode, "<p style=\"color: red\">登录名不可为空！</p>")) return false;
                 if (userCode.val().length > 0) {
                     var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
                     isok = reg.test(userCode.val());
                     if (!isok) {
                         var lblogin = userCode.parent();
-                        $("<span class=\"label label-warning\">请填写正确的登录名！！</span>").appendTo(lblogin);
+                        $("<p style=\"color: red\">请填写正确的登录名！！</p>").appendTo(lblogin);
                         userCode.focus();
                         return false;
                     }
                 }
                 var lbemail = $('#userCode').parent();
                 lbemail.children('span').remove();
+                lbemail.children('p').remove();
                     	$.post("/user/usercode.json",{userCode:userCode.val()},function(data){
             				if(data.status==0)
             					{
-            					$("<span class=\"label label-warning\">"+data.msg+"！</span>").appendTo(lbemail);
+            					$("<p style=\"color: red\">"+data.msg+"！</p>").appendTo(lbemail);
             					check = false;
                                 return false;
             					}
@@ -261,6 +262,32 @@ ul, li {
             			  });
             });
             
+            $('#ctl00_ContentPlaceHolder1_password1').blur(function () {
+                var userPwd = $('#ctl00_ContentPlaceHolder1_password1');
+                if (!validateTextIsEmpty(userPwd, "<p style=\"color: red\">密码不可为空！</p>")) return false;
+                if (userPwd.val().length > 0) {
+                    var reg = /^[\w-`=\\\[\];',./~!@#$%^&*()_+|{}:">?]{6,}$/;
+                    isok = reg.test(userPwd.val());
+                    if (!isok) {
+                        var lbps1 = userPwd.parent();
+                        $("<p style=\"color: red\">密码不符合规范！</p>").appendTo(lbps1);
+                        userPwd.focus();
+                        return false;
+                    }
+                }
+            });
+            
+            $('#ctl00_ContentPlaceHolder1_password2').blur(function () {
+            	var pwd1 = $('#ctl00_ContentPlaceHolder1_password1');
+                var pwd2 = $('#ctl00_ContentPlaceHolder1_password2');
+                if (!validateTextIsEmpty(pwd2, "<p style=\"color: red\">确认密码不可为空！</p>")) return false;
+                if (pwd1.val() != pwd2.val()) {
+                    var lbps2 = pwd2.parent();
+                    $("<p style=\"color: red\">两次密码输入不一致</p>").appendTo(lbps2);
+                    pwd2.focus();
+                    return false;
+                }
+            });
             
             
             $('#ctl00_ContentPlaceHolder1_btnRegister').click(function () {
@@ -287,19 +314,19 @@ ul, li {
             var ps2 = $('#ctl00_ContentPlaceHolder1_password2');
             var phone = $('#ctl00_ContentPlaceHolder1_txtPhoneNumber');
             var msgCode = $('#msgCode');
-            if (!validateTextIsEmpty(login, "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
-            if (!validateTextIsEmpty(ps1, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
-            if (!validateTextIsEmpty(ps2, "<span class=\"label label-warning\">密码不可为空！</span>")) return false;
-            if (!validateTextIsEmpty(email, "<span class=\"label label-warning\">邮箱不可为空！</span>")) return false;
-            if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">手机号码不可为空！</span>")) return false;
-            if (!validateTextIsEmpty(phone, "<span class=\"label label-warning\">短信验证码不可为空！</span>")) return false;
+            if (!validateTextIsEmpty(login, "<p style=\"color: red\">登录名不可为空！</p>")) return false;
+            if (!validateTextIsEmpty(ps1, "<p style=\"color: red\">密码不可为空！</p>")) return false;
+            if (!validateTextIsEmpty(ps2, "<p style=\"color: red\">确认密码不可为空！</p>")) return false;
+            if (!validateTextIsEmpty(email, "<p style=\"color: red\">邮箱不可为空！</p>")) return false;
+            if (!validateTextIsEmpty(phone, "<p style=\"color: red\">手机号码不可为空！</p>")) return false;
+            if (!validateTextIsEmpty(phone, "<p style=\"color: red\">短信验证码不可为空！</p>")) return false;
 
             if (login.val().length > 0) {
                 var reg = /^[0-9a-zA-Z\u4e00-\u9fa5_]{6,16}$/;
                 isok = reg.test(login.val());
                 if (!isok) {
                     var lblogin = login.parent();
-                    $("<span class=\"label label-warning\">请填写正确的登录名！！</span>").appendTo(lblogin);
+                    $("<p style=\"color: red\">请填写正确的登录名！！</p>").appendTo(lblogin);
                     login.focus();
                     return false;
                 }
@@ -310,14 +337,14 @@ ul, li {
                 isok = reg.test(ps1.val());
                 if (!isok) {
                     var lbps1 = ps1.parent();
-                    $("<span class=\"label label-warning\">密码不符合规范！</span>").appendTo(lbps1);
+                    $("<p style=\"color: red\">密码不符合规范！</p>").appendTo(lbps1);
                     ps1.focus();
                     return false;
                 }
             }
             if (ps1.val() != ps2.val()) {
                 var lbps2 = ps2.parent();
-                $("<span class=\"label label-warning\">两次密码输入不一致</span>").appendTo(lbps2);
+                $("<p style=\"color: red\">两次密码输入不一致</p>").appendTo(lbps2);
                 ps2.focus();
                 return false;
             }

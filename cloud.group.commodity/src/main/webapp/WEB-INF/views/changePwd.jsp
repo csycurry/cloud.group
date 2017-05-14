@@ -62,7 +62,7 @@ ul, li {
         <div class="container mainWidth">
             <div class="step clearfix">
                 <div class="item">
-                    <div>1</div>
+                    <div style="background-color: #ffbc0c;">1</div>
                     <p>填写注册手机号码</p>
                 </div>
                 <div class="item">
@@ -90,7 +90,7 @@ ul, li {
 	                    </p>
 	                </div>
                 </div>
-                <div id="captchapsd" style="margin-left: 5px;height: 40px;display: inline-block;" align="left"></div>
+                <div style="margin-left: 5px;height: 40px" align="left"></div>
                 <button class='btn btn-danger nextStep' type="button" disabled="disabled">下一步</button>
             </div>
         </div>
@@ -104,7 +104,7 @@ ul, li {
                     <p>填写注册手机号码</p>
                 </div>
                 <div class="item">
-                    <div>2</div>
+                    <div style="background-color: #ffbc0c;">2</div>
                     <p>验证身份</p>
                 </div>
                 <div class="item">
@@ -125,9 +125,10 @@ ul, li {
                 </p>
                 
                 <div class="clearfix">
-                    <input type="text" id="txtcode" class="form-control pull-left" style="width:173px" />
-                    
-                    <input class="pull-left btn btn-info smsregisterverify" data-mode="1" onclick="getCode()" style="width:80px;background:green;border:none;font-size:12px;margin-left:10px" type="button"  value="发送验证码" />
+                    <input id="txtCode" name="code" type="text"
+												id="ctl00_ContentPlaceHolder1_txtlistenNumer"
+												placeholder="请填写验证码" /> <input id="smsBtn" type="button" data-mode="1" value="发送验证码"
+												class="btn btn-sm btn-info phoneverify" onclick="getCode()" />
                 </div>
                 <p class="yzTip" style="display:none">
                     <img src="img/gth.png" alt="" /></p>
@@ -150,7 +151,7 @@ ul, li {
                     <p>验证身份</p>
                 </div>
                 <div class="item">
-                    <div>3</div>
+                    <div style="background-color: #ffbc0c;">3</div>
                     <p>设置新密码</p>
                 </div>
                 <div class="item">
@@ -163,7 +164,7 @@ ul, li {
             <div class="content text-center">
                 <h4><span>3</span>设置新密码</h4>
                 <p>
-                    <img src="img/dui2.png" alt="" />验证成功，请重新设置新密码
+                    <img src="img/dui1.png" alt="" />验证成功，请重新设置新密码
                 </p>
                 <div class="input">
                     <input type="password" class='form-control' id="psd1" placeholder='密码' maxlength='15' />
@@ -222,9 +223,7 @@ ul, li {
                     <p>设置新密码</p>
                 </div>
                 <div class="item">
-                    <div>
-                        <img src="img/dui2.png" alt="" />
-                    </div>
+                    <div style="background-color: #ffbc0c;">4</div>
                     <p>完成</p>
                 </div>
             </div>
@@ -274,9 +273,7 @@ ul, li {
                     //console.log($nextStep.length)
                     $nextStep.click(function () {
                         var iNow = $(this).index('.login .nextStep');
-                        alert(iNow);
                         if (iNow == 0) {
-                            if (!code.isverfiy) { alert("滑动验证失败！"); return false; }
                             $.post("/user/check.json", { type: "VALIDATEPHONE", phone: $('#phone').val() }, function (data) {
                                 var $tip = $('.content .tip');
                                 if (data.data == 1) {
@@ -290,7 +287,7 @@ ul, li {
                             });
                         }
                         if (iNow == 1) {
-                            $.post("/user/checkcode.json", { type: "PHONEMESSAGE",phone: $('#RegPhone').text(), code: $('#txtcode').val() }, function (data) {
+                            $.post("/user/checkcode.json", { type: "PHONEMESSAGE",phone: $('#RegPhone').text(), code: $('#txtCode').val() }, function (data) {
                                 var $yzInput = $('.login2 .yzTip');
                                 $yzInput.css('opacity', 0);
                                 if (data.status == 1) {
@@ -305,7 +302,8 @@ ul, li {
                             });
                         }
                         if (iNow == 2) {
-                         
+                        	if (!validateTextIsEmpty($('#psd1'), "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
+                        	if (!validateTextIsEmpty($('#psd2'), "<span class=\"label label-warning\">登录名不可为空！</span>")) return false;
                             if ($('#psd1').val() == $('#psd2').val()) {
                                 var $passwordEvel = $('.login3 .passwordEvel');
                                 var reg = /^[\w-`=\\\[\];',./~!@#$%^&*()_+|{}:">?]{6,}$/;

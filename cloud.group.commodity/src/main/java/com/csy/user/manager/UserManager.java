@@ -303,7 +303,8 @@ public class UserManager {
 		UserExample example = new UserExample();
 		if(type.equals("VALIDATEPHONE"))
 		{
-			example.createCriteria().andUserMobileEqualTo(Phone);
+			example.createCriteria().andUserMobileEqualTo(Phone)
+			.andUserTypeEqualTo(UserTypeEn.RETURN.getCode());
 			return userMapperExt.countByExample(example);
 		}
 		else if(type.equals("PHONEMESSAGE"))

@@ -53,7 +53,8 @@ public class UserManager {
 	{
 		Pagination<UserDTO> pagination = new Pagination<UserDTO>(searchDTO.getCurrentPage());
 		UserExample example = createExample(searchDTO);
-		long count = userMapperExt.countByExample(example);
+		Long count = userMapperExt.countByExample(example);
+		pagination.setTotalCount(count.intValue());
 		if(count>0)
 		{
 			List<User> list = userMapperExt.selectUserWithPage(example, pagination.getOffset(), pagination.getPageSize());
@@ -368,5 +369,11 @@ public class UserManager {
 		return example;
 	}
 	
+	public void updateUser2(UserDTO userDTO)
+	{
+		User user = new User();
+		BeanUtils.copyProperties(userDTO, user);
+		userMapperExt.updateByPrimaryKeySelective(user);
+	}
 	
 }

@@ -411,4 +411,21 @@ public class UserController extends BaseController{
 		map.put("pageNum", list.getCurrentPage());
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/backstage/user/detail")
+	public ModelAndView detail(@RequestParam("userId") int userId)
+	{
+		UserDTO userDTO =  userManager.findDetail(userId);
+		ModelAndView modelAndView = new ModelAndView("/manager/user/editUser");
+		Map<String, Object> map= modelAndView.getModel();
+		map.put("u", userDTO);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/backstage/user/modify")
+	@ResponseJson
+	public @ResponseBody void updateUser2(UserDTO userDTO)
+	{
+		userManager.updateUser2(userDTO);
+	}
 }

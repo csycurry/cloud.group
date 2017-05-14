@@ -150,6 +150,7 @@
                     <span>您的唯一推荐链接</span>
                 </div>
                 <div class="panel-body">
+                	<input id="copyTo" type="text" disabled="disabled"   value="${url}" style="width: 90%;height: 50px;font-size: 20px;text-align: center;">
                 	<input id="copyBtn" type="button" value="复制" onclick="copy()" style="font-size: 15px">
                 </div>
             </div>

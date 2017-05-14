@@ -57,7 +57,14 @@ public class CommodityController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/rebate")
-	public String login() {
-		return "rebate";
+	public ModelAndView login() {
+		ModelAndView modelAndView = new ModelAndView("/rebate");
+		Map<String, Object> map = modelAndView.getModel();
+		NewsBannerSearchDto bannerSearchDto = new NewsBannerSearchDto();
+		bannerSearchDto.setType((byte)1);
+		bannerSearchDto.setStatus((byte)1);
+		List<NewsBannerDto> bannerDtos = newsBannerManager.viewList(bannerSearchDto);
+		map.put("banners", bannerDtos);
+		return modelAndView;
 	}
 }
