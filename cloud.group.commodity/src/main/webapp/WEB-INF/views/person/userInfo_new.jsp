@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,42 +12,24 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="qc:admins" content="0464336777661605166375" />
 	<link rel="icon" href="" type="image/x-icon" charset="utf-8" />
     <link rel="shortcut icon" href="" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
-    <script type="text/javascript" src="assets/js/jquery1.8.3.min.js"></script>
+    <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.cookie.js"></script>
     <link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+    <script type="text/javascript" src="assets/js/user_base.js"></script>
+    <script src="/assets/js/bootstrap-table.min.js"></script>  
    <script type="text/javascript" src="assets/js/news.js"></script>
-    
-<div id="wpop_bg" style="display: none;">
-</div>
-<link rel="stylesheet" type="text/css" media="screen" href="http://js.fanhuan.com/css/mynew.css?v=20170417" />
-<link rel="stylesheet" type="text/css" media="screen" href="http://js.fanhuan.com/css/account.css?v=201604261415" />
-<link rel="stylesheet" type="text/css" media="screen" href="http://js.fanhuan.com/css/my_v2.css?v=20160811" />
-<link href="http://js.fanhuan.com/css/search_box.css?v=201604282032" rel="Stylesheet"
+   <link href="/assets/index/css/bootstrap.css" type="text/css" rel="stylesheet" />
+	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
+   <link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/mynew.css" />
+<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
+<link href="assets/css/search_box.css" rel="Stylesheet"
     type="text/css" />
-<script type="text/javascript" src="http://js.fanhuan.com/js/jquery.history.js?v=0104"></script>
-<script type="text/javascript">
-    $(function () {
-        var url = "http://my.fanhuan.com/ajax/GetUserInfo?callback=newmsg";
-        if (CurrentUser.UserId) {
-            CreateJScript("newmsg", url + "&_=" + Math.random());
-        } else {
-            CreateJScript("", url);
-        }
-    });
-    function newmsg(data) {
-        var unread_msg = data.unread_msg;
-        if (unread_msg > 0) {
-            $(".newnews").show();
-        } else {
-            $(".newnews").hide();
-        }
-    }
-</script>
 <style type="text/css">
     .gray
     {
@@ -207,31 +192,11 @@
         text-indent: -999em;
         overflow: hidden;
     }
-    .newright
-    {
-        background: url(http://i.fanhuan.com/images/my/newright.jpg?v=20150728) no-repeat;
-        width: 120px;
-        height: 189px;
-        position: absolute;
-        right: -140px;
-        top: 180px;
-        display: none;
-    }
     .newjiulogospan2
     {
         display: block;
         width: 360px;
         height: 92px;
-    }
-    .newnews
-    {
-        background: url(http://i.fanhuan.com/images/my/icon/newnews.png) no-repeat;
-        position: absolute;
-        right: -2px;
-        top: 5px;
-        width: 30px;
-        height: 14px;
-        display: none;
     }
     #TB_window
     {
@@ -269,22 +234,29 @@
     .newlogoshowindex
     {
         width: 310px;
-        height: 53px;
-        background: url("http://i.fanhuan.com/images/baseimages/logo_www2.png?v=2016041822") no-repeat;
+        height: 70px;
+        background: url("/assets/main/img/logo.png") no-repeat;
         position: absolute;
         top: 19px;
         display: block;
     }
+    .myOrder .head{padding:20px 30px;border:1px solid #ccc;border-bottom:none;}
+	.myOrder .userImg p{text-align:center;border:1px solid #fe6b01;color:#fe6b01;line-height:26px;margin-top:20px}
+	.myOrder .userImg a{color:#fe6b01;}
+	.myOrder .userCtn{margin-top:30px;margin-left:50px}
+	.myOrder .userCtn p span{text-align:left;}
+	.myOrder .userCtn p .mg{margin:0 14px;}
+	.myOrder .userCtn .username{color:#FE6C00;}
+    .myOrder .balance{width:280px;border:1px solid #ccc;margin-top:40px}
+	.myOrder .balance .balanceHead{background:#fe6b01;color:#fff;line-height:40px;font-size:16px;}
+	.myOrder .balance .balanceHead img{margin-left:5px;margin-right:3px;margin-top:-3px;}
+	.myOrder .balance .balanceCtn{padding:15px 20px 5px 20px;font-size:16px;position:relative;}
+	.myOrder .balance .balanceCtn .jb{margin-left:-3px;color:#fe6b01;}
+	.myOrder .balance .balanceCtn .jb img{margin-right:5px;margin-top:-2px}
+	.myOrder .balance .balanceCtn .sqtx{position:absolute;right:10px;top:20px;}
+	.myOrder .balance .balanceCtn .sqtx img{width:105px;}
+    
 </style>
-<script type="text/javascript">
-    var IsNewUser = true; //是否新用户，即2013.5.2号后注册的用户。
-</script>
-
-    <script type="text/javascript">
-        var _hmt = _hmt || []; var _gaq = _gaq || [];
-        var _paq = _paq || [];
-        var fp4 = new Fingerprint({ screen_resolution: true });
-    </script>
 </head>
 <body>
     <div class="top_content">
@@ -321,7 +293,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText2" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                     <div class="show J_show" id=""></div>
@@ -352,7 +324,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText2" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                 </div>
@@ -383,7 +355,7 @@
     </div>
     
     <script type="text/javascript">
-        FH.signIn.init();
+        FH.home.init();
     </script>
     <script type="text/javascript">
         $("#sign-in1").click(function () {
@@ -435,12 +407,6 @@
         }
     </script>
     <script type="text/javascript">
-        //阻止弹窗事件
-        function stop() {
-            return false;
-        }
-    </script>
-    <script type="text/javascript">
         $("#newclose").click(function () {
             $("#newright").hide();
             //设置cookie 
@@ -459,125 +425,131 @@
             
             <ul id="actside_ul">
                  
-                <li><a class="selected" href="/my/AllOrder_V3"><i
-                    class="iconfont iconfont-1"></i>我的订单</a></li>
-                    <li><a class="" href="/my/Credit"><i class="iconfont iconfont-credit">
-                    </i>信用等级</a></li>
-                <li><a class="" href="/my/MallMoneyDetail">
-                    <i class="iconfont iconfont-3"></i>收支明细</a></li>
-                <li><a class="" href="/my/safe"><i class="iconfont iconfont-5">
-                </i>安全中心</a></li>
-                
-                <li><a class="" href="/my/mail"><i class="iconfont iconfont-6">
-                </i>我的消息 </a><span class="newnews"></span></li>
-                
+                <li><a class="selected" href="/userinfo.html"><i
+                    class="iconfont iconfont-1"></i>我的收益</a></li>
+                    <li><a class="" href="/affiliates.html"><i class="iconfont iconfont-credit">
+                    </i>联盟推广</a></li>
+                <li><a class="" href="/userPay.html">
+                    <i class="iconfont iconfont-3"></i>申请提现</a></li>
+                <li><a class="" href="/alipay.html"><i class="iconfont iconfont-5">
+                </i>支付宝信息</a></li>
             </ul>
         </div>
-        <script type="text/javascript">
-            function NewCreateJScript(id, url) {
-                if (document.getElementById(id) != null) {
-                    var children = document.getElementById(id);
-                    if (children != null) {
-                        var parent = children.parentNode;
-                        parent.removeChild(children);
-                        children = null;
-                    }
-                }
-                var s = document.createElement("script");
-                s.setAttribute("src", url);
-                s.setAttribute("id", id);
-                s.setAttribute("type", "text/javascript");
-                document.getElementsByTagName("head")[0].appendChild(s);
-                s = null;
-            }
-            if ('false' == "false" && CurrentUser.UserId) {
-                NewCreateJScript("IsApplyTBCoupon", "http://quan.fanhuan.com/ajax/IsAddTBCoupon?callback=IsApplyTBCoupon&userid=" + CurrentUser.UserId + "&d=" + new Date().getMilliseconds());
-            }
-            function IsApplyTBCoupon(data) {
-                var json = eval(data);
-                if (json.isApply == 1) {
-                    $('#actside_ul').prepend('<li><a class="" href="/my/sellerapply"><i class="iconfont">&#xe60b;</i>卖家中心</a></li>');
-                }
-            }
-        </script>
         <div id="my_main_container" class="rightcontainer clearfix">
             
 <div class="myOrder">
-    <div class="account clearfix">
-        <div class="a-asset">
-            <div>
-                账户资金<span class="a-asset-total"><span>￥</span>0.00</span><span
-                    class="a-asset-freeze">+0.00</span>未返还</div>
-            <a class="btn btn-1-40" href="/my/cash"><span>提现</span></a> 
-            <a class="charge-btn">充话费</a>
-        </div>
-        <div class="a-asset-right">
-            <div class="item">
-                <div>
-                    0.00</div>
-                <div class="bottom">
-                    淘宝返还<span class="show-title" name="v">[?]</span></div>
+    <div class="head clearfix">
+            <div class="userCtn pull-left">
+                <p>您好，<span class='username'>${user.userCode}</span> <input type="button" class="btn" onclick="changePwd()" value="修改密码"	/></p>
+                <p><span>ID：</span>${user.id}</p>
+                <p><span>手机号码：</span>${user.userMobile} <c:if test="${user.userMobile==null||user.userMobile=='' }">
+                <input type="button" onclick="bind()" class="btn" value="绑定手机号"	/></c:if></p>
+                <p><span>QQ 号码：</span>${user.userQq}</p>
+                <p><span>邮<span class='mg'></span>箱：</span>${user.userMail}</p>
+                <p><span>注册日期：</span>${user.createDate}</p>
             </div>
-            <div class="item">
-                <div>
-                    0.00</div>
-                <div class="bottom">
-                    商城返还<span class="show-title" name="sc">[?]</span></div>
-            </div>
-            <div class="item">
-                <div>
-                    0</div>
-                <div class="bottom">
-                    积分</div>
-            </div>
-            <div class="item">
-                <div>
-                    0.00</div>
-                <div class="bottom">
-                    累计省钱</div>
-            </div>
-        </div>
-    </div>
-    <div class="myOrder-nav clearfix">
-        <ul>
-            <li class="active" ><a href="/my/AllOrder_V3">全部订单</a></li>
-            <li ><a href="/my/AllOrder_V3?s=1">已返还</a></li>
-            <li ><a href="/my/AllOrder_V3?s=0">未返还</a></li>
-            <li ><a href="/my/AllOrder_V3?s=2">无返还</a></li>
-            
-        </ul>
-        <span class="notice-drop" id="J_slideDoit">下单了，却没看到记录？<i></i></span>
-    </div>
-    <div class="notice-txt">
-        <h3>
-            淘宝/天猫订单</h3>
-        <p>
-            在淘宝点击“确认收货”后，10分钟内可在本页看到记录。<a href="http://my.fanhuan.com/my/CompensationExplain">丢单了？申请赔付。</a></p>
-        <h3>
-            京东、唯品会等商城订单</h3>
-        <p>
-            下单后30分钟内可在本页看到记录（亚马逊订单需在第二天上午11点后才可看到）。</p>
-    </div>
-    <div class="myOrder-list">
-        <div class="list-body">
-                <div class="sz-nodate">
-                        <span class="sz-nodate-1" style="font-family: 'Microsoft YaHei'">您还没有订单记录哦，快来用返还网省钱吧！<a
-                            class="btn btn-1-40" href="http://www.fanhuan.com"><span>去购物,拿返还&gt;</span></a></span>
+            <div class="balance pull-right">
+                <div class="balanceHead">
+                    <img src="assets/main/img/userIcon10.png" />账户余额
                 </div>
+                <div class="balanceCtn">
+                    <p class="jb">
+                        <img src="assets/main/img/money.png" />${user.balance}元宝
+                    </p>
+                    <p>可兑换 = ${user.balanceRMB}元</p>
+                    <a href="/userPay.html" class='sqtx'>
+                        <img src="assets/main//img/sqtx.png" /></a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="pagination" id="pagination">
+    <div class="userCommon">
+            <h4>
+                <img src="assets/main/img/userIcon11.png" />收益记录</h4>
+            <ul id="myTab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#one" data-toggle="tab">
+					 待返还
+				</a>
+			</li>
+			<li>
+				<a href="#two" data-toggle="tab">
+					 已返还
+				</a>
+			</li>
+			<li>
+				<a href="#three" data-toggle="tab">
+					 无返还
+				</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="one">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=1" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter" data-align="center">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="two">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=2" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter" data-align="center">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+			<div class="tab-pane fade" id="three">
+				<div class="panel panel-default" style="padding: 20px">
+						<table data-toggle="table"
+							data-url="/rebateslist.html?type=3" data-pagination="true"
+							data-side-pagination="server"
+							data-page-list="[5, 10, 20, 50, 100, 200]" data-height="300">
+							<thead>
+								<tr>
+									<th data-formatter="runningFormatter" data-align="center">序号</th>
+									<th data-field="earnings" data-align="center" data-sortable="true">结算金额</th>
+									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
+									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
+									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+			</div>
+		</div>
+            
+        </div> 
     </div>
 </div>
 <input id="userName" type="hidden" value="18072742895" />
-<script type="text/javascript" src="http://js.fanhuan.com/js/my/my_v2.js?v=20161108"></script>
-<script type="text/javascript" src="http://js.fanhuan.com/js/paging.js?v=0513"></script>
 <script type="text/javascript">
-    var timestamp='20170523105905';
-    var sign='7ed2cf29295b0e8fc6facd3fc530629f';
-    var _page = Math.ceil(0 / 10);
-    var _pg = new showPages('_pg', _page, "n");
-    _pg.printHtml("pagination");
+	function runningFormatter(value, row, index) {
+		return index + 1;
+	}
 </script>
 
         </div>
@@ -677,35 +649,13 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="J_signday" value="5" />
-    <!-- 登录后提示连续签到的天数 -->
-    <input type="hidden" id="J_signCode" value="" />
-    <input type="hidden" id="J_day" value="" />
-    <input type="hidden" id="J_week" value="" />
-    <input type="hidden" id="J_yi" value="" />
-    <input type="hidden" id="J_yi_url" value="" />
-    <input type="hidden" id="J_ji" value="" />
-    <input type="hidden" id="J_date" value="" />
-    <input type="hidden" id="Hidden1" value="" />
-    <input type="hidden" id="J_year" value="" />
-    <input type="hidden" id="J_month" value="" />
     <div id="forajax" style="display: none"></div>
     
-    <script type="text/javascript" src="//js.fanhuan.com/common/js/json2.js?v=2016042118"></script>
-    <script type="text/javascript" src="//www.fanhuan.com/content/js/mall.js?v=20170522093819"></script>
-    <script type="text/javascript" src="//js.fanhuan.com/js/thickbox_v2.js?v=2016081614"></script>
-    <script type="text/javascript" src="//js.fanhuan.com/js/base.js?v=20170509"></script>
-    <script type="text/javascript" src="http://js.fanhuan.com/taobao/js/jquery.base64.min.js?v=2016042118"></script>
-    
-<script type="text/javascript" src="http://js.fanhuan.com/js/my/my.js?v=20160420123"></script>
-<script type="text/javascript" src="//js.fanhuan.com/js/thickbox.js?v=2016080514"></script>
-<script type="text/javascript">
-
-    $("#topintro").html(CurrentUser.UserName);
-
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffa7facebe4b0e30fceffd5c55b20bd50' type='text/javascript'%3E%3C/script%3E"));
-</script>
+    <script type="text/javascript" src="assets/js/jquerysession.js"></script>
+    <script type="text/javascript" src="assets/js/json2.js"></script>
+    <script type="text/javascript" src="assets/js/thickbox_v2.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.base64.min.js"></script>
 
     <!--[if IE 6]>
          <script type="text/javascript" src="//js.fanhuan.com/common/js/png.js"></script>
@@ -713,138 +663,15 @@
             DD_belatedPNG.fix('.download-spread,.bg-cgf,.bg-fan,.ico-qg,.show-sign-one,.show-sign-two,.show-sign-three,.show-sign-four,.show-sign-five,.signwi,.signwi1,.greNewnow,.tenNewnow,.logotaobaofanhuan,#search');
          </script>  
      <![endif]-->
-    <script class="tongji" type="text/javascript">       
-        UrlTj("");
-        var unneedtj = ["/my", "/ajax", "/login"];var tj = true;for (var i = 0; i < unneedtj.length; i++) { if (_path.toLowerCase().indexOf(unneedtj[i]) == 0) { tj = false; break; } }
-        if (tj) { var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F29a7ebc4f6a8c90821d8b062a0bf830e' type='text/javascript'%3E%3C/script%3E")); }
-    </script>
-    <script type="text/javascript">
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//js.fanhuan.com/js/analytics.js', 'ga');
-        ga('create', 'UA-1068666-2', 'auto');
-        ga('send', 'pageview');
-        //var fp4 = new Fingerprint({ screen_resolution: true });
-    </script>
 
-    <script type="text/javascript">
-        var _paq = _paq || [];
-        _paq.push(["setCookieDomain", "*.fanhuan.com"]);
-        _paq.push(["setDomains", "*.fanhuan.com"]);
-        _paq.push(["setCampaignNameKey", "utm_source"]);
-        _paq.push(["setCampaignKeywordKey", "utm_term"]);
-        _paq.push(["setAppId","3"]);
-        _paq.push(["setUserId",CurrentUser.UserId != undefined ? CurrentUser.UserId : ""]);
-        _paq.push(["setCustomVariable", 1, 'clientID', fp4.get(), 'page']);  //fp4.get()
-        _paq.push(['trackPageView']);
-
-        (function () {
-            var u = "//stat.upin.com/";
-            _paq.push(['setTrackerUrl', u + 'track']);
-            _paq.push(['setSiteId', 'www.fanhuan.com']);
-            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = '//js.fanhuan.com/common/js/piwik.min.js?v=20170502'; s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-
-    <script type="text/javascript">
-        $("#nav_notice").mouseover(function () {
-            if (location.hostname == "taobao.fanhuan.com" || location.hostname == "pinpai.fanhuan.com") {
-                $("#nav_notice").css({ 'z-index': '301' });
-            } else {
-                $("#nav_notice").css({ 'z-index': '20' });
-            }
-        }).mouseleave(function () {
-            $("#nav_notice").css({ 'z-index': '0' });
-        })
-        $(function () {
-            var $height = $("#waterfall a img").height();
-            $("#waterfall a").css("height", $height)
-        })
-
-    </script>
-    <script type="text/javascript">
-        //阻止弹窗事件
-        function stop() {
-            return false;
-        }
-    </script>
-    <script type="text/javascript">
-        window["_BFD"] = window["_BFD"] || {};
-        _BFD.bfd_pid = ""; //当前页面的页面id
-        _BFD.client_id = "Cfanhuan";
-        _BFD.BFD_USER = {
-            "user_id": CurrentUser.UserId != undefined ? CurrentUser.UserId : "", //网站当前用户id，如果未登录就为0或空字符串
-            "user_cookie": $.cookie("cookie_clientid")
-        };
-        _BFD.script = document.createElement("script");
-        _BFD.script.type = "text/javascript";
-        _BFD.script.async = true;
-        _BFD.script.charset = "utf-8";
-        _BFD.script.src = (('https:' == document.location.protocol ? 'https://ssl-static1' : 'http://static1') + '.bfdcdn.com/service/fanhuan/fanhuan.js');
-        document.getElementsByTagName("head")[0].appendChild(_BFD.script);
-    </script>
-
-    <script src="https://qiyukf.com/script/310c8bbae562b0f3146f0e9de9211bdb.js" defer async></script>
-    <script>
-        if (CurrentUser.UserId) {
-            $.getJSON("http://my.fanhuan.com/simple/GetUserCompensation?callback=?", function (data) {
-                if (data.rt == 1) {
-                    ysf.config({
-                        uid: data.UserId,
-                        name: data.UserName,
-                        email: data.Email,
-                        mobile: data.Mobile,
-                        data: JSON.stringify([
-                        { "index": 0, "key": "IsCash", "label": "提现中", "value": (data.IsCash == 1 ? "是" : "否") },
-                        { "index": 1, "key": "IsExistOrderCompensation", "label": "未处理订单", "value": (data.IsExistOrderCompensation == 1 ? "是" : "否") }
-                    ])
-                    });
-                }
-            });
-        }
-    </script>
 </body>
 </html>
 <script type="text/javascript">
-    ga('create', 'UA-1068666-14', 'auto', { 'name': 'v2' });
-    ga('v2.send', 'pageview');
-</script>
-<!--[if IE 6]>
-        <script type="text/javascript" src="http://js.fanhuan.com/common/js/png.js"></script>
-        <script type="text/javascript">
-            DD_belatedPNG.fix('.iconfont-1,.newnews');
-        </script>  
-<![endif]-->
-<script type="text/javascript">
-    window["_BFD"] = window["_BFD"] || {};
-    _BFD.BFD_INFO = {
-        "user_id": CurrentUser.UserId != undefined ? CurrentUser.UserId : "",  //网站当前用户id，如果未登录就为0或空字符串
-        "page_type": "my" //当前页面全称，请勿修改
-    };
-</script>
-<script>
-    $("#redPacket").on("click", function () {
-        var that = this;
-        var id = $("#maxId").val();
-        if (id !== "") {
-            $.ajax({
-                type: "GET",
-                url: "/ajax/UpLoadMaxId?id=" + id,
-                cache: false,
-                success: function (data) {
-                    $("#redPacketNum").remove();
-                    location.href = $(that).attr("href");
-                }, error: function () {
-                    
-                }
-            })
-
-            return false;
-        }
-    })
-    
-</script>
+	function changePwd(){
+		location.href= "/newpwd.html";
+	}
+	
+	function bind(){
+		location.href= "/userDetail.html";
+	}
+</script> 

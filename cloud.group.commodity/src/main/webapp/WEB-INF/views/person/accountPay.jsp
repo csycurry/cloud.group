@@ -107,18 +107,26 @@
         </div>
     </div>
 	<section class='user'>
-	<div class="mainWidth container clearfix">
-                <div class="aside pull-left">
-                    <div class="accout">
-                        <p><a href="/userinfo.html">我的收益</a></p>
-                         <p><a href="/affiliates.html">联盟推广</a></p>
-                    </div>
-                    <div class="accout">
-                        <p><a href="/userPay.html">申请提现</a></p>
-                        <p><a href="/account_CashDeatil.html">收益记录</a></p>
-                        <p><a href="/alipay.html">支付宝信息</a></p>
-                    </div>
-                </div>
+               <div id="account_container" class="clearfix">
+        <div id="account_sidebar">
+            
+            <ul id="actside_ul">
+                 
+                <li><a class="selected" href="/my/AllOrder_V3"><i
+                    class="iconfont iconfont-1"></i>我的订单</a></li>
+                    <li><a class="" href="/my/Credit"><i class="iconfont iconfont-credit">
+                    </i>信用等级</a></li>
+                <li><a class="" href="/my/MallMoneyDetail">
+                    <i class="iconfont iconfont-3"></i>收支明细</a></li>
+                <li><a class="" href="/my/safe"><i class="iconfont iconfont-5">
+                </i>安全中心</a></li>
+                
+                <li><a class="" href="/my/mail"><i class="iconfont iconfont-6">
+                </i>我的消息 </a><span class="newnews"></span></li>
+                
+            </ul>
+        </div>
+
 		<div class="userContent pull-left">
 			<script>
 				function accout() {

@@ -18,7 +18,6 @@
 
 </title>
 </head>
-<body>
  <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/base.css" />

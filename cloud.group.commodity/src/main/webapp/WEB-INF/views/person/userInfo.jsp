@@ -15,7 +15,7 @@
     <script type="text/javascript" src="assets/js/user_base.js"></script>
 	<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
     <link href="/assets/stylesheets/bootstrap/bootstrap-table.min.css" rel="stylesheet">
-<script src="/assets/js/bootstrap-table.min.js"></script>  
+	<script src="/assets/js/bootstrap-table.min.js"></script>  
     <title>
 	聚宝师
 </title>
@@ -82,7 +82,7 @@
 									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
 									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
 									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
-									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
 								</tr>
 							</thead>
 						</table>
@@ -101,7 +101,7 @@
 									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
 									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
 									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
-									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
 								</tr>
 							</thead>
 						</table>
@@ -120,7 +120,7 @@
 									<th data-field="missionName" data-align="center" data-sortable="true">商品</th>
 									<th data-field="typeCn" data-align="center" data-sortable="true">结算说明</th>
 									<th data-field="statusCn" data-align="center" data-sortable="true">结算状态</th>
-									<th data-field="createDate" data-align="right" data-sortable="true">结算时间</th>
+									<th data-field="createDate" data-align="center" data-sortable="true">结算时间</th>
 								</tr>
 							</thead>
 						</table>

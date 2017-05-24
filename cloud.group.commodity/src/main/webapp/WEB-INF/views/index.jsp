@@ -11,7 +11,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="qc:admins" content="0464336777661605166375" />
     <link rel="canonical" href="" />
     <link rel="icon" href="" type="image/x-icon" charset="utf-8" />
     <link rel="shortcut icon" href="" type="image/x-icon" />
@@ -34,15 +33,6 @@
         if ($.cookie('viewPc')) {
             return false;
         };
-        var sUserAgent = navigator.userAgent.toLowerCase();
-        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-        var bIsAndroid = sUserAgent.match(/android/i) == "android";
-        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
         <!--if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
             window.location.href = "/";
         };-->
@@ -274,7 +264,7 @@
         <input type="hidden" id="curTotalpage" value="" />
     </div>
     <div class="lastb" id="showend" style="margin:0 auto; width:960px; margin-top:20px; display:none;">
-        <img src="http://i.fanhuan.com/images/cgffl/footerBanner.png?v=20160225" data-url="http://i.fanhuan.com/images/cgffl/footerBanner.png?v=20160225" width="960" height="100" alt="" />
+        <img src="assets/images/footerBanner.png" data-url="assets/images/footerBanner.png" width="960" height="100" alt="" />
     </div>
 
 

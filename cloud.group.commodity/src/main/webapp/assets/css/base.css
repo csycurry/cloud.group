@@ -275,6 +275,7 @@
 .search_input{ height:40px; width:480px;}
 .Text_Ts_Box{ position:relative;width:379px;height:38px;float:left;border-left:#c4c4c4 solid 1px;border-bottom:#c4c4c4 solid 1px;border-top:#999 solid 1px;}
 .SearchInputText{ font-family:"Microsoft Yahei" ;width:258px; height:16px; float:left; padding:11px 10px; margin-left:100px; border:0 none; font-size:14px; color:#ccc;background:#ffffff; border-left:1px solid #e6e6e6;}
+.SearchInputText2{ font-family:"Microsoft Yahei" ;width:258px; height:16px; float:left; padding:11px 10px; margin-left:100px; border:0 none; font-size:14px; color:#ccc;background:#ffffff; border-left:1px solid #e6e6e6;}
 .Text_Ts_Box .search-item1{margin-left:100px !important;}
 .searchInputImage{ padding-left:35px; width:100px; height:40px; line-height:38px; *line-height:40px; float:right; border:0 none; overflow:hidden; cursor:pointer; color:#ffffff; font-size:14px; font-weight:bold;background-color:#299bd3; background-position:-188px 12px; text-align:left;}
 .searchInputImage:hover,.head_form .hover{background-position:-188px -20px;background-color:#38ADE6;}

@@ -219,6 +219,7 @@ li.item-shop a.detail b{ border-right-color:#ff8a00;}
 .home-search .search_input{ width:535px; height:47px;}
 .home-search .Text_Ts_Box{ margin-top:4px; height:42px; width:415px; border:none;}
 .home-search .SearchInputText{margin-left:32px; width:382px; padding:11px 0;height:17px; border:none;}
+.home-search .SearchInputText2{margin-left:32px; width:382px; padding:11px 0;height:37px; border:none;}
 .home-search .searchInputImage{ width:120px; height:46px; padding:0; background:url("/assets/images/bg_home_search_temp_blue.png") no-repeat;background-position:-445px 0; }
 .home-search .searchInputImage:hover,.head_form .hover{background-position:-445px -48px;}
 .home-search .Text_Ts_Box .icon-search{ position:absolute; left:12px; top:15px;width:14px;height:14px;background:url("/assets/images/bg_home_search_temp_blue.png")  no-repeat;background-position:0px -95px;}
