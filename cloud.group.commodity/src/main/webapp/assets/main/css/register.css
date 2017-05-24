@@ -31,7 +31,7 @@
 
 .clearfix:after {display: block;clear: both;height: 0;overflow: hidden;content: "";}
 .header, .content{width:930px;margin:0 auto}
-.logo{float:left;width:173px;height:50px;margin-top:26px}
+.logo{float:left;width:173px;height:70px;margin-top:26px}
 .login_logo{background:url(/assets/main/img/logo.png) no-repeat;}
 .reg_logo{background:url(/assets/main/img/logo.png) no-repeat;}
 .union_login_logo{width:222px;background:url(//i.fanhuan.com/images/passport/union_login_logo.png) no-repeat;}
