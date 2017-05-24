@@ -383,12 +383,7 @@
     <div id="wrapper">
         <div id="main" class="clearfix">
             
-<div class="iphonebg">
-</div>
 <div id="myaccount">
-    <!--广告位开始-->
-    <!--广告位结束-->
-    
     <script type="text/javascript">
         function getCookie(name) {
             var strCookie = document.cookie;
