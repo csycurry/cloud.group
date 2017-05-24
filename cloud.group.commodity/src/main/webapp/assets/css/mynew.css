@@ -4,9 +4,9 @@
  * by cjf 2013-04-15
  */
 #myaccount{ border:1px solid #d7e1e8; box-shadow:0 2px 0 rgba(0,0,0,0.03);}
-#account_container{ background:url(http://i.fanhuan.com/images/home/bg_nav_site.png) repeat-y 0 0 #fff;}
+#account_container{ background:url(/assets/images/bg_nav_site.png) repeat-y 0 0 #fff;}
 /*Account sidebar*/
-#account_sidebar{ float:left; width:118px; padding-bottom:160px;}
+#account_sidebar{ float:left; width:118px; padding-bottom:160px;background:url(/assets/images/bg_nav_site.png) repeat-y 0 0 #fff;}
 #account_sidebar .my-userinfo{ position:relative; line-height:18px; padding:15px 3px 15px 5px; font-family:"Microsoft Yahei",arial; overflow:hidden; text-overflow:ellipsis; text-align:center;}
 #account_sidebar .my-userinfo .i-site-mail{ margin-left:5px;}
 #account_sidebar ul{ border-bottom:1px solid #ffffff;}

@@ -72,7 +72,7 @@
 .txt-info{ width:140px;}
 .required{ color:#ff0000;}
 .btn,.btn span{ display:inline-block; background:url(/assets/images/btn_site.png);background-position: 0 0; background-repeat: no-repeat; cursor:pointer;}
-.btn{ padding-left:15px; background-position:left 0;}
+.btn{ padding-left:15px; background-position:left 0;color: white}
 .btn span{ padding-right:15px; text-align:center; background-position:right 0; text-align:center; font-family:Tahoma,Microsoft Yahei;}
 .btn:hover,.btn:hover span{ text-decoration:none; }
 .btn-1-45,.btn-8{ padding-left:25px; background-position:0 0;}

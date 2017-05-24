@@ -4,6 +4,19 @@
     <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/mynew.css" />
+	<link href="assets/css/search_box.css" rel="Stylesheet" type="text/css" />
+	<div class="top_content">
+        <div id="top_header">
+            <div class="top_header_r">
+                <ul>
+                </ul>
+            </div>
+            <div class="top_header_l">
+                <p class="login_info" id="site_userinfo"></p>
+            </div>
+        </div>
+    </div>
     <div class="headerPlaceBlock">
     </div>
     <div class="headeBlock">
@@ -87,17 +100,19 @@
 
         <section class='user'>
             <div class="mainWidth container clearfix">
-                <div class="aside pull-left">
-                    <div class="accout">
-                        <p><a href="/userinfo.html">我的收益</a></p>
-                         <p><a href="/affiliates.html">联盟推广</a></p>
-                    </div>
-                    <div class="accout">
-                        <p><a href="/userPay.html">申请提现</a></p>
-                        <p><a href="/account_CashDeatil.html"> 收益记录</a></p>
-                        <p><a href="/alipay.html">支付宝信息</a></p>
-                    </div>
-                </div>
+                <div id="account_sidebar">
+		            <ul id="actside_ul">
+		                 
+		                <li><a class="selected" href="/userinfo.html"><i
+		                    class="iconfont iconfont-1"></i>我的收益</a></li>
+		                    <li><a class="" href="/affiliates.html"><i class="iconfont iconfont-credit">
+		                    </i>联盟推广</a></li>
+		                <li><a class="" href="/userPay.html">
+		                    <i class="iconfont iconfont-3"></i>申请提现</a></li>
+		                <li><a class="" href="/alipay.html"><i class="iconfont iconfont-5">
+		                </i>支付宝信息</a></li>
+		            </ul>
+		        </div>
                 <div class="userContent pull-left">
                     <script>
                         function accout() {

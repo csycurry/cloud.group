@@ -50,7 +50,7 @@ public class UserController extends BaseController{
 	@RequestMapping(value="/userinfo")
 	public ModelAndView listSearch()
 	{
-		ModelAndView modelAndView = new ModelAndView("/person/userInfo_new");
+		ModelAndView modelAndView = new ModelAndView("/person/userInfo");
 		Map<String, Object> map= modelAndView.getModel();
 		UserDTO userDTO =  userManager.findDetail(getLoginUserId());
 		if(userDTO==null)

@@ -20,112 +20,130 @@
 <script src="/assets/js/bootstrap-table.min.js"></script>
 <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
-<title></title>
+<link rel="stylesheet" type="text/css" href="assets/css/base.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/home.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
+<link rel="stylesheet" type="text/css" media="screen"
+	href="assets/css/mynew.css" />
+<link href="assets/css/search_box.css" rel="Stylesheet" type="text/css" />
+<title>聚宝师-提现</title>
 </head>
 <body>
-	<div class="headerPlaceBlock">
-    </div>
-    <div class="headeBlock">
-        <div id="header">
-            <div class="inner clearfix" style="position: relative;">
-                <div class="newlogoshowindex" id="header_l" style="display:block">
-                    <a class="gwa" href="/"></a>
-                </div>
-                
-                <div class="newlogoshowtaobao">
-                    <a class="gwa" href="/"></a>
-                    <a class="cgfa" href="/"></a>
-                </div>
-                
-                <div class="home-search clearfix blue">
-                    <div class="search">
-                        <div class="search_input">
-                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
-                                <div class="Text_Ts_Box blue">
-                                    <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
-                                        <span class="icon-search"></span>
-                                    </div>
-                                    <div class="show J_show" id=""></div>
-                                </div>
-                                <input type="submit" class="searchInputImage" class="blue" value=""/>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                
-                
-                <input type="hidden" id="homeNavId" value="hs_tb" />
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="opacity_background animate_block"></div>
-    <div class="float_search_box animate_block">
-        <div class="content">
-            <div class="logotaobaofanhuan">
-                    <a class="gwa" href="http://taobao.fanhuan.com" target="_blank"></a>
-            </div>
-            <div class="home-search clearfix blue">
-                    <div class="search">
-                        <div class="search_input">
-                            <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
-                                <div class="Text_Ts_Box blue">
-                                    <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
-                                        <span class="icon-search"></span>
-                                    </div>
-                                </div>
-                                <input type="submit" class="searchInputImage" class="blue" value=""/>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
+	<div class="top_content">
+		<div id="top_header">
+			<div class="top_header_r">
+				<ul>
+				</ul>
+			</div>
+			<div class="top_header_l">
+				<p class="login_info" id="site_userinfo"></p>
+			</div>
+		</div>
+	</div>
 
 
 
-    
-    <div id="navouter">
-        <div class="navinner clearfix">
-            <div id="nav">
-                <ul> 
-                    <li class="navfirst"><a class="nav-a" href="/" name="nav-www">今日好货</a></li>
-                    <li><a class="nav-a" href="/rebate.html" name="nav-tb"><i class="icon-nav2"></i>热门商品</a> </li>
-                    <li><a class="nav-a act-login" href="/userinfo.html" name="nav-my">我的返还</a></li>
-                    
-                </ul>
-            </div>
-            <div id="nav_notice">
-            </div>
-        </div>
-    </div>
+	<div class="headerPlaceBlock"></div>
+	<div class="headeBlock">
+		<div id="header">
+			<div class="inner clearfix" style="position: relative;">
+				<div class="newlogoshowindex" id="header_l" style="display: block">
+					<a class="gwa" href="/"></a>
+				</div>
+
+				<div class="newlogoshowtaobao">
+					<a class="gwa" href="/"></a> <a class="cgfa" href="/"></a>
+				</div>
+
+				<div class="home-search clearfix blue">
+					<div class="search">
+						<div class="search_input">
+							<form action="" method="post" onsubmit="return SearchMall()"
+								target="_blank" class="head_form">
+								<div class="Text_Ts_Box blue">
+									<div class="TextBox">
+										<input type="text" class="SearchInputText" name="kw"
+											autocomplete="off" value="请输入淘宝/天猫宝贝标题" /> <span
+											class="icon-search"></span>
+									</div>
+									<div class="show J_show" id=""></div>
+								</div>
+								<input type="submit" class="searchInputImage" class="blue"
+									value="" />
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+
+				<input type="hidden" id="homeNavId" value="hs_tb" />
+			</div>
+		</div>
+	</div>
+
+
+	<div class="opacity_background animate_block"></div>
+	<div class="float_search_box animate_block">
+		<div class="content">
+			<div class="logotaobaofanhuan">
+				<a class="gwa" href="http://taobao.fanhuan.com" target="_blank"></a>
+			</div>
+			<div class="home-search clearfix blue">
+				<div class="search">
+					<div class="search_input">
+						<form action="" method="post" onsubmit="return SearchMall()"
+							target="_blank" class="head_form">
+							<div class="Text_Ts_Box blue">
+								<div class="TextBox">
+									<input type="text" class="SearchInputText" name="kw"
+										autocomplete="off" value="请输入淘宝/天猫宝贝标题" /> <span
+										class="icon-search"></span>
+								</div>
+							</div>
+							<input type="submit" class="searchInputImage" class="blue"
+								value="" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="navouter">
+		<div class="navinner clearfix">
+			<div id="nav">
+				<ul>
+					<li class="navfirst"><a class="nav-a" href="/" name="nav-www">今日好货</a></li>
+					<li><a class="nav-a" href="/rebate.html" name="nav-tb"><i
+							class="icon-nav2"></i>热门商品</a></li>
+					<li><a class="nav-a act-login" href="/userinfo.html"
+						name="nav-my">我的返还</a></li>
+
+				</ul>
+			</div>
+			<div id="nav_notice"></div>
+		</div>
+	</div>
 	<section class='user'>
-               <div id="account_container" class="clearfix">
-        <div id="account_sidebar">
-            
-            <ul id="actside_ul">
-                 
-                <li><a class="selected" href="/my/AllOrder_V3"><i
-                    class="iconfont iconfont-1"></i>我的订单</a></li>
-                    <li><a class="" href="/my/Credit"><i class="iconfont iconfont-credit">
-                    </i>信用等级</a></li>
-                <li><a class="" href="/my/MallMoneyDetail">
-                    <i class="iconfont iconfont-3"></i>收支明细</a></li>
-                <li><a class="" href="/my/safe"><i class="iconfont iconfont-5">
-                </i>安全中心</a></li>
-                
-                <li><a class="" href="/my/mail"><i class="iconfont iconfont-6">
-                </i>我的消息 </a><span class="newnews"></span></li>
-                
-            </ul>
-        </div>
+	<div class="mainWidth container clearfix">
+		<div id="account_sidebar">
+			<ul id="actside_ul">
+
+				<li><a class="" href="/userinfo.html"><i
+						class="iconfont iconfont-1"></i>我的收益</a></li>
+				<li><a class="" href="/affiliates.html"><i
+						class="iconfont iconfont-credit"> </i>联盟推广</a></li>
+				<li><a class="selected" href="/userPay.html"> <i
+						class="iconfont iconfont-3"></i>申请提现
+				</a></li>
+				<li><a class="" href="/alipay.html"><i
+						class="iconfont iconfont-5"> </i>支付宝信息</a></li>
+			</ul>
+		</div>
 
 		<div class="userContent pull-left">
 			<script>
@@ -156,18 +174,17 @@
 				}
 				accout();
 			</script>
-
+			<div class="alert alert-warning">
+				<h4 class="text-center">用户提示</h4>
+				<hr style="color: #6D6D6D" />
+				<p>
+					提现说明：提现金额为1元的整数倍，满<span class="red" style="font-size: 18px">1元</span>即可提现,管理员确认后<span
+						class="red" style="font-size: 18px">48小时内</span>给您提现
+				</p>
+				<p>官网申明：提现前请确认自己的收款账号无误</p>
+			</div>
 			<div class="row">
-				<div class="alert alert-warning">
-					<h4 class="text-center">用户提示</h4>
-					<hr style="color: #6D6D6D" />
-					<p>
-						提现说明：提现金额为1元的整数倍，满<span class="red" style="font-size: 18px">1元</span>即可提现,管理员确认后<span
-							class="red" style="font-size: 18px">48小时内</span>给您提现
-					</p>
-					<p>官网申明：提现前请确认自己的收款账号无误
-					</p>
-				</div>
+
 				<div class="col-md-12">
 
 					<div id="ctl00_ContentPlaceHolder1_up1">
@@ -214,17 +231,18 @@
 										<p>
 											<span style="width: 100px; display: inline-block">提现金额：</span><input
 												name="amount" type="text"
-												id="ctl00_ContentPlaceHolder1_askmoney" placeholder="请输入1的整数倍"
-												style="width: 300px;" />
+												id="ctl00_ContentPlaceHolder1_askmoney"
+												placeholder="请输入1的整数倍" style="width: 300px;" />
 										</p>
 									</div>
 									<div id="ctl00_ContentPlaceHolder1_divVerify"
 										class="form-group">
 										<p>
-											验证码：<input id="mobileCode" name="code" type="text"
+											<span style="width: 100px; display: inline-block">验证码：</span><input
+												id="mobileCode" name="code" type="text"
 												id="ctl00_ContentPlaceHolder1_txtlistenNumer"
-												placeholder="请填写验证码" /> <input type="button" data-mode="1" value="发送验证码"
-												class="btn btn-sm btn-info phoneverify" />
+												placeholder="请填写验证码" /> <input type="button" data-mode="1"
+												value="发送验证码" class="btn btn-sm btn-info phoneverify" />
 										</p>
 									</div>
 

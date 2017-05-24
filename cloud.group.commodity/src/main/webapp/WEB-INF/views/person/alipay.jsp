@@ -9,21 +9,34 @@
 	<link href="/assets/main/css/common-user.css" type="text/css" rel="stylesheet" />
 	<link href="/assets/main/css/main-user.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="assets/index/js/jquery-2.1.4.min.js"></script>
-<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />    
+<link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />  
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/mynew.css" />  
     <title>
-
-</title>
-</head>
-<body>
+		聚宝师-支付宝信息
+	</title>
     <link href="/assets/main/css/user.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/base.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/home.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/new_home.css" />
-<title></title>
+    <link href="assets/css/search_box.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
-	<div class="headerPlaceBlock">
+	<div class="top_content">
+        <div id="top_header">
+            <div class="top_header_r">
+                <ul>
+                </ul>
+            </div>
+            <div class="top_header_l">
+                <p class="login_info" id="site_userinfo"></p>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="headerPlaceBlock">
     </div>
     <div class="headeBlock">
         <div id="header">
@@ -105,20 +118,22 @@
     </div>
 	<section class='user'>
 	<div class="mainWidth container clearfix">
-                <div class="aside pull-left">
-                    <div class="accout">
-                        <p><a href="/userinfo.html">我的收益</a></p>
-                         <p><a href="/affiliates.html">联盟推广</a></p>
-                    </div>
-                    <div class="accout">
-                        <p><a href="/userPay.html">申请提现</a></p>
-                        <p><a href="/account_CashDeatil.html">收益记录</a></p>
-                        <p><a href="/alipay.html">支付宝信息</a></p>
-                    </div>
-                </div>
+                <div id="account_sidebar">
+		            <ul id="actside_ul">
+		                 
+		                <li><a class="" href="/userinfo.html"><i
+		                    class="iconfont iconfont-1"></i>我的收益</a></li>
+		                    <li><a class="" href="/affiliates.html"><i class="iconfont iconfont-credit">
+		                    </i>联盟推广</a></li>
+		                <li><a class="" href="/userPay.html">
+		                    <i class="iconfont iconfont-3"></i>申请提现</a></li>
+		                <li><a class="selected" href="/alipay.html"><i class="iconfont iconfont-5">
+		                </i>支付宝信息</a></li>
+		            </ul>
+		        </div>
                 <div class="userContent pull-left">
                             
-    <div class="alert alert-success">
+    <div class="alert alert-warning">
         <h4 class="text-center">用户须知</h4>
         <hr style="color: #6D6D6D" />
         <p>

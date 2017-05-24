@@ -1,5 +1,5 @@
-.mainWidth{width:1200px!important}
-.user{margin-top:80px;margin-bottom:50px}
+.mainWidth{width:1200px!important;margin-left: 100px;margin-right: 100px}
+.user{margin-top:20px;margin-bottom:50px}
 .aside{border:1px solid #ccc;width:200px;background:#fff}
 .user .aside .prl20{padding:0 20px;}
 .user .aside .userCenter{padding-left:15px;}
@@ -32,7 +32,7 @@
 .userContent .balance .balanceCtn{padding:15px 20px 5px 20px;font-size:16px;position:relative;}
 .userContent .balance .balanceCtn .jb{margin-left:-3px;color:#fe6b01;}
 .userContent .balance .balanceCtn .jb img{margin-right:5px;margin-top:-2px}
-.userContent .balance .balanceCtn .sqtx{position:absolute;right:10px;top:20px;}
+.userContent .balance .balanceCtn .sqtx{position:absolute;right:10px;top:10px;}
 .userContent .balance .balanceCtn .sqtx img{width:105px;}
 
 .userContent .userCommon{border:1px solid #ccc;padding:0 40px 5px 40px;margin-bottom:30px}
