@@ -14,16 +14,19 @@ import com.csy.account.domain.dto.UserAccountDTO;
 import com.csy.account.domain.emus.AccountStatusEn;
 import com.csy.account.domain.emus.AccountTypeEn;
 import com.csy.account.manager.AccountManager;
+import com.csy.config.manager.SystemConfigManager;
 import com.csy.dao.RebateMapperExt;
 import com.csy.exception.BusinessException;
 import com.csy.model.Rebate;
 import com.csy.model.RebateExample;
 import com.csy.model.UserAccount;
+import com.csy.model.UserLevel;
 import com.csy.model.base.DateUtil;
 import com.csy.model.base.Pagination;
 import com.csy.model.base.StringUtils;
 import com.csy.rebate.domain.dto.RebateDTO;
 import com.csy.rebate.domain.dto.RebateSearchDTO;
+import com.csy.rebate.domain.emus.RebateLEVELEn;
 import com.csy.rebate.domain.emus.RebateStatusEn;
 import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserManager;
@@ -37,6 +40,8 @@ public class RebateManager {
 	private UserManager userManager;
 	@Autowired
 	private AccountManager accountManager;
+	@Autowired
+	private SystemConfigManager systemConfigManager;
 
 	public Pagination<RebateDTO> pageSearch(RebateSearchDTO searchDTO) {
 		Pagination<RebateDTO> pagination = new Pagination<RebateDTO>(searchDTO.getCurrentPage());
@@ -255,6 +260,83 @@ public class RebateManager {
 		criteria.andStatusNotEqualTo(RebateStatusEn.DELETE.getCode());
 		example.setOrderByClause("mission_id desc");
 		return example;
+	}
+	
+	public long countOrder(String orderId){
+		RebateExample example = new RebateExample();
+		example.createCriteria().andOrderIdEqualTo(orderId);
+		return rebateMapperExt.countByExample(example );
+	}
+	
+	public void inserBatch(Rebate rebate, int missionId, String staffCode) {
+		List<Rebate> rebates = new ArrayList<>();
+		if (rebate == null)
+			return;
+		rebate.setCreateTm(DateUtil.getCurrentTime());
+		rebates.add(rebate);				
+		addLevel(rebate, rebates);
+		if (rebates.isEmpty()) {
+			return;
+		}
+		rebateMapperExt.insertBatch(rebates);
+
+	}
+	
+	private void addLevel(Rebate rebate, List<Rebate> rebates) {
+		UserLevel userLevel = userManager.getLevel(rebate.getUserId());
+		if (userLevel == null) {
+			return;
+		}
+
+		if (userLevel.getLevel1() != null) {
+			Rebate rebate1 = bulid(rebate, userLevel.getLevel1(), RebateLEVELEn.LEVEL1.getLevel());
+			rebates.add(rebate1);
+		}
+		if (userLevel.getLevel2() != null) {
+			Rebate rebate1 = bulid(rebate, userLevel.getLevel2(), RebateLEVELEn.LEVEL2.getLevel());
+			rebates.add(rebate1);
+		}
+		if (userLevel.getLevel3() != null) {
+			Rebate rebate1 = bulid(rebate, userLevel.getLevel3(), RebateLEVELEn.LEVEL3.getLevel());
+			rebates.add(rebate1);
+		}
+		if (userLevel.getLevel4() != null) {
+			Rebate rebate1 = bulid(rebate, userLevel.getLevel4(), RebateLEVELEn.LEVEL4.getLevel());
+			rebates.add(rebate1);
+		}
+		if (userLevel.getLevel5() != null) {
+			Rebate rebate1 = bulid(rebate, userLevel.getLevel5(), RebateLEVELEn.LEVEL5.getLevel());
+			rebates.add(rebate1);
+		}
+
+	}
+	
+	private Rebate bulid(Rebate rebate, int userId, double level) {
+		Rebate rebate1 = new Rebate();
+		UserDTO userDTO = userManager.findDetail(userId);
+		if (userDTO == null) {
+			return null;
+		}
+		rebate1.setUserCode(userDTO.getUserCode());
+		rebate1.setUserId(userDTO.getId());
+		rebate1.setUserName(userDTO.getUserCode());
+		rebate1.setStatus(RebateStatusEn.UNSETTLE.getCode());
+		rebate1.setEarningsFrom(rebate.getUserId());
+		rebate1.setType((byte) 0);
+		rebate1.setImportDate(DateUtil.getCurrentDate());
+		rebate1.setCreateTm(DateUtil.getCurrentTime());
+		rebate1.setMissionId(rebate.getMissionId());
+		rebate1.setMissionName(rebate.getMissionName());
+		rebate1.setCreator(rebate.getCreator());
+		rebate1.setEarnings(rebate.getEarnings().multiply(BigDecimal.valueOf(level)));
+		rebate.setEarnings(rebate.getEarnings().subtract(rebate1.getEarnings()));
+		return rebate1;
+	}
+	
+	private double fixDouble(double amount) {
+		BigDecimal decimal = new BigDecimal(amount);
+		double d = decimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		return d;
 	}
 
 }

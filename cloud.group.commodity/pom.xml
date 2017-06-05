@@ -149,9 +149,9 @@
 		  <version>1.4.4.RELEASE</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.ganshane.specs</groupId>
+		  <groupId>com.taobao.sdk</groupId>
 		  <artifactId>taobao-sdk</artifactId>
-		  <version>20120515</version>
+		  <version>20170523</version>
 		</dependency>
 	</dependencies>
 	

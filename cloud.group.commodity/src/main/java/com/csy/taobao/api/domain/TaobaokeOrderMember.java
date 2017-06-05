@@ -203,4 +203,260 @@ public class TaobaokeOrderMember extends TaobaoObject{
 	 */
 	@ApiField("subsidy_fee")
 	private String subsidyFee;
+
+	public Long getTradeParentId() {
+		return tradeParentId;
+	}
+
+	public void setTradeParentId(Long tradeParentId) {
+		this.tradeParentId = tradeParentId;
+	}
+
+	public Long getTradeId() {
+		return tradeId;
+	}
+
+	public void setTradeId(Long tradeId) {
+		this.tradeId = tradeId;
+	}
+
+	public Long getNumIid() {
+		return numIid;
+	}
+
+	public void setNumIid(Long numIid) {
+		this.numIid = numIid;
+	}
+
+	public String getItemTitle() {
+		return itemTitle;
+	}
+
+	public void setItemTitle(String itemTitle) {
+		this.itemTitle = itemTitle;
+	}
+
+	public Integer getItemNum() {
+		return itemNum;
+	}
+
+	public void setItemNum(Integer itemNum) {
+		this.itemNum = itemNum;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getPayPrice() {
+		return payPrice;
+	}
+
+	public void setPayPrice(String payPrice) {
+		this.payPrice = payPrice;
+	}
+
+	public String getSellerNick() {
+		return sellerNick;
+	}
+
+	public void setSellerNick(String sellerNick) {
+		this.sellerNick = sellerNick;
+	}
+
+	public Long getSellerShopTitle() {
+		return sellerShopTitle;
+	}
+
+	public void setSellerShopTitle(Long sellerShopTitle) {
+		this.sellerShopTitle = sellerShopTitle;
+	}
+
+	public String getCommission() {
+		return commission;
+	}
+
+	public void setCommission(String commission) {
+		this.commission = commission;
+	}
+
+	public String getCommissionRate() {
+		return commissionRate;
+	}
+
+	public void setCommissionRate(String commissionRate) {
+		this.commissionRate = commissionRate;
+	}
+
+	public String getUnid() {
+		return unid;
+	}
+
+	public void setUnid(String unid) {
+		this.unid = unid;
+	}
+
+	public Date getCreateime() {
+		return createime;
+	}
+
+	public void setCreateime(Date createime) {
+		this.createime = createime;
+	}
+
+	public Date getEarningTime() {
+		return earningTime;
+	}
+
+	public void setEarningTime(Date earningTime) {
+		this.earningTime = earningTime;
+	}
+
+	public Byte getTkStatus() {
+		return tkStatus;
+	}
+
+	public void setTkStatus(Byte tkStatus) {
+		this.tkStatus = tkStatus;
+	}
+
+	public String getTk3rdType() {
+		return tk3rdType;
+	}
+
+	public void setTk3rdType(String tk3rdType) {
+		this.tk3rdType = tk3rdType;
+	}
+
+	public String getTk3rdPubId() {
+		return tk3rdPubId;
+	}
+
+	public void setTk3rdPubId(String tk3rdPubId) {
+		this.tk3rdPubId = tk3rdPubId;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public String getIncomeRate() {
+		return incomeRate;
+	}
+
+	public void setIncomeRate(String incomeRate) {
+		this.incomeRate = incomeRate;
+	}
+
+	public String getPubSharePreFee() {
+		return pubSharePreFee;
+	}
+
+	public void setPubSharePreFee(String pubSharePreFee) {
+		this.pubSharePreFee = pubSharePreFee;
+	}
+
+	public String getSubsidyRate() {
+		return subsidyRate;
+	}
+
+	public void setSubsidyRate(String subsidyRate) {
+		this.subsidyRate = subsidyRate;
+	}
+
+	public String getSubsidyType() {
+		return subsidyType;
+	}
+
+	public void setSubsidyType(String subsidyType) {
+		this.subsidyType = subsidyType;
+	}
+
+	public String getTerminalType() {
+		return terminalType;
+	}
+
+	public void setTerminalType(String terminalType) {
+		this.terminalType = terminalType;
+	}
+
+	public String getAuctionCategory() {
+		return auctionCategory;
+	}
+
+	public void setAuctionCategory(String auctionCategory) {
+		this.auctionCategory = auctionCategory;
+	}
+
+	public String getSiteId() {
+		return siteId;
+	}
+
+	public void setSiteId(String siteId) {
+		this.siteId = siteId;
+	}
+
+	public String getSiteName() {
+		return siteName;
+	}
+
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
+	}
+
+	public String getAdzoneId() {
+		return adzoneId;
+	}
+
+	public void setAdzoneId(String adzoneId) {
+		this.adzoneId = adzoneId;
+	}
+
+	public String getAdzoneName() {
+		return adzoneName;
+	}
+
+	public void setAdzoneName(String adzoneName) {
+		this.adzoneName = adzoneName;
+	}
+
+	public String getAlipayTotalPrice() {
+		return alipayTotalPrice;
+	}
+
+	public void setAlipayTotalPrice(String alipayTotalPrice) {
+		this.alipayTotalPrice = alipayTotalPrice;
+	}
+
+	public String getTotalCommissionRate() {
+		return totalCommissionRate;
+	}
+
+	public void setTotalCommissionRate(String totalCommissionRate) {
+		this.totalCommissionRate = totalCommissionRate;
+	}
+
+	public String getTotal_commission_fee() {
+		return total_commission_fee;
+	}
+
+	public void setTotal_commission_fee(String total_commission_fee) {
+		this.total_commission_fee = total_commission_fee;
+	}
+
+	public String getSubsidyFee() {
+		return subsidyFee;
+	}
+
+	public void setSubsidyFee(String subsidyFee) {
+		this.subsidyFee = subsidyFee;
+	}
 }

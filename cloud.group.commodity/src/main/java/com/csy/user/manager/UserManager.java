@@ -153,6 +153,20 @@ public class UserManager {
 		return dto;
 	}
 	
+	@Cache(expire=60)
+	public UserDTO findDetail(String userTb)
+	{
+		UserExample example = new UserExample();
+		example.createCriteria().andUserTbEqualTo(userTb);
+		List<User> users = userMapperExt.selectByExample(example);
+		if(users==null||users.isEmpty()){
+			return null;
+		}
+		UserDTO dto = new UserDTO();
+		BeanUtils.copyProperties(users.get(0), dto);
+		return dto;
+	}
+	
 	public void insertUser(UserDTO userDTO)
 	{
 		if(StringUtils.isNotEmpty(userDTO.getUserMobile()))

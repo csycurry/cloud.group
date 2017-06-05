@@ -3,7 +3,6 @@ package com.csy.taobao.api.domain;
 import java.util.List;
 
 import com.taobao.api.TaobaoObject;
-import com.taobao.api.domain.TaobaokeReportMember;
 import com.taobao.api.internal.mapping.ApiField;
 import com.taobao.api.internal.mapping.ApiListField;
 

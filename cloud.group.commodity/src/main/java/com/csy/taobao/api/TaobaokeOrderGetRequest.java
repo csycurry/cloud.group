@@ -137,6 +137,36 @@ public class TaobaokeOrderGetRequest implements TaobaoRequest<TaobaokeOrderGetRe
 		RequestCheckUtils.checkMinValue(pageNo,1L,"pageNo");
 		RequestCheckUtils.checkMaxValue(pageSize,100L,"pageSize");
 	}
+	@Override
+	public int getBatchApiOrder() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public String getBatchApiSession() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Map<String, String> getHeaderMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getTargetAppKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setBatchApiOrder(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setBatchApiSession(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
