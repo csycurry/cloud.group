@@ -56,6 +56,7 @@
                         <div class='box-content'>
                          		<div id="group">
 				                <c:forEach items="${list}" var="l" varStatus="status">
+				                <div class="banner" style="border:1px solid #000">
 				                	<div class='control-group'>
 					                    <label class='control-label'>轮播图</label>
 					                     <div class='controls'>
@@ -64,6 +65,7 @@
 					                     		<input class="col-md-12 linkTxt"  name='url' value="${l.url}" type="text" />
                                         		<input class="col-md-12 link"  type="file" />
                                         		<input type="button" value="上传" onclick="uploadFunction(${status.index})">
+                                        		<span class="pull-right" style="color: red;font: 20px">推荐图片大小：1920x353</span>
                                     	 </div>
 									</div>
 									<div class='control-group'>
@@ -71,10 +73,12 @@
 	                                    <div class='controls'>
 	                                        <input class="missionLink"   name='missionLink' value="${l.link}" placeholder='链接地址' type='text' />
 	                                    </div>
+	                                    <input type="button" value="删除" onclick="remove(${l.id},${status.index})">
 	                                </div>
+	                             </div>
 				                </c:forEach>
 				                </div>
-				                <input type="button" value="add" onclick="addItem()">
+				                <input type="button" value="添加图片" onclick="addItem()">
                                 <div class='form-actions' style='margin-bottom:0'>
                                     <button class='btn btn-primary' type="button" onclick="save()">
                                         <i class='icon-save'></i>
@@ -113,17 +117,38 @@
      });
  }
  
+ function remove(id,index)
+ {
+	 if(id>0)
+		 {
+		 $.ajax({
+	         type:"POST", //请求方式  
+	         url:"/backstage/banner/remove.json", //请求路径  
+	         cache: false,   
+	         data:{"id":id},    
+	         success:function(data){        
+				alert("删除成功");
+				$(".banner").eq(index).remove();
+	         }  
+	     });
+		 }
+	 else{
+		 alert("删除成功");
+		$(".banner").eq(index).remove();
+	 }
+	 
+ }
+ 
  function addItem() {
 	var l = $(".imgUrl").length;
-	if(l>5)
+	if(l>=5)
 		{
 		alert("轮播图最多不能超过5张！");
 		return;
 		}
-	$("#group").append("<div class='control-group'><label class='control-label'>轮播图</label><div class='controls'><img class='imgUrl' alt='' src=''><input class='col-md-12 linkTxt' name='url'  type='text' />"+		
-	"<input class='col-md-12 link'   type='file' /><input type='button' value='上传' onclick='uploadFunction("+l+")'></div></div>");
-	$("#group").append("<div class='control-group'> <label class='control-label' for='validation_name'>地址</label>"+
-    "<div class='controls'><input class='missionLink' data-rule-minlength='2' data-rule-required='true' name='missionLink' value='' placeholder='链接地址' type='text' /></div></div>");
+	$("#group").append("<div class='banner' style='border:1px solid #000'><div class='control-group'><label class='control-label'>轮播图</label><div class='controls'><img class='imgUrl' alt='' src=''><input class='col-md-12 linkTxt' name='url'  type='text' />"+		
+	"<input class='col-md-12 link'   type='file' /><input type='button' value='上传' onclick='uploadFunction("+l+")'><span class='pull-right' style='color: red;font: 20px'>推荐图片大小：1920x353</span></div></div><div class='control-group'> <label class='control-label' for='validation_name'>链接地址</label>"+
+    "<div class='controls'><input class='missionLink' data-rule-minlength='2' data-rule-required='true' name='missionLink' value='' placeholder='链接地址' type='text' /></div><input type='button' value='删除' onclick='remove(0,"+l+")'></div></div>");
 }
  
  function save() {
@@ -145,9 +170,7 @@
      $.ajax({
          type:"POST", //请求方式  
          url:"/backstage/banner/save.json", //请求路径  
-         cache: false,   
          contentType: "application/json",
-         dataType: 'json',   //返回值类型 
          data:JSON.stringify(jsonArr),    
          success:function(data){        
 			alert("保存成功");

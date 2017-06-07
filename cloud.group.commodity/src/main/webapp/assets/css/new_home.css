@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+* html,* html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+.headeBlock{ z-index:9999;}
+.fixed{position:fixed; top:20px;_position:absolute; _top:expression(((noValue = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');}
+.fixed #header{height:68px;}
+.newlogoshowindex{width:310px;height: 70px;background: url("/assets/main/img/logo.png") no-repeat;position: absolute;top:10px;display: block;}
+.cgf-list{display:none}
+#header .blue #search {background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;}
+#header .blue #searchInputImage{background:url("http://i.fanhuan.com/images/home/bg_home_search_temp_blue.png?v=201604141407")  no-repeat;background-position:-445px 0;}
+#header .blue #searchInputImage:hover,#head_form .hover{background-position:-445px -48px;}
+#waterfall a{display:block; overflow:hidden}
+/*tab切换*/
+.cgf-list .list_box_m{min-height:1416px;}
+.index_tab{border-bottom:3px solid #e6e6e6;line-height:30px; margin-top:-10px;}
+.index_tab .bh-fr{font-size:12px;color:#666; padding-left:26px; background-position:0 4px; position:relative;top:4px;}
+.index_tab ul{ position:relative; top:3px;}
+.index_tab ul li{float:left; padding-bottom:3px;}
+.index_tab ul li.curr{border-bottom:3px solid #fe6b01;}
+.index_tab ul li.curr a{color:#fe6b01}
+.index_tab ul li a{color:#5e5e5e; font-size:16px; height:30px; display:block}
+.index_tab ul li a:hover{ color:#2f97f0}
+.leimu li a:hover,.rightNow:hover{color:#2f97f0}
+/*9.9*/
+.jiujiu-list{position: relative;width:990px;margin:15px -30px 0 0;}
+.jiujiu-list li{width: 300px;position:relative;float:left;_display:inline;margin:0 26px 20px 0;background:#fff;border:2px solid #FaFaFa;border-radius:2px;height:405px;}
+.jiujiu-list li:hover,.jiujiu-list .cur{border-color:#f40;-webkit-transition: border-color .2s ease-in;-moz-transition: border-color .2s ease-in;-ms-transition: border-color .2s ease-in;-o-transition: border-color .2s ease-in;transition: border-color .2s ease-in;}
+.jiujiu-list li .img-box,.jiujiu-list .li-box{display:block;}           
+.jiujiu-list li .goods-name a:hover{text-decoration:none;color:#ff3131;}
+.jiujiu-list .goods-pic{ position:relative; width:300px; height:300px; background:#fafafa;}
+.jiujiu-list .goods-pic .goods-pic-link{ position:relative; display:block; width:300px; height:300px; margin:0 auto;  vertical-align:middle;}
+.jiujiu-list .goods-pic .goods-pic-link img{ display:block;width:300px;height:300px;*position:relative;}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap{position: absolute;left:0;top:0; font-family:"Microsoft Yahei"}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap i{ float:left; width:40px; line-height:35px;color:#fff; font-size:12px; text-align:center; height:35px;}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap i.istoday{background:#45bbff;font-family:"Microsoft Yahei"}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap i.islimit{background:#ffae00;line-height:15px;font-size:12px; padding-top:3px; height:33px;font-family:"Microsoft Yahei"}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap em{display: inline-block;width: 40px;color: white;line-height: 1.2;margin-top: 5px;text-align:center}
+.jiujiu-list .goods-pic .goods-pic-link .tag-ap .ico-tag1 em,.jiujiu-list .goods-pic .goods-pic-link .tag-ap .ico-tag2 em{margin-top:12px;}
+/*.jiujiu-list .goods-pic .goods-pic-link .phone-box{display:none;position: absolute;width: 100%;height: 30px;left: 0;bottom: 0;text-align: center;line-height: 30px;font-size: 14px;background-color: #000;opacity: 0.5;filter:alpha(opacity=50);}
+.jiujiu-list .goods-pic .goods-pic-link .phone-box:hover{opacity: 0.7;filter:alpha(opacity=70)}
+.jiujiu-list .goods-pic .goods-pic-link .phone-box .ico-phone{margin-top: 5px;*margin-top:0;margin-right:10px;}
+.jiujiu-list .goods-pic .goods-pic-link .phone-box a{color:#fff;_position:relative;_top:5px;display: block;}
+.jiujiu-list .goods-pic .goods-pic-link .phone-box a:hover{text-decoration:none;}
+*/
+.jiujiu-list .goods-pic .goods-pic-link .report{display:none;border-radius: 3px;width: 50px;height: 25px;line-height: 25px;position: absolute;right: 5px;top: 5px;text-align: center;background: #000;opacity: 0.5;filter:alpha(opacity=50);}
+.jiujiu-list .goods-pic .goods-pic-link .report:hover{opacity: 0.8;filter:alpha(opacity=80);}
+.jiujiu-list .cur .goods-pic .goods-pic-link .report,.jiujiu-list li:hover .goods-pic .goods-pic-link .report{display:block;}
+.jiujiu-list li:hover .goods-info,.jiujiu-list .cur .goods-info{display:block;}
+.jiujiu-list .goods-pic .goods-pic-link .report a{display:block;color: #fff;cursor: pointer;}
+.jiujiu-list .goods-pic .goods-pic-link .report a:hover{text-decoration:none;}
+.jiujiu-list .goods-name{ width:276px;margin: 12px 0 7px 14px;overflow:hidden;}
+.jiujiu-list .goods-name .tag{color:#f40;padding-right:5px;}
+.jiujiu-list .goods-name .czg-wqg{ font:14px/20px "微软雅黑", sans-serif; color:#666;}
+.jiujiu-list .goods-name .czg-wqg b{ color:#000; font-weight:400; font-size:14px; margin-right:3px;}
+.jiujiu-list li a:hover .czg-wqg,.jiujiu-list .goods-name  a:hover b{color:#ff3131;}
+.jiujiu-list .goods-name .category{ font-weight:bold;}
+.jiujiu-list .goods-name .category:hover{ text-decoration:none;}
+.jiujiu-list .goods-info{display:none; position:relative; top:-6px; margin:0;}
+.jiujiu-list .goods-info a:hover{text-decoration:none;}
+.jiujiu-list .goods-info .btn span{font:14px "Microsoft Yahei";font-weight:normal;line-height: 30px;}
+.jiujiu-list .price .num{overflow:hidden;}
+.jiujiu-list .price .num span{display: inline-block;font: 26px "tahoma";color: #ff0000;padding: 0 5px 0 0;vertical-align:middle;font-weight: bold;}
+.jiujiu-list .price .num .ico-fan{width:106px;font: 14px "微软雅黑";text-align: center;padding-right:0;}
+.jiujiu-list .price .num .ico-fan em{display:block;height:17px;line-height:17px;*font-family:"Microsoft Yahei";_position:relative;_top:1px;padding-left: 3px;}
+.jiujiu-list .price .num .fan{font:16px "Microsoft YaHei";font-weight:bold;padding-right: 0;}
+.jiujiu-list .price .num .fan i{padding-left:2px;}
+.jiujiu-list .price .num .fan-tip{font-size: 12px;color:#fff;background: #f33131;padding:1px 4px 2px;border-radius: 3px;}
+.jiujiu-list .price .num .fan-tip em{ font-family:"tahoma","Microsoft Yahei"}
+.jiujiu-list li .price{margin:0 14px 10px;}
+.jiujiu-list li .price-new{ position:relative; float:left; padding-left:14px;  font:38px Arial, "\5b8b\4f53", sans-serif; color:#F33;letter-spacing:-1px;top:3px;}
+.jiujiu-list li .price-new em{ position:absolute; left:0; bottom:7px; font:20px/1 Microsoft YaHei,Arial;}
+.jiujiu-list li .price-old { color: #999; font: 14px/1.5 tahoma, Arial, "\5b8b\4f53", sans-serif;top: 4px;position: relative;}
+.jiujiu-list li .price-other{ float: left;_display: inline;margin: 15px 0 0 5px;*zoom:1;}
+.jiujiu-list li .icon-czgjp {float: right;_display: inline;margin: 16px 10px 0 0;}
+.jiujiu-list li .price-other .icon{ letter-spacing:-3px;}
+.jiujiu-list li .price-other i{ margin:0 3px 0 0; vertical-align:top;}
+.jiujiu-list .goods-count{ float:right; margin-top:16px; font:12px/1.5 Microsoft Yahei; color:#999;}
+.jiujiu-list a.goods-count:hover{ text-decoration:none; color:#999; cursor:default;}
+.jiujiu-list .goods-count span{ margin-right:2px; font-family:Arial; font-weight:bold;}
+.jiujiu-list .goods-count .loading{ vertical-align:middle;}
+.jiujiu-list .goods-start{ float:right;margin-top:16px;font:bold 18px/1 Microsoft YaHei; color:#008000;}
+.jiujiu-list .ico-qg{width:106px;height:106px;line-height: 106px;background-position:0 0;position: absolute;left: 50%;top: 50%;margin: -53px 0 0 -53px;
+text-align: center;color:#fff;font:26px '微软雅黑';font-weight:bold;}
+.jiujiu-list .ico-tit{width:102px;height:29px;background-position:0 -125px}
+.jiujiu-list .ico-fan{width:102px;height:18px;background-position:-138px -126px;}
+.jiujiu-list .ico-buy{position: absolute;bottom: 9px;right: -6px;width:99px;height:38px;font: 14px "Microsoft Yahei";font-weight: bold;color: white;text-align: center; background:url(http://i.fanhuan.com/images/cgffl/newnow.png?v=20160223) no-repeat;}
+.jiujiu-list .ico-buy em{display:block;}
+.jiujiu-list .ico-buy-sellout{background-position:-125px -84px;}
+.jiujiu-list .ico-tag1{width:45px;height:40px;_height:39px;background-position:-216px 0;}
+.jiujiu-list .ico-tag2{width:45px;height:40px;background-position:-216px -41px;}
+.jiujiu-list .ico-tag3{width:45px;height:40px;_height:39px;background-position:-216px -82px}
+.jiujiu-list .ico-phone{width:14px;height:20px;background-position:-128px -126px;}
+.jiujiu-list .ico-time{width:16px;height:15px;background-position:-245px -127px;margin:3px 5px 0 0;}
+.jiujiu-list li .price .shop-amount{float:right;position:relative;top:7px;width:80px;overflow:hidden}
+.jiujiu-list li .price .shop-name {display:block;width:80px;height:13px;background:url(http://i.fanhuan.com/images/zdm/icon_tmall.png?v=20161012) no-repeat right;}
+.jiujiu-list li .price .taobao {background:url(http://i.fanhuan.com/images/zdm/icon_tb.png?v=20160324) no-repeat right;}
+.jiujiu-list li .price .shop-amount .amount{color:#ccc;display:block;margin-top:3px;text-align:right;width:80px;font-family:"Microsoft Yahei";}
+/*brand*/
+.brand_poa{position: absolute!important;left:auto!important;top:auto!important;right:0;bottom:10px;width:240px;height:540px;}
+.brand_fixed{position:fixed !important;left:0; top:83px; width:100%;}  
+.Brand_box{position:relative;width:960px;margin-top:20px;}
+.brand_lists li{position:relative}
+.brand_lists li a{ display:inline-block; cursor:pointer}
+.brand_lists li .tagToday{ position:absolute;left:0;top:0; width:40px; height:40px; background:url(http://i.fanhuan.com/images/icon_Brand_s.png?v=20160315) no-repeat; overflow:hidden}
+.brandlists{width:700px;margin-right:20px;}
+.brandDetails{width:220px;background:#fff;text-align:center;height:223px;}
+.brandDetails .priceCount{color:#666;font-size:14px;margin:7px 0 14px}
+.brandDetails .priceCount span{margin-right:9px;}
+.brandDetails .priceCount span i{position:relative;top:1px}
+.brandDetails .countDown{color:#808080;}
+.brandDetails .countDown img{ position:relative;top:6px;}
+.brandDetails p i{font-size:20px;color:#e43c00;margin:0 1px}
+.brandDetails .brand_logo{width:176px;border-bottom:1px solid #ebe7e7;margin:26px auto 0;}
+.brandDetails .brand_logo .logoTxt{color:#808080;margin:8px 0 12px;display:block}
+.brandsuggest{position:relative; left:0;top:0;z-index:88; width:238px;border-top:3px solid #2f97f0; border-bottom:1px solid #e7e7e7;border-left:1px solid #e7e7e7;border-right:1px solid #e7e7e7; overflow:hidden; background:#fff}
+.brandsuggest .bh{ color:#2f97f0; line-height:37px; text-align:center; font-size:14px; background:#faf9f9}
+.brandsuggest .slidebar{position:relative;}
+.brandsuggest .slidebar p{ line-height:44px; text-align:center; width:136px; margin:0 auto;}
+.brandsuggest .slidebar p .pre_btn{ float:left}
+.brandsuggest .slidebar p span{ position:relative;left:39px; color:#868686;}
+.brandsuggest .slidebar p a{ display:inline-block; width:20px; height:17px; position:relative;top:14px}
+.brandsuggest .slidebar li a img{position: absolute;top:0px;bottom:0;right:0;left:0;margin:auto;*top:8px;*left:12px}
+.brandsuggest .slidebar p a.pre_btn{background:url(http://i.fanhuan.com/images/icon_Brand_s.png?v=201603151) no-repeat left;background-position:0 -41px;}
+.brandsuggest .slidebar p a.next_btn{background:url(http://i.fanhuan.com/images/icon_Brand_s.png?v=201603151) no-repeat left;background-position:-2px -61px;}
+.brandsuggest .slidebar_box{ position:relative; overflow:hidden}
+.brandsuggest .slidebar ul{float:left; width:242px; height:456px; position:relative; left:-2px;}
+.brandsuggest .slidebar li{width:120px;height:56px;float:left;position:relative;border-bottom:1px dashed #eee;border-right:1px dashed #eee}
+.brandsuggest .slidebar li a{ display:block; width:120px; height:56px;}  

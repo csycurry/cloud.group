@@ -19,4 +19,17 @@
     </if>
     LIMIT #{offset},#{limit}
   </select>
+  
+  <update id="changeBalance" parameterType="com.csy.model.User">
+  	update `user` set balance = balance-#{balance,jdbcType=BIGINT}
+  	where id = #{id,jdbcType=INTEGER} and balance>=#{balance,jdbcType=BIGINT}
+  </update>
+  
+  <select id="checkUser" parameterType="com.csy.model.User" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from user where user_mobile = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{user.userPwd,jdbcType=VARCHAR} and user_type = #{user.userType,jdbcType=TINYINT} 
+	union   
+	select <include refid="Base_Column_List" />  from user where user_code = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{user.userPwd,jdbcType=VARCHAR} and user_type = #{user.userType,jdbcType=TINYINT} 
+	union   
+	select <include refid="Base_Column_List" />  from user where user_mail = #{user.userCode,jdbcType=VARCHAR} and user_pwd = #{user.userPwd,jdbcType=VARCHAR} and user_type = #{user.userType,jdbcType=TINYINT};
+  </select>
 </mapper>

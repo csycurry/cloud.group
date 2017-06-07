@@ -38,7 +38,7 @@
                     </div>
                 </li>
                 <li class="BookMark">
-                    <a href="javascript:void(0)" onclick="AddFavorite('聚聚玩','www.jujuwan.com')">
+                    <a href="javascript:void(0)" onclick="AddFavorite('聚宝师','www.jubaos.com')">
                         <img src="assets/main/img/serviceCenter6.png" />
                         <br />
                         <span>收藏本站</span>
@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-2">
-                <img alt="LOGO" src="">
+                <img alt="LOGO" src="assets/main/img/logo.png">
             </div>
             <div class="col-xs-2">
                 <h4>关于我们</h4>
@@ -69,18 +69,18 @@
             </div>
             <div class="col-xs-2 col-md-2 col-sm-2 col-xs-2">
                 <p>
-                    <img src="/img/dh.png" />
+                    <img src="assets/main/img/dh.png" />
                     <span>&nbsp;&nbsp;&nbsp;</span>0571-XXXXXXXX
                 </p>
                 <p>
-                    <img src="/img/fw.png" />
+                    <img src="assets/main/img/fw.png" />
                     <span>&nbsp;&nbsp;&nbsp;</span>服务时间段：9:00 - 18:00
                 </p>
             </div>
         </div>
         <div class='web clearfix'>
             <div class="container">
-                <p class='pull-left'><a href="#">XXX</a> | <a href="#">备案/许可证号:XXXXXX </a></p>
+                <p class='pull-left'><a href="#">聚宝师</a> | <a href="#">备案/许可证号:XXXXXX </a></p>
                 <p class='pull-left'>
                     Copyright ©2016 currychen.cn All Rights Reserved
                     <script  src="http://static.anquan.org/static/outer/js/aq_auth.js"></script></a>                      

@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
-	打码-${list.missionTitle}
+	聚宝师-${list.missionTitle}
 </title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="keywords" content="打码赚钱,网络赚钱,玩游戏赚钱,网赚平台,网络兼职" />
 <meta name="description" content="打码赚钱，体验广告等方式进行网络赚钱。让您轻松实现网上赚钱的愿望。" />
@@ -35,51 +35,23 @@
     
 </head>
 <body>
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
-</div>
-
-<script type="text/javascript">
-//<![CDATA[
-var theForm = document.forms['aspnetForm'];
-if (!theForm) {
-    theForm = document.aspnetForm;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
-}
-//]]>
-</script>
-
-
-<script src="/WebResource.axd?d=bnO43BAny2fLzXDnhC1UZnNdFLj_0m5Kfu2bCJYTtkDAiMwq3BR1rqKp1rscOz9WfP0g9ZRxQPx6LbXn_Qm-P9ZJEo0x6Kxcir4wl4y6OYo1&amp;t=635375563334701695" type="text/javascript"></script>
-
-
-<script src="/ScriptResource.axd?d=sdFIlEnnsg-hOmZ_gTfQwaqutNwVpvSvA_GLCXpVJjpyPVswf-gFCHzkOHobit3aDYUQ7rKkitEvCidladbVtBllj5NNtawypj51DNMYCdXgE8tf6owd_xHW8uCilMztNOWgvhdiP9m14AMoB_BuwfWUI5ZPG4D1RBcE8v9izaEDCgGoGrMiAhSG7-bCdE2X0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<script src="/ScriptResource.axd?d=F8C9ESjZBBEOBSW7epDN0cWSK-MZbbVGIF4IjXlERuKO5ZeOWgNJ524k0L0_jXeTuh4IfoDnL6I2CL_ZaXX6ab0oAHcqO-8iwrz-mHDSx_G8LQLz4DRt70yUPNJf_uhEaBAOrrfJHgn32yoMHuaYeg8DHHqouC-5s99e0nKuAAMYRLVcHrt_pnsp4A0qvXPd0&amp;t=ffffffffb53e74b8" type="text/javascript"></script>
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6202FE30" />
-</div>
         <%@include file="header.jsp"%>
        <script src="assets/main/js/dialog.js" type="text/javascript"></script>
         <script src="assets/main/js/common.js" type="text/javascript"></script>
-        <script src="http://static.geetest.com/static/tools/gt.js"></script>  
 
     <div class="codeBg">
         <img src="assets/main/img/codeBg.jpg" class='imgBg' />
     </div>
     <section class='code'>
         <div class="mainWidth container clearfix">
+        	<div class="f13 bread-crumb">
+				当前位置: <a href="/index.html">首页</a> &gt; <a
+					href="/codes.html">打码专区</a> &gt; <a
+					href="javascript:void(0)">${list.missionTitle}</a>
+			</div>
             <div class="drawCode pull-left">
                 <h3 class='drawCodeHead'>
-                    <img src="assets/main/img/drawCode1.png" /><span id="ctl00_ContentPlaceHolder1_lblcaptchaname">${list.missionTitle}</span><a href="/mission/list.html" class="pull-right">其他任务>></a></h3>
+                    <img src="assets/main/img/drawCode1.png" /><span id="ctl00_ContentPlaceHolder1_lblcaptchaname">${list.missionTitle}</span><a href="/codes.html" class="pull-right">其他任务>></a></h3>
                 <div class="drawCodeCtn">
                     <div class="drawCodeMsg clearfix">
                         <div class="pull-left one">
@@ -120,7 +92,7 @@ function __doPostBack(eventTarget, eventArgument) {
                     <div class="drawCodeMain">
                         <div class="chart DCMcommon">
                             <h3>
-                                <img src="assets/main/img/drawCode4.png" class='icon' />我的<span id="ctl00_ContentPlaceHolder1_lblcaptchaname1" style="font-size:Large;">大众打码</span>收益报表<span class="pull-right"><img src="img/drawCode5.png" />新手请点击查看<a href="#" class='red'>打码教程</a></span></h3>
+                                <img src="assets/main/img/drawCode4.png" class='icon' />我的<span id="ctl00_ContentPlaceHolder1_lblcaptchaname1" style="font-size:Large;">大众打码</span>收益报表<span class="pull-right"></span></h3>
                             <table class="table ZQtable">
                                 <thead>
                                     <tr>
@@ -132,8 +104,15 @@ function __doPostBack(eventTarget, eventArgument) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <c:forEach items="${reb}" var="r"> 
+                                	<tr>
+                                    <th>${r.userCode}</th>
+                                       <th></th>
+                                       <th>${list.price}</th>
+                                       <th>${r.amount}</th>
+                                       <th>${r.createDate}</th>
                                     </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -166,7 +145,7 @@ function __doPostBack(eventTarget, eventArgument) {
         $(function () {
             (function () {
                 function init() {
-                    navbarshow($('.headNav li:nth-child(5)'));
+                    navbarshow($('.headNav li:nth-child(2)'));
                     $('.code .drawCode').show();
                     table();
                 }
@@ -198,11 +177,11 @@ function __doPostBack(eventTarget, eventArgument) {
         //领取工号
         function getemployeeid() {
             $.ajax({
-                url: "/sign/code.json",
+                url: "/sign/code.json?missionId="+$('#ctl00_ContentPlaceHolder1_lblcodeid').text(),
                 type: "post",
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
-                data: {"missionId":$('#ctl00_ContentPlaceHolder1_lblcodeid').text()},
+                data: {},
                 success: function (data) {
                 	if(data.status==1)
                 		{

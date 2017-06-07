@@ -1,0 +1,14 @@
+﻿.home-search #search,.home-search #searchInputImage,.home-search #Text_Ts_Box .icon-search{background:url("http://i.fanhuan.com/images/home/bg_home_search_temp .png?v=20160218") 0 0 no-repeat;}
+.home-search{z-index:999;position:absolute;right:0px;padding:22px 0 15px 118px;display:block;}
+.home-search #search{ display:block; float:right; margin-top:0; height:46px; width:565px;}
+.home-search #search_input{ width:565px; height:47px;}
+.home-search #Text_Ts_Box{ margin-top:2px; height:42px; width:445px; border:none;}
+.home-search #SearchInputText{ margin-left:34px; width:409px; padding:12px 0;padding:14px 0 10px\0;*padding:14px 0 10px;height:18px; border:none; }
+.home-search #searchInputImage{ width:120px; height:46px; padding:0; background-position:-445px 0; }
+.home-search #searchInputImage:hover,#head_form .hover{background-position:-445px -48px;}
+.home-search #Text_Ts_Box .icon-search{ position:absolute; left:12px; top:15px;width:14px;height:14px;background-position:0px -95px;}
+.home-search #Text_Ts_Box .show{ left:0px; top:44px;}
+.home-search #Text_Ts_Box .sts{ width:444px;}
+.home-search .home-return{ display:block; width:120px; float:left; margin:14px 0 0 11px; font-size:12px; color:#f40; line-height:18px;}
+.home-search .ico-wh{ vertical-align:middle; margin-right:5px;}
+.home-search a.home-return:hover{ color:#F40;}

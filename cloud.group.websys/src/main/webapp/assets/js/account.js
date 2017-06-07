@@ -4,24 +4,6 @@
 
 
 
-var saveMission = function()
-{
-	var missionTitle = $('#missionTitle').val();
-	if (isEmpty(missionTitle)) {
-		alert('请输入任务标题');
-		return;
-	}
-	var price = $('#price').val();
-	if(isEmpty(price))
-		{
-		alert("请输入价格!")
-		return ;
-		}
-
-	var data =  $.param({"missionContent":UM.getEditor('myEditor').getContent()}) + '&' +$('#groupBuyForm').serialize();
-	httpJsonPost("/backstage/mission/save.json",data,successFunc,null);
-}
-
 var successList=function(data)
 {
 	layer.msg('成功', {
@@ -38,14 +20,24 @@ var successList=function(data)
 
 var successFunc = function(data)
 {
-	layer.msg('添加成功', {
-		icon : 1,
-		time : 1000
-	//2秒关闭（如果不配置，默认是3秒）
-	});
+	if(data.staus==0)
+		{
+		layer.msg(data.msg, {
+			icon : 1,
+			time : 1000
+		//2秒关闭（如果不配置，默认是3秒）
+		});
+		}
+	else{
+		layer.msg('提现完成', {
+			icon : 1,
+			time : 1000
+		//2秒关闭（如果不配置，默认是3秒）
+		});
+	}
 	
 	$('#content').load(
-			'/backstage/mission/missionForm.json',
+			'/backstage/account/page.json?page=1',
 			function(r, s, xhr) {
 
 			});
@@ -67,51 +59,13 @@ var closeFrame = function()
 	parent.layer.close(index);
 }
 
-var openDetail = function(buyingId)
+var pay = function(accountId)
 {
-	layer.open({
-	    type: 2,
-	    title: '任务详情',
-	    shadeClose: true,
-	    shade: 0.8,
-	    area: ['80%', '90%'],
-	    content: '/backstage/mission/detail.json?id='+buyingId 
-	}); 
-//	$('#content').load(getContextPath() +'/group/detail?buyingId='+buyingId,
-//			function(r, s, xhr) {
-//
-//			});
+	var data = {"id":accountId};
+	httpJsonPost("/backstage/account/pay.json",data,successFunc,null);
+	
 }
 
-var openView = function(buyingId)
-{
-	layer.open({
-	    type: 2,
-	    title: '预览',
-	    shadeClose: true,
-	    shade: 0.8,
-	    area: ['80%', '90%'],
-	    content: getContextPath() +'/group/preview?buyingId='+buyingId 
-	}); 
-}
-
-var buyView = function(buyingId)
-{
-	layer.open({
-	    type: 2,
-	    title: '购买',
-	    shadeClose: false,
-	    shade: 0.8,
-	    area: ['40%', '50%'],
-	    content: getContextPath() +'/group/buy/'+buyingId 
-	}); 
-}
-
-var change = function(buyingId,status)
-{
-	var data = {"buyingId":buyingId,"status":status};
-	httpJsonPost("/group/change",data,successList,null);
-}
 
 $('.form_datetime').datetimepicker({
     //language:  'fr',
@@ -123,17 +77,7 @@ $('.form_datetime').datetimepicker({
 	forceParse: 0,
     showMeridian: 1,
     initialDate:null
-}).on("changeDate",function(ev){
-	var i = ev.target.getElementsByTagName("input")[0];
-	if(i.id=="buyingStartTime")
-		{
-		var time = $("#showTime").val();
-		if(isEmpty(time))
-			{
-			$("#showTime").val($("#buyingStartTime").val());
-			}
-		}
-});
+})
 
 
 function listpage(id) {
@@ -151,4 +95,10 @@ function listpage(id) {
 			function(r, s, xhr) {
 
 			});
+}
+
+var pay_batch = function()
+{
+	var data = $("#queryForm").serialize();
+	httpJsonPost("/backstage/account/paysearch.json",data,successList,null);
 }

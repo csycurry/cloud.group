@@ -3,11 +3,6 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt"%>
 	<%@ include file="../../common/commonjs.jsp"%>
-	<link href="${pageContext.request.contextPath}/assets/umeditor1_2_2/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/umeditor1_2_2/umeditor.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/umeditor1_2_2/umeditor.config.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/umeditor1_2_2/lang/zh-cn/zh-cn.js"></script>
-    <script src='${pageContext.request.contextPath}/assets/js/file.js' type='text/javascript'></script>	
   <div class='container-fluid'>
         <div class='row-fluid' id='content-wrapper'>
             <div class='span12'>
@@ -55,9 +50,3 @@
         </div>
     </div>
 <script src='${pageContext.request.contextPath}/assets/js/blogroll.js' type='text/javascript'></script>
-<script type="text/javascript">
-    //实例化编辑器
-    var um = UM.getEditor('myEditor');
-    
-</script>
- 

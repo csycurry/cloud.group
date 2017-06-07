@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+.login{display:none;}
+
+.login1{background:#fff;display:block;}
+.login1 .mainWidth{width:900px;margin:0 auto;}
+.login1 .step{margin-top:50px;}
+.login1 .step .item{float:left;text-align:center;margin-right:135px;}
+.login1 .step .item div{border-radius:50%;background:#999;width:25px;height:25px;display:inline-block;line-height:25px;color:#fff;position:relative;}
+.login1 .step .one{margin-left:120px}
+.login1 .step .one div{background:#ffbc0c}
+.login1 .step .four div{background:#fff}
+.login1 .step .four img{width:25px;margin-top:-4px}
+.login1 .step .item div:after{content:'';position:absolute;width:130px;height:2px;background:#999;display:block;left:35px;top:12px;}
+.login1 .step .four div:after{width:50px;}
+.login1 .step .one div:after{background:#ffbc0c;}
+.login1 .step .one div:before{content:'';position:absolute;width:50px;height:2px;background:#ffbc0c;display:block;left:-65px;top:12px;}
+.login1 .step .item p{margin-top:10px}
+
+.login .content .yzTip{margin-bottom:10px;opacity:0;filter:Alpha(opacity=0);}
+
+.login1 .content{padding:60px 200px;height:400px;border:1px solid #ccc;margin:30px 50px;position:relative;margin-bottom:80px}
+.login1 .content h4{margin-bottom:30px}
+.login1 .content h4 span{padding:1px 7px;border-radius:50%;background:#ffbc0c;color:#fff;margin-right:10px}
+.login1 .content input{width:260px;height:30px;border-radius:2px;margin:10px 0;}
+.login1 .content p img{margin-right:10px;width:18px;}
+.login1 .content p{margin-bottom:0}
+.login1 .content button{background:#e63233!important;border:none;border-radius:2px;width:130px;height:30px;}
+.login1 .content .yanzhen{position:absolute;right: 44%;bottom: 53%;}
+.login1 .content .tip{height:20px;}
+.login1 .content .tip p{    display: none;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px 0;}
+
+
+
+.login2{background:#fff;}
+.login2 .mainWidth{width:900px;margin:0 auto;}
+.login2 .step{margin-top:50px;}
+.login2 .step .item{float:left;text-align:center;margin-right:135px;}
+.login2 .step .item div{border-radius:50%;background:#999;width:25px;height:25px;display:inline-block;line-height:25px;color:#fff;position:relative;}
+.login2 .step .one{margin-left:120px}
+.login2 .step .one div{background:#ffbc0c}
+.login2 .step .two div{background:#ffbc0c}
+.login2 .step .four div{background:#fff}
+.login2 .step .four img{width:25px;margin-top:-4px}
+.login2 .step .item div:after{content:'';position:absolute;width:130px;height:2px;background:#999;display:block;left:35px;top:12px;}
+.login2 .step .four div:after{width:50px;}
+.login2 .step .one div:after{background:#ffbc0c;}
+.login2 .step .two div:after{background:#ffbc0c;}
+.login2 .step .one div:before{content:'';position:absolute;width:50px;height:2px;background:#ffbc0c;display:block;left:-65px;top:12px;}
+.login2 .step .item p{margin-top:10px}
+
+.login2 .content{padding:60px 200px;height:400px;border:1px solid #ccc;margin:30px 50px;position:relative;margin-bottom:80px}
+.login2 .content h4 span{padding:1px 7px;border-radius:50%;background:#ffbc0c;color:#fff;margin-right:10px}
+.login2 .content input{width:260px;height:30px;border-radius:2px;margin:20px 0 10px;}
+.login2 .content p img{margin-right:10px;width:18px;}
+.login2 .content .mail{margin-bottom:0;margin-top:20px}
+.login2 .content p{margin-bottom:0;}
+.login2 .content button{background:#e63233!important;border:none;border-radius:2px;width:130px;height:30px;}
+.login2 .content .next{background:#ffbc0c!important;}
+.login2 .content h5{margin-top:30px}
+.login2 .content .yanzhen{position:absolute;right:35%;bottom:56%;}
+
+
+.login3{background:#fff;}
+.login3 .mainWidth{width:900px;margin:0 auto;}
+.login3 .step{margin-top:50px;}
+.login3 .step .item{float:left;text-align:center;margin-right:135px;}
+.login3 .step .item div{border-radius:50%;background:#999;width:25px;height:25px;display:inline-block;line-height:25px;color:#fff;position:relative;}
+.login3 .step .one{margin-left:120px}
+.login3 .step .one div{background:#ffbc0c}
+.login3 .step .two div{background:#ffbc0c}
+.login3 .step .three div{background:#ffbc0c}
+.login3 .step .four div{background:#fff}
+.login3 .step .four img{width:25px;margin-top:-4px}
+.login3 .step .item div:after{content:'';position:absolute;width:130px;height:2px;background:#999;display:block;left:35px;top:12px;}
+.login3 .step .four div:after{width:50px;}
+.login3 .step .one div:after{background:#ffbc0c;}
+.login3 .step .two div:after{background:#ffbc0c;}
+.login3 .step .three div:after{background:#ffbc0c;}
+.login3 .step .one div:before{content:'';position:absolute;width:50px;height:2px;background:#ffbc0c;display:block;left:-65px;top:12px;}
+.login3 .step .item p{margin-top:10px}
+
+.login3 .content{padding:30px 200px;height:400px;border:1px solid #ccc;margin:30px 50px;position:relative;margin-bottom:80px}
+.login3 .content h4{margin-bottom:20px}
+.login3 .content h4 span{padding:1px 7px;border-radius:50%;background:#ffbc0c;color:#fff;margin-right:10px}
+.login3 .content input{width:260px;height:30px;border-radius:2px;margin:10px auto;}
+.login3 .content p img{margin-right:10px}
+.login3 .content>p{color:#73c326;}
+.login3 .content p{margin-bottom:0;}
+.login3 .content button{background:#e63233!important;border:none;border-radius:2px;width:130px;height:30px;margin-top:20px}
+.login3 .content .input{margin-top:20px}
+.login3 .content .safe{margin-left:69px;}
+.login3 .content .safe .item{margin-left:5px;}
+.login3 .content .safe .item div{width:80px;height:4px;border-radius:4px;background:#999;}
+.login3 .content .safe .item.active div{background:#ffbc0c;}
+.login3 .content .safe .item.active{color:#ffbc0c;}
+.login3 .content .passwordEvel{text-align:left;color:#999;margin-left:68px;margin-bottom:0;opacity:0;filter:Alpha(opacity=0)}
+.login3 .content .passwordEvel img{width:15px;margin-top:-3px}
+
+
+.login4{background:#fff;}
+.login4 .mainWidth{width:900px;margin:0 auto;}
+.login4 .step{margin-top:50px;}
+.login4 .step .item{float:left;text-align:center;margin-right:135px;}
+.login4 .step .item div{border-radius:50%;background:#999;width:25px;height:25px;display:inline-block;line-height:25px;color:#fff;position:relative;}
+.login4 .step .one{margin-left:120px}
+.login4 .step .one div{background:#ffbc0c}
+.login4 .step .two div{background:#ffbc0c}
+.login4 .step .three div{background:#ffbc0c}
+.login4 .step .four{color:#75c526}
+.login4 .step .four div{background:#fff}
+.login4 .step .four img{width:25px;margin-top:-4px}
+.login4 .step .item div:after{content:'';position:absolute;width:130px;height:2px;background:#999;display:block;left:35px;top:12px;}
+.login4 .step .four div:after{width:50px;}
+.login4 .step .one div:after{background:#ffbc0c;}
+.login4 .step .two div:after{background:#ffbc0c;}
+.login4 .step .three div:after{background:#ffbc0c;}
+.login4 .step .four div:after{background:#ffbc0c;}
+.login4 .step .one div:before{content:'';position:absolute;width:50px;height:2px;background:#ffbc0c;display:block;left:-65px;top:12px;}
+.login4 .step .item p{margin-top:10px}
+
+.login4 .content{padding:60px 200px;height:400px;border:1px solid #ccc;margin:30px 50px;position:relative;margin-bottom:80px}
+.login4 .content h3{font-size:18px;}
+.login4 .content>img{margin-top:20px;margin-bottom:10px}
+.login4 .content h3 img{margin-right:6px;margin-top:-5px}
+.login4 .content p{display:inline-block;margin-top:10px;}
+.login4 .djs{margin-right:5px}

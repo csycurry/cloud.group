@@ -18,7 +18,7 @@
                         <div class='page-header'>
                             <h1 class='pull-left'>
                                 <i class='icon-ok'></i>
-                                <span>添加新闻</span>
+                                <span>添加文章</span>
                             </h1>
                             <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -30,12 +30,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        新闻管理
+                                        文章管理
                                     </li>
                                     <li class='separator'>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>添加新闻</li>
+                                    <li class='active'>添加文章</li>
                                 </ul>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                 <div class='row-fluid'>
                     <div class='span12 box'>
                         <div class='box-header blue-background'>
-                            <div class='title'>新闻信息</div>
+                            <div class='title'>文章信息</div>
                             <div class='actions'>
                                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                                 </a>
@@ -56,17 +56,17 @@
                         <div class='box-content'>
                          <form id="groupBuyForm" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
                                 <div class='control-group'>
-                                    <label class='control-label' for='validation_name'>新闻标题</label>
+                                    <label class='control-label' for='validation_name'>文章标题</label>
                                     <div class='controls'>
                                         <input data-rule-minlength='2' data-rule-required='true' id='title' name='title' value="${m.title}" placeholder='新闻名称' type='text' />
-                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:g.id}'/>
+                                   		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
                                     </div>
                                 </div>
                                 <div class='control-group'>
 		                            <label class='control-label'>摘要</label>
 		                            <div class='controls'>
 		                                <div class='input-prepend input-append'>
-		                                    <input id='newsAbstract' name="newsAbstract" value="${m.newsAbstract}" type='text' />
+		                                    <textarea id='newsAbstract' name="newsAbstract" rows="3">${m.newsAbstract}</textarea>
 		                                </div>
 		                            </div>
                             	</div>
@@ -82,25 +82,38 @@
                                  <div class='control-group'>
 				                    <label class='control-label'>类型</label>
 				                    <div class='controls'>
-				                        <label class='radio inline'>
-				                            <input type='radio' name="type" checked="checked"  value='1' />
-				                            	文章
-				                        </label>
-				                        <label class='radio inline'>
-				                        <input type='radio' name="type"  value='2' />
-				                            	新闻
-				                         </label>
+				                        <select name="type">
+				                        <c:if test="${m.type==1 }">
+				                        	<option value="1" selected="selected">打码动态</option>
+				                        </c:if>
+				                        <c:if test="${m.type!=1 }">
+				                        	<option value="1">打码动态</option>
+				                        </c:if>
+				                        <c:if test="${m.type==2 }">
+				                        	<option value="2" selected="selected">玩家心得</option>
+				                        </c:if>
+				                        <c:if test="${m.type!=2 }">
+				                        	<option value="2">玩家心得</option>
+				                        </c:if>
+				                        <c:if test="${m.type==3}">
+				                        	<option value="3" selected="selected">常见问题</option>
+				                        </c:if>	
+				                        <c:if test="${m.type!=3}">
+				                        	<option value="3">常见问题</option>
+				                        </c:if>	
+				                        </select>
 				                    </div>
 				                </div>
 				               
 				                
                             	<div class='control-group'>
-		                            <label class='control-label'>新闻详情</label>
+		                            <label class='control-label'>文章详情</label>
 		                            <div class='controls'>
 		                            	<div class="box-content">
-		                            		<script type="text/plain" id="myEditor"  style="height:240px; max-height: 300px;width: 100%">
+		                            		<script type="text/plain" onchange="size()" id="myEditor"  style="height:240px; max-height: 300px;width: 100%">
 												${m.content}
 											</script>
+											<span id="size" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
 		                            	</div>
 		                            </div>
                             	</div>
@@ -121,6 +134,9 @@
 <script type="text/javascript">
     //实例化编辑器
     var um = UM.getEditor('myEditor');
+    um.addListener('keyup',function(){  
+    		$("#size").html("已输入字数："+um.getContentLength(true)); 
+    	});  
     
 </script>
  

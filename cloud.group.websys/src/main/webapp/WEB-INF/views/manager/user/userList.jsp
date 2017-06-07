@@ -66,18 +66,20 @@
 				<form id="queryForm">
 
 					<div>
-						<span>用户名称 </span>
+						<span>用户Id </span>
+						<input type="text" name="id" value="${u.id}" style="margin-left: 5px; margin-right: 5px;">
+						<span>用户名 </span>
 						<input type="text" name="userName" value="${u.userName}" style="margin-left: 5px; margin-right: 5px;">
-						<span>Email </span>
-						<input type="text" name="userMail" value="${u.userMail}" style="margin-left: 5px; margin-right: 5px;"> 
+						<span>手机号 </span>
+						<input type="text" name="phone" value="${u.phone}" style="margin-left: 5px; margin-right: 5px;"> 
 						
 						<br/>
 
 					</div>
 
-					<div>
+					<div style="width: 100%;text-align:right;">
 					 <input type="button"
-							style="margin-left: 20px" value="查询" onclick="listpage(1);">
+							style="margin:0 auto；;" value="查询" onclick="listpage(1);">
 					</div>
 
 				</form>
@@ -98,13 +100,16 @@
                                 用户名
                             </th>
                             <th>
-         	 用户名称                    
+         	 					手机号码                    
                             </th>
                             <th>
-                                用户邮箱
+                                绑定邮箱
                             </th>
                              <th>
-                                用户qq
+                                绑定qq
+                            </th>
+                            <th>
+                            真实姓名
                             </th>
                             <th>
                             支付宝
@@ -125,13 +130,16 @@
 	                        <tr>
 	                            <td>${u.id}</td>
 	                            <td>${u.userCode}</td>
-	                            <td>${u.userName}</td>
+	                            <td>${u.userMobile}</td>
 	                            <td>${u.userMail}</td>
 	                            <td>${u.userQq}</td>
+	                            <td>${u.realName}</td>
 	                            <td>${u.userAlipay}</td>
 	                            <td><fmt:formatDate value="${u.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td>${u.balance}</td>
-	                            <td></td>
+	                            <td>
+	                            <a href="#"><span class='label label-success' onclick="openDetail(${u.id})">修改</span></a>
+	                            </td>
 	                        </tr>
                         </c:forEach>
                         </tbody>

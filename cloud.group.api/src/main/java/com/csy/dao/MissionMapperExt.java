@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface MissionMapperExt extends MissionMapper{
 	List<Mission> selectExampleWithPage(@Param("example") MissionExample example,@Param("offset")int offset,@Param("limit") int limit);
+	
+	int signNumAdd(@Param("id") Integer id);
 }

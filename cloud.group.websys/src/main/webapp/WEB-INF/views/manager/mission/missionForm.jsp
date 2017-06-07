@@ -58,7 +58,7 @@
                                 <div class='control-group'>
                                     <label class='control-label' for='validation_name'>任务名称</label>
                                     <div class='controls'>
-                                        <input data-rule-minlength='2' data-rule-required='true' id='missionTitle' name='missionTitle' value="${m.missionTitle}" placeholder='任务名称' type='text' />
+                                    	<textarea rows="2"  class="form-control" id='missionTitle' name='missionTitle'>${m.missionTitle}</textarea>
                                    		<input type='hidden' name='id' id='id' value='${m.id==null?0:m.id}'/>
                                     </div>
                                 </div>
@@ -192,6 +192,7 @@
 		                            		<script type="text/plain" id="myEditor"  style="height:240px; max-height: 300px;width: 100%">
 												${m.missionContent}
 											</script>
+											<span id="size" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
 		                            	</div>
 		                            </div>
                             	</div>
@@ -202,6 +203,7 @@
 		                            		<script type="text/plain" id="recommentEditor"  style="height:240px; max-height: 300px;width: 100%">
 												${recomment}
 											</script>
+											<span id="size2" style="margin-top: 20px;color: #a5a5a5;" class="pull-right"></span>
 		                            	</div>
 		                            </div>
                             	</div>
@@ -226,8 +228,14 @@
 <script type="text/javascript">
     //实例化编辑器
     var um = UM.getEditor('myEditor');
+    um.addListener('keyup',function(){  
+		$("#size").html("已输入字数："+um.getContentLength(true)); 
+	});
   //实例化编辑器
     var recomment = UM.getEditor('recommentEditor');
+	recomment.addListener('keyup',function(){  
+		$("#size2").html("已输入字数："+recomment.getContentLength(true)); 
+	});
     function codeChange() {
 		var val=$("#code").val();
 		if(val==1)

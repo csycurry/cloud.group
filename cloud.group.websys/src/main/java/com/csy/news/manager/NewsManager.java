@@ -40,19 +40,22 @@ public class NewsManager {
 	private String imageServerDomain;
 	
 	private static final String SEPARATOR = "/";
-	public void saveOrUpdateNews(NewsModifyDto newsModifyDto)
+	public void saveOrUpdateNews(NewsModifyDto newsModifyDto,String staffCode)
 	{
 		News news = new News();
 		BeanUtils.copyProperties(newsModifyDto, news);
 		if(news.getId()==null||news.getId()==0)
 		{
+			news.setCreator(staffCode);
 			news.setCreateTime(new Date());
+			news.setModifier(staffCode);
+			news.setModifyTime(DateUtil.getCurrentTime());
 			newsMapper.insertSelective(news);
 		}
 		else
 		{
-//			news.setModifier(getLoginedStaffCode());
-			news.setModifyTime(new Date());
+			news.setModifier(staffCode);
+			news.setModifyTime(DateUtil.getCurrentTime());
 			newsMapper.updateByPrimaryKeySelective(news);
 		}
 	}
@@ -60,17 +63,6 @@ public class NewsManager {
 	@Transactional
 	public void removeNews(Integer newsId)
 	{
-		News news = newsMapper.selectByPrimaryKey(newsId);
-		if(news.getSort()!=null)
-		{
-			NewsExample example = new NewsExample();
-			NewsExample.Criteria criteria = example.createCriteria();
-//			criteria.andStateEqualTo(NewsStateEn.TOP.getCode());
-			News sort = new News();
-			criteria.andSortGreaterThan(news.getSort());
-			sort.setSort(-1);
-			newsMapper.updateByExample(sort,example);
-		}
 		newsMapper.deleteByPrimaryKey(newsId);
 	}
 
@@ -115,7 +107,7 @@ public class NewsManager {
 				BeanUtils.copyProperties(result, newsListDto);
 				newsListDto.setCreateDate(DateUtil.toLocaleString(result.getCreateTime(), "YYYY-MM-dd"));
 				if(result.getType()!=null)
-					newsListDto.setTypeMean(NewsTypeEn.toEnum(result.getType().byteValue()).getMean());
+					newsListDto.setTypeMean(NewsTypeEn.toEnum(result.getType()).getMean());
 				retList.add(newsListDto);
 			}
 			pagination.setList(retList);
@@ -132,6 +124,7 @@ public class NewsManager {
 			return null;
 		BeanUtils.copyProperties(news, newsDto);
 		newsDto.setCreateDate(DateUtil.toLocaleString(news.getCreateTime(), "YYYY-MM-dd"));
+		newsDto.setTypeCn(NewsTypeEn.toEnum(newsDto.getType()).getMean());
 		return newsDto;
 	}
 	

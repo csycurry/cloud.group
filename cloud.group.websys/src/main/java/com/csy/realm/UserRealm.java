@@ -1,5 +1,7 @@
 package com.csy.realm;
 
+import java.util.List;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,16 +20,20 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.subject.WebSubject;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.csy.dao.StaffMapperExt;
+import com.csy.model.Staff;
+import com.csy.model.StaffExample;
+import com.csy.model.base.DateUtil;
 import com.csy.staff.domain.dto.StaffDTO;
-import com.csy.staff.domain.dto.StaffSearchDTO;
-import com.csy.staff.manager.StaffManager;
-import com.csy.util.StaffUtil;
 
 public class UserRealm extends AuthorizingRealm {
-
+	@Autowired
+	private StaffMapperExt StaffMapper;
 	/*
 	 * 权限认证；
 	*/
@@ -45,7 +51,7 @@ public class UserRealm extends AuthorizingRealm {
 			simpleAuthorInfo.addStringPermission("admin:manage");
 		
 			return simpleAuthorInfo;
-		} else if (null != currentUsername && "����".equals(currentUsername)) {
+		} else if (null != currentUsername) {
 			
 			return simpleAuthorInfo;
 		}
@@ -67,17 +73,18 @@ public class UserRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken)
 			throws AuthenticationException {
-//		ApplicationContext appCtx = getApplicationContext();
-//        StaffManager staffManager = appCtx.getBean(StaffManager.class);
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
 
 		String password = new String(token.getPassword());
-		StaffSearchDTO searchDTO = new StaffSearchDTO();
-		searchDTO.setCode(token.getUsername());
-		searchDTO.setPassword(password);
+		StaffExample example = new StaffExample();
+		example.createCriteria().andCodeEqualTo(token.getUsername()).andPasswordEqualTo(password);
+		List<Staff> list = StaffMapper.selectByExample(example);
 //		StaffDTO staffDTO = staffManager.login(searchDTO );
-		if (token.getUsername()!=null) {
-			setSession("name",token.getUsername());
+		if (!list.isEmpty()) {
+			StaffDTO staffDTO = new StaffDTO();
+			BeanUtils.copyProperties(list.get(0), staffDTO);
+			staffDTO.setLoginTime(DateUtil.toLocaleString(staffDTO.getLoginDt(), DateUtil.YYYY_MM_DD_HH_DD_SS));
+			setSession("staff",staffDTO);
 			return new SimpleAuthenticationInfo(token.getUsername(), token.getCredentials(),
 					getName());
 		} else {

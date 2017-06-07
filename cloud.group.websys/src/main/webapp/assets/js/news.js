@@ -18,13 +18,13 @@ var saveNews = function()
 
 var successList=function(data)
 {
-	layer.msg('成功', {
+	layer.msg('操作成功', {
 		icon : 1,
 		time : 1000
 	//2秒关闭（如果不配置，默认是3秒）
 	});
 	$('#content').load(
-			'/backstage/mission/page?page=1',
+			'/backstage/news/page.json?page=1',
 			function(r, s, xhr) {
 
 			});
@@ -32,7 +32,7 @@ var successList=function(data)
 
 var successFunc = function(data)
 {
-	layer.msg('添加成功', {
+	layer.msg('保存成功', {
 		icon : 1,
 		time : 1000
 	//2秒关闭（如果不配置，默认是3秒）
@@ -69,31 +69,46 @@ var openDetail = function(buyingId)
 	    shadeClose: true,
 	    shade: 0.8,
 	    area: ['80%', '90%'],
-	    content: '/backstage/mission/detail.json?id='+buyingId 
+	    content: '/backstage/news/detail.json?newsId='+buyingId 
 	}); 
-//	$('#content').load(getContextPath() +'/group/detail?buyingId='+buyingId,
-//			function(r, s, xhr) {
-//
-//			});
 }
 
-var openView = function(buyingId)
+var remove = function(id)
 {
 	layer.open({
-	    type: 2,
-	    title: '预览',
-	    shadeClose: true,
-	    shade: 0.8,
-	    area: ['80%', '90%'],
-	    content: getContextPath() +'/group/preview?buyingId='+buyingId 
-	}); 
+		  content: '是否确定删除',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			  var data = {"newsId":id};
+			  httpJsonPost("/backstage/news/remove.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});  
 }
 
-var change = function(buyingId,status)
-{
-	var data = {"buyingId":buyingId,"status":status};
-	httpJsonPost("/group/change",data,successList,null);
-}
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	forceParse: 0,
+    showMeridian: 1,
+    initialDate:null
+}).on("changeDate",function(ev){
+	var i = ev.target.getElementsByTagName("input")[0];
+	if(i.id=="buyingStartTime")
+		{
+		var time = $("#showTime").val();
+		if(isEmpty(time))
+			{
+			$("#showTime").val($("#buyingStartTime").val());
+			}
+		}
+});
 
 
 function listpage(id) {

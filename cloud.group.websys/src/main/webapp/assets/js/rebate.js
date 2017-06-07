@@ -55,10 +55,6 @@ var detail = function(buyingId)
 	    area: ['80%', '90%'],
 	    content: '/backstage/rebate/detail.json?id='+buyingId 
 	}); 
-//	$('#content').load(getContextPath() +'/group/detail?buyingId='+buyingId,
-//			function(r, s, xhr) {
-//
-//			});
 }
 
 var openView = function()
@@ -104,14 +100,51 @@ $('.form_datetime').datetimepicker({
 
 var up = function(buyingId)
 {
-	var data = {"id":buyingId};
-	httpJsonPost("/backstage/rebate/settle.json",data,successList,null);
+	layer.open({
+		  content: '是否确定审核通过',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			var data = {"id":buyingId};
+			httpJsonPost("/backstage/rebate/settle.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});  
+	
 }
+
+var callback = function(id)
+{
+	layer.open({
+		  content: '是否确定撤回',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			  var data = {"id":id};
+			httpJsonPost("/backstage/rebate/callback.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});  
+	
+}
+
 
 var up_batch = function()
 {
-	var data = $("#queryForm").serialize();
-	httpJsonPost("/backstage/rebate/settlesearch.json",data,successList,null);
+	layer.open({
+		  content: '是否确定审核通过',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			  var data = $("#queryForm").serialize();
+				httpJsonPost("/backstage/rebate/settlesearch.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});  
+	
 }
 
 function listpage(id) {

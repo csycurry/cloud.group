@@ -28,15 +28,39 @@ $(function() {
 
 						});
 			});
-	$('#missionList').click(
+	$('.missionList').click(
 			function() {
 				$('#content').load('/backstage/mission/page.json?page=1',
 						function(r, s, xhr) {
 
 						});
 			});
+	
+	$('.commodityList').click(
+			function() {
+				$('#content').load('/backstage/commodity/page.json?page=1',
+						function(r, s, xhr) {
 
-	$('#signList').click(
+						});
+			});
+	$('.commodityForm').click(
+			function() {
+
+				$('#content').load('/backstage/commodity/commodityForm.json',
+						function(r, s, xhr) {
+
+						});
+			});
+	$('.commodityImport').click(
+			function() {
+
+				$('#content').load('/backstage/commodity/importcommodity.json',
+						function(r, s, xhr) {
+
+						});
+			});
+
+	$('.signList').click(
 					function() {
 						$('#content').load('/backstage/sign/page.json?page=1',
 								function(r, s, xhr) {
@@ -59,15 +83,23 @@ $(function() {
 						});
 			});
 
-	$('#rebatelist').click(
+	$('.rebatelist').click(
 			function() {
 				$('#content').load('/backstage/rebate/page.json?page=1',
 						function(r, s, xhr) {
 
 						});
 			});
+	
+	$('.orderlist').click(
+			function() {
+				$('#content').load('/backstage/rebate/orderlist.json?page=1',
+						function(r, s, xhr) {
 
-	$('#newslist').click(
+						});
+			});
+
+	$('.newslist').click(
 			function() {
 				$('#content').load('/backstage/news/page.json?page=1',
 						function(r, s, xhr) {
@@ -84,7 +116,7 @@ $(function() {
 						});
 			});
 	
-	$('#bannerlist').click(
+	$('.bannerlist').click(
 			function() {
 				$('#content').load('/backstage/banner/view_list.json',
 						function(r, s, xhr) {
@@ -92,7 +124,7 @@ $(function() {
 						});
 			});
 			
-			$('#cashList').click(
+			$('.cashList').click(
 					function() {
 
 						$('#content').load('/backstage/account/page.json?page=1',

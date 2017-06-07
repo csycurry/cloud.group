@@ -1,6 +1,5 @@
 package com.csy.mission.controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ import com.csy.mission.domain.dto.MissionSearchDTO;
 import com.csy.mission.domain.dto.MissionSignDTO;
 import com.csy.mission.domain.dto.MissionSignSearchDTO;
 import com.csy.mission.domain.emus.MissionCodeTypeEn;
-import com.csy.mission.domain.emus.MissionTypeEn;
 import com.csy.mission.manager.MissionManager;
 import com.csy.mission.manager.MissionSignManager;
 import com.csy.model.base.DateUtil;
@@ -44,6 +42,15 @@ public class MissionController extends BaseController{
 	@Autowired
 	private RebateManager rebateManager;
 	
+	@RequestMapping(value="/user_codes")
+	public String missionList()
+	{
+		if(getLoginUser()==null)
+		{
+			return "redirect:/index.html";
+		}
+		return "usermissions";
+	}
 	
 	@RequestMapping(value="/codes")
 	public ModelAndView listSearch()
@@ -53,6 +60,11 @@ public class MissionController extends BaseController{
 		MissionSearchDTO searchDTO = new MissionSearchDTO();
 		searchDTO.setEndTm(DateUtil.getNowTime());
 		List<MissionDTO> list =  missionManager.list(searchDTO);
+		UserDTO dto = getLoginUser();
+		if(dto!=null)
+		{
+			map.put("userCode", dto.getUserCode());
+		}
 		map.put("list", list);
 		return modelAndView;
 	}
@@ -68,6 +80,7 @@ public class MissionController extends BaseController{
 		{
 			List<RebateDTO> dtos = rebateManager.geRebateDTOs(userDTO.getId(), missionId);
 			map.put("reb", dtos);
+			map.put("userCode", userDTO.getUserCode());
 		}
 		else
 		{
@@ -115,7 +128,7 @@ public class MissionController extends BaseController{
 			throw new BusinessException("任务标题不能为空");
 		}
 		
-		missionManager.insertMission(missionDTO);
+		missionManager.insertMission(missionDTO,getLoginStaffCode());
 		return true;
 		
 	}
@@ -128,6 +141,13 @@ public class MissionController extends BaseController{
 		Map<String, Object> map= modelAndView.getModel();
 		map.put("m", extendDTO);
 		return modelAndView;
+	}
+	
+	@RequestMapping(value="/backstage/mission/remove")
+	@ResponseJson
+	public @ResponseBody void remove(int id)
+	{
+		missionManager.remove(id);
 	}
 	
 	@RequestMapping(value="/backstage/sign/page")
@@ -185,7 +205,7 @@ public class MissionController extends BaseController{
         	missionDTO.setType(Byte.valueOf(req.getParameter("type")));
         if(StringUtils.isNotEmpty(req.getParameter("settlementInterval")))
         	missionDTO.setSettlementInterval(Integer.valueOf(req.getParameter("settlementInterval")));
-		missionManager.createMission(bodys, missionDTO);
+		missionManager.createMission(bodys, missionDTO,getLoginStaffCode());
 		return "";
     }
 	

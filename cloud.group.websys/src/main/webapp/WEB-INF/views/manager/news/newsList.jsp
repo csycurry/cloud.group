@@ -26,7 +26,7 @@
         <div class='page-header'>
             <h1 class='pull-left'>
                 <i class='icon-table'></i>
-                <span>新闻查询</span>
+                <span>文章查询</span>
             </h1>
              <div class='pull-right'>
                                 <ul class='breadcrumb'>
@@ -38,12 +38,12 @@
                                         <i class='icon-angle-right'></i>
                                     </li>
                                     <li>
-                                        新闻管理
+                                        文章管理
                                     </li>
                                     <li>
                                         <i class='icon-angle-right'></i>
                                     </li>
-                                    <li class='active'>新闻查询</li>
+                                    <li class='active'>文章查询</li>
                                 </ul>
                             </div>
         </div>
@@ -52,7 +52,7 @@
 <div class='row-fluid'>
     <div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
         <div class='box-header blue-background'>
-            <div class='title'>新闻列表</div>
+            <div class='title'>文章列表</div>
             <div class='actions'>
                 <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
                 </a>
@@ -66,32 +66,29 @@
 				<form id="queryForm">
 
 					<div>
-						<span>新闻标题 </span>
+						<span>文章标题 </span>
 						<input type="text" name="title" value="${u.title}" style="margin-left: 5px; margin-right: 5px;">
-						<div class='datetimepicker input-append form_datetime'
-							id='datetimepicker1'>
-							<input id="startTime" name="beginTm" data-format='yyyy-MM-dd hh:mm'
-								placeholder='新闻添加时间' type='date' value=<fmt:formatDate value="${u.beginTm}" pattern="yyyy/MM/dd hh:mm:ss"/>
-								>
-							<span class='add-on'> <i data-date-icon='icon-calendar'
-								data-time-icon='icon-time'></i>
-							</span>
-						</div>
-						<span>至</span>
-						<div class='datetimepicker input-append form_datetime'
-							id='datetimepicker1'>
-							<input id="endTime" name="endTm" data-format='yyyy-MM-dd hh:mm'
-								placeholder='新闻添加时间' type="date" value=<fmt:formatDate value="${u.endTm}" pattern="yyyy/MM/dd hh:mm:ss"/>
-								>
-							<span class='add-on'> <i data-date-icon='icon-calendar'
-								data-time-icon='icon-time'></i>
-							</span>
-						</div>
 						<br/>
+						<span>更新时间</span>
+                                     	<div class='datetimepicker input-append form_datetime' id='datetimepicker1'>
+					                        <input id="startTime" name="beginTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='开始时间' type="datetime" value='${u.beginTm}'  >
+								            <span class='add-on'>
+								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+								            </span>
+					                    </div>
+                                	<span>至</span>
+                                        <div class='datetimepicker input-append form_datetime' id='datetimepicker2'>
+					                        <input id="endTime" name="endTm"  data-format='yyyy-MM-dd hh:mm:ss' placeholder='结束时间' type="datetime" value='${u.endTm}'  >
+								            <span class='add-on'>
+								              <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+								            </span>
+					                    </div>
+						
+						
 
 					</div>
 
-					<div>
+					<div style="width: 100%;text-align:right;">
 					 <input type="button"
 							style="margin-left: 20px" value="查询" onclick="listpage(1);">
 					</div>
@@ -108,16 +105,16 @@
                         <thead>
                         <tr>
                             <th>
-                                新闻Id
+                                文章Id
                             </th>
                             <th>
-                                新闻名称
+                                文章名称
                             </th>
                             <th>
          	 关键字                   
                             </th>
                             <th>
-                                新闻类型
+                                文章类型
                             </th>
                              <th>
                 添加时间                
@@ -135,7 +132,10 @@
 	                            <td>${u.subtitle}</td>
 	                            <td>${u.typeMean}</td>
 	                            <td><fmt:formatDate value="${u.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>
-	                            <td></td>
+	                            <td>
+	                            <a href="#"><span class='label label-success' onclick="openDetail(${u.id})">修改</span></a>
+	                            <a href="#"><span class='label label-success' onclick="remove(${u.id})">删除</span></a>
+	                            </td>
 	                        </tr>
                         </c:forEach>
                         </tbody>

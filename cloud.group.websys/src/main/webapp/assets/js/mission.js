@@ -24,7 +24,7 @@ var saveMission = function()
 
 var successList=function(data)
 {
-	layer.msg('成功', {
+	layer.msg('操作成功', {
 		icon : 1,
 		time : 1000
 	//2秒关闭（如果不配置，默认是3秒）
@@ -38,7 +38,7 @@ var successList=function(data)
 
 var successFunc = function(data)
 {
-	layer.msg('添加成功', {
+	layer.msg('保存成功', {
 		icon : 1,
 		time : 1000
 	//2秒关闭（如果不配置，默认是3秒）
@@ -95,23 +95,22 @@ var openView = function(buyingId)
 	}); 
 }
 
-var buyView = function(buyingId)
+var remove = function(id)
 {
 	layer.open({
-	    type: 2,
-	    title: '购买',
-	    shadeClose: false,
-	    shade: 0.8,
-	    area: ['40%', '50%'],
-	    content: getContextPath() +'/group/buy/'+buyingId 
-	}); 
+		  content: '是否确定删除',
+		btn: ['是', '否'],
+		  yes: function(index, layero){
+			  var data = {"id":id};
+			  httpJsonPost("/backstage/mission/remove.json",data,successList,null);
+		  },
+		no: function(index, layero){
+		    layer.close(index); 
+		  },
+		});    
 }
 
-var change = function(buyingId,status)
-{
-	var data = {"buyingId":buyingId,"status":status};
-	httpJsonPost("/group/change",data,successList,null);
-}
+
 
 $('.form_datetime').datetimepicker({
     //language:  'fr',

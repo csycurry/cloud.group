@@ -68,7 +68,7 @@
 					<div>
 						<span>项目名称 </span>
 						<input type="text" name="missionTitle" value="${u.missionTitle}" style="margin-left: 5px; margin-right: 5px;">
-						<span>用户名称 </span>
+						<span>用户名 </span>
 						<input type="text" name="userCode" value="${u.userCode}" style="margin-left: 5px; margin-right: 5px;">
 						<div class='datetimepicker input-append form_datetime'
 							id='datetimepicker1'>
@@ -109,6 +109,9 @@
                     <table class='table table-bordered table-hover table-striped' style='margin-bottom:0;'>
                         <thead>
                         <tr>
+                        	<th>
+                                id
+                            </th>
                             <th>
                                 项目Id
                             </th>
@@ -119,16 +122,13 @@
          	用户Id                 
                             </th>
                             <th>
-                                用户名称
+                                用户名
                             </th>
                             <th>
                                 用户工号
                             </th>
                              <th>
-                                ip
-                            </th>
-                             <th>
-                                结束时间
+                                报名时间
                             </th>
                             <th>
                             操作
@@ -144,7 +144,6 @@
 	                            <td>${u.userId}</td>
 	                            <td>${u.userCode}</td>
 	                            <td>${u.missionNum}</td>
-	                            <td>${u.ip}</td>
 	                            <td><fmt:formatDate value="${u.signTime}" pattern="yyyy-MM-dd HH:mm"/></td>
 	                            <td></td>
 	                        </tr>

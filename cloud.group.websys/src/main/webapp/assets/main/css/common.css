@@ -42,14 +42,19 @@ a {text-decoration:none!important;}
 .admin p{margin:0;margin-bottom:5px}
 .admin p span{display:inline-block;width:70px;}
 
-.head {position:fixed;padding-bottom:80px;}
-.head .logo{height:80px;}
-.head .logo .logo_img{height:45px;margin-left:35px;margin-top:10px}
+/*.head {
+	/* position:fixed; 
+	}*/
+.head {}
+.headNav .logo{height:100px;line-height:100px;}
+.headNav .logo .logo_img{margin-left:35px;margin-top:15px}
 .head .logo .logo_tip{margin-left:30px;}
-.head .headNav{position:fixed;width:100%; background:#ffffff;height:80px;padding-left:50px;box-shadow:0 2px 2px #AB4D4D;}
-.head .headNav li{float:left;margin-right:20px;line-height:80px;width:85px;text-align:center;position:relative;}
-.head .headNav li a{font-size:20px;color:#000000;display:block}
-.head .headNav li.active{color:#0000ff;}
+.head .headNav{position:fixed;width:100%; background:#ffffff;height:100px;padding-left:50px;}
+.head .headNav li{float:left;margin-right:20px;line-height:100px;width:100px;text-align:center;position:relative;}
+.head .headNav li a{font-size:19px;color:#000000;display:block;letter-spacing:2px;}
+.head .headNav li.active{color:#ffa649;}
+.head .headNav li.active a{color:#ffa649;}
+.head .headNav li.active span{height:2px;left:20%;width:60%;right:20%;background:#ffa649;display:block; position:absolute;}
 .head .help{cursor:pointer;}
 .head .help a{color:#999;line-height:60px;}
 .head .heart{margin-left:20px;}
@@ -65,7 +70,7 @@ a {text-decoration:none!important;}
 .headText a {color:#333}
 .headText .nologin{font-size:20px;}
 
-.header{height:50px;line-height:50px;background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;}
+.header{height:100px;line-height:100px;background:#fff;position:fixed;top:0;left:0;margin:0px auto;width:100%;z-index:10000;}
 .header a{color:#7b7b7b;}
 .header .logo img{height:40px;}
 .header ul{margin:0 0 0 30px!important;}
@@ -81,15 +86,15 @@ a {text-decoration:none!important;}
 .navbar{height:80px;background:linear-gradient(#fff 0%,#fff 90%,#f3f3f3 100%);border:none;border-bottom:1px solid #ccc;font-size:16px;border-radius:0;margin-bottom:0px;position:relative;z-index:100;}
 .navbar .nav{margin-left:30px;}
 .navbar .nav li{width:90px;text-align:center;position:relative;height:78px;-webkit-perspective:800;top:14px;}
-.navbar .nav li a{color:#6b6b6b;position:absolute;left:0;height:100%;width:100%;line-height:50px;text-decoration:none;}
-.navbar .nav li.active a{background:url(../img/header.png) no-repeat;color:#fff!important;}
+.navbar .nav li a{color:#6b6b6b;position:absolute;left:0;height:100%;width:100%;line-height:100px;text-decoration:none;}
+.navbar .nav li.active a{background:url(../img/header.png) no-repeat;color:#0fc0ff!important;}
 .navbar .nav li .move{position:absolute;left:20px;top:-7px;}
 .navbar .LgRe{margin-top:10px;position:relative;}
 .navbar .LgRe a{padding:0px 3px;font-size:14px;color:#DA8528;}
 .navbar .LgRe a span{color:#BF0202;}
 .navbar .navbar-header img{width:181px;}
 
-.serviceCenter{position:fixed;right:2%;bottom:10%;z-index:100;font-size:12px;}
+.serviceCenter{position:fixed;right:2%;bottom:3%;z-index:100;font-size:12px;}
 .serviceCenter li{width:65px;height:65px;text-align:center;margin-bottom:4px;background:#ccc;padding-top:10px;color:#fff;cursor:pointer;position:relative;}
 .serviceCenter li a{color:white;}
 .serviceCenter li.backTOP{height:35px;text-align:center;padding-top:5px}
@@ -252,3 +257,4 @@ a,a:focus{outline: none; -moz-outline:none;}
 .jjDialog .shadow .shadowCtn .sure-cancel .cancel:hover{background:#333}
 .jjDialog .shadow .clo{transition:.5s;transform:rotate(0);}
 .jjDialog .shadow .clo:hover{transform:rotate(360deg);transition:.5s;}
+

@@ -3,25 +3,6 @@
  */
 
 
-
-var saveMission = function()
-{
-	var missionTitle = $('#missionTitle').val();
-	if (isEmpty(missionTitle)) {
-		alert('请输入任务标题');
-		return;
-	}
-	var price = $('#price').val();
-	if(isEmpty(price))
-		{
-		alert("请输入价格!")
-		return ;
-		}
-
-	var data =  $.param({"missionContent":UM.getEditor('myEditor').getContent()}) + '&' +$('#groupBuyForm').serialize();
-	httpJsonPost("/backstage/mission/save.json",data,successFunc,null);
-}
-
 var successList=function(data)
 {
 	layer.msg('成功', {
@@ -30,31 +11,17 @@ var successList=function(data)
 	//2秒关闭（如果不配置，默认是3秒）
 	});
 	$('#content').load(
-			'/backstage/mission/page.json?page=1',
+			'/backstage/message/page.json?page=1',
 			function(r, s, xhr) {
 
 			});
 }
 
-var successFunc = function(data)
-{
-	layer.msg('添加成功', {
-		icon : 1,
-		time : 1000
-	//2秒关闭（如果不配置，默认是3秒）
-	});
-	
-	$('#content').load(
-			'/backstage/mission/missionForm.json',
-			function(r, s, xhr) {
 
-			});
-	
-}
 
 var refresh = function()
 {
-	$('#content').load('/backstage/mission/page.json?page=1',
+	$('#content').load('/backstage/message/page.json?page=1',
 			function(r, s, xhr) {
 
 			});
@@ -97,11 +64,6 @@ var openView = function(buyingId)
 
 
 
-var change = function(buyingId,status)
-{
-	var data = {"buyingId":buyingId,"status":status};
-	httpJsonPost("/group/change",data,successList,null);
-}
 
 $('.form_datetime').datetimepicker({
     //language:  'fr',

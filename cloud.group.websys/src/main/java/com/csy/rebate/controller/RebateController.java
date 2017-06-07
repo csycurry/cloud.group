@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.csy.base.controller.BaseController;
 import com.csy.exception.BusinessException;
 import com.csy.mission.domain.dto.MissionDTO;
 import com.csy.mission.domain.dto.MissionSearchDTO;
@@ -25,10 +26,11 @@ import com.csy.rebate.domain.dto.RebateDTO;
 import com.csy.rebate.domain.dto.RebateSearchDTO;
 import com.csy.rebate.manager.RebateManager;
 import com.csy.util.ResponseJson;
+import com.csy.util.ResponseObject;
 import com.csy.util.XSSFWorkbookUtil;
 
 @Controller
-public class RebateController {
+public class RebateController extends BaseController{
 	@Resource
 	private RebateManager rebateManager;
 	@Autowired
@@ -49,6 +51,16 @@ public class RebateController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/rebateslist")
+	@ResponseObject
+	public @ResponseBody Pagination<RebateDTO> rebates(String order ,int offset,int limit)
+	{
+		RebateSearchDTO searchDTO = new RebateSearchDTO();
+		searchDTO.setUserId(getLoginUserId());
+		Pagination<RebateDTO> pagination = rebateManager.pageSearch(searchDTO,order,offset,limit);
+		return pagination;
+	}
+	
 	@RequestMapping(value="/backstage/rebate/detail")
 	public ModelAndView detail(int id)
 	{
@@ -65,7 +77,21 @@ public class RebateController {
 	{
 		List<Integer> ids = new ArrayList<>();
 		ids.add(id);
-		rebateManager.settleRebate(ids);
+		rebateManager.settleRebate(ids,getLoginStaffCode());
+		return true;
+		
+	}
+	
+	/**
+	 * 佣金撤回
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/backstage/rebate/callback")
+	@ResponseJson
+	public @ResponseBody Boolean callback(int id)
+	{
+		rebateManager.callbackRebate(id,getLoginStaffCode());
 		return true;
 		
 	}
@@ -74,16 +100,33 @@ public class RebateController {
 	@ResponseJson
 	public @ResponseBody Boolean rebateBySearch(RebateSearchDTO searchDTO)
 	{
-		rebateManager.settleRebateBySearch(searchDTO);
+		rebateManager.settleRebateBySearch(searchDTO,getLoginStaffCode());
 		return true;
 		
+	}
+	
+	
+	@RequestMapping(value="/backstage/rebate/orderlist")
+	public ModelAndView orderlist(RebateSearchDTO searchDTO,int page)
+	{
+		ModelAndView modelAndView = new ModelAndView("/manager/order/orderList");
+		Map<String, Object> map= modelAndView.getModel();
+		searchDTO.setCurrentPage(page);
+		searchDTO.setType((byte)9);
+		Pagination<RebateDTO> pagination = rebateManager.pageSearch(searchDTO);
+		map.put("list", pagination.getList());
+		map.put("userNum", pagination.getTotalCount());
+		map.put("u", searchDTO);
+		map.put("currentPage", pagination.getCurrentPageIndex());
+		map.put("pageNum", pagination.getCurrentPage());
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/backstage/rebate/modify")
 	@ResponseJson
 	public @ResponseBody Boolean modify(RebateDTO dto)
 	{
-		rebateManager.editRebate(dto);
+		rebateManager.editRebate(dto,getLoginStaffCode());
 		return true;
 		
 	}
@@ -120,7 +163,7 @@ public class RebateController {
         	bodys = XSSFWorkbookUtil.readHssWorkBook(file.getInputStream(), 0);
         }
         System.out.println(bodys.toString());
-        rebateManager.inserBatch(bodys, missionId);
+        rebateManager.inserBatch(bodys, missionId,getLoginStaffCode());
     }
 
 }

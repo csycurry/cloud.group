@@ -18,4 +18,8 @@
     </if>
     LIMIT #{offset},#{limit}
   </select>
+  
+  <update id="signNumAdd" parameterType="java.lang.Integer">
+  	update mission set sign_num = ifnull(sign_num,0) + 1 where id = #{id}
+  </update>
 </mapper>
