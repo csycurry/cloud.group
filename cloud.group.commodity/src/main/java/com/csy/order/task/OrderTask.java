@@ -13,11 +13,13 @@ import org.springframework.stereotype.Component;
 
 import com.csy.model.Rebate;
 import com.csy.model.base.DateUtil;
+import com.csy.rebate.domain.emus.RebateStatusEn;
 import com.csy.rebate.manager.RebateManager;
 import com.csy.taobao.api.TaobaokeOrderGetRequest;
 import com.csy.taobao.api.domain.TaobaokeOrder;
 import com.csy.taobao.api.domain.TaobaokeOrderGetResponse;
 import com.csy.taobao.api.domain.TaobaokeOrderMember;
+import com.csy.user.domain.dto.UserDTO;
 import com.csy.user.manager.UserManager;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
@@ -66,8 +68,11 @@ public class OrderTask {
 					 rebate.setMissionName(order.getItemTitle());
 					 rebate.setEarnings(new BigDecimal(order.getCommission())); 
 					 rebate.setImportDate(order.getEarningTime());
-					 userManager.findDetail(userId)
-//					 rebate.setUserId(userId);
+					 UserDTO userDTO = userManager.findDetail(order.getTk3rdPubId());
+					 rebate.setUserId(userDTO.getId());
+					 rebate.setUserCode(userDTO.getUserCode());
+					 rebate.setMissionId(order.getItemNum());
+					 rebate.setStatus(RebateStatusEn.UNSETTLE.getCode());
 //					 orderEnt.setCreateUid("admin");
 //					 orderEnt.setUpdateUid("admin");
 //					 orderEnt.setProCode(proCode);
@@ -90,7 +95,7 @@ public class OrderTask {
 //					 orderEnt.setOrderAmt(new
 //					 Double(order.getRealPayFee()));//实际成交
 //					 //orderEnt.setOrderStatus(order.get)
-//					 service.saveOrUpdate(orderEnt);
+					 rebateManager.inserBatch(rebate, order.getItemNum(), "system");
 				}
 				pageNo++;
 				req.setPageNo(pageNo);
@@ -108,14 +113,14 @@ public class OrderTask {
         String appSecret = "test"; // 可替换为您的沙箱环境应用的AppSecret
         String sessionKey = "test"; // 必须替换为沙箱账号授权得到的真实有效SessionKey
  
-        TaobaoClient client = new DefaultTaobaoClient(serverUrl, appKey, appSecret);
-        ItemSellerGetRequest req = new ItemSellerGetRequest();
-        req.setFields("num_iid,title,nick,price,num");
-        req.setNumIid(123456789L);
-        ItemSellerGetResponse rsp = client.execute(req, sessionKey);
-        System.out.println(rsp.getBody());
-        if (rsp.isSuccess()) {
-            System.out.println(rsp.getItem().getTitle());
-        }
+//        TaobaoClient client = new DefaultTaobaoClient(serverUrl, appKey, appSecret);
+//        ItemSellerGetRequest req = new ItemSellerGetRequest();
+//        req.setFields("num_iid,title,nick,price,num");
+//        req.setNumIid(123456789L);
+//        ItemSellerGetResponse rsp = client.execute(req, sessionKey);
+//        System.out.println(rsp.getBody());
+//        if (rsp.isSuccess()) {
+//            System.out.println(rsp.getItem().getTitle());
+//        }
     }
 }

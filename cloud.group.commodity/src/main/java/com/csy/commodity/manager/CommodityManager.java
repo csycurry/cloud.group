@@ -103,4 +103,11 @@ public class CommodityManager {
 		return example;
 	}
 	
+	public List<Commodity> getActicityCommodity(){
+		CommodityExample example = new CommodityExample();
+		example.createCriteria().andCouponEndGreaterThanOrEqualTo(DateUtil.getCurrentTime())
+		.andCouponStartLessThanOrEqualTo(DateUtil.getCurrentTime());
+		return commodityMapperExt.selectByExample(example);
+	}
+	
 }

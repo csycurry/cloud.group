@@ -37,7 +37,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText2" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                     <div class="show J_show" id=""></div>
@@ -68,7 +68,7 @@
                             <form action="" method="post" onsubmit="return SearchMall()" target="_blank" class="head_form">
                                 <div class="Text_Ts_Box blue">
                                     <div class="TextBox">
-                                        <input type="text" class="SearchInputText" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
+                                        <input type="text" class="SearchInputText2" name="kw" autocomplete="off" value="请输入淘宝/天猫宝贝标题" />
                                         <span class="icon-search"></span>
                                     </div>
                                 </div>

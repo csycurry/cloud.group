@@ -99,25 +99,16 @@
         </div>
         <div class="footer-bot-outer">
             <div class="footer-inner">
-                <div class="footer_tips clearfix">
-                    <a class="ftips2" target="_blank" href="http://www.51honest.org/wscredit/detail.credit?action=preLevel&credcode=NO.20000035756&axbFlag=axb">信用之星好评网站</a>
-                    <a class="ftips3" href="https://ss.knet.cn/verifyseal.dll?sn=e16040635020063012ex5z000000&amp;ct=df&amp;a=1&amp;pa=0.4608156487811357" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;" src="http://rr.knet.cn/static/images/logo/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站"></a> 
-                    <a class="ftips4" target="_blank" href="http://www.315online.com.cn/member/315120006.html">交易保障放心购物</a> 
-                    <a class="ftips5" target="_blank" href="http://www.miibeian.gov.cn/">工信备案备案网站</a>
-                    <a class="ftips6" href="http://xmwj.gov.cn/ei/Ei!certificate.action?id=40288a8556c64ea30156dab86ec30038" target="_blank" style="border:0;"><img src="http://xmwj.gov.cn/ei/Ei!readEiImgByMemory.action" style="border:0;height:47px"></a>
-                </div>
                 <p class="footer_link">
-                    <span class="copyright">&nbsp;&copy;2008-2016XX网 XXXX.com</span>
-                    <a target="_blank" href="/" rel="nofollow">关于返还网</a><span>|</span>
-                    <a target="_blank" href="privacy.html" rel="nofollow">隐私政策</a><span>|</span>
+                    <span class="copyright">&nbsp;&copy;2008-2016聚宝师 jubaos.com</span>
+                    <a target="_blank" href="/" rel="nofollow">关于聚宝师</a><span>|</span>
                     <a target="_blank" href="#" rel="nofollow">友情链接</a><span>|</span>
-                    <a target="_blank" href="http://www.fanhuan.com/help/">帮助</a><span>|</span>
                     <a target="_blank" href="http://www.meiyou.com/">美柚</a><span>|</span>
                     <a target="_blank" href="http://www.xixiaoyou.com/">柚子街</a>
                 </p>
                 <div class="police-icon">
-		 		    <a target="_blank" class="police-icon-a" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020302000080">
-                        <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/><span class="police-icon-span">公网安备 35020302000080号</span> 
+		 		    <a target="_blank" class="police-icon-a" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=XXXXXXXX">
+                        <img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;"/><span class="police-icon-span">公网安备 XXXXXXXX号</span> 
                     </a>
 		 	    </div>
             </div>

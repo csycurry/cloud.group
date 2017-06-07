@@ -63,7 +63,7 @@
 								target="_blank" class="head_form">
 								<div class="Text_Ts_Box blue">
 									<div class="TextBox">
-										<input type="text" class="SearchInputText" name="kw"
+										<input type="text" class="SearchInputText2" name="kw"
 											autocomplete="off" value="请输入淘宝/天猫宝贝标题" /> <span
 											class="icon-search"></span>
 									</div>

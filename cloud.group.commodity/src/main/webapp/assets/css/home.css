@@ -241,7 +241,7 @@ li.item-shop a.detail b{ border-right-color:#ff8a00;}
 .float_search_box .content .home-search .search{height:32px;left:0px;*left:-120px;background:url("/assets/images/bg_home_search_float_blue.png") no-repeat;}
 .float_search_box .content .home-search .search.hover{background-position:0 -33px;}
 .float_search_box .content .home-search .search .search_input {height:32px;}
-.float_search_box .content .home-search .Text_Ts_Box {margin-top:1px;height:32px;width:413px;}
+.float_search_box .content .home-search .Text_Ts_Box {margin-top:3px;height:25px;width:410px;}
 .float_search_box .content .home-search .searchInputImage {height:32px;background:url("/assets/images/bg_home_search_float_blue.png") no-repeat;background-position:-416px 0;}
 .float_search_box .content .home-search .searchInputImage.hover {background-position:-416px -33px!important;}
 .float_search_box .content .home-search .SearchInputText{height:25px;*line-height:25px;width:360px;padding-top:5px\9;width:360px\9;padding:0;margin-left: 25px;font-size:12px;}
